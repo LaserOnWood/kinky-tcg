@@ -359,3 +359,120 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 @media (prefers-reduced-motion:reduce){
   .card, .front.holo::before, .seal, .progress-fill{ animation:none !important; transition:none !important; }
 }
+/* ============================================================================
+   Sélection des thèmes v2 et carrousel responsive
+   Ces règles étaient auparavant dans v2/css/style.css.
+   ============================================================================ */
+/*
+ * Kinky TCG — styles spécifiques à la sélection v2
+ * Les tokens et les styles du jeu restent dans ../css/style.css.
+ */
+
+:root {
+  --selection-max: 1180px;
+  --card-width: 340px;
+}
+
+body.selection-v2 {
+  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* L’écran de jeu doit rester masqué tant qu’aucun thème n’est sélectionné. */
+.hidden,
+#game-content.hidden {
+  display: none !important;
+}
+
+#selection-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(28px, 7vw, 72px) 18px 42px;
+  background: radial-gradient(circle at 50% 0%, rgba(255,47,126,.12), transparent 38%), radial-gradient(circle at 0% 100%, rgba(217,169,79,.08), transparent 35%);
+  text-align: center;
+  overflow-y: auto;
+}
+
+#game-content {
+  min-height: 100vh;
+}
+
+.selection-intro { width: 100%; max-width: var(--selection-max); margin-bottom: clamp(24px, 5vw, 48px); }
+.selection-kicker { margin: 0 0 10px; color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; }
+#selection-screen h1 { margin: 0; font-family: var(--ff-display); font-size: clamp(42px, 8vw, 72px); line-height: .9; font-style: italic; background: linear-gradient(100deg, var(--ink) 20%, var(--gold-soft) 50%, var(--magenta) 80%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.selection-subtitle { max-width: 530px; margin: 18px auto 0; color: var(--ink-muted); font-size: 13px; line-height: 1.6; }
+.themes-stage { width: 100%; max-width: var(--selection-max); position: relative; }
+
+#back-to-selection {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-muted);
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all .2s;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+#back-to-selection:hover {
+  border-color: var(--gold);
+  color: var(--gold-soft);
+}
+
+#themes-container { display: flex; flex-direction: row; gap: 20px; width: 100%; max-width: none; padding: 14px 4px 26px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+#themes-container::-webkit-scrollbar { display: none; }
+
+.theme-card { position: relative; isolation: isolate; flex: 0 0 var(--card-width); min-height: 410px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding: 26px 24px 22px; border: 1px solid rgba(217,169,79,.28); border-radius: 26px; background: linear-gradient(180deg, rgba(13,5,9,.05) 15%, rgba(13,5,9,.94) 86%), radial-gradient(circle at 70% 12%, rgba(255,47,126,.33), transparent 38%), linear-gradient(145deg, #421327, #1a0b14 68%); box-shadow: 0 20px 45px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08); cursor: pointer; scroll-snap-align: center; transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s, box-shadow .35s; }
+.theme-card::before { content: "✦"; position: absolute; z-index: -1; top: 18px; right: 24px; color: rgba(240,214,138,.35); font-family: var(--ff-display); font-size: 100px; line-height: 1; transform: rotate(14deg); }
+.theme-card::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(135deg, transparent 35%, rgba(255,255,255,.08) 50%, transparent 65%); background-size: 220% 220%; opacity: 0; transition: opacity .35s, background-position .6s; }
+.theme-card:nth-child(2) { background: linear-gradient(180deg, rgba(13,5,9,.05) 15%, rgba(13,5,9,.94) 86%), radial-gradient(circle at 30% 15%, rgba(79,179,217,.35), transparent 38%), linear-gradient(145deg, #123347, #1a0b14 68%); }
+.theme-card:nth-child(3) { background: linear-gradient(180deg, rgba(13,5,9,.05) 15%, rgba(13,5,9,.94) 86%), radial-gradient(circle at 72% 12%, rgba(217,169,79,.36), transparent 38%), linear-gradient(145deg, #573711, #1a0b14 68%); }
+.theme-card:nth-child(4) { background: linear-gradient(180deg, rgba(13,5,9,.05) 15%, rgba(13,5,9,.94) 86%), radial-gradient(circle at 28% 16%, rgba(229,228,226,.3), transparent 38%), linear-gradient(145deg, #403e47, #1a0b14 68%); }
+.theme-card:hover, .theme-card:focus-visible { transform: translateY(-8px) scale(1.02); border-color: var(--gold); box-shadow: 0 28px 55px rgba(0,0,0,.62), 0 0 24px rgba(255,47,126,.18); outline: none; }
+.theme-card:hover::after, .theme-card:focus-visible::after { opacity: 1; background-position: 100% 100%; }
+.theme-card h3 { margin: 0 0 9px; color: var(--gold-soft); font-family: var(--ff-display); font-size: 34px; line-height: 1; text-shadow: 0 3px 18px rgba(0,0,0,.5); }
+.theme-card p { min-height: 65px; margin: 0 0 20px; color: var(--ink); opacity: .84; font-size: 13px; line-height: 1.55; }
+.theme-info { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.diff-badge { padding: 6px 11px; border: 1px solid rgba(240,214,138,.35); border-radius: 99px; background: rgba(13,5,9,.45); color: var(--gold-soft); font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.card-count { color: var(--ink-muted); font-size: 10px; }
+
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 4px; }
+.carousel-button { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--bg-panel); color: var(--gold-soft); cursor: pointer; transition: transform .2s, border-color .2s, background .2s; }
+.carousel-button:hover { border-color: var(--gold); background: var(--bg-panel-2); }
+.carousel-button:active { transform: scale(.92); }
+.carousel-dots { display: flex; align-items: center; gap: 7px; min-width: 52px; justify-content: center; }
+.carousel-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: var(--ink-muted); opacity: .4; cursor: pointer; transition: width .25s, opacity .25s, background .25s; }
+.carousel-dot.active { width: 22px; border-radius: 99px; background: var(--magenta); opacity: 1; }
+.swipe-hint { margin: 18px 0 0; color: var(--ink-muted); font-size: 10px; letter-spacing: .08em; text-align: center; opacity: .8; }
+
+@media (min-width: 900px) {
+  #themes-container { justify-content: center; overflow-x: visible; }
+  .theme-card { flex: 1 1 0; max-width: var(--card-width); }
+  .carousel-button, .carousel-dots, .swipe-hint { display: none; }
+}
+
+@media (max-width: 899px) {
+  #themes-container { margin-inline: -4px; padding-inline: calc((100% - min(90vw, var(--card-width))) / 2); }
+  .theme-card { flex-basis: min(90vw, var(--card-width)); }
+}
+
+@media (max-width: 560px) {
+  #selection-screen { justify-content: flex-start; padding-top: 56px; }
+  .selection-intro { margin-bottom: 20px; }
+  .selection-subtitle { font-size: 12px; padding-inline: 12px; }
+  .theme-card { min-height: 410px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-card, .theme-card::after, .carousel-dot { transition: none !important; }
+}
