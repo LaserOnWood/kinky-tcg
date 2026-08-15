@@ -1,0 +1,361 @@
+/* ==========================================================================
+   TOKENS — palette, typographie, rythmes
+   ========================================================================== */
+:root{
+  --bg-void:      #0d0509;
+  --bg-panel:     #1a0b14;
+  --bg-panel-2:   #240f1c;
+  --velvet:       #5c1228;
+  --magenta:      #ff2f7e;
+  --gold:         #d9a94f;
+  --gold-soft:    #f0d68a;
+  
+  /* Nouveau Platinum Métallique */
+  --platinum:      #e5e4e2; 
+  --platinum-soft: #fcfcfc;
+  --platinum-glow: rgba(229, 228, 226, 0.5);
+  
+  --ink:          #f3e6ea;
+  --ink-muted:    #a9899a;
+  --line:         rgba(217,169,79,0.18);
+  --shadow-deep:  0 20px 50px rgba(0,0,0,0.55);
+  --r-lg: 20px;
+  --r-md: 14px;
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body: 'Poppins', system-ui, sans-serif;
+}
+
+*{ box-sizing:border-box; }
+html,body{
+  margin:0; padding:0;
+  background:
+    radial-gradient(circle at 15% -10%, rgba(255,47,126,0.14), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(217,169,79,0.10), transparent 40%),
+    var(--bg-void);
+  color:var(--ink);
+  font-family:var(--ff-body);
+  -webkit-tap-highlight-color:transparent;
+  min-height:100%;
+}
+body{ padding-bottom:120px; }
+
+::selection{ background:var(--magenta); color:#fff; }
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+header.top{
+  position:sticky; top:0; z-index:20;
+  padding:22px 20px 16px;
+  background:linear-gradient(180deg, rgba(13,5,9,0.97) 70%, rgba(13,5,9,0));
+  backdrop-filter:blur(6px);
+}
+.eyebrow{
+  font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--gold); opacity:0.85; margin:0 0 4px; font-weight:600;
+}
+h1{
+  font-family:var(--ff-display);
+  font-weight:600; font-style:italic;
+  font-size:clamp(28px,8vw,38px);
+  margin:0 0 14px; line-height:1;
+  background:linear-gradient(100deg, var(--ink) 30%, var(--gold-soft) 55%, var(--ink) 75%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.progress-wrap{
+  display:flex; align-items:center; gap:12px;
+}
+.progress-track{
+  flex:1; height:6px; border-radius:99px;
+  background:var(--bg-panel-2);
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%; border-radius:99px;
+  background:linear-gradient(90deg, var(--velvet), var(--magenta), var(--gold), var(--platinum));
+  width:0%;
+  transition:width .6s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 0 10px rgba(255,47,126,0.6);
+}
+.progress-label{
+  font-size:12px; font-variant-numeric:tabular-nums;
+  color:var(--ink-muted); white-space:nowrap;
+}
+
+/* ==========================================================================
+   GRILLE DE CARTES
+   ========================================================================== */
+main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
+.grid{
+  display:grid;
+  grid-template-columns: 1fr; /* 1 seule colonne par défaut sur mobile */
+  gap:20px; /* Plus d'espace entre les cartes pour une meilleure aération */
+}
+
+@media (min-width:500px){
+  .grid{ grid-template-columns:repeat(2, 1fr); } /* 2 colonnes dès que l'écran est un peu plus large */
+}
+
+@media (min-width:800px){
+  .grid{ grid-template-columns:repeat(3, 1fr); } /* 4 colonnes sur tablettes/desktop */
+}
+
+.card-slot{ perspective:1200px; }
+.card{
+  position:relative;
+  width:100%;
+  aspect-ratio:5/7.3;
+  transform-style:preserve-3d;
+  transition:transform .8s cubic-bezier(.22,1,.36,1);
+  cursor:default;
+}
+.card.unlocked{ transform:rotateY(180deg); }
+.card.just-unlocked{ animation:pop .8s cubic-bezier(.22,1,.36,1); }
+@keyframes pop{
+  0%{ filter:brightness(1); }
+  55%{ filter:brightness(1.5) drop-shadow(0 0 22px rgba(255,47,126,0.8)); }
+  100%{ filter:brightness(1); }
+}
+
+.face{
+  position:absolute; inset:0;
+  border-radius:var(--r-md);
+  backface-visibility:hidden;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  box-shadow:var(--shadow-deep);
+}
+
+/* ---- DOS (verrouillé) ---- */
+.back{
+  background:
+    repeating-linear-gradient(135deg, rgba(217,169,79,0.05) 0 2px, transparent 2px 14px),
+    linear-gradient(160deg, var(--bg-panel-2), var(--bg-panel) 60%, #150810);
+  border:1px solid var(--line);
+  align-items:center; justify-content:center;
+  padding:14px; text-align:center;
+  gap:10px;
+}
+.seal{
+  width:44px; height:44px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--gold-soft), var(--gold) 45%, var(--velvet) 100%);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; color:var(--bg-void);
+  box-shadow:0 0 0 3px rgba(217,169,79,0.15), 0 4px 14px rgba(0,0,0,0.5);
+  animation:breathe 3.2s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{ box-shadow:0 0 0 3px rgba(217,169,79,0.15), 0 4px 14px rgba(0,0,0,0.5); }
+  50%{ box-shadow:0 0 0 7px rgba(217,169,79,0.28), 0 4px 22px rgba(255,47,126,0.35); }
+}
+.back .num{
+  font-family:var(--ff-display); font-style:italic;
+  color:var(--ink); font-size:clamp(17px, 3.8vw, 24px); line-height:1.15;
+  letter-spacing:0.06em; text-align:center; max-width:90%;
+}
+.back .hint{
+  font-size:11.5px; line-height:1.4; color:var(--ink-muted);
+  padding-top:2px; max-width:14ch;
+}
+.back .hint::before{ content:"— indice — "; display:block; color:var(--gold); font-size:9.5px; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:4px; }
+
+/* Bouton Aide pour indices supplémentaires */
+.hint-btn{
+  margin-top:8px; padding:6px 12px;
+  background:linear-gradient(100deg, var(--magenta), var(--gold-soft));
+  border:none; border-radius:99px;
+  color:#fff; font-size:10px; font-weight:600; letter-spacing:0.05em;
+  cursor:pointer; text-transform:uppercase;
+  transition:all .2s ease;
+  box-shadow:0 4px 12px rgba(255,47,126,0.3);
+}
+.hint-btn:active{
+  transform:scale(0.95);
+  box-shadow:0 2px 6px rgba(255,47,126,0.5);
+}
+.hint-btn:hover{
+  box-shadow:0 6px 16px rgba(255,47,126,0.5);
+}
+
+/* ---- FACE (déverrouillée) ---- */
+.front{
+  transform:rotateY(180deg);
+  background:var(--bg-panel);
+}
+.art{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.rarity-tag{
+  position:absolute; top:8px; left:8px; z-index:2;
+  font-size:9.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  padding:3px 8px; border-radius:99px;
+  color:var(--bg-void);
+}
+.card.unlocked .art{ cursor:zoom-in; }
+
+/* ---- AGRANDISSEMENT DE L'IMAGE (LIGHTBOX) ---- */
+.art-lightbox{
+  position:fixed; inset:0; z-index:100;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(8,3,6,0.92);
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease;
+  padding:24px;
+}
+.art-lightbox.show{
+  opacity:1; pointer-events:auto;
+}
+.art-lightbox-img{
+  max-width:min(90vw, 640px);
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:var(--r-md);
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+.art-lightbox-close{
+  position:absolute; top:18px; right:22px;
+  width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--bg-panel);
+  color:var(--ink);
+  font-size:18px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* Bordures + halo selon rareté */
+.front[data-rarity="Commun"]     { border:1.5px solid #7b8a94; box-shadow:var(--shadow-deep); }
+.front[data-rarity="Rare"]       { border:1.5px solid #4fb3d9; box-shadow:0 0 16px rgba(79,179,217,0.35), var(--shadow-deep); }
+.front[data-rarity="Épique"]     { border:1.5px solid var(--magenta); box-shadow:0 0 20px rgba(255,47,126,0.45), var(--shadow-deep); }
+.front[data-rarity="Légendaire"] { border:1.5px solid var(--gold); box-shadow:0 0 24px rgba(217,169,79,0.55), var(--shadow-deep); }
+
+/* Amélioration Mythique (Platinum) */
+.front[data-rarity="Mythique"] { 
+  border: 1.5px solid var(--platinum); 
+  box-shadow: 0 0 24px var(--platinum-glow), inset 0 0 15px rgba(255, 255, 255, 0.1), var(--shadow-deep); 
+}
+
+.rarity-tag[data-r="Commun"]{ background:#7b8a94; }
+.rarity-tag[data-r="Rare"]{ background:#4fb3d9; }
+.rarity-tag[data-r="Épique"]{ background:var(--magenta); color:#fff; }
+.rarity-tag[data-r="Légendaire"]{ background:linear-gradient(90deg,var(--gold),var(--gold-soft)); }
+
+/* Badge Mythique amélioré */
+.rarity-tag[data-r="Mythique"]{ 
+  background: linear-gradient(135deg, #d3d3d3 0%, #ffffff 50%, #e5e4e2 100%); 
+  color: #1a0b14;
+  box-shadow: 0 0 10px var(--platinum-glow);
+  border: 0.5px solid rgba(255,255,255,0.5);
+}
+
+/* Effet holographique — Épique / Légendaire */
+.front.holo::before{
+  content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.35) 42%, rgba(255,47,126,0.35) 50%, rgba(217,169,79,0.35) 58%, transparent 80%);
+  background-size:250% 250%;
+  mix-blend-mode:overlay;
+  animation:shimmer 3.5s linear infinite;
+  opacity:0.85;
+}
+
+/* Texture Métallique Spécifique pour Mythique */
+.front[data-rarity="Mythique"].holo::before {
+  background: 
+    linear-gradient(115deg, transparent 10%, rgba(255,255,255,0.5) 30%, rgba(200,200,255,0.4) 45%, rgba(255,255,255,0.6) 50%, rgba(200,200,255,0.4) 55%, rgba(255,255,255,0.5) 70%, transparent 90%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 3px);
+  background-size: 200% 200%, 100% 100%;
+  mix-blend-mode: color-dodge;
+  animation: shimmer-mythic 4s ease-in-out infinite alternate;
+  opacity: 0.4;
+}
+
+@keyframes shimmer{
+  0%{ background-position:0% 0%; }
+  100%{ background-position:100% 100%; }
+}
+
+@keyframes shimmer-mythic{
+  0%{ background-position: 0% 50%; filter: brightness(1); }
+  100%{ background-position: 100% 50%; filter: brightness(1.3); }
+}
+
+/* ==========================================================================
+   BARRE DE SAISIE (sticky bas d'écran, pouce-friendly)
+   ========================================================================== */
+.entry-bar{
+  position:fixed; left:0; right:0; bottom:0; z-index:30;
+  padding:14px 16px calc(16px + env(safe-area-inset-bottom));
+  background:linear-gradient(0deg, rgba(13,5,9,0.98) 65%, rgba(13,5,9,0));
+}
+.entry-inner{
+  max-width:640px; margin:0 auto;
+  display:flex; gap:8px;
+  background:var(--bg-panel);
+  border:1px solid var(--line);
+  border-radius:99px;
+  padding:6px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+.entry-inner.shake{ animation:shake .4s; border-color:#ff4d4d; }
+@keyframes shake{
+  0%,100%{ transform:translateX(0); }
+  20%{ transform:translateX(-8px); }
+  40%{ transform:translateX(7px); }
+  60%{ transform:translateX(-5px); }
+  80%{ transform:translateX(3px); }
+}
+#pwd-input{
+  flex:1; min-width:0;
+  background:transparent; border:none; outline:none;
+  color:var(--ink); font-family:var(--ff-body);
+  font-size:16px; /* empêche le zoom iOS */
+  padding:12px 16px;
+}
+#pwd-input::placeholder{ color:var(--ink-muted); }
+#submit-btn{
+  flex-shrink:0;
+  border:none; cursor:pointer;
+  padding:0 22px;
+  border-radius:99px;
+  font-family:var(--ff-body); font-weight:600; font-size:14px;
+  color:#180509;
+  background:linear-gradient(100deg, var(--gold-soft), var(--gold));
+  transition:transform .15s ease;
+}
+#submit-btn:active{ transform:scale(0.94); }
+.feedback{
+  max-width:640px; margin:0 auto 8px; padding:0 6px;
+  font-size:12px; min-height:16px; text-align:center;
+  transition:color .2s;
+}
+.feedback.err{ color:#ff6b6b; }
+.feedback.ok{ color:var(--gold-soft); }
+
+/* Modale de fin */
+.overlay{
+  position:fixed; inset:0; z-index:50;
+  background:rgba(8,3,6,0.88); backdrop-filter:blur(4px);
+  display:none; align-items:center; justify-content:center;
+  padding:24px;
+}
+.overlay.show{ display:flex; }
+.overlay .box{
+  max-width:360px; text-align:center;
+  background:var(--bg-panel); border:1px solid var(--line);
+  border-radius:var(--r-lg); padding:32px 24px;
+  box-shadow:var(--shadow-deep);
+}
+.overlay h2{ font-family:var(--ff-display); font-style:italic; font-size:28px; margin:0 0 10px; color:var(--gold-soft); }
+.overlay p{ font-size:13px; color:var(--ink-muted); line-height:1.5; margin:0 0 18px; }
+.overlay button{
+  border:none; cursor:pointer; padding:10px 20px; border-radius:99px;
+  background:transparent; border:1px solid var(--gold); color:var(--gold-soft);
+  font-family:var(--ff-body); font-size:13px;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .card, .front.holo::before, .seal, .progress-fill{ animation:none !important; transition:none !important; }
+}

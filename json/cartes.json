@@ -1,0 +1,207 @@
+{
+  "themes": [
+    {
+      "id": "classique",
+      "name": "Classique",
+      "description": "L'expérience originale avec des défis équilibrés.",
+      "difficulty": "Normal",
+      "cards": [
+        {
+          "id": 1,
+          "type": "Objet",
+          "passwordHash": "87d6ad049783f68f509a18094d29b7e994d86983fa39a2620cfb0f86ec8dfcb0",
+          "hints": ["Sous l'objet qui ouvre les portes.", "C'est métallique et souvent près de l'entrée."],
+          "title": "Le Prélude",
+          "image": "https://picsum.photos/seed/carte1/500/700",
+          "description": "Un massage lent, à la lumière des bougies, pour ouvrir le jeu en douceur.",
+          "rarity": "Commun"
+        },
+        {
+          "id": 2,
+          "type": "Reflet",
+          "passwordHash": "ee11fce9c63ebf368bca90f069806c881404f70708e6be19173d1467868462e0",
+          "hints": ["Là où l'on se regarde avant de sortir.", "Vous vous y regardez chaque matin."],
+          "title": "Le Reflet",
+          "image": "https://picsum.photos/seed/carte2/500/700",
+          "description": "Choisissez la tenue de votre partenaire pour le reste de la soirée.",
+          "rarity": "Commun"
+        },
+        {
+          "id": 3,
+          "type": "Matière",
+          "passwordHash": "bd7cf4d0b57ebfdd5a030ae10bc49c4ec1e69dfacf1feeb45e4d0b21c3fcbadb",
+          "hints": ["Doux au toucher, souvent sur un canapé.", "C'est une matière luxueuse et douce."],
+          "title": "Le Velours",
+          "image": "https://picsum.photos/seed/carte3/500/700",
+          "description": "Un privilège d'une durée de dix minutes, à réclamer quand bon vous semble ce soir.",
+          "rarity": "Rare"
+        },
+        {
+          "id": 8,
+          "type": "Événement",
+          "passwordHash": "80b1509ea37643250da601f2d24fe9b236b76fd3a3d7d18498d760cdd38813b2",
+          "hints": ["Quand la lune cache le soleil.", "Un phénomène astronomique rare."],
+          "title": "L'Éclipse",
+          "image": "https://picsum.photos/seed/carte8/500/700",
+          "description": "La carte finale : un souhait, sans limite ni condition, à exaucer ce soir.",
+          "rarity": "Légendaire"
+        }
+      ]
+    },
+    {
+      "id": "zen",
+      "name": "Zen & Douceur",
+      "description": "Un moment de détente absolue et de connexion.",
+      "difficulty": "Facile",
+      "cards": [
+        {
+          "id": 101,
+          "type": "Boisson",
+          "passwordHash": "87d6ad049783f68f509a18094d29b7e994d86983fa39a2620cfb0f86ec8dfcb0",
+          "hints": ["Un objet pour infuser des plantes.", "Il siffle quand l'eau est chaude."],
+          "title": "L'Infusion",
+          "image": "https://picsum.photos/seed/zen1/500/700",
+          "description": "Préparez une boisson chaude et profitez d'un moment de calme à deux.",
+          "rarity": "Commun"
+        },
+        {
+          "id": 102,
+          "type": "Confort",
+          "passwordHash": "ee11fce9c63ebf368bca90f069806c881404f70708e6be19173d1467868462e0",
+          "hints": ["On s'y allonge pour rêver.", "Moelleux et rectangulaire."],
+          "title": "Le Nuage",
+          "image": "https://picsum.photos/seed/zen2/500/700",
+          "description": "Cinq minutes de compliments sincères les yeux dans les yeux.",
+          "rarity": "Rare"
+        }
+      ]
+    },
+    {
+      "id": "aventure",
+      "name": "Aventure Nocturne",
+      "description": "Pour ceux qui aiment le mystère et l'exploration.",
+      "difficulty": "Difficile",
+      "seal": "❤️‍🔥",
+      "cards": [
+        {
+          "id": 201,
+          "type": "Lumière",
+          "passwordHash": "23df2ca41316489504d44f3adad8b2d9752bc0cd7e65045d51810c5c8c879c47",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'allume pour voir dans le noir."],
+          "title": "La Lueur",
+          "image": "https://picsum.photos/seed/adv1/500/700",
+          "description": "Un gage à réaliser lumières éteintes uniquement.",
+          "rarity": "Épique"
+        },
+        {
+          "id": 202,
+          "type": "Temps",
+          "passwordHash": "e49ec5f68827a836467c4f3e3a54fa7b10a2acbd949d6aa79f85f629be684f23",
+          "hints": ["Le temps s'écoule grain par grain.", "C'est un objet qui mesure le temps."],
+          "title": "Le Sablier",
+          "image": "https://picsum.photos/seed/adv2/500/700",
+          "description": "Une action rapide à accomplir avant que le temps ne soit écoulé.",
+          "rarity": "Légendaire"
+        }
+      ]
+    },
+    {
+      "id": "Anniversaire",
+      "name": "Anniversaire special",
+      "description": "Dans le but de fêter son anniversaire de façon exceptionnelle et de graver cet événement dans sa mémoire..",
+      "difficulty": "Perversion",
+      "seal": "🔞",
+      "cards": [
+        {
+          "id": 401,
+          "type": "Tenue",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "../tcgproto/assets/cartes/SpecialAnniv/Tenue_de_charme.jpeg",
+          "description": "Un gage à réaliser lumières éteintes uniquement.",
+          "rarity": "Commun"
+        },
+        {
+          "id": 402,
+          "type": "Accesoires",
+          "_comment": "Mot de passe : Masque",
+          "passwordHash": "51bb0f998c8d9ac16f9ea044dba7d402d9b61b373ee69d7ba95b7643f437edf8",
+          "hints": [
+            "p",
+            "p",
+            "p"
+          ],
+          "title": "La vue",
+          "image": "../tcgproto/assets/cartes/SpecialAnniv/Milf_masque.webp",
+          "description": "La perte d'un sens permettra d'en savourer d'autre.",
+          "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
+          "rarity": "Épique"
+        },
+        {
+          "id": 403,
+          "type": "Accesoires",
+          "_comment": "Mot de passe : Masque",
+          "passwordHash": "51bb0f998c8d9ac16f9ea044dba7d402d9b61b373ee69d7ba95b7643f437edf8",
+          "hints": [
+            "p",
+            "p",
+            "p"
+          ],
+          "title": "La vue",
+          "image": "../tcgproto/assets/cartes/SpecialAnniv/Milf_masque.webp",
+          "description": "La perte d'un sens permettra d'en savourer d'autre.",
+          "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
+          "rarity": "Épique"
+        },
+        {
+          "id": 404,
+          "type": "Action",
+          "_comment": "Mot de passe : Fellation",
+          "passwordHash": "12a0fd5cb657f5b93ff38fbfe47b6e17ea51b5fc3b3d99c59b31d28d32c7d0fa",
+          "hints": [
+            "L'art de la pipe où l'on va jusqu'au bout, sans jamais utiliser les dents.",
+            "C'est la partie du corps que l'on sent se serrer quand on avale.",
+            "Entre la bouche et l'estomac, je suis le passage étroit que tout doit franchir."
+          ],
+          "title": "L'Apné",
+          "image": "../tcgproto/assets/cartes/Fellation_de_MILF.webp",
+          "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+          "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
+          "rarity": "Mythique"
+        },
+        {
+          "id": 405,
+          "type": "Action",
+          "_comment": "Mot de passe : gorge profonde",
+          "passwordHash": "d8bbd72947b36d2ca6c6f95d96e27f9de1595820483ab973cd43977e4dc0e3e1",
+          "hints": [
+            "L'art de la pipe où l'on va jusqu'au bout, sans jamais utiliser les dents.",
+            "C'est la partie du corps que l'on sent se serrer quand on avale.",
+            "Entre la bouche et l'estomac, je suis le passage étroit que tout doit franchir."
+          ],
+          "title": "L'Apné",
+          "image": "../tcgproto/assets/cartes/Gorge_profonde.webp",
+          "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+          "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
+          "rarity": "Mythique"
+        },
+        {
+          "id": 406,
+          "type": "Position",
+          "_comment": "Mot de passe : Levrette",
+          "passwordHash": "e607a49330276359019fa20274b3273c83e31a3488e8ed30a4a852ce797dc801",
+          "hints": [
+            "Peux ce faire en douceur mais aussi de maniere sauvage.","Parfait pour prendre des fessées en pleine action.","."
+          ],
+          "title": "Cambrure",
+          "image": "../tcgproto/assets/cartes/Levrette.webp",
+          "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+          "actions": "Tu vas te mettre a quatre patte et te cambrer pour offrir ta chatte deja coulante. Il claquera ton cul autant qu'il le veux et baisera ta chatte en meme temps.",
+          "rarity": "Mythique"
+        }
+      ]
+    }
+  ]
+}
