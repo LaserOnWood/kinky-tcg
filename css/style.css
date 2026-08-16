@@ -524,3 +524,15 @@ body.selection-v2 {
     aspect-ratio: auto;
   }
 }
+
+
+/* Réserve l'espace occupé par la barre de réponse fixe sur desktop. */
+@media (min-width: 500px) {
+  body.selection-v2 {
+    padding-bottom: 180px;
+  }
+
+  #game-content main {
+    padding-bottom: 60px;
+  }
+}
