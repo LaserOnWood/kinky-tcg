@@ -511,3 +511,16 @@ body.selection-v2 {
     scroll-snap-stop: always;
   }
 }
+
+
+/* Hauteur adaptative aux écrans mobiles avec barre de navigateur dynamique. */
+@media (max-width: 499px) {
+  #grid .card-slot {
+    height: clamp(360px, 58dvh, 560px);
+  }
+
+  #grid .card {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
