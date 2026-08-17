@@ -1,0 +1,22 @@
+name: Deploiement sur LWS
+
+on:
+  push:
+    branches:
+      - main # Ou la branche que tu souhaites utiliser pour le miroir
+
+jobs:
+  web-deploy:
+    name: Sync files via FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch repository content
+        uses: actions/checkout@v4
+
+      - name: Sync files to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ./tcgkinky.azarothis.fr # Adapte le chemin selon la structure LWS
