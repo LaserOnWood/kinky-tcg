@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinky TCG — Showroom des raretés</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body.showroom-page { min-height: 100vh; padding: 0 0 56px; overflow-x: hidden; }
+
+    .showroom-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(44px, 8vw, 82px) 20px 34px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+    .showroom-header::before {
+      content: "";
+      position: absolute;
+      inset: -160px 15% auto;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(180,108,255,.20), transparent 70%);
+      filter: blur(9px);
+      pointer-events: none;
+    }
+    .showroom-header .eyebrow,
+    .showroom-header h1,
+    .showroom-subtitle,
+    .showroom-actions { position: relative; }
+    .showroom-header h1 { margin-bottom: 12px; font-size: clamp(38px, 7vw, 64px); }
+    .showroom-subtitle { max-width: 680px; margin: 0 auto; color: var(--ink-muted); font-size: 13px; line-height: 1.7; }
+
+    .showroom-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+    .showroom-actions button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 38px; padding: 0 14px;
+      border: 1px solid rgba(240,214,138,.34); border-radius: 99px;
+      background: rgba(26,11,20,.65); color: var(--gold-soft);
+      font: 600 11px var(--ff-body); letter-spacing: .07em; text-transform: uppercase;
+      cursor: pointer; transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .showroom-actions button:hover { transform: translateY(-2px); border-color: var(--gold); background: var(--bg-panel-2); }
+    .showroom-actions button:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+
+    .showroom-page main { max-width: 1400px; padding: 36px 20px 0; }
+    .showroom-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+    @media (min-width: 580px) { .showroom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 900px) { .showroom-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (min-width: 1240px) { .showroom-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; } }
+
+    .showroom-tile { min-width: 0; }
+    .showroom-card .card { max-width: 280px; margin: 0 auto; }
+    .showroom-card .front { cursor: default; }
+    .showroom-card .rarity-tag { white-space: nowrap; }
+
+    .showroom-art {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      background: linear-gradient(155deg, #4a1a30, #11080f 72%);
+    }
+    .showroom-art::before,
+    .showroom-art::after { content: ""; position: absolute; pointer-events: none; }
+    .showroom-art::before {
+      width: 190px; height: 190px; top: 17%; left: 50%;
+      transform: translateX(-50%); border: 1px solid rgba(255,255,255,.22); border-radius: 50%;
+      box-shadow: inset 0 0 35px rgba(255,255,255,.12), 0 0 36px rgba(255,255,255,.10);
+    }
+    .showroom-art::after {
+      width: 115%; height: 42%; left: -7%; top: 42%;
+      background: linear-gradient(125deg, transparent 27%, rgba(255,255,255,.16) 50%, transparent 73%);
+      transform: rotate(-13deg);
+    }
+    .showroom-icon {
+      position: absolute; top: 28%; left: 50%; z-index: 1;
+      transform: translateX(-50%); color: rgba(255,255,255,.94);
+      font-size: clamp(46px, 6vw, 64px); text-shadow: 0 0 18px rgba(255,255,255,.46);
+    }
+    .art-coquine { background: radial-gradient(circle at 66% 24%, rgba(234,176,194,.75), transparent 26%), linear-gradient(155deg, #743149, #160a13 73%); }
+    .art-provocante { background: radial-gradient(circle at 66% 24%, rgba(255,79,139,.85), transparent 28%), linear-gradient(155deg, #861b49, #190811 73%); }
+    .art-audacieuse { background: radial-gradient(circle at 66% 24%, rgba(180,108,255,.86), transparent 28%), linear-gradient(155deg, #4b2281, #13091e 73%); }
+    .art-envoutante { background: radial-gradient(circle at 66% 24%, rgba(130,116,232,.86), transparent 28%), linear-gradient(155deg, #30266d, #0d0a21 73%); }
+    .art-sulfureuse { background: radial-gradient(circle at 66% 24%, rgba(255,102,81,.88), transparent 28%), linear-gradient(155deg, #84162a, #21070d 73%); }
+    .art-mythique { background: radial-gradient(circle at 66% 24%, rgba(255,255,255,.92), transparent 25%), radial-gradient(circle at 28% 64%, rgba(217,169,79,.53), transparent 37%), linear-gradient(155deg, #716c67, #17100d 73%); }
+
+    .showroom-copy { position: absolute; z-index: 2; right: 16px; bottom: 45px; left: 16px; }
+    .showroom-index { margin: 0 0 7px; color: var(--gold-soft); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+    .showroom-copy h2 { margin: 0; color: #fff7ef; font-family: var(--ff-display); font-size: clamp(28px, 4vw, 36px); font-style: italic; line-height: 1; }
+    .showroom-copy p { min-height: 44px; margin: 8px 0 0; color: rgba(255,247,239,.82); font-size: 11px; line-height: 1.55; }
+
+    .showroom-note {
+      max-width: 870px; margin: 32px auto 0; padding: 15px 18px;
+      border: 1px solid var(--line); border-radius: 13px;
+      background: rgba(26,11,20,.62); color: var(--ink-muted);
+      font-size: 12px; line-height: 1.65; text-align: center;
+    }
+    .showroom-note strong { color: var(--gold-soft); }
+
+    .holo-paused .front.holo::before { animation-play-state: paused !important; }
+    .holo-paused .showroom-actions [data-pause-holo] { border-color: var(--gold); background: rgba(217,169,79,.13); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .showroom-actions button { transition: none; }
+    }
+  </style>
+</head>
+<body class="showroom-page">
+  <header class="showroom-header">
+    <p class="eyebrow">Kinky TCG · Outil de contrôle</p>
+    <h1>Showroom des raretés</h1>
+    <p class="showroom-subtitle">Comparez chaque niveau, observez les contrastes de couleur et testez la montée progressive des reflets holographiques, de la lueur discrète à la finition Mythique.</p>
+    <div class="showroom-actions" aria-label="Commandes de prévisualisation">
+      <button type="button" id="replay-effects"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Rejouer les apparitions</button>
+      <button type="button" data-pause-holo aria-pressed="false"><i class="fa-solid fa-pause" aria-hidden="true"></i> Figer les reflets</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="showroom-grid" aria-label="Six cartes de rareté">
+      <article class="showroom-tile showroom-card">
+        <div class="card-slot"><div class="card unlocked">
+          <div class="face front" data-rarity="Coquine">
+            <div class="showroom-art art-coquine"><i class="showroom-icon fa-solid fa-feather" aria-hidden="true"></i></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 01 · Découverte</p><h2>Coquine</h2><p>Rose satiné, douceur et premier frisson.</p></div>
+            <div class="rarity-tag" data-r="Coquine">Coquine</div>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="showroom-tile showroom-card">
+        <div class="card-slot"><div class="card unlocked">
+          <div class="face front holo" data-rarity="Provocante">
+            <div class="showroom-art art-provocante"><i class="showroom-icon fa-solid fa-bolt" aria-hidden="true"></i></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 02 · Impulsion</p><h2>Provocante</h2><p>Framboise électrique et premier éclat holographique.</p></div>
+            <div class="rarity-tag" data-r="Provocante">Provocante</div>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="showroom-tile showroom-card">
+        <div class="card-slot"><div class="card unlocked">
+          <div class="face front holo" data-rarity="Audacieuse">
+            <div class="showroom-art art-audacieuse"><i class="showroom-icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 03 · Élan</p><h2>Audacieuse</h2><p>Violet lumineux et reflet plus affirmé.</p></div>
+            <div class="rarity-tag" data-r="Audacieuse">Audacieuse</div>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="showroom-tile showroom-card">
+        <div class="card-slot"><div class="card unlocked">
+          <div class="face front holo" data-rarity="Envoûtante">
+            <div class="showroom-art art-envoutante"><i class="showroom-icon fa-solid fa-moon" aria-hidden="true"></i></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 04 · Rituel</p><h2>Envoûtante</h2><p>Indigo profond et halo immersif.</p></div>
+            <div class="rarity-tag" data-r="Envoûtante">Envoûtante</div>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="showroom-tile showroom-card">
+        <div class="card-slot"><div class="card unlocked" data-reveal="sulfureuse">
+          <div class="face front holo" data-rarity="Sulfureuse">
+            <div class="showroom-art art-sulfureuse"><i class="showroom-icon fa-solid fa-fire" aria-hidden="true"></i></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 05 · Convoitée</p><h2>Sulfureuse</h2><p>Carmin incandescent et apparition embrasée.</p></div>
+            <div class="rarity-tag" data-r="Sulfureuse">Sulfureuse</div>
+          </div>
+        </div></div>
+      </article>
+
+      <article class="showroom-tile showroom-card">
+        <div class="card-slot"><div class="card unlocked" data-reveal="mythique">
+          <div class="face front holo" data-rarity="Mythique">
+            <div class="showroom-art art-mythique"><i class="showroom-icon fa-solid fa-crown" aria-hidden="true"></i></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 06 · Exception</p><h2>Mythique</h2><p>Platine, or pâle et finition métallique nacrée.</p></div>
+            <div class="rarity-tag" data-r="Mythique">Mythique</div>
+          </div>
+        </div></div>
+      </article>
+    </section>
+
+    <p class="showroom-note"><strong>Lecture de la progression :</strong> Coquine reste mate ; Provocante introduit le reflet ; Audacieuse et Envoûtante en amplifient la profondeur ; Sulfureuse gagne un éclat carmin ; Mythique adopte une finition métal-or. Utilisez les commandes pour rejouer les apparitions d’exception ou immobiliser les reflets au moment voulu.</p>
+  </main>
+
+  <script>
+    const root = document.body;
+    const pauseButton = document.querySelector('[data-pause-holo]');
+    const replayButton = document.querySelector('#replay-effects');
+
+    pauseButton.addEventListener('click', () => {
+      const paused = root.classList.toggle('holo-paused');
+      pauseButton.setAttribute('aria-pressed', String(paused));
+      pauseButton.innerHTML = paused
+        ? '<i class="fa-solid fa-play" aria-hidden="true"></i> Relancer les reflets'
+        : '<i class="fa-solid fa-pause" aria-hidden="true"></i> Figer les reflets';
+    });
+
+    replayButton.addEventListener('click', () => {
+      const effects = [
+        { selector: '[data-reveal="sulfureuse"]', className: 'reveal-sulfureuse', duration: 1120 },
+        { selector: '[data-reveal="mythique"]', className: 'reveal-mythique', duration: 1650 }
+      ];
+      effects.forEach(({ selector, className, duration }) => {
+        const card = document.querySelector(selector);
+        card.classList.remove(className);
+        void card.offsetWidth;
+        card.classList.add(className);
+        window.setTimeout(() => card.classList.remove(className), duration);
+      });
+    });
+  </script>
+</body>
+</html>
