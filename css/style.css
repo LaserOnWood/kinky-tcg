@@ -264,7 +264,7 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
   background-size:240% 240%;
   mix-blend-mode:screen;
   opacity:.62;
-  animation:holographic-sweep 4.8s linear infinite;
+  animation:holographic-sweep 4.8s linear infinite alternate;
 }
 @keyframes holographic-sweep{
   from{ background-position:0% 50%; }
