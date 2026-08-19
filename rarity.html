@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinky TCG — Aperçu des raretés</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --void: #0b0508;
+      --velvet: #160911;
+      --panel: #1c0d16;
+      --ink: #f8e9da;
+      --muted: #b8a1a7;
+      --gold: #d9a94f;
+      --gold-soft: #f0d68a;
+      --line: rgba(240, 214, 138, .22);
+      --display: "Cormorant Garamond", Georgia, serif;
+      --body: "Poppins", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--body);
+      background:
+        radial-gradient(circle at 13% 4%, rgba(138, 30, 77, .34), transparent 26rem),
+        radial-gradient(circle at 85% 18%, rgba(217, 169, 79, .10), transparent 25rem),
+        linear-gradient(145deg, #130711 0%, var(--void) 54%, #1e0a12 100%);
+    }
+
+    .preview-header {
+      position: relative;
+      overflow: hidden;
+      padding: 5.5rem 0 3rem;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .preview-header::before {
+      content: "";
+      position: absolute;
+      inset: -40% 18% auto;
+      height: 21rem;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255, 79, 139, .18), transparent 68%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      position: relative;
+      margin: 0 0 .8rem;
+      color: var(--gold-soft);
+      font-size: .71rem;
+      font-weight: 600;
+      letter-spacing: .34em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { font-family: var(--display); }
+
+    .preview-header h1 {
+      position: relative;
+      margin: 0;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      font-style: italic;
+      font-weight: 600;
+      line-height: .95;
+      letter-spacing: -.035em;
+    }
+
+    .intro {
+      position: relative;
+      max-width: 44rem;
+      margin: 1.35rem auto 0;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.75;
+    }
+
+    .legend {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin-top: 1.5rem;
+      padding: .55rem .85rem;
+      border: 1px solid var(--line);
+      border-radius: 99rem;
+      background: rgba(248, 233, 218, .04);
+      color: var(--gold-soft);
+      font-size: .72rem;
+    }
+
+    .rarity-grid { padding: 3.5rem 0 4rem; }
+
+    .rarity-card {
+      --rarity: #eab0c2;
+      --rarity-rgb: 234, 176, 194;
+      --rarity-deep: #703447;
+      --rarity-text: #2b101b;
+      position: relative;
+      height: 100%;
+      min-height: 33.5rem;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1.5px solid var(--rarity);
+      border-radius: 1.5rem;
+      background:
+        linear-gradient(180deg, rgba(9, 5, 8, .02) 25%, rgba(9, 5, 8, .96) 96%),
+        radial-gradient(circle at 75% 12%, rgba(var(--rarity-rgb), .26), transparent 38%),
+        var(--panel);
+      box-shadow:
+        inset 0 0 28px rgba(var(--rarity-rgb), .13),
+        0 0 19px rgba(var(--rarity-rgb), .22),
+        0 22px 42px rgba(0, 0, 0, .45);
+      transition: transform .32s cubic-bezier(.22, 1, .36, 1), box-shadow .32s ease;
+    }
+
+    .rarity-card:hover {
+      transform: translateY(-9px) scale(1.015);
+      box-shadow:
+        inset 0 0 32px rgba(var(--rarity-rgb), .24),
+        0 0 29px rgba(var(--rarity-rgb), .46),
+        0 28px 50px rgba(0, 0, 0, .56);
+    }
+
+    .rarity-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .75;
+      background:
+        repeating-linear-gradient(125deg, transparent 0 9px, rgba(255,255,255,.03) 10px 11px),
+        linear-gradient(135deg, transparent 40%, rgba(255,255,255,.13) 50%, transparent 60%);
+      background-size: auto, 220% 220%;
+    }
+
+    .rarity-card:hover::before { animation: gleam .9s ease forwards; }
+
+    .card-content {
+      position: relative;
+      display: flex;
+      height: 100%;
+      min-height: inherit;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.45rem;
+    }
+
+    .card-index {
+      position: absolute;
+      top: 1.15rem;
+      left: 1.25rem;
+      color: rgba(255,255,255,.72);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+    }
+
+    .corner-mark {
+      position: absolute;
+      top: .55rem;
+      right: .8rem;
+      color: rgba(var(--rarity-rgb), .62);
+      font-family: var(--display);
+      font-size: 7.8rem;
+      font-style: italic;
+      line-height: 1;
+      text-shadow: 0 0 26px rgba(var(--rarity-rgb), .25);
+    }
+
+    .art-orb {
+      position: absolute;
+      top: 21%;
+      left: 50%;
+      width: 9.6rem;
+      height: 9.6rem;
+      transform: translateX(-50%);
+      border: 1px solid rgba(var(--rarity-rgb), .45);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 33% 28%, rgba(255,255,255,.75), transparent 8%),
+        radial-gradient(circle at 47% 45%, rgba(var(--rarity-rgb), .72), rgba(var(--rarity-rgb), .10) 54%, transparent 71%);
+      box-shadow:
+        inset 0 0 38px rgba(var(--rarity-rgb), .40),
+        0 0 32px rgba(var(--rarity-rgb), .22);
+    }
+
+    .art-orb::before,
+    .art-orb::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(var(--rarity-rgb), .46);
+      border-radius: 50%;
+    }
+
+    .art-orb::before { inset: -.8rem 1.4rem; }
+    .art-orb::after { inset: 1.4rem -.8rem; }
+
+    .art-icon {
+      position: absolute;
+      top: calc(21% + 2.65rem);
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff8f1;
+      font-size: 4.1rem;
+      text-shadow: 0 0 16px rgba(var(--rarity-rgb), .85);
+    }
+
+    .rarity-chip {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      gap: .4rem;
+      margin-bottom: .75rem;
+      padding: .32rem .7rem;
+      border: 1px solid rgba(var(--rarity-rgb), .6);
+      border-radius: 99rem;
+      background: linear-gradient(135deg, var(--rarity), var(--rarity-deep));
+      box-shadow: 0 0 12px rgba(var(--rarity-rgb), .38);
+      color: var(--rarity-text);
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .rarity-card h2 {
+      margin: 0;
+      color: #fff6ef;
+      font-size: clamp(2rem, 3vw, 2.55rem);
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: -.03em;
+    }
+
+    .rarity-card p {
+      max-width: 23ch;
+      margin: .55rem 0 0;
+      color: #d2bbc0;
+      font-size: .76rem;
+      line-height: 1.6;
+    }
+
+    .rarity-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.2rem;
+      padding-top: .75rem;
+      border-top: 1px solid rgba(var(--rarity-rgb), .28);
+      color: rgba(255,255,255,.60);
+      font-size: .62rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .rarity-meta i { color: var(--rarity); }
+
+    /* Nuances de chaque rareté. */
+    .coquine {
+      --rarity: #eab0c2;
+      --rarity-rgb: 234, 176, 194;
+      --rarity-deep: #703447;
+      --rarity-text: #31101c;
+    }
+
+    .provocante {
+      --rarity: #ff4f8b;
+      --rarity-rgb: 255, 79, 139;
+      --rarity-deep: #8e1e4d;
+      --rarity-text: #fff4f7;
+    }
+
+    .audacieuse {
+      --rarity: #b46cff;
+      --rarity-rgb: 180, 108, 255;
+      --rarity-deep: #51208a;
+      --rarity-text: #fff8ff;
+    }
+
+    .envoutante {
+      --rarity: #8274e8;
+      --rarity-rgb: 130, 116, 232;
+      --rarity-deep: #30266d;
+      --rarity-text: #fffaff;
+    }
+
+    .sulfureuse {
+      --rarity: #e23e57;
+      --rarity-rgb: 226, 62, 87;
+      --rarity-deep: #741327;
+      --rarity-text: #fff6f0;
+    }
+
+    .sulfureuse .art-orb {
+      background:
+        radial-gradient(circle at 33% 28%, rgba(255,241,202,.8), transparent 8%),
+        radial-gradient(circle at 46% 45%, rgba(255,77,57,.82), rgba(170,10,28,.12) 58%, transparent 72%);
+    }
+
+    .mythique {
+      --rarity: #f6f0da;
+      --rarity-rgb: 246, 240, 218;
+      --rarity-deep: #d9a94f;
+      --rarity-text: #2e1b0c;
+      background:
+        linear-gradient(180deg, rgba(9, 5, 8, .02) 24%, rgba(9, 5, 8, .94) 96%),
+        radial-gradient(circle at 74% 12%, rgba(255,255,255,.30), transparent 39%),
+        radial-gradient(circle at 30% 22%, rgba(217,169,79,.26), transparent 42%),
+        var(--panel);
+      animation: mythic-pulse 3.5s ease-in-out infinite alternate;
+    }
+
+    .mythique::before {
+      opacity: .95;
+      background:
+        linear-gradient(125deg, transparent 28%, rgba(255,255,255,.20) 43%, rgba(217,169,79,.18) 52%, transparent 68%),
+        repeating-linear-gradient(45deg, transparent 0 6px, rgba(255,255,255,.035) 7px 8px);
+      background-size: 230% 230%, auto;
+      animation: mythic-sheen 4s ease-in-out infinite alternate;
+    }
+
+    .mythique .art-orb {
+      border-color: rgba(246,240,218,.82);
+      background:
+        radial-gradient(circle at 31% 27%, #fff, transparent 8%),
+        radial-gradient(circle at 47% 45%, rgba(255,255,255,.9), rgba(217,169,79,.26) 49%, transparent 73%);
+      box-shadow: inset 0 0 38px rgba(255,255,255,.48), 0 0 39px rgba(217,169,79,.43);
+    }
+
+    .design-note {
+      max-width: 62rem;
+      margin: 0 auto;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: rgba(255,255,255,.035);
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .design-note strong { color: var(--gold-soft); }
+
+    @keyframes gleam {
+      from { background-position: 0% 0%; }
+      to { background-position: 100% 100%; }
+    }
+
+    @keyframes mythic-sheen {
+      from { background-position: 0% 50%, 0 0; }
+      to { background-position: 100% 50%, 0 0; }
+    }
+
+    @keyframes mythic-pulse {
+      from { box-shadow: inset 0 0 25px rgba(255,255,255,.16), 0 0 20px rgba(217,169,79,.26), 0 22px 42px rgba(0,0,0,.45); }
+      to { box-shadow: inset 0 0 36px rgba(255,255,255,.26), 0 0 32px rgba(217,169,79,.54), 0 22px 42px rgba(0,0,0,.45); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="preview-header">
+    <div class="container">
+      <p class="eyebrow">Kinky TCG · Direction visuelle</p>
+      <h1>Échelle des raretés</h1>
+      <p class="intro">Une collection pensée comme une montée en intensité : une couleur, une lumière et une matière propres à chaque niveau, sur une base sombre commune.</p>
+      <div class="legend"><i class="fa-solid fa-wand-magic-sparkles"></i> Survolez une carte pour révéler son éclat</div>
+    </div>
+  </header>
+
+  <main class="rarity-grid">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="rarity-card coquine">
+            <div class="card-content">
+              <span class="card-index">NIVEAU 01</span><span class="corner-mark">C</span>
+              <div class="art-orb"></div><i class="art-icon fa-solid fa-feather"></i>
+              <span class="rarity-chip"><i class="fa-solid fa-sparkles"></i> Rareté I</span>
+              <h2>Coquine</h2>
+              <p>Rose satiné, lumière douce et premier frisson de la collection.</p>
+              <div class="rarity-meta"><span>Découverte</span><i class="fa-solid fa-feather"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="rarity-card provocante">
+            <div class="card-content">
+              <span class="card-index">NIVEAU 02</span><span class="corner-mark">P</span>
+              <div class="art-orb"></div><i class="art-icon fa-solid fa-bolt"></i>
+              <span class="rarity-chip"><i class="fa-solid fa-sparkles"></i> Rareté II</span>
+              <h2>Provocante</h2>
+              <p>Framboise électrique, éclat affirmé et énergie plus piquante.</p>
+              <div class="rarity-meta"><span>Impulsion</span><i class="fa-solid fa-bolt"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="rarity-card audacieuse">
+            <div class="card-content">
+              <span class="card-index">NIVEAU 03</span><span class="corner-mark">A</span>
+              <div class="art-orb"></div><i class="art-icon fa-solid fa-wand-magic-sparkles"></i>
+              <span class="rarity-chip"><i class="fa-solid fa-sparkles"></i> Rareté III</span>
+              <h2>Audacieuse</h2>
+              <p>Violet lumineux, textures obliques et une présence résolument assumée.</p>
+              <div class="rarity-meta"><span>Élan</span><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="rarity-card envoutante">
+            <div class="card-content">
+              <span class="card-index">NIVEAU 04</span><span class="corner-mark">E</span>
+              <div class="art-orb"></div><i class="art-icon fa-solid fa-moon"></i>
+              <span class="rarity-chip"><i class="fa-solid fa-sparkles"></i> Rareté IV</span>
+              <h2>Envoûtante</h2>
+              <p>Indigo profond, halos hypnotiques et immersion nocturne.</p>
+              <div class="rarity-meta"><span>Rituel</span><i class="fa-solid fa-moon"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="rarity-card sulfureuse">
+            <div class="card-content">
+              <span class="card-index">NIVEAU 05</span><span class="corner-mark">S</span>
+              <div class="art-orb"></div><i class="art-icon fa-solid fa-fire"></i>
+              <span class="rarity-chip"><i class="fa-solid fa-sparkles"></i> Rareté V</span>
+              <h2>Sulfureuse</h2>
+              <p>Carmin incandescent, contraste braisé et tension secrète.</p>
+              <div class="rarity-meta"><span>Convoitée</span><i class="fa-solid fa-fire"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="rarity-card mythique">
+            <div class="card-content">
+              <span class="card-index">NIVEAU 06</span><span class="corner-mark">M</span>
+              <div class="art-orb"></div><i class="art-icon fa-solid fa-crown"></i>
+              <span class="rarity-chip"><i class="fa-solid fa-crown"></i> Rareté VI</span>
+              <h2>Mythique</h2>
+              <p>Platine, nacre et or pâle : la finition précieuse de la carte ultime.</p>
+              <div class="rarity-meta"><span>Exception</span><i class="fa-solid fa-crown"></i></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <p class="design-note mt-5"><strong>Principe de lisibilité :</strong> les trois premières raretés reposent sur la couleur, les suivantes ajoutent une matière plus riche et la carte <strong>Mythique</strong> bénéficie seule d’une animation permanente. Les effets restent visuellement contenus dans les contours arrondis des cartes.</p>
+    </div>
+  </main>
+</body>
+</html>
