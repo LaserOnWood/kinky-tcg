@@ -182,6 +182,9 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 .front{
   transform:rotateY(180deg);
   background:var(--bg-panel);
+  /* Les halos de rareté et l’effet holographique restent contenus dans l’illustration. */
+  clip-path:inset(0 round var(--r-md));
+  isolation:isolate;
 }
 .art{
   position:absolute; inset:0;
