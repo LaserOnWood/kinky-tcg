@@ -389,7 +389,6 @@ function obtenirIndiceActuel(carteId){
 
 function creerCarteHTML(carte){
   const estDebloquee = debloquees.has(carte.id);
-  const holo = ["Provocante", "Audacieuse", "Envoûtante", "Sulfureuse", "Mythique"].includes(carte.rarity) ? "holo" : "";
   const indiceActuel = obtenirIndiceActuel(carte.id);
   const texteIndice = carte.hints[indiceActuel] || carte.hints[0];
   const aPlusieursIndices = carte.hints.length > 1;
@@ -403,7 +402,7 @@ function creerCarteHTML(carte){
           <div class="hint">${echapperHTML(texteIndice)}</div>
           ${aPlusieursIndices ? `<button class="hint-btn" type="button" data-card-id="${carte.id}">? Aide</button>` : ""}
         </div>
-        <div class="face front ${holo}" data-rarity="${echapperHTML(carte.rarity)}">
+        <div class="face front" data-rarity="${echapperHTML(carte.rarity)}">
           <div class="rarity-tag" data-r="${echapperHTML(carte.rarity)}">${echapperHTML(carte.rarity)}</div>
           <img class="art" src="${echapperHTML(carte.image)}" alt="${echapperHTML(carte.title)} — ${echapperHTML(carte.description)}" loading="lazy">
         </div>
@@ -489,20 +488,6 @@ async function tenterDeverrouillage(){
       window.notifierDiscord(carteTrouvee, saisie);
     }
 
-    // Joue une apparition spécifique pour les deux raretés les plus exceptionnelles.
-    requestAnimationFrame(() => {
-      const element = document.querySelector(`.card[data-id="${carteTrouvee.id}"]`);
-      if(!element){ return; }
-
-      const animationRarete = {
-        Sulfureuse: { classe: "reveal-sulfureuse", duree: 1120 },
-        Mythique: { classe: "reveal-mythique", duree: 1650 }
-      }[carteTrouvee.rarity];
-      const animation = animationRarete || { classe: "just-unlocked", duree: 900 };
-
-      element.classList.add(animation.classe);
-      setTimeout(() => element.classList.remove(animation.classe), animation.duree);
-    });
   } else {
     // Carte déjà débloquée avec ce mot de passe, ou mot de passe invalide.
     const dejaFait = CARTES.some(carte => carte.passwordHash === hash && debloquees.has(carte.id));

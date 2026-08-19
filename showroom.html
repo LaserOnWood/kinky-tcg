@@ -36,18 +36,6 @@
     .showroom-header h1 { margin-bottom: 12px; font-size: clamp(38px, 7vw, 64px); }
     .showroom-subtitle { max-width: 680px; margin: 0 auto; color: var(--ink-muted); font-size: 13px; line-height: 1.7; }
 
-    .showroom-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
-    .showroom-actions button {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: 38px; padding: 0 14px;
-      border: 1px solid rgba(240,214,138,.34); border-radius: 99px;
-      background: rgba(26,11,20,.65); color: var(--gold-soft);
-      font: 600 11px var(--ff-body); letter-spacing: .07em; text-transform: uppercase;
-      cursor: pointer; transition: transform .2s ease, border-color .2s ease, background .2s ease;
-    }
-    .showroom-actions button:hover { transform: translateY(-2px); border-color: var(--gold); background: var(--bg-panel-2); }
-    .showroom-actions button:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
-
     .showroom-page main { max-width: 1400px; padding: 36px 20px 0; }
     .showroom-grid {
       display: grid;
@@ -68,18 +56,6 @@
       position: absolute; inset: 0;
       overflow: hidden;
       background: linear-gradient(155deg, #4a1a30, #11080f 72%);
-    }
-    .showroom-art::before,
-    .showroom-art::after { content: ""; position: absolute; pointer-events: none; }
-    .showroom-art::before {
-      width: 190px; height: 190px; top: 17%; left: 50%;
-      transform: translateX(-50%); border: 1px solid rgba(255,255,255,.22); border-radius: 50%;
-      box-shadow: inset 0 0 35px rgba(255,255,255,.12), 0 0 36px rgba(255,255,255,.10);
-    }
-    .showroom-art::after {
-      width: 115%; height: 42%; left: -7%; top: 42%;
-      background: linear-gradient(125deg, transparent 27%, rgba(255,255,255,.16) 50%, transparent 73%);
-      transform: rotate(-13deg);
     }
     .showroom-icon {
       position: absolute; top: 28%; left: 50%; z-index: 1;
@@ -106,23 +82,13 @@
     }
     .showroom-note strong { color: var(--gold-soft); }
 
-    .holo-paused .front.holo::before { animation-play-state: paused !important; }
-    .holo-paused .showroom-actions [data-pause-holo] { border-color: var(--gold); background: rgba(217,169,79,.13); }
-
-    @media (prefers-reduced-motion: reduce) {
-      .showroom-actions button { transition: none; }
-    }
   </style>
 </head>
 <body class="showroom-page">
   <header class="showroom-header">
     <p class="eyebrow">Kinky TCG · Outil de contrôle</p>
     <h1>Showroom des raretés</h1>
-    <p class="showroom-subtitle">Comparez chaque niveau, observez les contrastes de couleur et testez la montée progressive des reflets holographiques, de la lueur discrète à la finition Mythique.</p>
-    <div class="showroom-actions" aria-label="Commandes de prévisualisation">
-      <button type="button" id="replay-effects"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Rejouer les apparitions</button>
-      <button type="button" data-pause-holo aria-pressed="false"><i class="fa-solid fa-pause" aria-hidden="true"></i> Figer les reflets</button>
-    </div>
+    <p class="showroom-subtitle">Comparez les six niveaux de rareté et leurs palettes de couleur dans une présentation statique et lisible.</p>
   </header>
 
   <main>
@@ -139,9 +105,9 @@
 
       <article class="showroom-tile showroom-card">
         <div class="card-slot"><div class="card unlocked">
-          <div class="face front holo" data-rarity="Provocante">
+          <div class="face front" data-rarity="Provocante">
             <div class="showroom-art art-provocante"><i class="showroom-icon fa-solid fa-bolt" aria-hidden="true"></i></div>
-            <div class="showroom-copy"><p class="showroom-index">Niveau 02 · Impulsion</p><h2>Provocante</h2><p>Framboise électrique et premier éclat holographique.</p></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 02 · Impulsion</p><h2>Provocante</h2><p>Framboise électrique, nette et assumée.</p></div>
             <div class="rarity-tag" data-r="Provocante">Provocante</div>
           </div>
         </div></div>
@@ -149,9 +115,9 @@
 
       <article class="showroom-tile showroom-card">
         <div class="card-slot"><div class="card unlocked">
-          <div class="face front holo" data-rarity="Audacieuse">
+          <div class="face front" data-rarity="Audacieuse">
             <div class="showroom-art art-audacieuse"><i class="showroom-icon fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
-            <div class="showroom-copy"><p class="showroom-index">Niveau 03 · Élan</p><h2>Audacieuse</h2><p>Violet lumineux et reflet plus affirmé.</p></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 03 · Élan</p><h2>Audacieuse</h2><p>Violet lumineux, profond et assumé.</p></div>
             <div class="rarity-tag" data-r="Audacieuse">Audacieuse</div>
           </div>
         </div></div>
@@ -159,64 +125,37 @@
 
       <article class="showroom-tile showroom-card">
         <div class="card-slot"><div class="card unlocked">
-          <div class="face front holo" data-rarity="Envoûtante">
+          <div class="face front" data-rarity="Envoûtante">
             <div class="showroom-art art-envoutante"><i class="showroom-icon fa-solid fa-moon" aria-hidden="true"></i></div>
-            <div class="showroom-copy"><p class="showroom-index">Niveau 04 · Rituel</p><h2>Envoûtante</h2><p>Indigo profond et halo immersif.</p></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 04 · Rituel</p><h2>Envoûtante</h2><p>Indigo profond et présence immersive.</p></div>
             <div class="rarity-tag" data-r="Envoûtante">Envoûtante</div>
           </div>
         </div></div>
       </article>
 
       <article class="showroom-tile showroom-card">
-        <div class="card-slot"><div class="card unlocked" data-reveal="sulfureuse">
-          <div class="face front holo" data-rarity="Sulfureuse">
+        <div class="card-slot"><div class="card unlocked">
+          <div class="face front" data-rarity="Sulfureuse">
             <div class="showroom-art art-sulfureuse"><i class="showroom-icon fa-solid fa-fire" aria-hidden="true"></i></div>
-            <div class="showroom-copy"><p class="showroom-index">Niveau 05 · Convoitée</p><h2>Sulfureuse</h2><p>Carmin incandescent et apparition embrasée.</p></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 05 · Convoitée</p><h2>Sulfureuse</h2><p>Carmin incandescent et contraste intense.</p></div>
             <div class="rarity-tag" data-r="Sulfureuse">Sulfureuse</div>
           </div>
         </div></div>
       </article>
 
       <article class="showroom-tile showroom-card">
-        <div class="card-slot"><div class="card unlocked" data-reveal="mythique">
-          <div class="face front holo" data-rarity="Mythique">
+        <div class="card-slot"><div class="card unlocked">
+          <div class="face front" data-rarity="Mythique">
             <div class="showroom-art art-mythique"><i class="showroom-icon fa-solid fa-crown" aria-hidden="true"></i></div>
-            <div class="showroom-copy"><p class="showroom-index">Niveau 06 · Exception</p><h2>Mythique</h2><p>Platine, or pâle et finition métallique nacrée.</p></div>
+            <div class="showroom-copy"><p class="showroom-index">Niveau 06 · Exception</p><h2>Mythique</h2><p>Platine et or pâle pour une finition précieuse.</p></div>
             <div class="rarity-tag" data-r="Mythique">Mythique</div>
           </div>
         </div></div>
       </article>
     </section>
 
-    <p class="showroom-note"><strong>Lecture de la progression :</strong> Coquine reste mate ; Provocante introduit le reflet ; Audacieuse et Envoûtante en amplifient la profondeur ; Sulfureuse gagne un éclat carmin ; Mythique adopte une finition métal-or. Utilisez les commandes pour rejouer les apparitions d’exception ou immobiliser les reflets au moment voulu.</p>
+    <p class="showroom-note"><strong>Lecture de la progression :</strong> les cartes se distinguent désormais uniquement par leur palette, leur bordure et leur badge : rose satiné, framboise, violet, indigo, carmin puis platine-or.</p>
   </main>
 
-  <script>
-    const root = document.body;
-    const pauseButton = document.querySelector('[data-pause-holo]');
-    const replayButton = document.querySelector('#replay-effects');
-
-    pauseButton.addEventListener('click', () => {
-      const paused = root.classList.toggle('holo-paused');
-      pauseButton.setAttribute('aria-pressed', String(paused));
-      pauseButton.innerHTML = paused
-        ? '<i class="fa-solid fa-play" aria-hidden="true"></i> Relancer les reflets'
-        : '<i class="fa-solid fa-pause" aria-hidden="true"></i> Figer les reflets';
-    });
-
-    replayButton.addEventListener('click', () => {
-      const effects = [
-        { selector: '[data-reveal="sulfureuse"]', className: 'reveal-sulfureuse', duration: 1120 },
-        { selector: '[data-reveal="mythique"]', className: 'reveal-mythique', duration: 1650 }
-      ];
-      effects.forEach(({ selector, className, duration }) => {
-        const card = document.querySelector(selector);
-        card.classList.remove(className);
-        void card.offsetWidth;
-        card.classList.add(className);
-        window.setTimeout(() => card.classList.remove(className), duration);
-      });
-    });
-  </script>
 </body>
 </html>

@@ -107,16 +107,9 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
   width:100%;
   aspect-ratio:5/7.3;
   transform-style:preserve-3d;
-  transition:transform .8s cubic-bezier(.22,1,.36,1);
   cursor:default;
 }
 .card.unlocked{ transform:rotateY(180deg); }
-.card.just-unlocked{ animation:pop .8s cubic-bezier(.22,1,.36,1); }
-@keyframes pop{
-  0%{ filter:brightness(1); }
-  55%{ filter:brightness(1.5) drop-shadow(0 0 22px rgba(255,47,126,0.8)); }
-  100%{ filter:brightness(1); }
-}
 
 .face{
   position:absolute; inset:0;
@@ -143,11 +136,6 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
   display:flex; align-items:center; justify-content:center;
   font-size:18px; color:var(--bg-void);
   box-shadow:0 0 0 3px rgba(217,169,79,0.15), 0 4px 14px rgba(0,0,0,0.5);
-  animation:breathe 3.2s ease-in-out infinite;
-}
-@keyframes breathe{
-  0%,100%{ box-shadow:0 0 0 3px rgba(217,169,79,0.15), 0 4px 14px rgba(0,0,0,0.5); }
-  50%{ box-shadow:0 0 0 7px rgba(217,169,79,0.28), 0 4px 22px rgba(255,47,126,0.35); }
 }
 .back .num{
   font-family:var(--ff-display); font-style:italic;
@@ -182,7 +170,7 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 .front{
   transform:rotateY(180deg);
   background:var(--bg-panel);
-  /* Les halos de rareté et l’effet holographique restent contenus dans l’illustration. */
+  /* La face avant reste contenue dans les contours arrondis de la carte. */
   clip-path:inset(0 round var(--r-md));
   isolation:isolate;
 }
@@ -232,173 +220,43 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 /* Palette des raretés — les reflets restent contenus par le clip-path de .front. */
 .front[data-rarity]{
   --rarity-color:#eab0c2;
-  --rarity-rgb:234,176,194;
-  --rarity-deep:#703447;
   --rarity-text:#31101c;
   border:1.5px solid var(--rarity-color);
-  background:linear-gradient(180deg, rgba(var(--rarity-rgb),.12), rgba(13,5,9,.10) 48%, rgba(13,5,9,.42));
-  box-shadow:inset 0 0 0 1px rgba(var(--rarity-rgb),.20), inset 0 -56px 50px rgba(8,3,6,.42), inset 0 0 25px rgba(var(--rarity-rgb),.18);
-}
-.front[data-rarity]::after{
-  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:radial-gradient(circle at 75% 13%, rgba(var(--rarity-rgb),.43), transparent 37%), linear-gradient(160deg, rgba(var(--rarity-rgb),.13), transparent 54%);
-  mix-blend-mode:screen; opacity:.62;
+  background:var(--bg-panel);
+  box-shadow:none;
 }
 .rarity-tag[data-r]{
-  background:linear-gradient(135deg, var(--rarity-color), var(--rarity-deep));
-  box-shadow:0 0 11px rgba(var(--rarity-rgb),.38);
+  background:var(--rarity-color);
+  box-shadow:none;
   border:1px solid rgba(255,255,255,.20);
 }
 
 /* 1 — Rose satiné : entrée douce dans la collection. */
 .front[data-rarity="Coquine"]{
-  --rarity-color:#eab0c2; --rarity-rgb:234,176,194; --rarity-deep:#703447; --rarity-text:#31101c;
+  --rarity-color:#eab0c2; --rarity-text:#31101c;
 }
 /* 2 — Framboise électrique : une présence plus affirmée. */
 .front[data-rarity="Provocante"]{
-  --rarity-color:#ff4f8b; --rarity-rgb:255,79,139; --rarity-deep:#8e1e4d; --rarity-text:#fff4f7;
+  --rarity-color:#ff4f8b; --rarity-text:#fff4f7;
 }
 /* 3 — Violet lumineux : texture et intensité assumées. */
 .front[data-rarity="Audacieuse"]{
-  --rarity-color:#b46cff; --rarity-rgb:180,108,255; --rarity-deep:#51208a; --rarity-text:#fff8ff;
+  --rarity-color:#b46cff; --rarity-text:#fff8ff;
 }
-/* 4 — Indigo hypnotique : début des reflets holographiques. */
+/* 4 — Indigo profond : une présence calme et immersive. */
 .front[data-rarity="Envoûtante"]{
-  --rarity-color:#8274e8; --rarity-rgb:130,116,232; --rarity-deep:#30266d; --rarity-text:#fffaff;
+  --rarity-color:#8274e8; --rarity-text:#fffaff;
 }
 /* 5 — Carmin incandescent : halo de braises plus intense. */
 .front[data-rarity="Sulfureuse"]{
-  --rarity-color:#e23e57; --rarity-rgb:226,62,87; --rarity-deep:#741327; --rarity-text:#fff6f0;
-}
-.front[data-rarity="Sulfureuse"]::after{
-  background:radial-gradient(circle at 72% 15%, rgba(255,117,82,.56), transparent 32%), radial-gradient(circle at 20% 82%, rgba(226,62,87,.32), transparent 42%);
-  opacity:.76;
+  --rarity-color:#e23e57; --rarity-text:#fff6f0;
 }
 /* 6 — Platine, nacre et or : finition réservée à la carte ultime. */
 .front[data-rarity="Mythique"]{
-  --rarity-color:#f6f0da; --rarity-rgb:246,240,218; --rarity-deep:#d9a94f; --rarity-text:#2e1b0c;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.48), inset 0 -56px 50px rgba(8,3,6,.36), inset 0 0 28px rgba(255,255,255,.26);
-}
-.front[data-rarity="Mythique"]::after{
-  background:radial-gradient(circle at 70% 13%, rgba(255,255,255,.68), transparent 34%), radial-gradient(circle at 28% 23%, rgba(217,169,79,.38), transparent 45%);
-  opacity:.86;
+  --rarity-color:#f6f0da; --rarity-text:#2e1b0c;
 }
 
-/* Effets ambiants : l’intensité lumineuse et le mouvement progressent avec la rareté. */
-.front[data-rarity="Provocante"]::after{ --aura-min:.46; --aura-max:.68; --aura-brightness:1.12; animation:rarity-aura 6.8s ease-in-out infinite; }
-.front[data-rarity="Audacieuse"]::after{ --aura-min:.50; --aura-max:.76; --aura-brightness:1.18; animation:rarity-aura 5.8s ease-in-out infinite; }
-.front[data-rarity="Envoûtante"]::after{ --aura-min:.56; --aura-max:.84; --aura-brightness:1.22; animation:rarity-aura 4.8s ease-in-out infinite; }
-.front[data-rarity="Sulfureuse"]::after{ --aura-min:.62; --aura-max:.94; --aura-brightness:1.34; animation:rarity-aura 3.9s ease-in-out infinite; }
-.front[data-rarity="Mythique"]::after{ --aura-min:.70; --aura-max:1; --aura-brightness:1.38; animation:rarity-aura 4.4s ease-in-out infinite alternate; }
-
-.front[data-rarity="Provocante"] .art{ animation:art-breathe 8.2s ease-in-out infinite; }
-.front[data-rarity="Audacieuse"] .art{ animation:art-breathe 7.2s ease-in-out infinite; }
-.front[data-rarity="Envoûtante"] .art{ animation:art-breathe 6.2s ease-in-out infinite; }
-.front[data-rarity="Sulfureuse"] .art{ animation:art-breathe 5.4s ease-in-out infinite; }
-.front[data-rarity="Mythique"] .art{ animation:art-breathe 4.8s ease-in-out infinite; }
-
-@keyframes rarity-aura{
-  0%,100%{ opacity:var(--aura-min); filter:brightness(1) saturate(1); }
-  50%{ opacity:var(--aura-max); filter:brightness(var(--aura-brightness)) saturate(1.16); }
-}
-@keyframes art-breathe{
-  0%,100%{ transform:scale(1); }
-  50%{ transform:scale(1.035); }
-}
-
-@media (hover:hover) and (pointer:fine){
-  .card.unlocked .front{ transition:filter .3s ease; }
-  .card.unlocked:hover .front{ filter:brightness(1.08) saturate(1.12); }
-  .card.unlocked:hover .front.holo::before{ animation-duration:1.45s; }
-}
-
-/* Reflet holographique progressif — actif à partir du niveau Provocante. */
-.front.holo::before{
-  content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
-  background:linear-gradient(115deg, transparent 18%, rgba(255,255,255,.30) 40%, rgba(var(--rarity-rgb),.42) 50%, rgba(255,255,255,.24) 60%, transparent 82%);
-  background-size:250% 250%;
-  mix-blend-mode:screen;
-  animation:shimmer 5.4s linear infinite;
-  opacity:.28;
-}
-/* Provocante : première lueur framboise, lente et volontairement discrète. */
-.front[data-rarity="Provocante"].holo::before{
-  background:linear-gradient(115deg, transparent 22%, rgba(255,235,243,.26) 43%, rgba(255,79,139,.42) 51%, rgba(255,219,232,.22) 59%, transparent 78%);
-  animation-duration:5.4s;
-  opacity:.34;
-}
-/* Audacieuse : un reflet violet plus lisible et légèrement plus rapide. */
-.front[data-rarity="Audacieuse"].holo::before{
-  background:linear-gradient(115deg, transparent 20%, rgba(245,231,255,.30) 41%, rgba(180,108,255,.52) 50%, rgba(228,199,255,.28) 60%, transparent 80%);
-  animation-duration:4.7s;
-  opacity:.48;
-}
-/* Envoûtante : halo indigo plus profond, à l’animation plus immersive. */
-.front[data-rarity="Envoûtante"].holo::before{
-  background:linear-gradient(115deg, transparent 18%, rgba(239,237,255,.34) 40%, rgba(130,116,232,.62) 50%, rgba(218,213,255,.30) 60%, transparent 82%);
-  animation-duration:4.1s;
-  opacity:.64;
-}
-/* Sulfureuse : éclat carmin incandescent. */
-.front[data-rarity="Sulfureuse"].holo::before{
-  background:linear-gradient(115deg, transparent 17%, rgba(255,206,174,.32) 39%, rgba(255,64,78,.62) 50%, rgba(255,213,110,.34) 61%, transparent 83%);
-  animation-duration:3.6s;
-  opacity:.86;
-}
-/* Mythique : finition métallique nacrée réservée à la carte ultime. */
-.front[data-rarity="Mythique"].holo::before{
-  background:linear-gradient(115deg, transparent 10%, rgba(255,255,255,.58) 30%, rgba(217,169,79,.42) 45%, rgba(255,255,255,.68) 50%, rgba(217,169,79,.42) 55%, rgba(255,255,255,.58) 70%, transparent 90%), repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 3px);
-  background-size:200% 200%, 100% 100%;
-  mix-blend-mode:color-dodge;
-  animation:shimmer-mythic 4s ease-in-out infinite alternate;
-  opacity:.52;
-}
-
-@keyframes shimmer{
-  0%{ background-position:0% 0%; }
-  100%{ background-position:100% 100%; }
-}
-@keyframes shimmer-mythic{
-  0%{ background-position:0% 50%; filter:brightness(1); }
-  100%{ background-position:100% 50%; filter:brightness(1.22); }
-}
-
-/* Apparitions exceptionnelles : les calques internes sont animés pour préserver le retournement 3D. */
-.card.reveal-sulfureuse .front::after{
-  animation:sulfureuse-embers 1.12s ease-out both;
-}
-.card.reveal-sulfureuse .front.holo::before{
-  animation:sulfureuse-flare 1.12s ease-out both;
-}
-
-.card.reveal-mythique .front::after{
-  animation:mythic-aura 1.65s ease-out both;
-}
-.card.reveal-mythique .front.holo::before{
-  animation:mythic-awaken 1.65s ease-out both;
-}
-
-@keyframes sulfureuse-embers{
-  0%{ opacity:0; transform:scale(.72); filter:brightness(1); }
-  45%{ opacity:1; transform:scale(1.08); filter:brightness(1.65); }
-  100%{ opacity:.76; transform:scale(1); filter:brightness(1); }
-}
-@keyframes sulfureuse-flare{
-  0%{ background-position:0% 50%; opacity:0; }
-  42%{ background-position:68% 50%; opacity:1; }
-  100%{ background-position:100% 50%; opacity:.78; }
-}
-
-@keyframes mythic-aura{
-  0%{ opacity:0; transform:scale(.62); filter:brightness(1); }
-  35%{ opacity:1; transform:scale(1.11); filter:brightness(1.85); }
-  100%{ opacity:.86; transform:scale(1); filter:brightness(1); }
-}
-@keyframes mythic-awaken{
-  0%{ background-position:0% 50%, 0 0; opacity:0; }
-  34%{ background-position:70% 50%, 0 0; opacity:1; }
-  100%{ background-position:100% 50%, 0 0; opacity:.52; }
-}
+/* Raretés statiques : couleur de bordure et badge seulement, sans effet lumineux ni animation. */
 
 /* ==========================================================================
    BARRE DE SAISIE (sticky bas d'écran, pouce-friendly)
@@ -475,7 +333,7 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 }
 
 @media (prefers-reduced-motion:reduce){
-  .card, .front.holo::before, .front::after, .front .art, .seal, .progress-fill{ animation:none !important; transition:none !important; }
+  .progress-fill{ transition:none !important; }
 }
 /* ============================================================================
    Sélection des thèmes v2 et carrousel responsive
