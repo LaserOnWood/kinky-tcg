@@ -33,10 +33,11 @@ const THEME_STORAGE_BASE = "kinky_tcg_progress_v0.2";
 const THEME_HINTS_BASE = "kinky_tcg_hints_revealed";
 
 const RARETES_AUTORISEES = new Set([
-  "Commun",
-  "Rare",
-  "Épique",
-  "Légendaire",
+  "Coquine",
+  "Provocante",
+  "Audacieuse",
+  "Envoûtante",
+  "Sulfureuse",
   "Mythique"
 ]);
 
@@ -388,7 +389,7 @@ function obtenirIndiceActuel(carteId){
 
 function creerCarteHTML(carte){
   const estDebloquee = debloquees.has(carte.id);
-  const holo = ["Épique", "Légendaire", "Mythique"].includes(carte.rarity) ? "holo" : "";
+  const holo = ["Envoûtante", "Sulfureuse", "Mythique"].includes(carte.rarity) ? "holo" : "";
   const indiceActuel = obtenirIndiceActuel(carte.id);
   const texteIndice = carte.hints[indiceActuel] || carte.hints[0];
   const aPlusieursIndices = carte.hints.length > 1;

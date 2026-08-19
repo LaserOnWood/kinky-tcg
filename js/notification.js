@@ -16,11 +16,12 @@
 const DISCORD_WEBHOOK_URL = "";
 
 const RARITY_COLORS = Object.freeze({
-  Commun: 0x7b8a94,
-  Rare: 0x4fb3d9,
-  Épique: 0xff2f7e,
-  Légendaire: 0xd9a94f,
-  Mythique: 0xe5e4e2
+  Coquine: 0xeab0c2,
+  Provocante: 0xff4f8b,
+  Audacieuse: 0xb46cff,
+  Envoûtante: 0x8274e8,
+  Sulfureuse: 0xe23e57,
+  Mythique: 0xf6f0da
 });
 
 const DEFAULT_COLOR = 0xff2f7e;

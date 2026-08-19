@@ -14,7 +14,7 @@
           "title": "Le Prélude",
           "image": "https://picsum.photos/seed/carte1/500/700",
           "description": "Un massage lent, à la lumière des bougies, pour ouvrir le jeu en douceur.",
-          "rarity": "Commun"
+          "rarity": "Coquine"
         },
         {
           "id": 2,
@@ -24,7 +24,7 @@
           "title": "Le Reflet",
           "image": "https://picsum.photos/seed/carte2/500/700",
           "description": "Choisissez la tenue de votre partenaire pour le reste de la soirée.",
-          "rarity": "Commun"
+          "rarity": "Coquine"
         },
         {
           "id": 3,
@@ -34,7 +34,7 @@
           "title": "Le Velours",
           "image": "https://picsum.photos/seed/carte3/500/700",
           "description": "Un privilège d'une durée de dix minutes, à réclamer quand bon vous semble ce soir.",
-          "rarity": "Rare"
+          "rarity": "Provocante"
         },
         {
           "id": 8,
@@ -44,7 +44,7 @@
           "title": "L'Éclipse",
           "image": "https://picsum.photos/seed/carte8/500/700",
           "description": "La carte finale : un souhait, sans limite ni condition, à exaucer ce soir.",
-          "rarity": "Légendaire"
+          "rarity": "Envoûtante"
         }
       ]
     },
@@ -62,7 +62,7 @@
           "title": "L'Infusion",
           "image": "https://picsum.photos/seed/zen1/500/700",
           "description": "Préparez une boisson chaude et profitez d'un moment de calme à deux.",
-          "rarity": "Commun"
+          "rarity": "Coquine"
         },
         {
           "id": 102,
@@ -72,7 +72,7 @@
           "title": "Le Nuage",
           "image": "https://picsum.photos/seed/zen2/500/700",
           "description": "Cinq minutes de compliments sincères les yeux dans les yeux.",
-          "rarity": "Rare"
+          "rarity": "Provocante"
         }
       ]
     },
@@ -91,7 +91,7 @@
           "title": "La Lueur",
           "image": "https://picsum.photos/seed/adv1/500/700",
           "description": "Un gage à réaliser lumières éteintes uniquement.",
-          "rarity": "Épique"
+          "rarity": "Audacieuse"
         },
         {
           "id": 202,
@@ -101,7 +101,7 @@
           "title": "Le Sablier",
           "image": "https://picsum.photos/seed/adv2/500/700",
           "description": "Une action rapide à accomplir avant que le temps ne soit écoulé.",
-          "rarity": "Légendaire"
+          "rarity": "Envoûtante"
         }
       ]
     },
@@ -121,7 +121,7 @@
           "title": "La Lune",
           "image": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
           "description": "Un gage à réaliser lumières éteintes uniquement.",
-          "rarity": "Commun"
+          "rarity": "Coquine"
         },
         {
           "id": 402,
@@ -137,7 +137,7 @@
           "image": "assets/cartes/Tenue/Milf_masque.webp",
           "description": "La perte d'un sens permettra d'en savourer d'autre.",
           "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
-          "rarity": "Rare"
+          "rarity": "Provocante"
         },
         {
           "id": 403,
@@ -149,7 +149,7 @@
           "image": "assets/cartes/Actions/Humiliation_de_MILF.webp",
           "description": "Laisser une marque de passage",
           "actions": "Prends des feutres et laisse les disponible.",
-          "rarity":"Mythique"
+          "rarity":"Sulfureuse"
         },
         {
           "id": 404,
@@ -161,7 +161,7 @@
           "image": "assets/cartes/Actions/Fellation_de_MILF.webp",
           "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
           "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
-          "rarity": "Commun"
+          "rarity": "Coquine"
         },
         {
           "id": 405,
@@ -173,7 +173,7 @@
           "image": "assets/cartes/Actions/Gorge_profonde.webp",
           "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
           "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
-          "rarity": "Mythique"
+          "rarity": "Sulfureuse"
         },
         {
           "id": 406,
@@ -199,7 +199,7 @@
           "image": "assets/cartes/Positions/Baise_sauvage.webp",
           "description": "La perte d'un sens permettra d'en savourer d'autre.",
           "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
-          "rarity": "Épique"
+          "rarity": "Audacieuse"
         }
       ]
     }

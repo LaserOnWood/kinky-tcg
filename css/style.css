@@ -193,10 +193,10 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
   display:block;
 }
 .rarity-tag{
-  position:absolute; bottom:10px; left: 50%; transform: translateX(-50%); z-index: 2;
+  position:absolute; bottom:10px; left: 50%; transform: translateX(-50%); z-index:4;
   font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
   padding:3px 8px; border-radius:99px;
-  color:var(--bg-void);
+  color:var(--rarity-text, var(--bg-void));
 }
 .card.unlocked .art{ cursor:zoom-in; }
 
@@ -229,60 +229,89 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
   display:flex; align-items:center; justify-content:center;
 }
 
-/* Bordures + halo selon rareté */
-.front[data-rarity="Commun"]     { border:1.5px solid #7b8a94; box-shadow:var(--shadow-deep); }
-.front[data-rarity="Rare"]       { border:1.5px solid #4fb3d9; box-shadow:0 0 16px rgba(79,179,217,0.35), var(--shadow-deep); }
-.front[data-rarity="Épique"]     { border:1.5px solid var(--magenta); box-shadow:0 0 20px rgba(255,47,126,0.45), var(--shadow-deep); }
-.front[data-rarity="Légendaire"] { border:1.5px solid var(--gold); box-shadow:0 0 24px rgba(217,169,79,0.55), var(--shadow-deep); }
-
-/* Amélioration Mythique (Platinum) */
-.front[data-rarity="Mythique"] { 
-  border: 1.5px solid var(--platinum); 
-  box-shadow: 0 0 24px var(--platinum-glow), inset 0 0 15px rgba(255, 255, 255, 0.1), var(--shadow-deep); 
+/* Palette des raretés — les reflets restent contenus par le clip-path de .front. */
+.front[data-rarity]{
+  --rarity-color:#eab0c2;
+  --rarity-rgb:234,176,194;
+  --rarity-deep:#703447;
+  --rarity-text:#31101c;
+  border:1.5px solid var(--rarity-color);
+  background:linear-gradient(180deg, rgba(var(--rarity-rgb),.12), rgba(13,5,9,.10) 48%, rgba(13,5,9,.42));
+  box-shadow:inset 0 0 0 1px rgba(var(--rarity-rgb),.20), inset 0 -56px 50px rgba(8,3,6,.42), inset 0 0 25px rgba(var(--rarity-rgb),.18);
+}
+.front[data-rarity]::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(circle at 75% 13%, rgba(var(--rarity-rgb),.43), transparent 37%), linear-gradient(160deg, rgba(var(--rarity-rgb),.13), transparent 54%);
+  mix-blend-mode:screen; opacity:.62;
+}
+.rarity-tag[data-r]{
+  background:linear-gradient(135deg, var(--rarity-color), var(--rarity-deep));
+  box-shadow:0 0 11px rgba(var(--rarity-rgb),.38);
+  border:1px solid rgba(255,255,255,.20);
 }
 
-.rarity-tag[data-r="Commun"]{ background:#7b8a94; }
-.rarity-tag[data-r="Rare"]{ background:#4fb3d9; }
-.rarity-tag[data-r="Épique"]{ background:var(--magenta); color:#fff; }
-.rarity-tag[data-r="Légendaire"]{ background:linear-gradient(90deg,var(--gold),var(--gold-soft)); }
-
-/* Badge Mythique amélioré */
-.rarity-tag[data-r="Mythique"]{ 
-  background: linear-gradient(135deg, #d3d3d3 0%, #ffffff 50%, #e5e4e2 100%); 
-  color: #1a0b14;
-  box-shadow: 0 0 10px var(--platinum-glow);
-  border: 0.5px solid rgba(255,255,255,0.5);
+/* 1 — Rose satiné : entrée douce dans la collection. */
+.front[data-rarity="Coquine"]{
+  --rarity-color:#eab0c2; --rarity-rgb:234,176,194; --rarity-deep:#703447; --rarity-text:#31101c;
+}
+/* 2 — Framboise électrique : une présence plus affirmée. */
+.front[data-rarity="Provocante"]{
+  --rarity-color:#ff4f8b; --rarity-rgb:255,79,139; --rarity-deep:#8e1e4d; --rarity-text:#fff4f7;
+}
+/* 3 — Violet lumineux : texture et intensité assumées. */
+.front[data-rarity="Audacieuse"]{
+  --rarity-color:#b46cff; --rarity-rgb:180,108,255; --rarity-deep:#51208a; --rarity-text:#fff8ff;
+}
+/* 4 — Indigo hypnotique : début des reflets holographiques. */
+.front[data-rarity="Envoûtante"]{
+  --rarity-color:#8274e8; --rarity-rgb:130,116,232; --rarity-deep:#30266d; --rarity-text:#fffaff;
+}
+/* 5 — Carmin incandescent : halo de braises plus intense. */
+.front[data-rarity="Sulfureuse"]{
+  --rarity-color:#e23e57; --rarity-rgb:226,62,87; --rarity-deep:#741327; --rarity-text:#fff6f0;
+}
+.front[data-rarity="Sulfureuse"]::after{
+  background:radial-gradient(circle at 72% 15%, rgba(255,117,82,.56), transparent 32%), radial-gradient(circle at 20% 82%, rgba(226,62,87,.32), transparent 42%);
+  opacity:.76;
+}
+/* 6 — Platine, nacre et or : finition réservée à la carte ultime. */
+.front[data-rarity="Mythique"]{
+  --rarity-color:#f6f0da; --rarity-rgb:246,240,218; --rarity-deep:#d9a94f; --rarity-text:#2e1b0c;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.48), inset 0 -56px 50px rgba(8,3,6,.36), inset 0 0 28px rgba(255,255,255,.26);
+}
+.front[data-rarity="Mythique"]::after{
+  background:radial-gradient(circle at 70% 13%, rgba(255,255,255,.68), transparent 34%), radial-gradient(circle at 28% 23%, rgba(217,169,79,.38), transparent 45%);
+  opacity:.86;
 }
 
-/* Effet holographique — Épique / Légendaire */
+/* Reflet réservé aux niveaux Envoûtante, Sulfureuse et Mythique. */
 .front.holo::before{
   content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
-  background:linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.35) 42%, rgba(255,47,126,0.35) 50%, rgba(217,169,79,0.35) 58%, transparent 80%);
+  background:linear-gradient(115deg, transparent 18%, rgba(255,255,255,.36) 40%, rgba(var(--rarity-rgb),.48) 50%, rgba(255,255,255,.28) 60%, transparent 82%);
   background-size:250% 250%;
-  mix-blend-mode:overlay;
+  mix-blend-mode:screen;
   animation:shimmer 3.5s linear infinite;
-  opacity:0.85;
+  opacity:.78;
 }
-
-/* Texture Métallique Spécifique pour Mythique */
-.front[data-rarity="Mythique"].holo::before {
-  background: 
-    linear-gradient(115deg, transparent 10%, rgba(255,255,255,0.5) 30%, rgba(200,200,255,0.4) 45%, rgba(255,255,255,0.6) 50%, rgba(200,200,255,0.4) 55%, rgba(255,255,255,0.5) 70%, transparent 90%),
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 3px);
-  background-size: 200% 200%, 100% 100%;
-  mix-blend-mode: color-dodge;
-  animation: shimmer-mythic 4s ease-in-out infinite alternate;
-  opacity: 0.4;
+.front[data-rarity="Sulfureuse"].holo::before{
+  background:linear-gradient(115deg, transparent 17%, rgba(255,206,174,.32) 39%, rgba(255,64,78,.62) 50%, rgba(255,213,110,.34) 61%, transparent 83%);
+  opacity:.86;
+}
+.front[data-rarity="Mythique"].holo::before{
+  background:linear-gradient(115deg, transparent 10%, rgba(255,255,255,.58) 30%, rgba(217,169,79,.42) 45%, rgba(255,255,255,.68) 50%, rgba(217,169,79,.42) 55%, rgba(255,255,255,.58) 70%, transparent 90%), repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 3px);
+  background-size:200% 200%, 100% 100%;
+  mix-blend-mode:color-dodge;
+  animation:shimmer-mythic 4s ease-in-out infinite alternate;
+  opacity:.52;
 }
 
 @keyframes shimmer{
   0%{ background-position:0% 0%; }
   100%{ background-position:100% 100%; }
 }
-
 @keyframes shimmer-mythic{
-  0%{ background-position: 0% 50%; filter: brightness(1); }
-  100%{ background-position: 100% 50%; filter: brightness(1.3); }
+  0%{ background-position:0% 50%; filter:brightness(1); }
+  100%{ background-position:100% 50%; filter:brightness(1.22); }
 }
 
 /* ==========================================================================
