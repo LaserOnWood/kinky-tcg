@@ -489,13 +489,19 @@ async function tenterDeverrouillage(){
       window.notifierDiscord(carteTrouvee, saisie);
     }
 
-    // Relance l'animation de pop sur la carte concernée.
+    // Joue une apparition spécifique pour les deux raretés les plus exceptionnelles.
     requestAnimationFrame(() => {
       const element = document.querySelector(`.card[data-id="${carteTrouvee.id}"]`);
-      if(element){
-        element.classList.add("just-unlocked");
-        setTimeout(() => element.classList.remove("just-unlocked"), 900);
-      }
+      if(!element){ return; }
+
+      const animationRarete = {
+        Sulfureuse: { classe: "reveal-sulfureuse", duree: 1120 },
+        Mythique: { classe: "reveal-mythique", duree: 1650 }
+      }[carteTrouvee.rarity];
+      const animation = animationRarete || { classe: "just-unlocked", duree: 900 };
+
+      element.classList.add(animation.classe);
+      setTimeout(() => element.classList.remove(animation.classe), animation.duree);
     });
   } else {
     // Carte déjà débloquée avec ce mot de passe, ou mot de passe invalide.
