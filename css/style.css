@@ -221,6 +221,7 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 .front[data-rarity]{
   --rarity-color:#eab0c2;
   --rarity-text:#31101c;
+  --holo-rgb:234,176,194;
   border:1.5px solid var(--rarity-color);
   background:var(--bg-panel);
   box-shadow:none;
@@ -233,30 +234,44 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 
 /* 1 — Rose satiné : entrée douce dans la collection. */
 .front[data-rarity="Coquine"]{
-  --rarity-color:#eab0c2; --rarity-text:#31101c;
+  --rarity-color:#eab0c2; --rarity-text:#31101c; --holo-rgb:234,176,194;
 }
 /* 2 — Framboise électrique : une présence plus affirmée. */
 .front[data-rarity="Provocante"]{
-  --rarity-color:#ff4f8b; --rarity-text:#fff4f7;
+  --rarity-color:#ff4f8b; --rarity-text:#fff4f7; --holo-rgb:255,79,139;
 }
 /* 3 — Violet lumineux : texture et intensité assumées. */
 .front[data-rarity="Audacieuse"]{
-  --rarity-color:#b46cff; --rarity-text:#fff8ff;
+  --rarity-color:#b46cff; --rarity-text:#fff8ff; --holo-rgb:180,108,255;
 }
 /* 4 — Indigo profond : une présence calme et immersive. */
 .front[data-rarity="Envoûtante"]{
-  --rarity-color:#8274e8; --rarity-text:#fffaff;
+  --rarity-color:#8274e8; --rarity-text:#fffaff; --holo-rgb:130,116,232;
 }
 /* 5 — Carmin incandescent : halo de braises plus intense. */
 .front[data-rarity="Sulfureuse"]{
-  --rarity-color:#e23e57; --rarity-text:#fff6f0;
+  --rarity-color:#e23e57; --rarity-text:#fff6f0; --holo-rgb:226,62,87;
 }
 /* 6 — Platine, nacre et or : finition réservée à la carte ultime. */
 .front[data-rarity="Mythique"]{
-  --rarity-color:#f6f0da; --rarity-text:#2e1b0c;
+  --rarity-color:#f6f0da; --rarity-text:#2e1b0c; --holo-rgb:246,240,218;
 }
 
-/* Raretés statiques : couleur de bordure et badge seulement, sans effet lumineux ni animation. */
+/* Un seul effet holographique : un balayage continu coloré selon le badge. */
+.front.holo::before{
+  content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
+  background:linear-gradient(115deg, transparent 22%, rgba(255,255,255,.20) 42%, rgba(var(--holo-rgb),.58) 50%, rgba(255,255,255,.16) 58%, transparent 78%);
+  background-size:240% 240%;
+  mix-blend-mode:screen;
+  opacity:.62;
+  animation:holographic-sweep 4.8s linear infinite;
+}
+@keyframes holographic-sweep{
+  from{ background-position:0% 50%; }
+  to{ background-position:100% 50%; }
+}
+
+/* Raretés : couleur de bordure et badge, complétés par le même reflet holographique. */
 
 /* ==========================================================================
    BARRE DE SAISIE (sticky bas d'écran, pouce-friendly)
@@ -333,6 +348,7 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 }
 
 @media (prefers-reduced-motion:reduce){
+  .front.holo::before{ animation:none; }
   .progress-fill{ transition:none !important; }
 }
 /* ============================================================================

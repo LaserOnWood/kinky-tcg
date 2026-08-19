@@ -402,7 +402,7 @@ function creerCarteHTML(carte){
           <div class="hint">${echapperHTML(texteIndice)}</div>
           ${aPlusieursIndices ? `<button class="hint-btn" type="button" data-card-id="${carte.id}">? Aide</button>` : ""}
         </div>
-        <div class="face front" data-rarity="${echapperHTML(carte.rarity)}">
+        <div class="face front holo" data-rarity="${echapperHTML(carte.rarity)}">
           <div class="rarity-tag" data-r="${echapperHTML(carte.rarity)}">${echapperHTML(carte.rarity)}</div>
           <img class="art" src="${echapperHTML(carte.image)}" alt="${echapperHTML(carte.title)} — ${echapperHTML(carte.description)}" loading="lazy">
         </div>
