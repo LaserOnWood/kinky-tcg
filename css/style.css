@@ -284,6 +284,34 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
   opacity:.86;
 }
 
+/* Effets ambiants : l’intensité lumineuse et le mouvement progressent avec la rareté. */
+.front[data-rarity="Provocante"]::after{ --aura-min:.46; --aura-max:.68; --aura-brightness:1.12; animation:rarity-aura 6.8s ease-in-out infinite; }
+.front[data-rarity="Audacieuse"]::after{ --aura-min:.50; --aura-max:.76; --aura-brightness:1.18; animation:rarity-aura 5.8s ease-in-out infinite; }
+.front[data-rarity="Envoûtante"]::after{ --aura-min:.56; --aura-max:.84; --aura-brightness:1.22; animation:rarity-aura 4.8s ease-in-out infinite; }
+.front[data-rarity="Sulfureuse"]::after{ --aura-min:.62; --aura-max:.94; --aura-brightness:1.34; animation:rarity-aura 3.9s ease-in-out infinite; }
+.front[data-rarity="Mythique"]::after{ --aura-min:.70; --aura-max:1; --aura-brightness:1.38; animation:rarity-aura 4.4s ease-in-out infinite alternate; }
+
+.front[data-rarity="Provocante"] .art{ animation:art-breathe 8.2s ease-in-out infinite; }
+.front[data-rarity="Audacieuse"] .art{ animation:art-breathe 7.2s ease-in-out infinite; }
+.front[data-rarity="Envoûtante"] .art{ animation:art-breathe 6.2s ease-in-out infinite; }
+.front[data-rarity="Sulfureuse"] .art{ animation:art-breathe 5.4s ease-in-out infinite; }
+.front[data-rarity="Mythique"] .art{ animation:art-breathe 4.8s ease-in-out infinite; }
+
+@keyframes rarity-aura{
+  0%,100%{ opacity:var(--aura-min); filter:brightness(1) saturate(1); }
+  50%{ opacity:var(--aura-max); filter:brightness(var(--aura-brightness)) saturate(1.16); }
+}
+@keyframes art-breathe{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.035); }
+}
+
+@media (hover:hover) and (pointer:fine){
+  .card.unlocked .front{ transition:filter .3s ease; }
+  .card.unlocked:hover .front{ filter:brightness(1.08) saturate(1.12); }
+  .card.unlocked:hover .front.holo::before{ animation-duration:1.45s; }
+}
+
 /* Reflet holographique progressif — actif à partir du niveau Provocante. */
 .front.holo::before{
   content:""; position:absolute; inset:0; z-index:3; pointer-events:none;
@@ -447,7 +475,7 @@ main{ padding:6px 16px 20px; max-width:900px; margin:0 auto; }
 }
 
 @media (prefers-reduced-motion:reduce){
-  .card, .front.holo::before, .front::after, .seal, .progress-fill{ animation:none !important; transition:none !important; }
+  .card, .front.holo::before, .front::after, .front .art, .seal, .progress-fill{ animation:none !important; transition:none !important; }
 }
 /* ============================================================================
    Sélection des thèmes v2 et carrousel responsive
