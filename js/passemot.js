@@ -389,7 +389,7 @@ function obtenirIndiceActuel(carteId){
 
 function creerCarteHTML(carte){
   const estDebloquee = debloquees.has(carte.id);
-  const holo = ["Envoûtante", "Sulfureuse", "Mythique"].includes(carte.rarity) ? "holo" : "";
+  const holo = ["Provocante", "Audacieuse", "Envoûtante", "Sulfureuse", "Mythique"].includes(carte.rarity) ? "holo" : "";
   const indiceActuel = obtenirIndiceActuel(carte.id);
   const texteIndice = carte.hints[indiceActuel] || carte.hints[0];
   const aPlusieursIndices = carte.hints.length > 1;
