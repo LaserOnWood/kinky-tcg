@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototype d’animations holographiques par rareté pour Kinky TCG.">
+  <title>Kinky TCG — Laboratoire holographique</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="holo-lab">
+    <section class="hero container">
+      <p class="eyebrow"><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Kinky TCG · Laboratoire visuel</p>
+      <h1>Holographie <em>par grade</em></h1>
+      <p class="intro">Un prototype volontairement plus voyant : chaque rareté possède son propre mouvement, ses couleurs, son rythme et son niveau de lumière.</p>
+      <div class="lab-controls" aria-label="Commandes de prévisualisation">
+        <button id="intensity-toggle" class="control-button" type="button" aria-pressed="false">
+          <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+          <span>Activer l’intensité maximale</span>
+        </button>
+        <p class="control-note"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Survolez ou touchez une carte pour déplacer ses reflets.</p>
+      </div>
+    </section>
+
+    <section class="container pb-5" aria-labelledby="grades-title">
+      <div class="section-heading">
+        <p class="section-kicker">Lecture progressive</p>
+        <h2 id="grades-title">Six signatures holographiques</h2>
+      </div>
+
+      <div class="row g-4 holo-grid">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <article class="holo-card rarity-coquine" data-rarity="Coquine" tabindex="0" aria-label="Grade Coquine : satin rose et reflet nacré">
+            <div class="card-shell">
+              <div class="card-topline"><span>Grade I</span><span class="card-code">C-01</span></div>
+              <div class="card-emblem"><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i></div>
+              <div class="card-copy"><p class="rarity-label">Coquine</p><h3>Satin nacré</h3><p>Un voile rose doux traverse la carte à cadence lente.</p></div>
+              <div class="card-footer"><span>Reflet doux</span><i class="fa-solid fa-gem" aria-hidden="true"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <article class="holo-card rarity-provocante" data-rarity="Provocante" tabindex="0" aria-label="Grade Provocante : scan framboise et pulsations électriques">
+            <div class="card-shell">
+              <div class="card-topline"><span>Grade II</span><span class="card-code">P-02</span></div>
+              <div class="card-emblem"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+              <div class="card-copy"><p class="rarity-label">Provocante</p><h3>Pulse scan</h3><p>Un flash framboise bat au rythme d’un balayage rapide.</p></div>
+              <div class="card-footer"><span>Éclat vif</span><i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <article class="holo-card rarity-audacieuse" data-rarity="Audacieuse" tabindex="0" aria-label="Grade Audacieuse : prismes violets et faisceaux laser">
+            <div class="card-shell">
+              <div class="card-topline"><span>Grade III</span><span class="card-code">A-03</span></div>
+              <div class="card-emblem"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+              <div class="card-copy"><p class="rarity-label">Audacieuse</p><h3>Prisme laser</h3><p>Des bandes violettes se croisent et découpent l’espace.</p></div>
+              <div class="card-footer"><span>Prisme</span><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <article class="holo-card rarity-envoutante" data-rarity="Envoûtante" tabindex="0" aria-label="Grade Envoûtante : onde aurorale indigo">
+            <div class="card-shell">
+              <div class="card-topline"><span>Grade IV</span><span class="card-code">E-04</span></div>
+              <div class="card-emblem"><i class="fa-solid fa-moon" aria-hidden="true"></i></div>
+              <div class="card-copy"><p class="rarity-label">Envoûtante</p><h3>Onde aurorale</h3><p>Une lumière indigo tourne comme une marée hypnotique.</p></div>
+              <div class="card-footer"><span>Onde lente</span><i class="fa-solid fa-moon" aria-hidden="true"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <article class="holo-card rarity-sulfureuse" data-rarity="Sulfureuse" tabindex="0" aria-label="Grade Sulfureuse : braises carmin et traînées ardentes">
+            <div class="card-shell">
+              <div class="card-topline"><span>Grade V</span><span class="card-code">S-05</span></div>
+              <div class="card-emblem"><i class="fa-solid fa-fire" aria-hidden="true"></i></div>
+              <div class="card-copy"><p class="rarity-label">Sulfureuse</p><h3>Braises vives</h3><p>Des étincelles chaudes montent avec une lueur incendiaire.</p></div>
+              <div class="card-footer"><span>Flamme</span><i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <article class="holo-card rarity-mythique" data-rarity="Mythique" tabindex="0" aria-label="Grade Mythique : spectre platine, or et arc-en-ciel">
+            <div class="card-shell">
+              <div class="card-topline"><span>Grade VI</span><span class="card-code">M-06</span></div>
+              <div class="card-emblem"><i class="fa-solid fa-crown" aria-hidden="true"></i></div>
+              <div class="card-copy"><p class="rarity-label">Mythique</p><h3>Prisme souverain</h3><p>Le spectre complet, des particules et une couronne de lumière.</p></div>
+              <div class="card-footer"><span>Finition ultime</span><i class="fa-solid fa-crown" aria-hidden="true"></i></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container pb-5">
+      <div class="legend-panel">
+        <div><i class="fa-solid fa-circle-info" aria-hidden="true"></i><strong>Intention :</strong> conserver la progression de rareté déjà établie, mais rendre chaque grade identifiable même en une seconde.</div>
+        <div><i class="fa-solid fa-universal-access" aria-hidden="true"></i> Les animations se figent automatiquement si le système demande une réduction des mouvements.</div>
+      </div>
+    </section>
+  </main>
+  <script src="interaction.js"></script>
+</body>
+</html>
