@@ -23,6 +23,16 @@
   --r-md: 14px;
   --ff-display: 'Cormorant Garamond', Georgia, serif;
   --ff-body: 'Poppins', system-ui, sans-serif;
+
+  /* Surcharge Bootstrap : aucun fond blanc ne doit transparaître dans les zones arrondies. */
+  color-scheme: dark;
+  --bs-body-bg: var(--bg-void);
+  --bs-body-color: var(--ink);
+  --bs-emphasis-color: var(--ink);
+  --bs-secondary-color: var(--ink-muted);
+  --bs-secondary-bg: var(--bg-panel);
+  --bs-tertiary-bg: var(--bg-panel-2);
+  --bs-border-color: var(--line);
 }
 
 *{ box-sizing:border-box; }
