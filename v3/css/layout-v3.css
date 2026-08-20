@@ -141,7 +141,8 @@ header.top.v3-header {
 .v3-level {
   justify-self: end;
   max-width: 100%;
-  padding: 8px 10px;
+  /* Même retrait intérieur que le bouton Retour pour une symétrie visuelle. */
+  padding: 8px 11px;
   color: var(--gold-soft);
   overflow: hidden;
 }
