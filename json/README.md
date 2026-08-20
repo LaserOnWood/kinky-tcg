@@ -11,7 +11,7 @@ Le fichier `cartes.json` centralise **toutes les données éditables** du protot
 | `title` | Titre révélé après le déverrouillage. | `"La Surprise"` |
 | `image` | URL absolue ou chemin relatif de l’illustration. | `"images/carte-09.jpg"` |
 | `description` | Texte ou gage révélé par la carte. | `"…"` |
-| `rarity` | Rareté visuelle. Valeurs autorisées : `Commun`, `Rare`, `Épique`, `Légendaire`, `Mythique`. | `"Rare"` |
+| `rarity` | Rareté visuelle. Valeurs autorisées : `Coquine`, `Provocante`, `Audacieuse`, `Envoûtante`, `Sulfureuse`, `Mythique`. | `"Provocante"` |
 
 > Le fichier est du JSON strict : aucun commentaire n’est permis, et une virgule est requise entre deux cartes, sauf après la dernière.
 

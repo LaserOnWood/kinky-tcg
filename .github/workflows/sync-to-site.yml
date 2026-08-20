@@ -36,7 +36,6 @@ jobs:
           cp -a ./css site/game/tcgproto/
           cp -a ./js site/game/tcgproto/
           cp -a ./json site/game/tcgproto/
-          cp -a ./v2 site/game/tcgproto/
           cp -a ./index.html site/game/tcgproto/
 
       - name: Publier les changements

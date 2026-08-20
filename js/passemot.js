@@ -487,11 +487,6 @@ async function tenterDeverrouillage(){
     rendreGrille();
     rendreProgression();
 
-    // Préserve la notification (Discord) du prototype lorsqu'elle est configurée.
-    if(window.notifierDiscord){
-      window.notifierDiscord(carteTrouvee, saisie);
-    }
-
   } else {
     // Carte déjà débloquée avec ce mot de passe, ou mot de passe invalide.
     const dejaFait = CARTES.some(carte => carte.passwordHash === hash && debloquees.has(carte.id));

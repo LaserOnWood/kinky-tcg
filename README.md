@@ -30,7 +30,7 @@ Le dépôt constitue la **source principale du projet**. Les modifications doive
 | Indices supplémentaires | Certaines cartes proposent plusieurs niveaux d’aide via le bouton **Aide**. |
 | Révélation animée | Les cartes se retournent et affichent leur illustration lorsqu’elles sont déverrouillées. |
 | Aperçu des illustrations | Une carte révélée peut être ouverte en grand format. |
-| Interface responsive | Sur téléphone, les cartes utilisent un carrousel horizontal tactile ; sur les écrans plus larges, elles sont présentées en grille. |
+| Interface responsive | Les cartes restent dans une zone dédiée à hauteur contrôlée et se parcourent horizontalement, sans défilement vertical parasite sur téléphone. |
 | Synchronisation automatique | Chaque mise à jour de `main` peut être publiée automatiquement sur le site principal. |
 
 ## Règles du jeu
@@ -84,12 +84,12 @@ Après une modification des données, rechargez la page et testez au minimum la 
 .
 ├── index.html              # Point d’entrée de l’application
 ├── css/
-│   └── style.css           # Styles, thèmes, grille et responsive design
+│   ├── style.css           # Palette, composants communs et surcharge Bootstrap sombre
+│   └── layout-v3.css       # Mise en page du jeu en trois zones, responsive
 ├── js/
 │   ├── passemot.js         # Chargement des données et logique principale
 │   ├── carousel.js         # Navigation du sélecteur de thèmes
-│   ├── hasheur.js          # Vérification des réponses hashées
-│   └── notification.js     # Notifications optionnelles
+│   └── hasheur.js          # Utilitaire de génération de hash en console
 ├── json/
 │   ├── cartes.json         # Données actives du jeu
 │   ├── cartes_original.json  # Copie de référence
@@ -149,8 +149,9 @@ Le projet évolue par itérations courtes, avec une attention particulière port
 | Sélection thématique | Ajout de plusieurs univers et d’un écran de choix avant l’accès à la partie. |
 | Interface responsive | Adaptation de la grille et de la zone de saisie aux téléphones, tablettes et ordinateurs. |
 | Carrousel mobile | Ajout d’un défilement horizontal tactile pour les cartes sur les petits écrans. |
-| Hauteur mobile adaptative | Utilisation de `dvh` pour mieux adapter la hauteur des cartes aux téléphones hauts et aux barres de navigation mobiles. |
-| Correction desktop | Ajout d’un espace réservé sous la grille afin que la barre de réponse fixe ne masque pas les dernières cartes. |
+| Hauteur mobile adaptative | Utilisation de `dvh` pour adapter la hauteur aux navigateurs mobiles et supprimer le défilement vertical parasite. |
+| Mise en page en trois zones | Header, zone de cartes et zone de saisie sont désormais gérés par une grille de hauteur contrôlée. |
+| Finition unifiée | Les cartes utilisent une bordure dorée et le fond Bootstrap est surchargé avec la palette sombre du jeu. |
 | Organisation des ressources | Déplacement des scripts et des ressources vers une structure plus claire, avec des chemins compatibles avec la synchronisation dans `game/tcgproto`. |
 | Documentation actuelle | README enrichi, règles de jeu documentées et procédure de développement local clarifiée. |
 
