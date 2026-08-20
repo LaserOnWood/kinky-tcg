@@ -240,7 +240,7 @@ main.v3-cards-zone {
   transform: translateZ(0);
 }
 
-/* Le prototype v3 est volontairement sans aucun encadrement de carte. */
+/* Les anciens contours sont neutralisés avant d’ajouter une finition dorée contrôlée. */
 .v3-cards-zone .card-slot,
 .v3-cards-zone .card,
 .v3-cards-zone .face,
@@ -250,6 +250,19 @@ main.v3-cards-zone {
   border: 0 !important;
   outline: 0 !important;
   box-shadow: none !important;
+}
+
+/* Liseré doré appliqué au premier plan, identique sur le dos et l’illustration. */
+.v3-cards-zone .face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: clamp(1px, .35cqw, 2px) solid var(--gold);
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(240, 214, 138, .32), 0 0 12px rgba(217, 169, 79, .16);
 }
 
 .v3-swipe-hint {
