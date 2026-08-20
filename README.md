@@ -27,6 +27,7 @@ Le dépôt constitue la **source principale du projet**. Les modifications doive
 | Sélection de thème | Choisissez l’ambiance de la partie avant de commencer. |
 | Cartes à révéler | Chaque carte possède un indice, une réponse et une illustration. |
 | Progression locale | Les cartes déjà découvertes sont conservées dans le navigateur. |
+| Notifications optionnelles | Une notification Discord peut être envoyée lors d’un déverrouillage si une URL de relais est configurée. Elle est désactivée par défaut. |
 | Indices supplémentaires | Certaines cartes proposent plusieurs niveaux d’aide via le bouton **Aide**. |
 | Révélation animée | Les cartes se retournent et affichent leur illustration lorsqu’elles sont déverrouillées. |
 | Aperçu des illustrations | Une carte révélée peut être ouverte en grand format. |
@@ -89,7 +90,8 @@ Après une modification des données, rechargez la page et testez au minimum la 
 ├── js/
 │   ├── passemot.js         # Chargement des données et logique principale
 │   ├── carousel.js         # Navigation du sélecteur de thèmes
-│   └── hasheur.js          # Utilitaire de génération de hash en console
+│   ├── hasheur.js          # Utilitaire de génération de hash en console
+│   └── notification.js     # Notification Discord optionnelle, inactive sans configuration
 ├── json/
 │   ├── cartes.json         # Données actives du jeu
 │   ├── cartes_original.json  # Copie de référence

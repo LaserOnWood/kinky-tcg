@@ -487,6 +487,11 @@ async function tenterDeverrouillage(){
     rendreGrille();
     rendreProgression();
 
+    // La notification est optionnelle et ne bloque jamais le déverrouillage.
+    if (window.notifierDiscord) {
+      window.notifierDiscord(carteTrouvee, saisie);
+    }
+
   } else {
     // Carte déjà débloquée avec ce mot de passe, ou mot de passe invalide.
     const dejaFait = CARTES.some(carte => carte.passwordHash === hash && debloquees.has(carte.id));
