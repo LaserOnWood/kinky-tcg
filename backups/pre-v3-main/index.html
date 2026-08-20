@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pass-Card • Sélection des thèmes v2</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="assets/ico/trading-card.png">
+
+  <!-- Styles communs du jeu puis styles spécifiques à la v2. -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="selection-v2">
+  <div id="selection-screen">
+    <div class="selection-intro">
+      <p class="selection-kicker">Kinky TCG - v2.1</p>
+      <h1>Choisissez votre thème</h1>
+      <p class="selection-subtitle">Chaque univers propose une ambiance différente. Faites défiler les cartes sur mobile, puis sélectionnez celle qui vous inspire.</p>
+    </div>
+
+    <div class="themes-stage">
+      <div id="themes-container" class="themes-list" aria-label="Thèmes disponibles">
+        <div style="width:100%; color:var(--ink-muted); text-align:center;">Chargement des thèmes…</div>
+      </div>
+      <div class="carousel-controls" aria-label="Navigation des thèmes">
+        <button class="carousel-button" id="theme-prev" type="button" aria-label="Thème précédent"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-dots" id="theme-dots" aria-hidden="true"></div>
+        <button class="carousel-button" id="theme-next" type="button" aria-label="Thème suivant"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <p class="swipe-hint"><i class="fas fa-arrows-left-right"></i> Faites glisser pour découvrir les thèmes</p>
+    </div>
+  </div>
+
+  <div id="game-content" class="hidden">
+    <header class="top">
+      <div class="header-controls">
+        <button id="back-to-selection"><i class="fas fa-chevron-left"></i> Retour</button>
+        <p class="eyebrow">Chasse aux trésors</p>
+        <div style="width:60px;"></div>
+      </div>
+      <h1 id="game-title">Pass-Card</h1>
+      <div class="progress-wrap"><div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-label" id="progress-label">0 / 0</div></div>
+    </header>
+
+    <main><div class="grid" id="grid"></div></main>
+
+    <div class="entry-bar">
+      <p class="feedback" id="feedback">&nbsp;</p>
+      <div class="entry-inner" id="entry-inner">
+        <input id="pwd-input" type="text" placeholder="Entrer votre réponse …" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button id="submit-btn">Valider</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <div class="box">
+        <h2>Collection complète</h2>
+        <p>Bien jouer. Toutes les cartes ont été révélées.<br>Maintenant il faut mettre en applications chaque carte.</p>
+        <button id="overlay-close">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts communs du jeu puis script spécifique au carrousel v2. -->
+  <script src="js/notification.js"></script>
+  <script src="js/passemot.js"></script>
+  <script src="js/hasheur.js"></script>
+  <script src="js/carousel.js"></script>
+</body>
+</html>
