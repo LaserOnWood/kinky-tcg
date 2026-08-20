@@ -227,7 +227,17 @@ main.v3-cards-zone {
 }
 
 .v3-cards-zone .front {
-  clip-path: inset(0 round clamp(10px, 2.4cqw, var(--r-md)));
+  /* Un seul masque arrondi évite tout halo clair entre l’image et sa face. */
+  clip-path: none;
+  overflow: hidden;
+  border-radius: clamp(10px, 2.4cqw, var(--r-md));
+  background: var(--bg-void);
+}
+
+.v3-cards-zone .front .art {
+  border-radius: inherit;
+  background: var(--bg-void);
+  transform: translateZ(0);
 }
 
 /* Le prototype v3 est volontairement sans aucun encadrement de carte. */
