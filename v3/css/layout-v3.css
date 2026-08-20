@@ -230,10 +230,16 @@ main.v3-cards-zone {
   clip-path: inset(0 round clamp(10px, 2.4cqw, var(--r-md)));
 }
 
-/* Le prototype v3 est volontairement sans contour autour des cartes. */
+/* Le prototype v3 est volontairement sans aucun encadrement de carte. */
+.v3-cards-zone .card-slot,
+.v3-cards-zone .card,
+.v3-cards-zone .face,
 .v3-cards-zone .back,
+.v3-cards-zone .front,
 .v3-cards-zone .front[data-rarity] {
-  border: 0;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 .v3-swipe-hint {
