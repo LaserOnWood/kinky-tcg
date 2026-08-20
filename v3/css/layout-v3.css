@@ -311,6 +311,13 @@ main.v3-cards-zone {
   font-size: 12px;
 }
 
+/* Sur mobile, la gélule reçoit le même retrait droit explicite que la page principale. */
+@media (max-width: 699px) {
+  .v3-level {
+    margin-right: 10px;
+  }
+}
+
 /* Les écrans confortables peuvent utiliser légèrement plus d’espace de carte. */
 @media (min-width: 700px) {
   :root { --v3-header-space: 118px; }
