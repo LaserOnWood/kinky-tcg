@@ -229,6 +229,12 @@ main.v3-cards-zone {
   clip-path: inset(0 round clamp(10px, 2.4cqw, var(--r-md)));
 }
 
+/* Le prototype v3 est volontairement sans contour autour des cartes. */
+.v3-cards-zone .back,
+.v3-cards-zone .front[data-rarity] {
+  border: 0;
+}
+
 .v3-swipe-hint {
   min-height: 24px;
   margin: 0;
