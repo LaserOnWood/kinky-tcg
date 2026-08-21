@@ -1172,8 +1172,8 @@ main.v3-cards-zone {
     grid-template-areas: "back title level";
     align-items: center;
     column-gap: 8px;
-    padding-left: max(24px, env(safe-area-inset-left));
-    padding-right: max(24px, env(safe-area-inset-right));
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
   }
   .v3-back-button,
   .v3-level {
@@ -1188,13 +1188,22 @@ main.v3-cards-zone {
     font-size: 13px;
     line-height: 1;
   }
-  .v3-back-button {
+  .v3-header-left {
     grid-area: back;
-    justify-self: start;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .v3-header-right {
+    grid-area: level;
+    display: flex;
+    justify-content: flex-end;
+    /* Extra padding to prevent the icon from being cut off by the rounded corner */
+    padding-right: max(10px, env(safe-area-inset-right));
+  }
+  .v3-back-button {
+    /* Styles are handled by the container */
   }
   .v3-level {
-    grid-area: level;
-    justify-self: end;
     margin-right: 0;
   }
   .v3-back-button span,

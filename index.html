@@ -41,10 +41,12 @@
   <!-- Écran de jeu : header, cartes et saisie restent dans la hauteur visible. -->
   <div id="game-content" class="hidden v3-game-shell">
     <header class="top v3-header" aria-label="En-tête du jeu">
-      <button id="back-to-selection" class="v3-back-button" type="button" aria-label="Retour au choix du thème">
-        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-        <span>Retour</span>
-      </button>
+      <div class="v3-header-left">
+        <button id="back-to-selection" class="v3-back-button" type="button" aria-label="Retour au choix du thème">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          <span>Retour</span>
+        </button>
+      </div>
 
       <div class="v3-title-block">
         <p class="eyebrow">Chasse aux trésors</p>
@@ -55,9 +57,11 @@
         </div>
       </div>
 
-      <div class="v3-level" aria-label="Niveau choisi">
-        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-        <span id="game-level-text">Niveau</span>
+      <div class="v3-header-right">
+        <div class="v3-level" aria-label="Niveau choisi">
+          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          <span id="game-level-text">Niveau</span>
+        </div>
       </div>
     </header>
 
