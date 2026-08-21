@@ -341,6 +341,9 @@ main.v3-cards-zone {
     grid-template-areas: "back title level";
     align-items: center;
     column-gap: 8px;
+    /* Même retrait depuis chaque bord, y compris près des encoches mobiles. */
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
   }
 
   .v3-back-button,
@@ -351,6 +354,7 @@ main.v3-cards-zone {
     padding: 0;
     justify-content: center;
     align-items: center;
+    margin-inline: 0;
     border-radius: 50%;
     font-size: 13px;
     line-height: 1;
