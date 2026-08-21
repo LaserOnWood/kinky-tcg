@@ -154,7 +154,8 @@ header.top.v3-header {
 
 .v3-level span {
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
   hyphens: auto;
   text-align: right;
 }
@@ -331,38 +332,58 @@ main.v3-cards-zone {
   font-size: 12px;
 }
 
-/* Sur mobile, les commandes occupent la première ligne et le titre reçoit
-   toute la largeur disponible sur la seconde : la lecture reste fluide. */
+/* Sur mobile, le titre et les commandes restent sur une seule rangée.
+   Les libellés latéraux deviennent des icônes accessibles afin de préserver
+   la largeur réservée au titre. */
 @media (max-width: 699px) {
   header.top.v3-header {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas:
-      "back level"
-      "title title";
-    align-items: start;
-    row-gap: 8px;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    grid-template-areas: "back title level";
+    align-items: center;
+    column-gap: 8px;
+  }
+
+  .v3-back-button,
+  .v3-level {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 1;
   }
 
   .v3-back-button {
     grid-area: back;
-    align-self: start;
+    justify-self: start;
   }
 
   .v3-level {
     grid-area: level;
     justify-self: end;
-    align-self: start;
-    margin-right: 10px;
+    margin-right: 0;
+  }
+
+  .v3-back-button span,
+  .v3-level span {
+    display: none;
   }
 
   .v3-title-block {
     grid-area: title;
-    width: min(100%, 560px);
-    justify-self: center;
+    width: 100%;
+  }
+
+  .v3-header .eyebrow {
+    margin-bottom: 1px;
   }
 
   .v3-header h1 {
-    font-size: clamp(21px, 7vw, 30px);
+    margin-bottom: 5px;
+    font-size: clamp(18px, 5.5vw, 24px);
   }
 }
 
