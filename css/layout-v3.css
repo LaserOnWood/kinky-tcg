@@ -121,7 +121,8 @@ header.top.v3-header {
   line-height: .95;
   /* Le titre du thème peut être long : il se répartit sur plusieurs lignes
      et le header grandit naturellement plutôt que de masquer son contenu. */
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
   hyphens: auto;
   white-space: normal;
 }
@@ -330,10 +331,38 @@ main.v3-cards-zone {
   font-size: 12px;
 }
 
-/* Sur mobile, la gélule reçoit un retrait droit explicite et visible. */
+/* Sur mobile, les commandes occupent la première ligne et le titre reçoit
+   toute la largeur disponible sur la seconde : la lecture reste fluide. */
 @media (max-width: 699px) {
+  header.top.v3-header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "back level"
+      "title title";
+    align-items: start;
+    row-gap: 8px;
+  }
+
+  .v3-back-button {
+    grid-area: back;
+    align-self: start;
+  }
+
   .v3-level {
+    grid-area: level;
+    justify-self: end;
+    align-self: start;
     margin-right: 10px;
+  }
+
+  .v3-title-block {
+    grid-area: title;
+    width: min(100%, 560px);
+    justify-self: center;
+  }
+
+  .v3-header h1 {
+    font-size: clamp(21px, 7vw, 30px);
   }
 }
 
