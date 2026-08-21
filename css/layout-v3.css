@@ -117,11 +117,13 @@ header.top.v3-header {
 
 .v3-header h1 {
   margin: 0 0 7px;
-  font-size: clamp(23px, 6.6vw, 36px);
-  line-height: .9;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: clamp(20px, 6.6vw, 36px);
+  line-height: .95;
+  /* Le titre du thème peut être long : il se répartit sur plusieurs lignes
+     et le header grandit naturellement plutôt que de masquer son contenu. */
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  white-space: normal;
 }
 
 .v3-header .progress-wrap {
@@ -141,15 +143,19 @@ header.top.v3-header {
 .v3-level {
   justify-self: end;
   max-width: 100%;
+  align-items: flex-start;
   /* Même retrait intérieur que le bouton Retour pour une symétrie visuelle. */
   padding: 8px 11px;
   color: var(--gold-soft);
-  overflow: hidden;
+  line-height: 1.25;
+  white-space: normal;
 }
 
 .v3-level span {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  text-align: right;
 }
 
 /* ========================================================================== 
