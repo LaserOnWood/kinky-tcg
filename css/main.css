@@ -112,7 +112,7 @@ h1 {
    ÉCRAN DE SÉLECTION DES THÈMES
    ========================================================================== */
 
-body.selection-v2 {
+body {
   padding-bottom: 0;
 }
 
@@ -1073,8 +1073,7 @@ body.selection-v2 {
     padding-right: max(14px, env(safe-area-inset-right));
   }
   
-  .back-button,
-  .level-indicator {
+  .back-button {
     width: 40px;
     height: 40px;
     min-height: 40px;
@@ -1085,6 +1084,11 @@ body.selection-v2 {
     border-radius: 50%;
     font-size: 13px;
     line-height: 1;
+  }
+  
+  .level-indicator {
+    padding: 6px 10px;
+    font-size: 11px;
   }
   
   .header-left {
@@ -1104,8 +1108,7 @@ body.selection-v2 {
     margin-right: 0;
   }
   
-  .back-button span,
-  .level-indicator span {
+  .back-button span {
     display: none;
   }
   

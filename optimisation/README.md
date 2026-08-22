@@ -21,7 +21,7 @@ Pour basculer sur cette version optimisée, vous devrez :
 
 1. Remplacer le fichier `css/main.min.css` actuel par le contenu de `optimisation/main.css` (et potentiellement le minifier à nouveau si vous utilisez un outil de build).
 2. Mettre à jour les classes dans votre fichier `index.html` (et potentiellement `showroom.html`) pour correspondre aux nouveaux noms de classes. Par exemple :
-   - Remplacer `<body class="selection-v2 v3-prototype">` par `<body class="selection-screen">` (si c'est l'écran de sélection).
+   - Remplacer `<body class="selection-v2 v3-prototype">` par `<body>` (et s'assurer que la section de sélection a bien la classe `selection-screen`).
    - Remplacer `<div id="game-content" class="hidden v3-game-shell">` par `<div id="game-content" class="hidden game-shell">`.
    - Remplacer `<header class="top v3-header">` par `<header class="game-header">`.
    - Et ainsi de suite pour toutes les classes préfixées par `v3-`.
