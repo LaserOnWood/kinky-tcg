@@ -1022,11 +1022,11 @@ body {
 
 @media (min-width: 900px) {
   .themes-container, .themes-list {
-    justify-content: flex-start;
-    overflow-x: auto;
+    justify-content: center;
+    overflow-x: visible;
   }
   .theme-card {
-    flex: 0 0 var(--theme-card-width);
+    flex: 1 1 0;
     max-width: var(--theme-card-width);
   }
   .carousel-button,
