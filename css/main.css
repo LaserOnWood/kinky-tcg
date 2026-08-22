@@ -64,6 +64,9 @@ html, body {
   padding: 0;
   width: 100%;
   min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
   background:
     radial-gradient(circle at 15% -10%, rgba(255, 47, 126, 0.14), transparent 45%),
     radial-gradient(circle at 85% 0, rgba(217, 169, 79, 0.1), transparent 40%),
@@ -108,6 +111,10 @@ h1 {
 /* ==========================================================================
    ÉCRAN DE SÉLECTION DES THÈMES
    ========================================================================== */
+
+body.selection-v2 {
+  padding-bottom: 0;
+}
 
 .selection-screen {
   position: fixed;
@@ -167,7 +174,7 @@ h1 {
   position: relative;
 }
 
-.themes-container {
+.themes-container, .themes-list {
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -382,6 +389,9 @@ h1 {
    ========================================================================== */
 
 .game-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
   width: 100%;
   height: 100vh;
   height: 100dvh;
@@ -390,6 +400,7 @@ h1 {
   grid-template-rows: auto minmax(0, 1fr) auto;
   overflow: hidden;
   isolation: isolate;
+  background: var(--color-bg-main);
 }
 
 .hidden {
@@ -402,7 +413,6 @@ h1 {
 
 .game-header {
   position: relative;
-  top: auto;
   z-index: 20;
   min-height: var(--game-header-height);
   display: grid;
@@ -1011,7 +1021,7 @@ h1 {
    ========================================================================== */
 
 @media (min-width: 900px) {
-  .themes-container {
+  .themes-container, .themes-list {
     justify-content: center;
     overflow-x: visible;
   }
@@ -1027,7 +1037,7 @@ h1 {
 }
 
 @media (max-width: 899px) {
-  .themes-container {
+  .themes-container, .themes-list {
     margin-inline: -4px;
     padding-inline: calc((100% - min(90vw, var(--theme-card-width))) / 2);
   }
