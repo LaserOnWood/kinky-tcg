@@ -128,11 +128,7 @@
           "type": "Accesoires",
           "_comment": "Mot de passe : Masque",
           "passwordHash": "51bb0f998c8d9ac16f9ea044dba7d402d9b61b373ee69d7ba95b7643f437edf8",
-          "hints": [
-            "p",
-            "p",
-            "p"
-          ],
+          "hints": ["Je me porte sur les yeux ou le visage pour préserver le mystère.","Quand le visuel s'efface, tous les autres sens deviennent plus intenses.","L'accessoire idéal pour obéir à l'aveugle et etre guider","Il prive tes yeux de lumière pour que chaque effleurement te fasse frissonner."],
           "title": "La vue",
           "image": "assets/cartes/Tenue/Milf_masque.webp",
           "description": "La perte d'un sens permettra d'en savourer d'autre.",
@@ -144,7 +140,7 @@
           "type": "Accesoires",
           "_comment":"Mot de passe : Feutre",
           "passwordHash": "671a18d627c58564a1868b3ccdbc98799b43ae9e9933b8d762d5915889341028",
-          "hints": ["Je me cache dans une trousse.","Je suis de toute les couleurs"],
+          "hints": ["Je me cache dans une trousse.","Je suis de toute les couleurs","Une pointe qui va transformer ton corps en toile"],
           "title": "Toile",
           "image": "assets/cartes/Actions/Humiliation_de_MILF.webp",
           "description": "Laisser une marque de passage",
@@ -180,9 +176,7 @@
           "type": "Position",
           "_comment": "Mot de passe : Levrette",
           "passwordHash": "e607a49330276359019fa20274b3273c83e31a3488e8ed30a4a852ce797dc801",
-          "hints": [
-            "Peux ce faire en douceur mais aussi de maniere sauvage.","Parfait pour prendre des fessées en pleine action.","."
-          ],
+          "hints": ["Une posture de soumission parfaite pour offrir un accès direct et sans filtre à ton plaisir.","Peux ce faire en douceur mais aussi de maniere sauvage.","Parfait pour prendre des fessées en pleine action.","La position reine pour aller au plus profond de toi tout en gardant des mains sur tes hanches."],
           "title": "Cambrure",
           "image": "assets/cartes/Positions/Levrette.webp",
           "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
@@ -194,12 +188,52 @@
           "type": "Accesoires",
           "_comment": "Mot de passe : Baise",
           "passwordHash": "e25ce3f92744c1c7538bb613b350d5e7d3d5e6a5437541dab2d87192aeb94e3d",
-          "hints": ["p","p","p"],
+          "hints": ["L'élégance laisse place aux cris, à la sueur et au lâcher-prise le plus total.","Pas de préliminaires à rallonge, pas de douceur : juste un désir brut qui explose sans retenue.","Plaquèe contre le mur ou jetée sur le lit, un rythme effréné où l'on oublie toute pudeur."],
           "title": "La vue",
           "image": "assets/cartes/Positions/Baise_sauvage.webp",
           "description": "La perte d'un sens permettra d'en savourer d'autre.",
           "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
           "rarity": "Audacieuse"
+        }
+      ]
+    },
+    {
+      "id": "Anniversair",
+      "name": "Test special",
+      "description": "Dans le but de fêter son anniversaire de façon exceptionnelle et de graver cet événement dans sa mémoire..",
+      "difficulty": "Perversion",
+      "seal": "🔞",
+      "cards": [
+        {
+          "id": 401,
+          "type": "Tenue",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
+          "description": "Un gage à réaliser lumières éteintes uniquement.",
+          "rarity": "Coquine"
+        }
+      ]
+    },
+    {
+      "id": "Anniversairee",
+      "name": "Test 2 special",
+      "description": "Dans le but de fêter son anniversaire de façon exceptionnelle et de graver cet événement dans sa mémoire..",
+      "difficulty": "Perversion",
+      "seal": "🔞",
+      "cards": [
+        {
+          "id": 401,
+          "type": "Tenue",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
+          "description": "Un gage à réaliser lumières éteintes uniquement.",
+          "rarity": "Coquine"
         }
       ]
     }
