@@ -1022,17 +1022,13 @@ body {
 
 @media (min-width: 900px) {
   .themes-container, .themes-list {
-    justify-content: center;
-    overflow-x: visible;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-inline: max(16px, calc((100% - var(--theme-card-width)) / 2));
   }
   .theme-card {
-    flex: 1 1 0;
+    flex: 0 0 var(--theme-card-width);
     max-width: var(--theme-card-width);
-  }
-  .carousel-button,
-  .carousel-dots,
-  .swipe-hint {
-    display: none;
   }
 }
 
@@ -1042,7 +1038,7 @@ body {
     padding-inline: calc((100% - min(90vw, var(--theme-card-width))) / 2);
   }
   .theme-card {
-    flex-basis: min(90vw, var(--theme-card-width));
+    flex: 0 0 min(90vw, var(--theme-card-width));
   }
 }
 
