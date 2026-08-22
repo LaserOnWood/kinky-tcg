@@ -1097,7 +1097,6 @@ body {
     grid-area: level;
     display: flex;
     justify-content: flex-end;
-    padding-right: max(10px, env(safe-area-inset-right));
   }
   
   .level-indicator {
