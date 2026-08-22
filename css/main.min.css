@@ -654,14 +654,6 @@ body.selection-v2 {
   padding: 26px 24px 22px;
   border: 1px solid rgba(217, 169, 79, 0.28);
   border-radius: 26px;
-  background:
-    linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
-    radial-gradient(
-      circle at 70% 12%,
-      rgba(255, 47, 126, 0.33),
-      transparent 38%
-    ),
-    linear-gradient(145deg, #421327, #1a0b14 68%);
   box-shadow:
     0 20px 45px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -701,7 +693,18 @@ body.selection-v2 {
     opacity 0.35s,
     background-position 0.6s;
 }
-.theme-card:nth-child(2) {
+/* Les styles de fond des cartes sont maintenant gérés de façon dynamique via nth-child(4n+X) pour supporter un nombre infini de niveaux */
+.theme-card:nth-child(4n+1) {
+  background:
+    linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
+    radial-gradient(
+      circle at 70% 12%,
+      rgba(255, 47, 126, 0.33),
+      transparent 38%
+    ),
+    linear-gradient(145deg, #421327, #1a0b14 68%);
+}
+.theme-card:nth-child(4n+2) {
   background:
     linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
     radial-gradient(
@@ -711,7 +714,7 @@ body.selection-v2 {
     ),
     linear-gradient(145deg, #123347, #1a0b14 68%);
 }
-.theme-card:nth-child(3) {
+.theme-card:nth-child(4n+3) {
   background:
     linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
     radial-gradient(
@@ -721,7 +724,7 @@ body.selection-v2 {
     ),
     linear-gradient(145deg, #573711, #1a0b14 68%);
 }
-.theme-card:nth-child(4) {
+.theme-card:nth-child(4n+4) {
   background:
     linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
     radial-gradient(
