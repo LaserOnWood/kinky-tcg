@@ -1,5 +1,5 @@
 /* ===========================================================================
-   JEU PASS-CARD — LOGIQUE FUSIONNÉE (v1.0)
+   JEU TCG-KINKY — LOGIQUE FUSIONNÉE (v1.0)
    ---------------------------------------------------------------------------
    Ce fichier remplace à la fois :
      - game/tcg/js/passemot.js      (version "plate", une seule collection)
@@ -538,7 +538,7 @@ async function initialiserJeu(){
       // JSON avec thèmes mais gabarit HTML sans écran de sélection (tcg) :
       // on démarre automatiquement sur le premier thème pour que le jeu
       // reste jouable plutôt que d'afficher une page vide.
-      console.warn("[Pass-Card] JSON multi-thèmes détecté sans écran de sélection dans la page : chargement automatique du premier thème.");
+      console.warn("[Tcg-Kinky] JSON multi-thèmes détecté sans écran de sélection dans la page : chargement automatique du premier thème.");
       choisirTheme(THEMES[0].id);
       feedback.textContent = "";
       return;
