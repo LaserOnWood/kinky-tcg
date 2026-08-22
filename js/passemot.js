@@ -327,7 +327,7 @@ function choisirTheme(themeId){
   const titre = $("game-title");
   if(titre){ titre.textContent = theme.name; }
 
-  // Spécifique au prototype v3 : le niveau reste visible dans la zone droite du header.
+  // Le niveau reste visible dans la zone droite du header.
   const niveau = $("game-level-text");
   if(niveau){ niveau.textContent = theme.difficulty || "Niveau"; }
 

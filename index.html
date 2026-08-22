@@ -13,10 +13,10 @@
   <link rel="icon" type="image/x-icon" href="assets/ico/trading-card.png">
 
   <!-- Style existant du jeu, puis structure responsive v3 désormais par défaut. -->
-  <link rel="stylesheet" href="css/main.min.css">
+  <link rel="stylesheet" href="css/main.css">
   
 </head>
-<body class="selection-v2 v3-prototype">
+<body class="selection-screen">
   <!-- Écran de sélection des thèmes. -->
   <section id="selection-screen" aria-labelledby="selection-title">
     <div class="selection-intro">
@@ -39,17 +39,17 @@
   </section>
 
   <!-- Écran de jeu : header, cartes et saisie restent dans la hauteur visible. -->
-  <div id="game-content" class="hidden v3-game-shell">
-    <header class="top v3-header" aria-label="En-tête du jeu">
-      <div class="v3-header-left">
-        <button id="back-to-selection" class="v3-back-button" type="button" aria-label="Retour au choix du thème">
+  <div id="game-content" class="hidden game-shell">
+    <header class="game-header" aria-label="En-tête du jeu">
+      <div class="header-left">
+        <button id="back-to-selection" class="back-button" type="button" aria-label="Retour au choix du thème">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
           <span>Retour</span>
         </button>
       </div>
 
-      <div class="v3-title-block">
-        <p class="eyebrow">Chasse aux trésors</p>
+      <div class="title-block">
+        <p class="eyebrow-text">Chasse aux trésors</p>
         <h1 id="game-title">Pass-Card</h1>
         <div class="progress-wrap" aria-label="Progression dans le niveau">
           <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
@@ -57,22 +57,22 @@
         </div>
       </div>
 
-      <div class="v3-header-right">
-        <div class="v3-level" aria-label="Niveau choisi">
+      <div class="header-right">
+        <div class="level-indicator" aria-label="Niveau choisi">
           <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
           <span id="game-level-text">Niveau</span>
         </div>
       </div>
     </header>
 
-    <main class="v3-cards-zone" aria-label="Collection de cartes">
-      <div class="v3-cards-frame">
-        <div class="grid" id="grid" aria-label="Cartes du niveau"></div>
+    <main class="cards-zone" aria-label="Collection de cartes">
+      <div class="cards-frame">
+        <div class="cards-grid" id="grid" aria-label="Cartes du niveau"></div>
       </div>
-      <p class="v3-swipe-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes</p>
+      <p class="cards-swipe-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes</p>
     </main>
 
-    <footer class="entry-bar v3-entry-bar" aria-label="Saisie de code">
+    <footer class="entry-bar" aria-label="Saisie de code">
       <p class="feedback" id="feedback" aria-live="polite">&nbsp;</p>
       <div class="entry-inner" id="entry-inner">
         <label class="visually-hidden" for="pwd-input">Code de la carte</label>
