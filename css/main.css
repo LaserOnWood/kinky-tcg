@@ -478,6 +478,11 @@ body {
   hyphens: auto;
   text-align: right;
 }
+.level-seal {
+  display: none;
+  font-size: 15px;
+  line-height: 1;
+}
 
 .title-block {
   min-width: 0;
@@ -1105,6 +1110,30 @@ body {
   
   .back-button span {
     display: none;
+  }
+  .level-indicator {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .level-indicator i {
+    display: none;
+  }
+
+  .level-text {
+    display: none;
+  }
+
+  .level-seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--color-accent-gold-soft);
   }
   
   .title-block {
