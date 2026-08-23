@@ -81,7 +81,7 @@
       "name": "Aventure Nocturne",
       "description": "Pour ceux qui aiment le mystère et l'exploration.",
       "difficulty": "Difficile",
-      "seal": "❤️‍🔥",
+      "seal": "🌚",
       "cards": [
         {
           "id": 201,
@@ -102,6 +102,17 @@
           "image": "https://picsum.photos/seed/adv2/500/700",
           "description": "Une action rapide à accomplir avant que le temps ne soit écoulé.",
           "rarity": "Envoûtante"
+        },
+        {
+          "id": 203,
+          "type": "Lieu",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Lieu/Foret.webp",
+          "description":"p",
+          "rarity":"Coquine"
         }
       ]
     },
@@ -162,6 +173,18 @@
         {
           "id": 405,
           "type": "Action",
+          "_comment": "Mot de passe : Selfie",
+          "passwordHash": "12a0fd5cb657f5b93ff38fbfe47b6e17ea51b5fc3b3d99c59b31d28d32c7d0fa",
+          "hints": ["Je me pratique avec la bouche, mais mon but ultime est de faire perdre la tête à celui qui la reçoit.","Un tête-à-tête gourmand où tes mains s'accrochent à mes cheveux pendant que je m'occupe de toi.","Quand la salive ruisselle et que le bruit de la succion devient le seul son dans la pièce.","Les lèvres s'écartent, la langue s'active et la verge disparaît dans la chaleur de la bouche."],
+          "title": "L'Apné",
+          "image": "assets/cartes/Actions/Selfie_en_Action.webp",
+          "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+          "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 406,
+          "type": "Action",
           "_comment": "Mot de passe : gorge profonde",
           "passwordHash": "d8bbd72947b36d2ca6c6f95d96e27f9de1595820483ab973cd43977e4dc0e3e1",
           "hints": ["L'art de la pipe où l'on va jusqu'au bout, sans jamais utiliser les dents.","C'est la partie du corps que l'on sent se serrer quand on avale.","Entre la bouche et l'estomac, je suis le passage étroit que tout doit franchir."],
@@ -172,7 +195,7 @@
           "rarity": "Sulfureuse"
         },
         {
-          "id": 406,
+          "id": 407,
           "type": "Position",
           "_comment": "Mot de passe : Levrette",
           "passwordHash": "e607a49330276359019fa20274b3273c83e31a3488e8ed30a4a852ce797dc801",
@@ -184,8 +207,8 @@
           "rarity": "Mythique"
         },
         {
-          "id": 407,
-          "type": "Accesoires",
+          "id": 408,
+          "type": "Action",
           "_comment": "Mot de passe : Baise",
           "passwordHash": "e25ce3f92744c1c7538bb613b350d5e7d3d5e6a5437541dab2d87192aeb94e3d",
           "hints": ["L'élégance laisse place aux cris, à la sueur et au lâcher-prise le plus total.","Pas de préliminaires à rallonge, pas de douceur : juste un désir brut qui explose sans retenue.","Plaquèe contre le mur ou jetée sur le lit, un rythme effréné où l'on oublie toute pudeur."],
