@@ -416,7 +416,7 @@ body {
   z-index: 20;
   min-height: var(--game-header-height);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(112px, 1.25fr) minmax(0, 1fr);
+  grid-template-columns: auto minmax(112px, 1.25fr) auto;
   align-items: center;
   gap: 8px;
   margin: 0;
@@ -1061,7 +1061,7 @@ body {
 
 @media (max-width: 699px) {
   .game-header {
-    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     grid-template-areas: "back title level";
     align-items: center;
     column-gap: 8px;
@@ -1127,7 +1127,7 @@ body {
     --game-header-height: 118px;
   }
   .game-header {
-    grid-template-columns: 1fr minmax(280px, 1.1fr) 1fr;
+    grid-template-columns: auto minmax(280px, 1.1fr) auto;
     padding-inline: clamp(24px, 5vw, 56px);
   }
   .card-slot {
