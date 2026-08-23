@@ -441,24 +441,13 @@ body {
   font-size: clamp(10px, 2.7vw, 12px);
   line-height: 1;
   white-space: nowrap;
-  /* Ajout pour que les boutons soient bien ancrés */
   justify-self: start;
 }
 
-/* Le bouton de gauche reste à gauche */
 .back-button {
   padding: 8px 11px;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-}
-
-/* Le bouton de droite : on l'ancre à droite */
-.level-indicator {
-  justify-self: end;
-  padding: 8px 11px;
-  color: var(--color-accent-gold-soft);
-  line-height: 1.25;
-  white-space: normal;
 }
 
 .back-button:focus-visible,
@@ -470,6 +459,19 @@ body {
 
 .back-button:active {
   transform: scale(0.95);
+}
+
+.level-indicator {
+  justify-self: end;
+  padding: 8px 11px;
+  color: var(--color-accent-gold-soft);
+  line-height: 1.25;
+  white-space: normal;
+}
+
+/* En desktop, on cache l'icône (i) et on affiche le texte span */
+.level-indicator i {
+  display: none;
 }
 
 .level-indicator span {
@@ -1085,8 +1087,9 @@ body {
     align-items: center;
     margin-inline: 0;
     border-radius: 50%;
-    font-size: 13px;
+    font-size: 20px;
     line-height: 1;
+    white-space: nowrap;
   }
   
   /* Cache le texte "Retour" sur mobile */
@@ -1094,16 +1097,19 @@ body {
     display: none;
   }
   
-  /* Cache l'icône du niveau sur mobile pour ne garder que le texte */
-  .level-indicator i {
+  /* Cache le texte "Niveau" sur mobile */
+  .level-indicator span {
     display: none;
   }
   
-  /* Ajuste le texte du niveau pour qu'il soit bien centré dans le cercle */
-  .level-indicator span {
-    font-size: 11px;
-    text-align: center;
-    line-height: 1.2;
+  /* Affiche l'icône du niveau en grand dans le cercle */
+  .level-indicator i {
+    display: flex;
+    font-size: 22px;
+    font-style: normal;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
   }
   
   .header-left {
