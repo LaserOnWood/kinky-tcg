@@ -479,9 +479,11 @@ body {
   text-align: right;
 }
 .level-seal {
-  display: none;
+  display: inline-flex;
+  align-items: center;
   font-size: 15px;
   line-height: 1;
+  color: var(--color-accent-gold-soft);
 }
 
 .title-block {
