@@ -175,11 +175,11 @@
           "type": "Action",
           "_comment": "Mot de passe : Selfie",
           "passwordHash": "e1395a78ab32be3c4d539e45552b19a94549a8369f1b293ef3d3ccd2a68181a3",
-          "hints": ["Je me pratique avec la bouche, mais mon but ultime est de faire perdre la tête à celui qui la reçoit.","Un tête-à-tête gourmand où tes mains s'accrochent à mes cheveux pendant que je m'occupe de toi.","Quand la salive ruisselle et que le bruit de la succion devient le seul son dans la pièce.","Les lèvres s'écartent, la langue s'active et la verge disparaît dans la chaleur de la bouche."],
-          "title": "L'Apné",
+          "hints": ["Tout le monde en fait un en vacances.", "Tout le monde en poste sur les réseaux, mais celui-ci restera bien caché dans un dossier secret.","Un geste banal du quotidien qui devient le plus brûlant des secrets."],
+          "title": "Le Souvenir",
           "image": "assets/cartes/Actions/Selfie_en_Action.webp",
-          "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
-          "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
+          "description": "La memoire c'est une chose mais enregistrer le moment c'est bien aussi.",
+          "actions": "Tu vas te saisir de ton téléphone sans interrompre le rythme et prends une des photos ou une video de ce que tu es en train de faire.",
           "rarity": "Coquine"
         },
         {
