@@ -416,7 +416,7 @@ body {
   z-index: 20;
   min-height: var(--game-header-height);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(112px, 1.25fr) minmax(0, 1fr);
+  grid-template-columns: 1fr minmax(112px, 1.25fr) 1fr;
   align-items: center;
   gap: 8px;
   margin: 0;
@@ -441,13 +441,24 @@ body {
   font-size: clamp(10px, 2.7vw, 12px);
   line-height: 1;
   white-space: nowrap;
+  /* Ajout pour que les boutons soient bien ancrés */
+  justify-self: start;
 }
 
+/* Le bouton de gauche reste à gauche */
 .back-button {
-  justify-self: start;
   padding: 8px 11px;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Le bouton de droite : on l'ancre à droite */
+.level-indicator {
+  justify-self: end;
+  padding: 8px 11px;
+  color: var(--color-accent-gold-soft);
+  line-height: 1.25;
+  white-space: normal;
 }
 
 .back-button:focus-visible,
@@ -459,16 +470,6 @@ body {
 
 .back-button:active {
   transform: scale(0.95);
-}
-
-.level-indicator {
-  justify-self: end;
-  max-width: 100%;
-  align-items: flex-start;
-  padding: 8px 11px;
-  color: var(--color-accent-gold-soft);
-  line-height: 1.25;
-  white-space: normal;
 }
 
 .level-indicator span {
