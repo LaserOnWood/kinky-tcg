@@ -327,9 +327,13 @@ function choisirTheme(themeId){
   const titre = $("game-title");
   if(titre){ titre.textContent = theme.name; }
 
-  // Le niveau reste visible dans la zone droite du header.
+  // Le niveau reste visible dans la zone droite du header (texte en desktop,
+  // sceau du thème en écran étroit — voir la media query dans main.css).
   const niveau = $("game-level-text");
   if(niveau){ niveau.textContent = theme.difficulty || "Niveau"; }
+
+  const niveauSceau = $("game-level-seal");
+  if(niveauSceau){ niveauSceau.textContent = theme.seal || "✦"; }
 
   if(ecranSelectionDisponible()){
     $("selection-screen").classList.add("hidden");
