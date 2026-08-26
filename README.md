@@ -77,7 +77,7 @@ La page [`gallery.html`](gallery.html) charge l’inventaire `json/gallery.json`
 | `pnpm gallery:index` | Génère ou actualise une seule fois `json/gallery.json`. |
 | `pnpm gallery:watch` | Surveille `assets/` et régénère l’inventaire après chaque ajout, retrait, renommage ou modification. |
 
-Le workflow de synchronisation régénère également l’inventaire avant de copier les fichiers vers le site public. Une image ajoutée via GitHub est donc prise en compte lors de la publication associée au commit.
+Le workflow de synchronisation régénère également l’inventaire avant de copier les fichiers vers le site public. Lorsqu’un changement est détecté dans `assets/`, il enregistre automatiquement le nouveau `json/gallery.json` dans `main`, puis le site public reçoit la version mise à jour. Le script compare les chemins, formats, tailles et empreintes des fichiers ; il ne crée donc pas de commit superflu si l’inventaire est déjà à jour.
 
 ## Modifier les cartes
 

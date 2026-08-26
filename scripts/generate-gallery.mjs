@@ -1,4 +1,5 @@
 import { promises as fs } from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -37,6 +38,11 @@ async function listFiles(directory) {
   return files.flat();
 }
 
+async function checksum(filePath) {
+  const content = await fs.readFile(filePath);
+  return createHash("sha256").update(content).digest("hex");
+}
+
 export async function generateGallery() {
   const files = await listFiles(assetsDirectory);
   const images = [];
@@ -57,11 +63,24 @@ export async function generateGallery() {
       extension: extension.slice(1).toUpperCase(),
       size: stats.size,
       sizeLabel: formatBytes(stats.size),
-      modifiedAt: stats.mtime.toISOString()
+      checksum: await checksum(absolutePath)
     });
   }
 
-  images.sort((first, second) => second.modifiedAt.localeCompare(first.modifiedAt));
+  images.sort((first, second) => first.path.localeCompare(second.path, "fr"));
+
+  let previousInventory;
+  try {
+    previousInventory = JSON.parse(await fs.readFile(outputPath, "utf8"));
+  } catch {
+    previousInventory = undefined;
+  }
+
+  if (previousInventory && JSON.stringify(previousInventory.images) === JSON.stringify(images)) {
+    console.log(`gallery.json inchangé : ${images.length} image(s) indexée(s).`);
+    return previousInventory;
+  }
+
   const inventory = { generatedAt: new Date().toISOString(), count: images.length, images };
 
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
