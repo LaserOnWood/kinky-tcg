@@ -168,6 +168,33 @@ body {
   line-height: 1.6;
 }
 
+/* Accès discret au catalogue visuel : même langage or/magenta que le sélecteur de thèmes. */
+.catalog-entry {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 8px 13px;
+  border: 1px solid var(--color-border-line);
+  border-radius: 99px;
+  color: var(--color-accent-gold-soft);
+  background: rgba(26, 11, 20, 0.5);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.catalog-entry:hover,
+.catalog-entry:focus-visible {
+  border-color: var(--color-accent-magenta);
+  color: var(--color-accent-platinum-soft);
+  outline: 0;
+  transform: translateY(-2px);
+}
+
 .themes-stage {
   width: 100%;
   max-width: var(--selection-max-width);
@@ -1060,6 +1087,9 @@ body {
   .selection-subtitle {
     font-size: 12px;
     padding-inline: 12px;
+  }
+  .catalog-entry {
+    margin-top: 15px;
   }
   .theme-card {
     min-height: 410px;

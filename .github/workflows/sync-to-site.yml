@@ -18,6 +18,9 @@ jobs:
       - name: Récupérer Kinky TCG
         uses: actions/checkout@v4
 
+      - name: Générer l’inventaire d’images
+        run: node scripts/generate-gallery.mjs
+
       - name: Récupérer le dépôt du site principal
         uses: actions/checkout@v4
         with:
@@ -37,6 +40,7 @@ jobs:
           cp -a ./js site/game/tcgproto/
           cp -a ./json site/game/tcgproto/
           cp -a ./index.html site/game/tcgproto/
+          cp -a ./gallery.html site/game/tcgproto/
 
       - name: Publier les changements
         working-directory: site

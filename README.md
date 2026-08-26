@@ -31,6 +31,7 @@ Le dépôt constitue la **source principale du projet**. Les modifications doive
 | Indices supplémentaires | Certaines cartes proposent plusieurs niveaux d’aide via le bouton **Aide**. |
 | Révélation animée | Les cartes se retournent et affichent leur illustration lorsqu’elles sont déverrouillées. |
 | Aperçu des illustrations | Une carte révélée peut être ouverte en grand format. |
+| Catalogue visuel | La page `gallery.html` liste les images du dossier `assets/` et permet de les rechercher, filtrer et ouvrir en grand. |
 | Interface responsive | Les cartes restent dans une zone dédiée à hauteur contrôlée et se parcourent horizontalement, sans défilement vertical parasite sur téléphone. |
 | Synchronisation automatique | Chaque mise à jour de `main` peut être publiée automatiquement sur le site principal. |
 
@@ -67,6 +68,17 @@ Ouvrez ensuite [http://localhost:8000](http://localhost:8000) dans votre navigat
 
 Pour arrêter le serveur, utilisez `Ctrl+C` dans le terminal qui l’exécute.
 
+## Catalogue d’images
+
+La page [`gallery.html`](gallery.html) charge l’inventaire `json/gallery.json`. Ce fichier est généré à partir de tous les formats d’images pris en charge dans `assets/`, y compris les sous-dossiers.
+
+| Commande | Rôle |
+| --- | --- |
+| `pnpm gallery:index` | Génère ou actualise une seule fois `json/gallery.json`. |
+| `pnpm gallery:watch` | Surveille `assets/` et régénère l’inventaire après chaque ajout, retrait, renommage ou modification. |
+
+Le workflow de synchronisation régénère également l’inventaire avant de copier les fichiers vers le site public. Une image ajoutée via GitHub est donc prise en compte lors de la publication associée au commit.
+
 ## Modifier les cartes
 
 Les données jouables se trouvent dans [`json/cartes.json`](json/cartes.json). Chaque carte peut notamment définir un identifiant, un type, une rareté, une image, une description, plusieurs indices et une empreinte de réponse.
@@ -95,7 +107,12 @@ Après une modification des données, rechargez la page et testez au minimum la 
 ├── json/
 │   ├── cartes.json         # Données actives du jeu
 │   ├── cartes_original.json  # Copie de référence
+│   ├── gallery.json        # Inventaire généré des fichiers présents dans assets/
 │   └── README.md           # Documentation des données
+├── gallery.html            # Catalogue visuel des illustrations
+├── scripts/
+│   ├── generate-gallery.mjs # Génération de l’inventaire JSON
+│   └── watch-gallery.mjs    # Surveillance locale du dossier assets/
 └── .github/workflows/
     └── sync-to-site.yml    # Synchronisation vers le site public
 ```

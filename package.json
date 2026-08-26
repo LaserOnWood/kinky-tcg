@@ -1,0 +1,9 @@
+{
+  "name": "kinky-tcg",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gallery:index": "node scripts/generate-gallery.mjs",
+    "gallery:watch": "node scripts/watch-gallery.mjs"
+  }
+}
