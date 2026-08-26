@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { generateGallery } from "./generate-gallery.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
-const assetsDirectory = path.resolve(path.dirname(__filename), "..", "assets");
+const assetsDirectory = path.resolve(path.dirname(__filename), "..", "assets", "cartes");
 let pendingRefresh;
 
 async function refresh() {
@@ -16,7 +16,7 @@ async function refresh() {
 }
 
 await refresh();
-console.log("Surveillance active : les changements dans assets/ régénèrent json/gallery.json.");
+console.log("Surveillance active : les changements dans assets/cartes/ régénèrent json/gallery.json.");
 
 const watcher = watch(assetsDirectory, { recursive: true }, () => {
   clearTimeout(pendingRefresh);

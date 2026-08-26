@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-26T13:11:46.110Z",
-  "count": 55,
+  "generatedAt": "2026-08-26T14:15:10.625Z",
+  "count": 54,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -595,17 +595,6 @@
       "size": 228206,
       "sizeLabel": "222.9 Ko",
       "checksum": "12a2275cf9f53170744916c39f8a8689a80d9fe7f2ce91db9d34de1f95b5bef3"
-    },
-    {
-      "id": "assets-ico-trading-card-png",
-      "name": "trading card",
-      "path": "assets/ico/trading-card.png",
-      "src": "assets/ico/trading-card.png",
-      "category": "Icônes",
-      "extension": "PNG",
-      "size": 23155,
-      "sizeLabel": "22.6 Ko",
-      "checksum": "7a7b5516ab235634dbfe1c11bcec4d36897def90fdced810e14288ed308fab96"
     }
   ]
 }

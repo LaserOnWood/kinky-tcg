@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(__filename), "..");
-const assetsDirectory = path.join(projectRoot, "assets");
+const assetsDirectory = path.join(projectRoot, "assets", "cartes");
 const outputPath = path.join(projectRoot, "json", "gallery.json");
 const supportedExtensions = new Set([".avif", ".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"]);
 
@@ -24,9 +24,7 @@ function formatTitle(fileName) {
 
 function inferCategory(relativePath) {
   const parts = relativePath.split(path.sep);
-  if (parts[0] === "cartes") return parts.length > 2 ? parts[1] : "Collection";
-  if (parts[0] === "ico") return "Icônes";
-  return parts[0] || "Autres";
+  return parts.length > 1 ? parts[0] : "Collection";
 }
 
 async function listFiles(directory) {
