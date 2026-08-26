@@ -12,7 +12,6 @@
     lightboxImage: document.getElementById("lightbox-image"),
     lightboxTitle: document.getElementById("lightbox-title"),
     lightboxMeta: document.getElementById("lightbox-meta"),
-    lightboxPath: document.getElementById("lightbox-path"),
     close: document.getElementById("lightbox-close")
   };
 
@@ -25,7 +24,7 @@
     const needle = state.search.trim().toLocaleLowerCase("fr-FR");
     return state.inventory.images.filter((image) => {
       const matchesCategory = state.category === "Toutes" || image.category === state.category;
-      const haystack = `${image.name} ${image.path} ${image.extension}`.toLocaleLowerCase("fr-FR");
+      const haystack = `${image.name} ${image.extension} ${image.category}`.toLocaleLowerCase("fr-FR");
       return matchesCategory && (!needle || haystack.includes(needle));
     });
   }
@@ -44,7 +43,7 @@
           <span class="gallery-card-index">${String(index + 1).padStart(2, "0")}</span>
           <span class="gallery-card-open"><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
         </button>
-        <div class="gallery-card-info"><div><h3 title="${escapeHtml(image.name)}">${escapeHtml(image.name)}</h3><p>${escapeHtml(image.path)}</p></div><div class="gallery-card-tags"><span>${escapeHtml(image.extension)}</span><span>${escapeHtml(image.sizeLabel)}</span></div></div>
+        <div class="gallery-card-info"><h3 title="${escapeHtml(image.name)}">${escapeHtml(image.name)}</h3><span class="gallery-card-format">${escapeHtml(image.extension)}</span></div>
       </article>`).join("");
     elements.grid.querySelectorAll(".gallery-card-button").forEach((button) => button.addEventListener("click", () => openLightbox(state.inventory.images.find((image) => image.id === button.dataset.id))));
   }
@@ -63,8 +62,7 @@
     elements.lightboxImage.src = image.src;
     elements.lightboxImage.alt = image.name;
     elements.lightboxTitle.textContent = image.name;
-    elements.lightboxMeta.textContent = `${image.category} · ${image.extension} · ${image.sizeLabel}`;
-    elements.lightboxPath.textContent = image.path;
+    elements.lightboxMeta.textContent = image.extension;
     elements.lightbox.hidden = false;
     elements.close.focus();
   }
