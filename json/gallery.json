@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T14:15:10.625Z",
+  "generatedAt": "2026-08-27T22:48:25.742Z",
   "count": 54,
   "images": [
     {
@@ -317,9 +317,9 @@
       "src": "assets/cartes/Lieu/Foret.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 292782,
-      "sizeLabel": "285.9 Ko",
-      "checksum": "8adec3d2e1040541bd972df8d6e69287b1507dba742266824a29709f71a137b6"
+      "size": 293444,
+      "sizeLabel": "286.6 Ko",
+      "checksum": "af2d7a7e4251d171a81ae5e9699b073412d0481334eb664bc3cf067c6c265fc8"
     },
     {
       "id": "assets-cartes-m-i-l-f-webp",
