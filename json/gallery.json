@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-27T22:48:25.742Z",
-  "count": 54,
+  "generatedAt": "2026-08-27T23:06:41.191Z",
+  "count": 55,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -542,15 +542,26 @@
       "checksum": "581c00f8d3ed8771c23ebc4dcc6795efbf4b8e76f0406a78e2f3fed48a6aacf1"
     },
     {
+      "id": "assets-cartes-tenue-soubrette-old-webp",
+      "name": "Soubrette old",
+      "path": "assets/cartes/Tenue/Soubrette_old.webp",
+      "src": "assets/cartes/Tenue/Soubrette_old.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 168068,
+      "sizeLabel": "164.1 Ko",
+      "checksum": "4389eb030e6a4f39a2dc1ab67e964c128bba8b432453e165719321560b77b2e1"
+    },
+    {
       "id": "assets-cartes-tenue-soubrette-webp",
       "name": "Soubrette",
       "path": "assets/cartes/Tenue/Soubrette.webp",
       "src": "assets/cartes/Tenue/Soubrette.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 168068,
-      "sizeLabel": "164.1 Ko",
-      "checksum": "4389eb030e6a4f39a2dc1ab67e964c128bba8b432453e165719321560b77b2e1"
+      "size": 215944,
+      "sizeLabel": "210.9 Ko",
+      "checksum": "2633a6ed4c2450b51c780c23d0c11d90eafcf9746e17e371bf6ba0ef34e5d31a"
     },
     {
       "id": "assets-cartes-tenue-tenue-de-charme-jpeg",
