@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-27T23:47:18.084Z",
-  "count": 56,
+  "generatedAt": "2026-08-28T15:14:47.088Z",
+  "count": 57,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -45,6 +45,17 @@
       "size": 147216,
       "sizeLabel": "143.8 Ko",
       "checksum": "476d450163d06c82ab3882bf41c09ce60e221ab75132c8ceb780719b65f46a05"
+    },
+    {
+      "id": "assets-cartes-actions-branlette-espagnole-png",
+      "name": "Branlette Espagnole",
+      "path": "assets/cartes/Actions/Branlette Espagnole.png",
+      "src": "assets/cartes/Actions/Branlette%20Espagnole.png",
+      "category": "Actions",
+      "extension": "PNG",
+      "size": 3267259,
+      "sizeLabel": "3.1 Mo",
+      "checksum": "035ce8399a6645979b2256723bf1eb5736074f2116004bad156b0b132a7040cb"
     },
     {
       "id": "assets-cartes-actions-creampie-webp",
