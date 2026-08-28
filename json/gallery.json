@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-28T15:14:47.088Z",
-  "count": 57,
+  "generatedAt": "2026-08-28T15:16:14.191Z",
+  "count": 58,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -111,6 +111,17 @@
       "size": 227202,
       "sizeLabel": "221.9 Ko",
       "checksum": "4b0b9b33260737842886f2398d347da0deb7a50961f96c63054d22f4a9827661"
+    },
+    {
+      "id": "assets-cartes-actions-souiller-png",
+      "name": "Souiller",
+      "path": "assets/cartes/Actions/Souiller.png",
+      "src": "assets/cartes/Actions/Souiller.png",
+      "category": "Actions",
+      "extension": "PNG",
+      "size": 3270940,
+      "sizeLabel": "3.1 Mo",
+      "checksum": "5ffb38fee82093ae066299b41366dbc118694fcf8482e2c2f90deb6e354188d0"
     },
     {
       "id": "assets-cartes-adolescente-en-chaleur-webp",
