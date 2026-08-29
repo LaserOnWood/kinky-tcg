@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-29T12:47:50.376Z",
-  "count": 61,
+  "generatedAt": "2026-08-29T12:49:34.380Z",
+  "count": 60,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -23,17 +23,6 @@
       "size": 128622,
       "sizeLabel": "125.6 Ko",
       "checksum": "f24046f664b80baf6e9cbe6bc059ba2f29cca6f3e8e17852a9b7bb7e1d0db18f"
-    },
-    {
-      "id": "assets-cartes-727b6b14-8bd4-42bd-8b96-a9091992e1a5-png",
-      "name": "727b6b14 8bd4 42bd 8b96 a9091992e1a5",
-      "path": "assets/cartes/727b6b14-8bd4-42bd-8b96-a9091992e1a5.png",
-      "src": "assets/cartes/727b6b14-8bd4-42bd-8b96-a9091992e1a5.png",
-      "category": "Collection",
-      "extension": "PNG",
-      "size": 2132194,
-      "sizeLabel": "2.0 Mo",
-      "checksum": "82625e1b15d9c8e2b49a4da41fc3e85611ab3aba8f031d90fb4dd5170ecf0d6e"
     },
     {
       "id": "assets-cartes-a-laventure-webp",
