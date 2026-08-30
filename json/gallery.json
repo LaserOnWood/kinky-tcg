@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-30T16:48:54.497Z",
-  "count": 61,
+  "generatedAt": "2026-08-30T20:00:16.300Z",
+  "count": 62,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -34,6 +34,17 @@
       "size": 147216,
       "sizeLabel": "143.8 Ko",
       "checksum": "476d450163d06c82ab3882bf41c09ce60e221ab75132c8ceb780719b65f46a05"
+    },
+    {
+      "id": "assets-cartes-accessoires-harnais-webp",
+      "name": "Harnais",
+      "path": "assets/cartes/Accessoires/Harnais.webp",
+      "src": "assets/cartes/Accessoires/Harnais.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 161108,
+      "sizeLabel": "157.3 Ko",
+      "checksum": "bfba731f6c4851f6b0985ecc07d80b274753f6459798f514d30073fdd2c3068b"
     },
     {
       "id": "assets-cartes-actions-branlette-espagnole-webp",
