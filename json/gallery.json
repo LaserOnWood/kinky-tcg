@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-30T16:35:31.694Z",
-  "count": 60,
+  "generatedAt": "2026-08-30T16:48:54.497Z",
+  "count": 61,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -471,9 +471,9 @@
       "src": "assets/cartes/Positions/Levrette.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 129714,
-      "sizeLabel": "126.7 Ko",
-      "checksum": "926e1657ffe37b8c85a239df8e4d2a72487eed0455912989f6f3d226ef908089"
+      "size": 126248,
+      "sizeLabel": "123.3 Ko",
+      "checksum": "01ac8c07105536c9922def5af137d98e82a9c7c0f4235ed3e2015c7c41243986"
     },
     {
       "id": "assets-cartes-pure-beaut-webp",
@@ -496,6 +496,17 @@
       "size": 171424,
       "sizeLabel": "167.4 Ko",
       "checksum": "2a8ebde1741bc77c9cd4b3efb02a98b0faecaf49db3870ea86a5d438c4c2c614"
+    },
+    {
+      "id": "assets-cartes-rituel-fetichisme-des-pieds-webp",
+      "name": "Fetichisme des pieds",
+      "path": "assets/cartes/Rituel/Fetichisme_des_pieds.webp",
+      "src": "assets/cartes/Rituel/Fetichisme_des_pieds.webp",
+      "category": "Rituel",
+      "extension": "WEBP",
+      "size": 125200,
+      "sizeLabel": "122.3 Ko",
+      "checksum": "07993f0fd3caa408cb60efe715807a87c48135ea5c0c3119b0d87f42f4c82da3"
     },
     {
       "id": "assets-cartes-succube-webp",
