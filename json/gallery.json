@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T13:14:41.516Z",
+  "generatedAt": "2026-08-30T16:35:31.694Z",
   "count": 60,
   "images": [
     {
@@ -179,15 +179,15 @@
       "checksum": "e997ea03c70d38de32210ab89fcd5bea9be256bc968c0549a1e47ae228efbe46"
     },
     {
-      "id": "assets-cartes-contrle-de-police-webp",
-      "name": "Contrle de police",
-      "path": "assets/cartes/Contrle_de_police.webp",
-      "src": "assets/cartes/Contrle_de_police.webp",
+      "id": "assets-cartes-contr-le-de-police-webp",
+      "name": "Contrôle de police",
+      "path": "assets/cartes/Contrôle_de_police.webp",
+      "src": "assets/cartes/Contr%C3%B4le_de_police.webp",
       "category": "Collection",
       "extension": "WEBP",
-      "size": 184302,
-      "sizeLabel": "180.0 Ko",
-      "checksum": "57c96219ae54b6818cfcefaac70534cf0b0387424ac065113ff8f074a54faf96"
+      "size": 118040,
+      "sizeLabel": "115.3 Ko",
+      "checksum": "573c187e9d809ead270e38284a536351fa8e145e9cae2f89e49e508323b9ea34"
     },
     {
       "id": "assets-cartes-devoir-de-servante-webp",
@@ -207,9 +207,9 @@
       "src": "assets/cartes/Dominatrice.webp",
       "category": "Collection",
       "extension": "WEBP",
-      "size": 132232,
-      "sizeLabel": "129.1 Ko",
-      "checksum": "aa45684667b22fe580736ae455cb3b43e597fd222de9222d8e508cebff848fa6"
+      "size": 120138,
+      "sizeLabel": "117.3 Ko",
+      "checksum": "285fa20c08b704004f52b079ed4526ca1c39391c9cb46052d0151087095ad97f"
     },
     {
       "id": "assets-cartes-esclave-sexuelle-webp",
