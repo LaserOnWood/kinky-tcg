@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-30T20:00:16.300Z",
-  "count": 62,
+  "generatedAt": "2026-08-31T10:32:22.180Z",
+  "count": 63,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -562,6 +562,17 @@
       "size": 136002,
       "sizeLabel": "132.8 Ko",
       "checksum": "6c16de5b921bf491ee1971b40376b55214b41036a6f4294adcf8a4e820b7526c"
+    },
+    {
+      "id": "assets-cartes-tenue-bunny-girl-webp",
+      "name": "Bunny girl",
+      "path": "assets/cartes/Tenue/Bunny_girl.webp",
+      "src": "assets/cartes/Tenue/Bunny_girl.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 239618,
+      "sizeLabel": "234.0 Ko",
+      "checksum": "4bc44b2456a34e25710e99dfab22d8b2bb1567febf8f8941ba5030fcea092e70"
     },
     {
       "id": "assets-cartes-tenue-femme-fatale-webp",
