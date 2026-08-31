@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-31T14:33:01.912Z",
-  "count": 65,
+  "generatedAt": "2026-08-31T15:18:22.372Z",
+  "count": 66,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -375,6 +375,17 @@
       "size": 116932,
       "sizeLabel": "114.2 Ko",
       "checksum": "c32fa9cacea8bef9bda07c4d264de94a1d4a01841e4ec2f72913c53d78bdbb42"
+    },
+    {
+      "id": "assets-cartes-lieu-chambre-webp",
+      "name": "Chambre",
+      "path": "assets/cartes/Lieu/Chambre.webp",
+      "src": "assets/cartes/Lieu/Chambre.webp",
+      "category": "Lieu",
+      "extension": "WEBP",
+      "size": 284786,
+      "sizeLabel": "278.1 Ko",
+      "checksum": "733619339d5d9ba411c6abf03517b91a39c5e36b3f5c93c11827f995a10e0df9"
     },
     {
       "id": "assets-cartes-lieu-foret-webp",
