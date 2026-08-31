@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-31T13:37:58.726Z",
-  "count": 64,
+  "generatedAt": "2026-08-31T14:33:01.912Z",
+  "count": 65,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -56,6 +56,17 @@
       "size": 161108,
       "sizeLabel": "157.3 Ko",
       "checksum": "bfba731f6c4851f6b0985ecc07d80b274753f6459798f514d30073fdd2c3068b"
+    },
+    {
+      "id": "assets-cartes-accessoires-talons-png",
+      "name": "Talons",
+      "path": "assets/cartes/Accessoires/Talons.png",
+      "src": "assets/cartes/Accessoires/Talons.png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 3229734,
+      "sizeLabel": "3.1 Mo",
+      "checksum": "2cf2e64434e4fd5c56c473aa06b5fcbca8a9d72557d5fc577124ca63ed7f261b"
     },
     {
       "id": "assets-cartes-actions-branlette-espagnole-webp",
