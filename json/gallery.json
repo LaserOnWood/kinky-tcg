@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-31T10:32:22.180Z",
-  "count": 63,
+  "generatedAt": "2026-08-31T13:37:58.726Z",
+  "count": 64,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -34,6 +34,17 @@
       "size": 147216,
       "sizeLabel": "143.8 Ko",
       "checksum": "476d450163d06c82ab3882bf41c09ce60e221ab75132c8ceb780719b65f46a05"
+    },
+    {
+      "id": "assets-cartes-accessoires-couteau-webp",
+      "name": "Couteau",
+      "path": "assets/cartes/Accessoires/Couteau.webp",
+      "src": "assets/cartes/Accessoires/Couteau.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 228866,
+      "sizeLabel": "223.5 Ko",
+      "checksum": "6bfb29b7879a345c8a5840a70cef16c3af90c41c6714804b74902f4854bca537"
     },
     {
       "id": "assets-cartes-accessoires-harnais-webp",
