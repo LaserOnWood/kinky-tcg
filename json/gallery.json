@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-01T02:35:27.038Z",
-  "count": 80,
+  "generatedAt": "2026-09-01T19:43:56.860Z",
+  "count": 81,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -45,6 +45,17 @@
       "size": 228866,
       "sizeLabel": "223.5 Ko",
       "checksum": "6bfb29b7879a345c8a5840a70cef16c3af90c41c6714804b74902f4854bca537"
+    },
+    {
+      "id": "assets-cartes-accessoires-gamelle-webp",
+      "name": "Gamelle",
+      "path": "assets/cartes/Accessoires/Gamelle.webp",
+      "src": "assets/cartes/Accessoires/Gamelle.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 156924,
+      "sizeLabel": "153.2 Ko",
+      "checksum": "990743c402cdcdddab18b0b7816ce6316ab804d06fdf6bf0fdb43f277d88281f"
     },
     {
       "id": "assets-cartes-accessoires-harnais-webp",
