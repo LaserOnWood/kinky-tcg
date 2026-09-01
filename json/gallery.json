@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-31T15:18:22.372Z",
-  "count": 66,
+  "generatedAt": "2026-09-01T02:20:41.380Z",
+  "count": 67,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -353,6 +353,17 @@
       "size": 181408,
       "sizeLabel": "177.2 Ko",
       "checksum": "0f0c411a91c5b890f49b3b91d70dbe291edb740fe56360fb18cfa097a2a23ade"
+    },
+    {
+      "id": "assets-cartes-img-9858-webp",
+      "name": "IMG 9858",
+      "path": "assets/cartes/IMG_9858.webp",
+      "src": "assets/cartes/IMG_9858.webp",
+      "category": "Collection",
+      "extension": "WEBP",
+      "size": 87374,
+      "sizeLabel": "85.3 Ko",
+      "checksum": "42781b9e89c7ad8ce2c4274592c5ec1017b31fdf149ae1fe452cf9de43b04e07"
     },
     {
       "id": "assets-cartes-jessica-rabbit-webp",
