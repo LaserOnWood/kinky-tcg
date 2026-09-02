@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T07:44:55.101Z",
-  "count": 82,
+  "generatedAt": "2026-09-02T07:46:12.694Z",
+  "count": 83,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -804,6 +804,17 @@
       "size": 168524,
       "sizeLabel": "164.6 Ko",
       "checksum": "2f88eed8596f495183047cccd635285eafea6aa991cd3c178d25009f4ede0dc2"
+    },
+    {
+      "id": "assets-cartes-tenue-infirmiere-webp",
+      "name": "Infirmiere",
+      "path": "assets/cartes/Tenue/Infirmiere.webp",
+      "src": "assets/cartes/Tenue/Infirmiere.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 256158,
+      "sizeLabel": "250.2 Ko",
+      "checksum": "d2d6779cba062e207f30c18505e33e1e2f13a6f28445824dd2b5fe1d8a048712"
     },
     {
       "id": "assets-cartes-tenue-milf-masque-webp",
