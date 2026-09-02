@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T07:46:12.694Z",
-  "count": 83,
+  "generatedAt": "2026-09-02T07:49:48.475Z",
+  "count": 84,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -89,6 +89,17 @@
       "size": 229494,
       "sizeLabel": "224.1 Ko",
       "checksum": "c038e01c5f47cef2eb0ed272b25094ed89c1c5ecea85cb859529ae7146bef805"
+    },
+    {
+      "id": "assets-cartes-actions-bifle1-webp",
+      "name": "Bifle1",
+      "path": "assets/cartes/Actions/Bifle1.webp",
+      "src": "assets/cartes/Actions/Bifle1.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 198948,
+      "sizeLabel": "194.3 Ko",
+      "checksum": "ac970f6e9f8750d7d4df00c0d6c511afcadfe6d2e64bf2446f63c12a3c82736e"
     },
     {
       "id": "assets-cartes-actions-branlette-espagnole-webp",
