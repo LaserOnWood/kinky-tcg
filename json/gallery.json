@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T19:40:45.063Z",
-  "count": 87,
+  "generatedAt": "2026-09-03T02:06:57.756Z",
+  "count": 88,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -606,6 +606,17 @@
       "size": 293444,
       "sizeLabel": "286.6 Ko",
       "checksum": "af2d7a7e4251d171a81ae5e9699b073412d0481334eb664bc3cf067c6c265fc8"
+    },
+    {
+      "id": "assets-cartes-lieu-salle-de-bain-webp",
+      "name": "Salle de bain",
+      "path": "assets/cartes/Lieu/Salle_de_bain.webp",
+      "src": "assets/cartes/Lieu/Salle_de_bain.webp",
+      "category": "Lieu",
+      "extension": "WEBP",
+      "size": 269300,
+      "sizeLabel": "263.0 Ko",
+      "checksum": "1ef7e965b982b185a178e36b71454b7a78e474fe8a1d57cf4f529d18f393d74c"
     },
     {
       "id": "assets-cartes-m-i-l-f-webp",
