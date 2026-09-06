@@ -1,0 +1,285 @@
+:root {
+  --void: #0b0509;
+  --panel: #180a13;
+  --ink: #f7ebef;
+  --muted: #b597a4;
+  --gold: #efc76f;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --body: 'Poppins', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--body);
+  background:
+    radial-gradient(circle at 18% -15%, rgba(255, 42, 126, .19), transparent 34rem),
+    radial-gradient(circle at 88% 5%, rgba(239, 199, 111, .12), transparent 30rem),
+    var(--void);
+}
+
+.holo-lab { overflow: hidden; }
+
+.hero { max-width: 850px; padding-top: clamp(3.5rem, 9vw, 6.25rem); text-align: center; }
+.eyebrow, .section-kicker {
+  margin: 0 0 .65rem;
+  color: var(--gold);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.eyebrow i { margin-right: .35rem; }
+.hero h1, .section-heading h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(3.2rem, 8vw, 6.1rem);
+  font-weight: 600;
+  letter-spacing: -.04em;
+  line-height: .85;
+}
+.hero h1 em { color: #ff72ac; font-style: italic; }
+.intro { max-width: 660px; margin: 1.5rem auto 0; color: var(--muted); font-size: clamp(.9rem, 2vw, 1.08rem); line-height: 1.8; }
+
+.lab-controls { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem 1.25rem; margin: 2rem auto 1rem; }
+.control-button {
+  display: inline-flex; align-items: center; gap: .65rem;
+  padding: .78rem 1.05rem;
+  border: 1px solid rgba(239, 199, 111, .6);
+  border-radius: 999px;
+  color: #1b0b12;
+  background: linear-gradient(105deg, #fff3c6, var(--gold));
+  font: 600 .75rem var(--body);
+  letter-spacing: .02em;
+  cursor: pointer;
+  box-shadow: 0 9px 24px rgba(239, 199, 111, .16);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.control-button:hover, .control-button:focus-visible { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(239, 199, 111, .29); outline: none; }
+.control-button[aria-pressed="true"] { color: #fff; border-color: #ff72ac; background: linear-gradient(105deg, #ff2f7e, #a46bff); }
+.control-note { margin: 0; color: var(--muted); font-size: .72rem; }
+.control-note i { color: var(--gold); margin-right: .25rem; }
+
+.section-heading { margin: 4rem 0 1.75rem; text-align: center; }
+.section-heading h2 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+
+.holo-grid { justify-content: center; }
+.holo-card {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --accent: 234, 176, 194;
+  --edge: #eab0c2;
+  --duration: 6s;
+  position: relative;
+  display: block;
+  min-height: 390px;
+  perspective: 1200px;
+  cursor: default;
+  outline: none;
+}
+.holo-card:focus-visible .card-shell { outline: 2px solid #fff; outline-offset: 5px; }
+.card-shell {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 390px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--accent), .78);
+  border-radius: 1.2rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .09), transparent 36%),
+    linear-gradient(160deg, #25101e, #11060d 72%);
+  box-shadow:
+    0 22px 38px rgba(0, 0, 0, .35),
+    0 0 0 1px rgba(255, 255, 255, .05) inset,
+    0 0 22px rgba(var(--accent), .15);
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(0);
+  transform-style: preserve-3d;
+  transition: transform .22s ease-out, box-shadow .22s ease-out;
+}
+.holo-card:hover .card-shell, .holo-card:focus-visible .card-shell {
+  box-shadow:
+    0 28px 44px rgba(0, 0, 0, .48),
+    0 0 0 1px rgba(255, 255, 255, .24) inset,
+    0 0 34px rgba(var(--accent), .52),
+    0 0 70px rgba(var(--accent), .18);
+}
+
+/* Le reflet principal suit la position du pointeur puis continue son animation propre. */
+.card-shell::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, .9) 0 1%, rgba(var(--accent), .65) 7%, transparent 22%),
+    linear-gradient(115deg, transparent 32%, rgba(255,255,255,.12) 44%, rgba(var(--accent),.7) 50%, rgba(255,255,255,.2) 56%, transparent 69%);
+  background-size: 130% 130%, 230% 230%;
+  background-position: center, 0% 45%;
+  mix-blend-mode: screen;
+  opacity: .88;
+  animation: holo-sweep var(--duration) linear infinite alternate;
+}
+
+/* Cette couche accueille textures, particules et irisations par grade. */
+.card-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: .68;
+  mix-blend-mode: color-dodge;
+}
+
+.card-topline, .card-emblem, .card-copy, .card-footer { position: relative; z-index: 4; transform: translateZ(28px); }
+.card-topline { display: flex; justify-content: space-between; padding: 1rem 1.05rem 0; color: rgba(255,255,255,.72); font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.card-code { color: var(--edge); }
+.card-emblem {
+  display: grid;
+  place-items: center;
+  width: 5.2rem;
+  height: 5.2rem;
+  margin: 2.3rem auto 1.75rem;
+  border: 1px solid rgba(var(--accent), .68);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
+  background: radial-gradient(circle at 32% 24%, rgba(255,255,255,.52), rgba(var(--accent),.3) 36%, rgba(12,4,9,.4) 72%);
+  box-shadow: 0 0 0 7px rgba(var(--accent), .07), 0 0 24px rgba(var(--accent), .48);
+}
+.card-copy { padding: 0 1.2rem; text-align: center; }
+.rarity-label { margin: 0 0 .3rem; color: var(--edge); font-size: .63rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+.card-copy h3 { margin: 0; color: #fff8fa; font: italic 2rem/1 var(--display); }
+.card-copy p:last-child { min-height: 3.5rem; margin: .85rem 0 0; color: rgba(255,255,255,.7); font-size: .72rem; line-height: 1.7; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding: .85rem 1.05rem; border-top: 1px solid rgba(var(--accent), .28); color: rgba(255,255,255,.64); font-size: .56rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
+.card-footer i { color: var(--edge); font-size: .9rem; }
+
+/* I — Nacre rose : respiration satinée, délicate mais très lisible. */
+.rarity-coquine { --accent: 234, 176, 194; --edge: #ffd3e4; --duration: 7.2s; }
+.rarity-coquine .card-shell::after {
+  background: repeating-linear-gradient(125deg, transparent 0 12px, rgba(255,255,255,.23) 13px 14px, transparent 15px 28px);
+  animation: satin-weave 7.2s ease-in-out infinite alternate;
+}
+
+/* II — Framboise : une ligne de scan et une pulsation électrique. */
+.rarity-provocante { --accent: 255, 63, 130; --edge: #ffb0cb; --duration: 3.1s; }
+.rarity-provocante .card-shell::after {
+  background:
+    linear-gradient(0deg, transparent 44%, rgba(255, 240, 248, .9) 49%, rgba(255, 43, 128, .85) 51%, transparent 56%),
+    repeating-linear-gradient(90deg, transparent 0 10px, rgba(255,70,142,.22) 11px 12px);
+  background-size: 100% 36%, 100% 100%;
+  animation: hot-scan 2.25s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+.rarity-provocante .card-emblem { animation: electric-pulse 1.5s ease-in-out infinite; }
+
+/* III — Violet : faisceaux qui s’entrecroisent et décalage prismatique. */
+.rarity-audacieuse { --accent: 180, 108, 255; --edge: #dfc6ff; --duration: 2.65s; }
+.rarity-audacieuse .card-shell::after {
+  background:
+    linear-gradient(63deg, transparent 35%, rgba(238,208,255,.78) 46%, transparent 54%),
+    linear-gradient(133deg, transparent 40%, rgba(166,87,255,.85) 48%, transparent 56%),
+    repeating-linear-gradient(125deg, transparent 0 15px, rgba(188,119,255,.16) 16px 18px);
+  background-size: 220% 220%, 190% 190%, auto;
+  animation: prism-cross 3.4s linear infinite;
+}
+
+/* IV — Indigo : une aurore fluide, plus profonde que rapide. */
+.rarity-envoutante { --accent: 111, 111, 255; --edge: #c6c4ff; --duration: 5.4s; }
+.rarity-envoutante .card-shell::after {
+  background:
+    radial-gradient(ellipse 45% 85% at 20% 120%, rgba(73, 255, 229, .75), transparent 67%),
+    radial-gradient(ellipse 48% 88% at 85% -20%, rgba(151, 89, 255, .82), transparent 67%),
+    linear-gradient(145deg, transparent 30%, rgba(187, 211, 255, .26) 50%, transparent 70%);
+  background-size: 170% 170%, 170% 170%, 210% 210%;
+  animation: aurora-tide 6s ease-in-out infinite alternate;
+}
+
+/* V — Carmin : montée de braises et balayages plus nerveux. */
+.rarity-sulfureuse { --accent: 238, 67, 83; --edge: #ffbd8c; --duration: 2.15s; }
+.rarity-sulfureuse .card-shell::after {
+  background:
+    radial-gradient(circle at 14% 105%, #ffdf80 0 1.5%, transparent 2%),
+    radial-gradient(circle at 55% 108%, #ff6653 0 1.2%, transparent 2%),
+    radial-gradient(circle at 87% 112%, #ffd771 0 1.3%, transparent 2%),
+    linear-gradient(18deg, rgba(255,60,40,.78), transparent 38%);
+  background-size: 52% 68%, 62% 80%, 48% 74%, 100% 100%;
+  animation: ember-rise 2.8s linear infinite;
+}
+.rarity-sulfureuse .card-emblem { animation: ember-pulse 1.15s ease-in-out infinite alternate; }
+
+/* VI — Mythique : toutes les couleurs, double halo et particules rapides. */
+.rarity-mythique { --accent: 246, 240, 218; --edge: #fff6cf; --duration: 1.8s; }
+.rarity-mythique .card-shell {
+  border-color: #fff0a7;
+  box-shadow: 0 22px 38px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.52) inset, 0 0 34px rgba(255,226,130,.46);
+}
+.rarity-mythique .card-shell::before {
+  background:
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(255,255,255,.95), transparent 20%),
+    conic-gradient(from 10deg at 50% 50%, #ff5f98, #ffcb72, #f4ff99, #67f2e6, #85a1ff, #d497ff, #ff5f98);
+  background-size: 100% 100%, 190% 190%;
+  mix-blend-mode: screen;
+  animation: mythic-spectrum 2.45s linear infinite;
+}
+.rarity-mythique .card-shell::after {
+  background:
+    radial-gradient(circle at 12% 18%, #fff 0 1.1%, transparent 1.7%),
+    radial-gradient(circle at 82% 32%, #fff1b0 0 .95%, transparent 1.5%),
+    radial-gradient(circle at 40% 76%, #b4fbff 0 1%, transparent 1.6%),
+    linear-gradient(135deg, transparent 38%, rgba(255,255,255,.8) 48%, transparent 55%);
+  background-size: 43% 37%, 55% 49%, 60% 54%, 250% 250%;
+  animation: mythic-sparkle 1.35s steps(2, end) infinite;
+}
+.rarity-mythique .card-emblem { animation: crown-flare 1.4s ease-in-out infinite alternate; }
+
+@keyframes holo-sweep { from { background-position: center, 0% 45%; } to { background-position: center, 100% 55%; } }
+@keyframes satin-weave { from { transform: translateX(-7%) rotate(-2deg); opacity: .34; } to { transform: translateX(7%) rotate(2deg); opacity: .78; } }
+@keyframes hot-scan { from { background-position: 0 -55%, 0 0; opacity: .26; } 45% { opacity: .9; } to { background-position: 0 150%, 0 0; opacity: .26; } }
+@keyframes electric-pulse { 0%, 100% { filter: brightness(1); box-shadow: 0 0 0 7px rgba(255,63,130,.07), 0 0 20px rgba(255,63,130,.46); } 50% { filter: brightness(1.45); box-shadow: 0 0 0 12px rgba(255,63,130,.11), 0 0 36px rgba(255,63,130,.78); } }
+@keyframes prism-cross { from { background-position: -80% 100%, 180% -30%, 0 0; } to { background-position: 170% -30%, -70% 160%, 0 0; } }
+@keyframes aurora-tide { from { background-position: 0% 110%, 100% -15%, 0% 50%; } to { background-position: 80% -15%, 5% 105%, 100% 50%; } }
+@keyframes ember-rise { from { background-position: 0 120%, 50% 140%, 100% 110%, 0 0; opacity: .35; } 50% { opacity: 1; } to { background-position: 25% -30%, 70% -45%, 0% -20%, 0 0; opacity: .35; } }
+@keyframes ember-pulse { from { transform: scale(.96); filter: brightness(1); } to { transform: scale(1.09); filter: brightness(1.8) saturate(1.25); } }
+@keyframes mythic-spectrum { from { background-position: center, 0% 50%; filter: hue-rotate(0deg); } to { background-position: center, 100% 50%; filter: hue-rotate(75deg); } }
+@keyframes mythic-sparkle { 0%, 100% { background-position: 0 0, 80% 20%, 20% 80%, 0 0; opacity: .32; } 50% { background-position: 100% 80%, 0 100%, 90% 0, 100% 100%; opacity: 1; } }
+@keyframes crown-flare { from { filter: brightness(1) drop-shadow(0 0 5px #fff0a4); transform: rotate(-2deg) scale(.98); } to { filter: brightness(1.6) drop-shadow(0 0 17px #fff0a4); transform: rotate(2deg) scale(1.08); } }
+
+body.intensity-max .card-shell::before { opacity: 1; animation-duration: calc(var(--duration) * .48); }
+body.intensity-max .card-shell::after { opacity: 1; }
+body.intensity-max .holo-card:hover .card-shell { box-shadow: 0 30px 48px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.4) inset, 0 0 54px rgba(var(--accent), .72); }
+
+.legend-panel {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem 2rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid rgba(239,199,111,.2);
+  border-radius: 1rem;
+  color: var(--muted);
+  background: rgba(24,10,19,.6);
+  font-size: .74rem;
+  line-height: 1.65;
+}
+.legend-panel > div { max-width: 530px; }
+.legend-panel i { margin-right: .42rem; color: var(--gold); }
+.legend-panel strong { color: var(--ink); }
+
+@media (max-width: 575.98px) {
+  .hero { padding-top: 3.25rem; }
+  .holo-card, .card-shell { min-height: 350px; }
+  .card-emblem { width: 4.5rem; height: 4.5rem; margin-top: 1.7rem; margin-bottom: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  .card-shell { transition: none; }
+}
