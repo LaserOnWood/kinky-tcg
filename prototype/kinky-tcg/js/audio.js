@@ -9,11 +9,13 @@ const AUDIO_MUTED_STORAGE_KEY = "kinky_tcg_audio_muted";
 
 const sons = {
   bonneReponse: new Audio("assets/audio/bonne-reponse.mp3"),
-  erreur: new Audio("assets/audio/erreur.mp3")
+  erreur: new Audio("assets/audio/erreur.mp3"),
+  easter : new Audio("assets/audio/suprise.mp3")
 };
 
-sons.bonneReponse.volume = 0.6;
+sons.bonneReponse.volume = 0.45;
 sons.erreur.volume = 0.45;
+sons.easter.volume = 0.45;
 
 let sonsDesactives = chargerPreferenceAudio();
 
