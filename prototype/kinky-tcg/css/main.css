@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Kinky TCG — Styles optimisés et maintenables
+   Kinky TCG — Styles optimisés et maintenables (VERSION CORRIGÉE PIXEL 8 PRO)
    ========================================================================== */
 
 :root {
@@ -43,29 +43,32 @@
   --bs-tertiary-bg: var(--color-bg-panel-secondary);
   --bs-border-color: var(--color-border-line);
 
-  /* Variables structurelles */
+  /* Variables structurelles CORRIGÉES */
   --selection-max-width: 1180px;
-  --theme-card-width: 340px;
+  --theme-card-width: 340px;  /* Gardé mais sera écrasé par les media queries */
   --game-header-height: clamp(92px, 15dvh, 132px);
   --game-footer-height: 88px;
   --card-aspect-ratio: 5/7.3;
 }
 
 /* ==========================================================================
-   RÉINITIALISATION & STYLES GLOBAUX
+   RÉINITIALISATION & STYLES GLOBAUX — AJOUT SÉCURITÉ DÉBORDEMENT
    ========================================================================== */
 
 * {
   box-sizing: border-box;
+  max-width: 100vw; /* ← NOUVEAU : empêche tout débordement */
 }
 
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100vw; /* ← NOUVEAU */
   min-height: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden; /* ← NOUVEAU : bloque le défilement horizontal */
+  overflow-y: auto;
   overscroll-behavior: none;
   background:
     radial-gradient(circle at 15% -10%, rgba(255, 47, 126, 0.14), transparent 45%),
@@ -109,7 +112,7 @@ h1 {
 }
 
 /* ==========================================================================
-   ÉCRAN DE SÉLECTION DES THÈMES
+   ÉCRAN DE SÉLECTION DES THÈMES — CORRIGÉ
    ========================================================================== */
 
 body {
@@ -121,6 +124,7 @@ body {
   inset: 0;
   z-index: 2000;
   width: 100%;
+  max-width: 100vw; /* ← NOUVEAU */
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -133,12 +137,14 @@ body {
     radial-gradient(circle at 0 100%, rgba(217, 169, 79, 0.08), transparent 35%);
   text-align: center;
   overflow-y: auto;
+  overflow-x: hidden; /* ← NOUVEAU */
 }
 
 .selection-intro {
   width: 100%;
   max-width: var(--selection-max-width);
   margin-bottom: clamp(24px, 5vw, 48px);
+  overflow-x: hidden; /* ← NOUVEAU */
 }
 
 .selection-kicker {
@@ -199,6 +205,7 @@ body {
   width: 100%;
   max-width: var(--selection-max-width);
   position: relative;
+  overflow-x: hidden; /* ← NOUVEAU */
 }
 
 .themes-container, .themes-list {
@@ -219,7 +226,7 @@ body {
   display: none;
 }
 
-/* Cartes de thème */
+/* Cartes de thème — CORRIGÉES */
 .theme-card {
   position: relative;
   isolation: isolate;
@@ -420,6 +427,7 @@ body {
   inset: 0;
   z-index: 2000;
   width: 100%;
+  max-width: 100vw; /* ← NOUVEAU */
   height: 100vh;
   height: 100dvh;
   min-height: 0;
@@ -451,6 +459,8 @@ body {
   background: linear-gradient(180deg, rgba(13, 5, 9, 0.99) 72%, rgba(13, 5, 9, 0.88));
   border-bottom: 1px solid var(--color-border-line);
   backdrop-filter: blur(10px);
+  max-width: 100%; /* ← NOUVEAU */
+  overflow-x: hidden; /* ← NOUVEAU */
 }
 
 .back-button,
@@ -613,8 +623,8 @@ body {
 
 .cards-zone {
   width: 100%;
+  max-width: 100vw; /* ← NOUVEAU */
   min-height: 0;
-  max-width: none;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 0;
@@ -950,10 +960,12 @@ body {
   inset: auto;
   z-index: 30;
   width: 100%;
+  max-width: 100vw; /* ← NOUVEAU */
   margin: 0;
   padding: 5px 14px max(10px, env(safe-area-inset-bottom));
   background: linear-gradient(0deg, #0d0509 76%, rgba(13, 5, 9, 0.9));
   border-top: 1px solid var(--color-border-line);
+  overflow-x: hidden; /* ← NOUVEAU */
 }
 
 .feedback {
@@ -1094,10 +1106,10 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN & ADAPTATIONS
+   RESPONSIVE DESIGN & ADAPTATIONS — CORRIGÉ POUR PIXEL 8 PRO
    ========================================================================== */
 
-@media (min-width: 900px) {
+@media (min-width: 901px) {
   .themes-container, .themes-list {
     justify-content: flex-start;
     overflow-x: auto;
@@ -1109,33 +1121,129 @@ body {
   }
 }
 
-@media (max-width: 899px) {
+/* ===== NOUVEAU : CORRECTION POUR TOUS LES TÉLÉPHONES (<= 900px) ===== */
+@media (max-width: 900px) {
   .themes-container, .themes-list {
     margin-inline: -4px;
-    padding-inline: calc((100% - min(90vw, var(--theme-card-width))) / 2);
+    padding-inline: calc((100% - min(85vw, 320px)) / 2);
   }
   .theme-card {
-    flex: 0 0 min(90vw, var(--theme-card-width));
+    flex: 0 0 min(85vw, 320px);
+    min-height: 380px;
+    padding: 20px 18px 18px;
+  }
+  .theme-card h3 {
+    font-size: 28px;
+  }
+  .theme-card p {
+    min-height: 50px;
+    font-size: 12px;
+  }
+}
+
+/* ===== NOUVEAU : CORRECTION SPÉCIFIQUE PETITS TÉLÉPHONES (<= 480px) ===== */
+@media (max-width: 480px) {
+  .selection-screen {
+    padding: 40px 12px 30px;
+    justify-content: flex-start;
+  }
+  .selection-screen h1 {
+    font-size: clamp(32px, 10vw, 42px);
+  }
+  .selection-subtitle {
+    font-size: 11px;
+    padding-inline: 8px;
+  }
+  .catalog-entry {
+    font-size: 9px;
+    padding: 6px 10px;
+    margin-top: 12px;
+  }
+
+  .themes-container, .themes-list {
+    padding-inline: calc((100% - min(88vw, 280px)) / 2);
+    gap: 14px;
+  }
+  .theme-card {
+    flex: 0 0 min(88vw, 280px);
+    min-height: 340px;
+    padding: 16px 14px 14px;
+    border-radius: 20px;
+  }
+  .theme-card h3 {
+    font-size: 24px;
+  }
+  .theme-card p {
+    min-height: 40px;
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+  .theme-card::before {
+    font-size: 70px;
+    top: 12px;
+    right: 16px;
+  }
+  .theme-info {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .difficulty-badge {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+  .card-count {
+    font-size: 9px;
+  }
+  .swipe-hint {
+    font-size: 9px;
+    margin-top: 12px;
+  }
+  .carousel-controls {
+    gap: 12px;
+  }
+  .carousel-button {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+}
+
+/* ===== NOUVEAU : POUR TOUS LES ÉCRANS, SÉCURITÉ ANTI-DÉBORDEMENT ===== */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+  }
+  .selection-screen,
+  .game-shell,
+  .themes-stage,
+  .cards-zone,
+  .entry-bar {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  .theme-card {
+    min-width: 0 !important;
+    max-width: 88vw !important;
   }
 }
 
 @media (max-width: 560px) {
   .selection-screen {
     justify-content: flex-start;
-    padding-top: 56px;
+    padding-top: 40px;
   }
   .selection-intro {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .selection-subtitle {
-    font-size: 12px;
-    padding-inline: 12px;
+    font-size: 11px;
+    padding-inline: 10px;
   }
   .catalog-entry {
-    margin-top: 15px;
+    margin-top: 12px;
   }
   .theme-card {
-    min-height: 410px;
+    min-height: 360px;
   }
 }
 
