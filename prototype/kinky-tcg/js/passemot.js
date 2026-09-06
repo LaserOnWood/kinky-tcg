@@ -478,6 +478,9 @@ async function tenterDeverrouillage(){
   const saisie = normaliser(input.value);
   if(!saisie){ return; }
 
+  // Les mots secrets déclenchent leur son sans bloquer la validation normale.
+  const easterEggDeclenche = window.jouerEasterEgg?.(saisie) === true;
+
   const hash = await sha256(saisie);
   const carteTrouvee = CARTES.find(carte => carte.passwordHash === hash && !debloquees.has(carte.id));
 
@@ -499,7 +502,9 @@ async function tenterDeverrouillage(){
 
   } else {
     // Carte déjà débloquée avec ce mot de passe, ou mot de passe invalide.
-    window.jouerSon?.("erreur");
+    if (!easterEggDeclenche) {
+      window.jouerSon?.("erreur");
+    }
     const dejaFait = CARTES.some(carte => carte.passwordHash === hash && debloquees.has(carte.id));
     feedback.textContent = dejaFait ? "Cette carte est déjà révélée." : "Mot de passe incorrect.";
     feedback.className = "feedback err";

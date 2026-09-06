@@ -10,12 +10,23 @@ const AUDIO_MUTED_STORAGE_KEY = "kinky_tcg_audio_muted";
 const sons = {
   bonneReponse: new Audio("assets/audio/bonne-reponse.mp3"),
   erreur: new Audio("assets/audio/erreur.mp3"),
-  easter : new Audio("assets/audio/suprise.mp3")
+  easter: new Audio("assets/audio/suprise.mp3"),
+  yamete: new Audio("assets/audio/yamete.mp3")
 };
 
 sons.bonneReponse.volume = 0.45;
 sons.erreur.volume = 0.45;
 sons.easter.volume = 0.45;
+sons.yamete.volume = 0.45;
+
+/*
+   Table des mots secrets.
+   La clé est comparée après normalisation : minuscules et espaces superflus
+   supprimés. Pour ajouter un easter egg, ajoutez simplement une entrée ici.
+*/
+const easterEggs = {
+  stop: "yamete"
+};
 
 let sonsDesactives = chargerPreferenceAudio();
 
@@ -86,9 +97,20 @@ function jouerSon(type) {
   });
 }
 
+function jouerEasterEgg(saisie) {
+  const mot = String(saisie ?? "").trim().toLowerCase();
+  const sonAssocie = easterEggs[mot];
+
+  if (!sonAssocie) return false;
+
+  jouerSon(sonAssocie);
+  return true;
+}
+
 const boutonAudio = document.getElementById("sound-toggle");
 boutonAudio?.addEventListener("click", basculerAudio);
 mettreAJourBoutonAudio();
 
 // API publique minimale utilisée par passemot.js.
 window.jouerSon = jouerSon;
+window.jouerEasterEgg = jouerEasterEgg;
