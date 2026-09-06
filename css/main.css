@@ -1,5 +1,6 @@
 /* ==========================================================================
-   Kinky TCG — Styles optimisés et maintenables
+   Kinky TCG — Styles optimisés et maintenables 
+   (VERSION CORRIGÉE : garde les grandes cartes)
    ========================================================================== */
 
 :root {
@@ -45,27 +46,30 @@
 
   /* Variables structurelles */
   --selection-max-width: 1180px;
-  --theme-card-width: 340px;
+  --theme-card-width: 340px;  /* Taille originale */
   --game-header-height: clamp(92px, 15dvh, 132px);
   --game-footer-height: 88px;
   --card-aspect-ratio: 5/7.3;
 }
 
 /* ==========================================================================
-   RÉINITIALISATION & STYLES GLOBAUX
+   RÉINITIALISATION & STYLES GLOBAUX — SÉCURITÉ ANTI-DÉBORDEMENT UNIQUEMENT
    ========================================================================== */
 
 * {
   box-sizing: border-box;
+  max-width: 100vw; /* ← Empêche tout débordement */
 }
 
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100vw;
   min-height: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden; /* ← Bloque le défilement horizontal */
+  overflow-y: auto;
   overscroll-behavior: none;
   background:
     radial-gradient(circle at 15% -10%, rgba(255, 47, 126, 0.14), transparent 45%),
@@ -121,6 +125,7 @@ body {
   inset: 0;
   z-index: 2000;
   width: 100%;
+  max-width: 100vw;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -133,12 +138,14 @@ body {
     radial-gradient(circle at 0 100%, rgba(217, 169, 79, 0.08), transparent 35%);
   text-align: center;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .selection-intro {
   width: 100%;
   max-width: var(--selection-max-width);
   margin-bottom: clamp(24px, 5vw, 48px);
+  overflow-x: hidden;
 }
 
 .selection-kicker {
@@ -168,7 +175,7 @@ body {
   line-height: 1.6;
 }
 
-/* Accès discret au catalogue visuel : même langage or/magenta que le sélecteur de thèmes. */
+/* Accès discret au catalogue visuel */
 .catalog-entry {
   display: inline-flex;
   align-items: center;
@@ -199,6 +206,7 @@ body {
   width: 100%;
   max-width: var(--selection-max-width);
   position: relative;
+  overflow-x: hidden;
 }
 
 .themes-container, .themes-list {
@@ -219,11 +227,11 @@ body {
   display: none;
 }
 
-/* Cartes de thème */
+/* ===== CARTES DE THÈME — TAILLE ORIGINALE CONSERVÉE ===== */
 .theme-card {
   position: relative;
   isolation: isolate;
-  flex: 0 0 var(--theme-card-width);
+  flex: 0 0 var(--theme-card-width); /* ← 340px comme avant */
   min-height: 410px;
   display: flex;
   flex-direction: column;
@@ -420,6 +428,7 @@ body {
   inset: 0;
   z-index: 2000;
   width: 100%;
+  max-width: 100vw;
   height: 100vh;
   height: 100dvh;
   min-height: 0;
@@ -451,6 +460,8 @@ body {
   background: linear-gradient(180deg, rgba(13, 5, 9, 0.99) 72%, rgba(13, 5, 9, 0.88));
   border-bottom: 1px solid var(--color-border-line);
   backdrop-filter: blur(10px);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .back-button,
@@ -496,6 +507,45 @@ body {
   color: var(--color-accent-gold-soft);
   line-height: 1.25;
   white-space: normal;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.sound-toggle {
+  flex: 0 0 auto;
+  min-width: 38px;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border-line);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  background: rgba(26, 11, 20, 0.72);
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.sound-toggle:hover,
+.sound-toggle:focus-visible {
+  color: var(--color-accent-gold-soft);
+  border-color: var(--color-accent-gold-primary);
+  outline: 0;
+}
+
+.sound-toggle:active {
+  transform: scale(0.95);
 }
 
 .level-indicator span {
@@ -574,8 +624,8 @@ body {
 
 .cards-zone {
   width: 100%;
+  max-width: 100vw;
   min-height: 0;
-  max-width: none;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 0;
@@ -911,10 +961,12 @@ body {
   inset: auto;
   z-index: 30;
   width: 100%;
+  max-width: 100vw;
   margin: 0;
   padding: 5px 14px max(10px, env(safe-area-inset-bottom));
   background: linear-gradient(0deg, #0d0509 76%, rgba(13, 5, 9, 0.9));
   border-top: 1px solid var(--color-border-line);
+  overflow-x: hidden;
 }
 
 .feedback {
@@ -942,6 +994,10 @@ body {
   border-radius: 99px;
   padding: 4px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.entry-inner .sound-toggle {
+  align-self: center;
 }
 
 .entry-inner.shake {
@@ -1051,10 +1107,36 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN & ADAPTATIONS
+   RESPONSIVE — SEULEMENT LES CORRECTIONS ANTI-DÉBORDEMENT
    ========================================================================== */
 
-@media (min-width: 900px) {
+/* ===== SUR TOUS LES TÉLÉPHONES : SÉCURITÉ ANTI-DÉBORDEMENT ===== */
+@media screen and (max-width: 768px) {
+  body,
+  .selection-screen,
+  .game-shell,
+  .themes-stage,
+  .cards-zone,
+  .entry-bar {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* On garde la taille originale des cartes, on empêche juste le débordement */
+  .theme-card {
+    flex: 0 0 var(--theme-card-width) !important; /* ← 340px conservé */
+    max-width: 85vw !important; /* ← Empêche de dépasser */
+    min-width: 0 !important;
+  }
+  
+  /* On ajuste le padding du conteneur pour que la carte reste centrée */
+  .themes-container, .themes-list {
+    padding-inline: max(4px, calc((100% - min(85vw, 340px)) / 2)) !important;
+  }
+}
+
+/* ===== GRANDS ÉCRANS : comportement inchangé ===== */
+@media (min-width: 901px) {
   .themes-container, .themes-list {
     justify-content: flex-start;
     overflow-x: auto;
@@ -1066,6 +1148,7 @@ body {
   }
 }
 
+/* ===== LE RESTE DU RESPONSIVE EXISTANT (inchangé) ===== */
 @media (max-width: 899px) {
   .themes-container, .themes-list {
     margin-inline: -4px;
@@ -1166,6 +1249,17 @@ body {
     justify-content: center;
     font-size: 17px;
     color: var(--color-accent-gold-soft);
+  }
+
+  .entry-inner .sound-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .entry-inner .sound-toggle-label {
+    display: none;
   }
   
   .title-block {

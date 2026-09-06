@@ -482,6 +482,7 @@ async function tenterDeverrouillage(){
   const carteTrouvee = CARTES.find(carte => carte.passwordHash === hash && !debloquees.has(carte.id));
 
   if(carteTrouvee){
+    window.jouerSon?.("bonneReponse");
     debloquees.add(carteTrouvee.id);
     sauverProgression(debloquees);
     input.value = "";
@@ -498,6 +499,7 @@ async function tenterDeverrouillage(){
 
   } else {
     // Carte déjà débloquée avec ce mot de passe, ou mot de passe invalide.
+    window.jouerSon?.("erreur");
     const dejaFait = CARTES.some(carte => carte.passwordHash === hash && debloquees.has(carte.id));
     feedback.textContent = dejaFait ? "Cette carte est déjà révélée." : "Mot de passe incorrect.";
     feedback.className = "feedback err";
