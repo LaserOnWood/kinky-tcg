@@ -59,17 +59,6 @@
       </div>
 
       <div class="header-right">
-        <button
-          id="sound-toggle"
-          class="sound-toggle"
-          type="button"
-          aria-pressed="true"
-          aria-label="Désactiver les sons"
-          title="Désactiver les sons"
-        >
-          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
-          <span class="sound-toggle-label">Son activé</span>
-        </button>
         <div class="level-indicator" aria-label="Niveau choisi">
           <span id="game-level-seal" class="level-seal" aria-hidden="true">✦</span>
           <span id="game-level-text" class="level-text">Niveau</span>
@@ -87,6 +76,17 @@
     <footer class="entry-bar" aria-label="Saisie de code">
       <p class="feedback" id="feedback" aria-live="polite">&nbsp;</p>
       <div class="entry-inner" id="entry-inner">
+        <button
+          id="sound-toggle"
+          class="sound-toggle"
+          type="button"
+          aria-pressed="true"
+          aria-label="Désactiver les sons"
+          title="Désactiver les sons"
+        >
+          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          <span class="sound-toggle-label">Son activé</span>
+        </button>
         <label class="visually-hidden" for="pwd-input">Code de la carte</label>
         <input id="pwd-input" type="text" placeholder="Entrez votre code…" autocomplete="off" autocapitalize="off" spellcheck="false">
         <button id="submit-btn" type="button">Valider</button>
