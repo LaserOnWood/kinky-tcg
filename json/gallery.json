@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-07T19:23:50.006Z",
-  "count": 89,
+  "generatedAt": "2026-09-07T21:38:43.923Z",
+  "count": 90,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -89,6 +89,17 @@
       "size": 161108,
       "sizeLabel": "157.3 Ko",
       "checksum": "bfba731f6c4851f6b0985ecc07d80b274753f6459798f514d30073fdd2c3068b"
+    },
+    {
+      "id": "assets-cartes-accessoires-sandales-compensees-webp",
+      "name": "Sandales compensees",
+      "path": "assets/cartes/Accessoires/Sandales_compensees.webp",
+      "src": "assets/cartes/Accessoires/Sandales_compensees.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 208276,
+      "sizeLabel": "203.4 Ko",
+      "checksum": "a65d0fa28639b160eb37102f3e79dea4652e5b92cbba1e75194bb48bb1ddd117"
     },
     {
       "id": "assets-cartes-accessoires-talons-png",
