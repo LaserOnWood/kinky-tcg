@@ -10,23 +10,32 @@ const AUDIO_MUTED_STORAGE_KEY = "kinky_tcg_audio_muted";
 const sons = {
   bonneReponse: new Audio("assets/audio/bonne-reponse.mp3"),
   erreur: new Audio("assets/audio/erreur.mp3"),
-  suprise: new Audio("assets/audio/surprise-mother-fucker.mp3"),
-  yamete: new Audio("assets/audio/yamete.mp3")
+  surprise: new Audio("assets/audio/surprise-mother-fucker.mp3"),
+  yamete: new Audio("assets/audio/yamete.mp3"),
+  salope: new Audio("assets/audio/salope_ahh.mp3"),
+  ara_ara: new Audio("assets/audio/ara-ara.mp3"),
+  yandere_laugh: new Audio("assets/audio/yandere_laugh.mp3")
 };
 
 sons.bonneReponse.volume = 0.45;
 sons.erreur.volume = 0.45;
-sons.easter.volume = 0.45;
+sons.surprise.volume = 0.45;
 sons.yamete.volume = 0.45;
+sons.salope.volume = 0.45;
+sons.ara_ara.volume = 0.45;
+sons.yandere_laugh.volume = 0.45
 
 /*
    Table des mots secrets.
-   La clé est comparée après normalisation : minuscules et espaces superflus
-   supprimés. Pour ajouter un easter egg, ajoutez simplement une entrée ici.
+   La clé est comparée après normalisation : minuscules et espaces superflus supprimés.
+   Pour ajouter un easter egg, ajoutez simplement une entrée ici.
 */
 const easterEggs = {
-  ntm: "suprise",
-  stop: "yamete"
+  stop: "yamete",
+  nique: "surprise",
+  salope: "salope",
+  araara: "ara_ara",
+  folle: "yandere"
 };
 
 let sonsDesactives = chargerPreferenceAudio();
