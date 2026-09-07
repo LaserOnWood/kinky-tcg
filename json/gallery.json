@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-03T02:06:57.756Z",
-  "count": 88,
+  "generatedAt": "2026-09-07T19:23:50.006Z",
+  "count": 89,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -45,6 +45,17 @@
       "size": 225012,
       "sizeLabel": "219.7 Ko",
       "checksum": "50cba26361a1300794d435799549135379e89f08642aaba6cb099471d91a6bcc"
+    },
+    {
+      "id": "assets-cartes-accessoires-cage-de-chastete-webp",
+      "name": "Cage de chastete",
+      "path": "assets/cartes/Accessoires/Cage_de_chastete.webp",
+      "src": "assets/cartes/Accessoires/Cage_de_chastete.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 222958,
+      "sizeLabel": "217.7 Ko",
+      "checksum": "21aafbf6a068c53d7e5bdc8584bf4af794411e708c6d05a3d422090d6e5f311a"
     },
     {
       "id": "assets-cartes-accessoires-couteau-webp",
