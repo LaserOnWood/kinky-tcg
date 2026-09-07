@@ -221,34 +221,14 @@
       ]
     },
     {
-      "id": "Anniversair",
-      "name": "Test special",
-      "description": "Dans le but de fêter son anniversaire de façon exceptionnelle et de graver cet événement dans sa mémoire..",
-      "difficulty": "Perversion",
-      "seal": "🔞",
-      "cards": [
-        {
-          "id": 401,
-          "type": "Tenue",
-          "_comment": "Mot de passe : Lune",
-          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
-          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
-          "title": "La Lune",
-          "image": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
-          "description": "Un gage à réaliser lumières éteintes uniquement.",
-          "rarity": "Coquine"
-        }
-      ]
-    },
-    {
       "id": "Anniversairee",
       "name": "Test 2 special",
       "description": "Dans le but de fêter son anniversaire de façon exceptionnelle et de graver cet événement dans sa mémoire..",
       "difficulty": "Perversion",
-      "seal": "🔞",
+      "seal": "🐕‍🦺",
       "cards": [
         {
-          "id": 401,
+          "id": 501,
           "type": "Tenue",
           "_comment": "Mot de passe : Lune",
           "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
