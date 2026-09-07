@@ -221,11 +221,11 @@
       ]
     },
     {
-      "id": "Anniversairee",
-      "name": "Test 2 special",
-      "description": "Dans le but de fêter son anniversaire de façon exceptionnelle et de graver cet événement dans sa mémoire..",
+      "id": "Noel",
+      "name": "Noel",
+      "description": "Dans le but de faire la fete de façon exceptionnelle et de graver cet moment dans nos mémoires.",
       "difficulty": "Perversion",
-      "seal": "🐕‍🦺",
+      "seal": "🎁",
       "cards": [
         {
           "id": 501,
@@ -235,7 +235,7 @@
           "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
           "title": "La Lune",
           "image": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
-          "description": "Un gage à réaliser lumières éteintes uniquement.",
+          "description": "La tenue est pose dans la salle de bain.",
           "rarity": "Coquine"
         }
       ]
