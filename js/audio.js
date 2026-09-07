@@ -10,7 +10,7 @@ const AUDIO_MUTED_STORAGE_KEY = "kinky_tcg_audio_muted";
 const sons = {
   bonneReponse: new Audio("assets/audio/bonne-reponse.mp3"),
   erreur: new Audio("assets/audio/erreur.mp3"),
-  easter: new Audio("assets/audio/suprise.mp3"),
+  suprise: new Audio("assets/audio/surprise-mother-fucker.mp3"),
   yamete: new Audio("assets/audio/yamete.mp3")
 };
 
@@ -25,6 +25,7 @@ sons.yamete.volume = 0.45;
    supprimés. Pour ajouter un easter egg, ajoutez simplement une entrée ici.
 */
 const easterEggs = {
+  ntm: "suprise",
   stop: "yamete"
 };
 
