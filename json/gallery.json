@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-08T09:05:12.542Z",
-  "count": 91,
+  "generatedAt": "2026-09-08T09:29:10.381Z",
+  "count": 92,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -34,6 +34,17 @@
       "size": 147216,
       "sizeLabel": "143.8 Ko",
       "checksum": "476d450163d06c82ab3882bf41c09ce60e221ab75132c8ceb780719b65f46a05"
+    },
+    {
+      "id": "assets-cartes-accessoires-bandeau-item-webp",
+      "name": "Bandeau item",
+      "path": "assets/cartes/Accessoires/Bandeau_item.webp",
+      "src": "assets/cartes/Accessoires/Bandeau_item.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 247110,
+      "sizeLabel": "241.3 Ko",
+      "checksum": "3e82756e787686d340a3c947cbd39a5762d3ce93b83e87f4713312b797b32f09"
     },
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
