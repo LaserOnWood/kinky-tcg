@@ -45,6 +45,18 @@
   </section>
 
   <!-- Écran de jeu : header, cartes et saisie restent dans la hauteur visible. -->
+
+    <div class="info-modal" id="info-modal" hidden>
+      <div class="info-modal-backdrop" data-info-close></div>
+      <section class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+        <button id="info-modal-close" class="info-modal-close" type="button" aria-label="Fermer les informations">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <p class="eyebrow-text">Guide du jeu</p>
+        <h2 id="info-modal-title"></h2>
+        <div id="info-modal-content" class="info-modal-content"></div>
+      </section>
+    </div>
   <div id="game-content" class="hidden game-shell">
     <header class="game-header" aria-label="En-tête du jeu">
       <div class="header-left">
@@ -101,17 +113,6 @@
       </div>
     </footer>
 
-    <div class="info-modal" id="info-modal" hidden>
-      <div class="info-modal-backdrop" data-info-close></div>
-      <section class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
-        <button id="info-modal-close" class="info-modal-close" type="button" aria-label="Fermer les informations">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
-        <p class="eyebrow-text">Guide du jeu</p>
-        <h2 id="info-modal-title"></h2>
-        <div id="info-modal-content" class="info-modal-content"></div>
-      </section>
-    </div>
 
     <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="completion-title">
       <div class="box">
