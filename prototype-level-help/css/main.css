@@ -1536,3 +1536,14 @@ body.info-modal-open { overflow: hidden; }
 .feedback-submit { width: 100%; min-height: 44px; margin-top: 4px; border: 1px solid var(--color-accent-magenta); border-radius: 999px; color: #fff; background: linear-gradient(100deg, var(--color-accent-velvet), var(--color-accent-magenta)); font-weight: 600; cursor: pointer; }
 .feedback-submit:disabled { cursor: wait; opacity: .6; }
 @media (max-width: 480px) { .feedback-open span { display: none; } .feedback-modal-panel { padding: 28px 20px 22px; } }
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.header-left .feedback-open {
+  flex: 0 0 auto;
+}
