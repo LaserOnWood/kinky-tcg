@@ -1497,3 +1497,42 @@ body {
 }
 
 body.info-modal-open { overflow: hidden; }
+
+
+/* ==========================================================================\n   FEEDBACK ANONYME — prototype-level-help\n   ========================================================================== */
+.feedback-open {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border-line);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  background: rgba(26, 11, 20, .72);
+  font-size: 12px;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.feedback-open:hover, .feedback-open:focus-visible { color: var(--color-accent-gold-soft); border-color: var(--color-accent-gold-primary); outline: 0; }
+.feedback-open:active { transform: scale(.95); }
+.feedback-modal { position: fixed; inset: 0; z-index: 3100; display: grid; place-items: center; padding: 18px; }
+.feedback-modal[hidden] { display: none; }
+.feedback-modal-backdrop { position: absolute; inset: 0; background: rgba(5, 2, 4, .84); backdrop-filter: blur(8px); }
+.feedback-modal-panel { position: relative; width: min(100%, 520px); max-height: calc(100dvh - 36px); overflow: auto; padding: 30px 26px 26px; border: 1px solid var(--color-border-line); border-top: 2px solid var(--color-accent-gold-primary); background: linear-gradient(145deg, rgba(36, 15, 28, .99), rgba(13, 5, 9, .99)); box-shadow: 0 24px 70px rgba(0, 0, 0, .65); animation: info-modal-in .22s ease-out both; }
+.feedback-modal-panel h2 { margin: 0 0 10px; color: var(--color-accent-gold-soft); font-family: var(--font-family-display); font-size: clamp(30px, 8vw, 44px); font-style: italic; line-height: 1; }
+.feedback-modal-close { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--color-border-line); border-radius: 50%; color: var(--color-text-muted); background: transparent; cursor: pointer; }
+.feedback-modal-close:hover, .feedback-modal-close:focus-visible { border-color: var(--color-accent-gold-primary); color: var(--color-accent-gold-soft); outline: 0; }
+.feedback-intro { margin: 0 0 20px; color: var(--color-text-muted); font-size: 12px; line-height: 1.6; }
+#feedback-form label { display: block; margin: 13px 0 6px; color: var(--color-accent-gold-soft); font-size: 11px; font-weight: 600; }
+#feedback-form select, #feedback-form textarea { width: 100%; border: 1px solid var(--color-border-line); border-radius: 8px; color: var(--color-text-primary); background: rgba(13, 5, 9, .75); font: inherit; font-size: 14px; outline: 0; }
+#feedback-form select { min-height: 42px; padding: 8px 10px; }
+#feedback-form textarea { min-height: 120px; padding: 10px; resize: vertical; }
+#feedback-form select:focus, #feedback-form textarea:focus { border-color: var(--color-accent-magenta); box-shadow: 0 0 0 3px rgba(255, 47, 126, .1); }
+.feedback-status { min-height: 20px; margin: 10px 0 0; color: var(--color-text-muted); font-size: 11px; line-height: 1.4; }
+.feedback-status.is-error { color: #ff8fae; }
+.feedback-status.is-success { color: #b9e8c5; }
+.feedback-submit { width: 100%; min-height: 44px; margin-top: 4px; border: 1px solid var(--color-accent-magenta); border-radius: 999px; color: #fff; background: linear-gradient(100deg, var(--color-accent-velvet), var(--color-accent-magenta)); font-weight: 600; cursor: pointer; }
+.feedback-submit:disabled { cursor: wait; opacity: .6; }
+@media (max-width: 480px) { .feedback-open span { display: none; } .feedback-modal-panel { padding: 28px 20px 22px; } }
