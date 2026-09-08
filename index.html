@@ -21,8 +21,13 @@
   <section id="selection-screen" class="selection-screen" aria-labelledby="selection-title">
     <div class="selection-intro">
       <p class="selection-kicker">Kinky TCG</p>
-      <h1 id="selection-title">Choisissez votre thème</h1>
-      <p class="selection-subtitle">Chaque univers propose une ambiance différente.<br>Choisissez le thème qui vous inspire pour commencer votre collection.</p>
+      <div class="selection-title-row">
+        <h1 id="selection-title">Choisissez votre thème</h1>
+        <button class="info-button" type="button" data-info-type="difficulty" aria-label="Comprendre les niveaux de difficulté" title="Comprendre les niveaux de difficulté">
+          <i class="fa-solid fa-info" aria-hidden="true"></i>
+        </button>
+      </div>
+      <p class="selection-subtitle">Chaque univers propose une ambiance différente. Choisissez le thème qui vous inspire pour commencer votre collection.</p>
       <a class="catalog-entry" href="gallery.html"><i class="fa-solid fa-images" aria-hidden="true"></i> Consulter le catalogue visuel</a>
     </div>
 
@@ -40,6 +45,18 @@
   </section>
 
   <!-- Écran de jeu : header, cartes et saisie restent dans la hauteur visible. -->
+
+    <div class="info-modal" id="info-modal" hidden>
+      <div class="info-modal-backdrop" data-info-close></div>
+      <section class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
+        <button id="info-modal-close" class="info-modal-close" type="button" aria-label="Fermer les informations">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <p class="eyebrow-text">Guide du jeu</p>
+        <h2 id="info-modal-title"></h2>
+        <div id="info-modal-content" class="info-modal-content"></div>
+      </section>
+    </div>
   <div id="game-content" class="hidden game-shell">
     <header class="game-header" aria-label="En-tête du jeu">
       <div class="header-left">
@@ -63,6 +80,9 @@
           <span id="game-level-seal" class="level-seal" aria-hidden="true">✦</span>
           <span id="game-level-text" class="level-text">Niveau</span>
         </div>
+        <button class="info-button" type="button" data-info-type="rarity" aria-label="Comprendre la rareté des cartes" title="Comprendre la rareté des cartes">
+          <i class="fa-solid fa-info" aria-hidden="true"></i>
+        </button>
       </div>
     </header>
 
@@ -92,6 +112,7 @@
         <button id="submit-btn" type="button">Valider</button>
       </div>
     </footer>
+
 
     <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="completion-title">
       <div class="box">

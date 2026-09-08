@@ -580,3 +580,74 @@ async function initialiserJeu(){
 }
 
 initialiserJeu();
+
+
+/* ===========================================================================
+   AIDE CONTEXTUELLE — prototype-level-help
+   Une seule modale est réutilisée pour la difficulté et la rareté.
+   =========================================================================== */
+(() => {
+  const modal = document.getElementById("info-modal");
+  const title = document.getElementById("info-modal-title");
+  const content = document.getElementById("info-modal-content");
+  const close = document.getElementById("info-modal-close");
+  if (!modal || !title || !content || !close) return;
+
+  const help = {
+    difficulty: {
+      title: "Comprendre la difficulté",
+      html: `
+        <h3>Facile</h3>
+        <p>Les indices sont directs et l’emplacement se déduit rapidement.</p>
+        <h3>Normal</h3>
+        <p>Les indices demandent davantage d’observation et un peu de réflexion.</p>
+        <h3>Difficile</h3>
+        <p>Les indices sont plus discrets : prenez le temps d’examiner votre environnement.</p>
+        <p class="info-note">La difficulté concerne surtout la recherche des mots de passe, pas la réalisation des cartes.</p>`
+    },
+    rarity: {
+      title: "Comprendre la rareté",
+      html: `
+        <h3>Coquine</h3>
+        <p>Une carte accessible, idéale pour commencer la collection.</p>
+        <h3>Provocante</h3>
+        <p>Une carte qui demande un peu plus de recherche ou d’audace.</p>
+        <h3>Audacieuse</h3>
+        <p>Une carte spéciale, souvent liée à un indice plus subtil.</p>
+        <h3>Envoûtante</h3>
+        <p>Une carte particulièrement recherchée et marquante.</p>
+        <h3>Sulfureuse</h3>
+        <p>Une carte difficile à obtenir, avec une ambiance plus intense.</p>
+        <h3>Mythique</h3>
+        <p>Une carte exceptionnelle, réservée aux découvertes les plus difficiles.</p>
+        <p class="info-note">La rareté indique le caractère exceptionnel de la carte ; elle ne garantit pas que son mot de passe soit le plus difficile.</p>`
+    }
+  };
+
+  let lastTrigger = null;
+
+  function open(type, trigger) {
+    const selected = help[type] || help.difficulty;
+    lastTrigger = trigger;
+    title.textContent = selected.title;
+    content.innerHTML = selected.html;
+    modal.hidden = false;
+    document.body.classList.add("info-modal-open");
+    close.focus();
+  }
+
+  function hide() {
+    modal.hidden = true;
+    document.body.classList.remove("info-modal-open");
+    lastTrigger?.focus();
+  }
+
+  document.querySelectorAll("[data-info-type]").forEach((button) => {
+    button.addEventListener("click", () => open(button.dataset.infoType, button));
+  });
+  close.addEventListener("click", hide);
+  modal.querySelector("[data-info-close]")?.addEventListener("click", hide);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) hide();
+  });
+})();
