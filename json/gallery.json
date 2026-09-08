@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-07T21:38:43.923Z",
-  "count": 90,
+  "generatedAt": "2026-09-08T09:05:12.542Z",
+  "count": 91,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -848,6 +848,17 @@
       "size": 239618,
       "sizeLabel": "234.0 Ko",
       "checksum": "4bc44b2456a34e25710e99dfab22d8b2bb1567febf8f8941ba5030fcea092e70"
+    },
+    {
+      "id": "assets-cartes-tenue-ecoliere-webp",
+      "name": "Ecoliere",
+      "path": "assets/cartes/Tenue/Ecoliere.webp",
+      "src": "assets/cartes/Tenue/Ecoliere.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 134196,
+      "sizeLabel": "131.1 Ko",
+      "checksum": "b1bbab02e05305381ecc37d30194026ebadee43a244608d99150a16377b370e7"
     },
     {
       "id": "assets-cartes-tenue-femme-fatale-webp",
