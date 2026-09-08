@@ -6,7 +6,7 @@
  * Ne réutilisez pas ce mécanisme tel quel en production : une URL exposée
  * peut être récupérée et utilisée pour envoyer du spam.
  */
-const FEEDBACK_DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/REMPLACER_PAR_VOTRE_WEBHOOK";
+const FEEDBACK_DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1547026176185344021/X-Oep5Lm1qATTnjv-E3x9o7VitbrQuNQU8vZyVKi_-MjjvwVMKjyWsp0r-6dI3SHUEJe";
 
 (() => {
   const modal = document.getElementById("feedback-modal");
