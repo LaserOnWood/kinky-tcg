@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T21:37:57.810Z",
-  "count": 94,
+  "generatedAt": "2026-09-09T22:48:39.565Z",
+  "count": 93,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -254,17 +254,6 @@
       "size": 3270940,
       "sizeLabel": "3.1 Mo",
       "checksum": "5ffb38fee82093ae066299b41366dbc118694fcf8482e2c2f90deb6e354188d0"
-    },
-    {
-      "id": "assets-cartes-adolescente-en-chaleur-webp",
-      "name": "Adolescente en chaleur",
-      "path": "assets/cartes/Adolescente_en_chaleur.webp",
-      "src": "assets/cartes/Adolescente_en_chaleur.webp",
-      "category": "Collection",
-      "extension": "WEBP",
-      "size": 151802,
-      "sizeLabel": "148.2 Ko",
-      "checksum": "5827542dbb551fcf0af0705978846c59b441a3e11c1b6c7b32f0f9b4973829f3"
     },
     {
       "id": "assets-cartes-adultre-webp",
