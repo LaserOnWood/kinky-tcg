@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T21:34:00.624Z",
+  "generatedAt": "2026-09-09T21:37:57.810Z",
   "count": 94,
   "images": [
     {
@@ -916,10 +916,10 @@
       "checksum": "d2d6779cba062e207f30c18505e33e1e2f13a6f28445824dd2b5fe1d8a048712"
     },
     {
-      "id": "assets-cartes-tenue-m-re-no-l-4-webp",
-      "name": "Mère Noël (4)",
-      "path": "assets/cartes/Tenue/Mère Noël (4).webp",
-      "src": "assets/cartes/Tenue/M%C3%A8re%20No%C3%ABl%20(4).webp",
+      "id": "assets-cartes-tenue-mere-noel-webp",
+      "name": "Mere Noel",
+      "path": "assets/cartes/Tenue/Mere_Noel.webp",
+      "src": "assets/cartes/Tenue/Mere_Noel.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 278992,
