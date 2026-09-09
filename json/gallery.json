@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T14:20:05.603Z",
-  "count": 93,
+  "generatedAt": "2026-09-09T21:34:00.624Z",
+  "count": 94,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -914,6 +914,17 @@
       "size": 256158,
       "sizeLabel": "250.2 Ko",
       "checksum": "d2d6779cba062e207f30c18505e33e1e2f13a6f28445824dd2b5fe1d8a048712"
+    },
+    {
+      "id": "assets-cartes-tenue-m-re-no-l-4-webp",
+      "name": "Mère Noël (4)",
+      "path": "assets/cartes/Tenue/Mère Noël (4).webp",
+      "src": "assets/cartes/Tenue/M%C3%A8re%20No%C3%ABl%20(4).webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 278992,
+      "sizeLabel": "272.5 Ko",
+      "checksum": "d0702b10b5664c093245ed60e0455a57bfeb22349249dd85b26a25bc4e932e2c"
     },
     {
       "id": "assets-cartes-tenue-milf-masque-webp",
