@@ -14,6 +14,7 @@
 
   <!-- Style existant du jeu, puis structure responsive v3 désormais par défaut. -->
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/feedback.css">
   
 </head>
 <body>
@@ -46,6 +47,31 @@
 
   <!-- Écran de jeu : header, cartes et saisie restent dans la hauteur visible. -->
 
+    <div class="feedback-modal" id="feedback-modal" hidden>
+      <div class="feedback-modal-backdrop" data-feedback-close></div>
+      <section class="feedback-modal-panel" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
+        <button id="feedback-close" class="feedback-modal-close" type="button" aria-label="Fermer le formulaire de feedback">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <p class="eyebrow-text">Votre avis compte</p>
+        <h2 id="feedback-modal-title">Feedback anonyme</h2>
+        <p class="feedback-intro">Aucun compte ni adresse e-mail ne sont nécessaires. Votre message sera transmis au salon Discord de test.</p>
+        <form id="feedback-form">
+          <label for="feedback-type">Type de retour</label>
+          <select id="feedback-type" name="type">
+            <option value="Suggestion">Suggestion</option>
+            <option value="Problème">Problème</option>
+            <option value="Avis général">Avis général</option>
+            <option value="Autre">Autre</option>
+          </select>
+          <label for="feedback-message">Votre message</label>
+          <textarea id="feedback-message" name="message" rows="5" maxlength="1500" placeholder="Écrivez votre retour ici…" required></textarea>
+          <p class="feedback-status" id="feedback-status" aria-live="polite"></p>
+          <button class="feedback-submit" type="submit">Envoyer anonymement</button>
+        </form>
+      </section>
+    </div>
+
     <div class="info-modal" id="info-modal" hidden>
       <div class="info-modal-backdrop" data-info-close></div>
       <section class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
@@ -63,6 +89,16 @@
         <button id="back-to-selection" class="back-button" type="button" aria-label="Retour au choix du thème">
           <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
           <span>Retour</span>
+        </button>
+        <button
+          id="feedback-open"
+          class="feedback-open"
+          type="button"
+          aria-label="Donner un feedback anonyme"
+          title="Donner un feedback anonyme"
+        >
+          <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+          <span>Feedback</span>
         </button>
       </div>
 
@@ -123,6 +159,7 @@
     </div>
   </div>
 
+  <script src="js/feedback.js"></script>
   <script src="js/notification.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/passemot.js"></script>

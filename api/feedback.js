@@ -1,5 +1,5 @@
 const MAX_MESSAGE_LENGTH = 1500;
-const ALLOWED_TYPES = new Set(["Suggestion", "Bug", "Question", "Autre"]);
+const ALLOWED_TYPES = new Set(["Suggestion", "Problème", "Avis général", "Autre"]);
 
 function sendJson(response, status, body) {
   response.status(status).setHeader("Content-Type", "application/json").end(JSON.stringify(body));
