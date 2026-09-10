@@ -1,12 +1,10 @@
 /*
  * FEEDBACK ANONYME — prototype de test
  *
- * IMPORTANT : cette URL est volontairement en clair dans ce prototype.
- * Remplacez-la par l'URL du webhook Discord de test avant utilisation.
- * Ne réutilisez pas ce mécanisme tel quel en production : une URL exposée
- * peut être récupérée et utilisée pour envoyer du spam.
+ * L'envoi passe par /api/feedback afin que le webhook Discord reste côté
+ * serveur dans la variable d'environnement Vercel
+ * FEEDBACK_DISCORD_WEBHOOK_URL.
  */
-const FEEDBACK_DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1547026176185344021/X-Oep5Lm1qATTnjv-E3x9o7VitbrQuNQU8vZyVKi_-MjjvwVMKjyWsp0r-6dI3SHUEJe";
 
 (() => {
   const modal = document.getElementById("feedback-modal");
@@ -46,42 +44,26 @@ const FEEDBACK_DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/154702617
       message.focus();
       return;
     }
-    if (FEEDBACK_DISCORD_WEBHOOK_URL.includes("REMPLACER_PAR_VOTRE_WEBHOOK")) {
-      setStatus("Configurez d’abord l’URL du webhook dans js/feedback.js.", "is-error");
-      return;
-    }
 
     const submitButton = form.querySelector("button[type=submit]");
     submitButton.disabled = true;
     setStatus("Envoi en cours…");
 
-    const payload = {
-      username: "Kinky TCG — Feedback",
-      allowed_mentions: { parse: [] },
-      embeds: [{
-        title: "Nouveau feedback anonyme",
-        color: 0xff2f7e,
-        fields: [
-          { name: "Type", value: type.value, inline: true },
-          { name: "Message", value: text.slice(0, 1500) }
-        ],
-        timestamp: new Date().toISOString(),
-        footer: { text: "Prototype feedback • aucun compte requis" }
-      }]
-    };
-
     try {
-      const response = await fetch(FEEDBACK_DISCORD_WEBHOOK_URL, {
+      const response = await fetch("/api/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          type: type.value,
+          message: text
+        })
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       form.reset();
       setStatus("Merci, votre feedback a bien été envoyé.", "is-success");
     } catch (error) {
       console.error("Envoi du feedback impossible :", error);
-      setStatus("L’envoi a échoué. Vérifiez le webhook ou sa politique CORS.", "is-error");
+      setStatus("L’envoi a échoué. Réessayez dans quelques instants.", "is-error");
     } finally {
       submitButton.disabled = false;
     }
