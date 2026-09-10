@@ -29,6 +29,7 @@ Le dépôt constitue la **source principale du projet**. Les modifications doive
 | Progression locale | Les cartes déjà découvertes sont conservées dans le navigateur. |
 | Notifications optionnelles | Une notification Discord peut être envoyée lors d’un déverrouillage si une URL de relais est configurée. Elle est désactivée par défaut. |
 | Indices supplémentaires | Certaines cartes proposent plusieurs niveaux d’aide via le bouton **Aide**. |
+| Code organisateur | Le code maître `toutleniveau` révèle instantanément toutes les cartes du thème sélectionné. |
 | Révélation animée | Les cartes se retournent et affichent leur illustration lorsqu’elles sont déverrouillées. |
 | Aperçu des illustrations | Une carte révélée peut être ouverte en grand format. |
 | Catalogue visuel | La page `gallery.html` liste les images du dossier `assets/` et permet de les rechercher, filtrer et ouvrir en grand. |
@@ -90,6 +91,12 @@ Les données jouables se trouvent dans [`json/cartes.json`](json/cartes.json). C
 | `json/README.md` | Notes de format et consignes relatives aux données. |
 
 Après une modification des données, rechargez la page et testez au minimum la sélection du thème, le déverrouillage d’une carte et la progression.
+
+### Code organisateur pour révéler un niveau
+
+Depuis l’écran d’un thème, saisissez `toutleniveau` dans le champ de code pour révéler toutes les cartes de ce thème en une seule fois. Le code fonctionne uniquement sur le niveau actuellement ouvert et la progression est conservée dans le `localStorage`, comme pour les codes individuels.
+
+Le code n’est pas stocké en clair dans le script : seul son hash SHA-256 est présent dans [`js/passemot.js`](js/passemot.js), dans la constante `MASTER_PASSWORD_HASH`. Pour le modifier, calculez le hash du nouveau code avec l’utilitaire [`js/hasheur.js`](js/hasheur.js), puis remplacez cette constante.
 
 ## Structure du projet
 

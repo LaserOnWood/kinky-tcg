@@ -32,6 +32,12 @@ const FLAT_HINTS_KEY = "kinky_tcg_hints_revealed";
 const THEME_STORAGE_BASE = "kinky_tcg_progress_v0.2";
 const THEME_HINTS_BASE = "kinky_tcg_hints_revealed";
 
+// Mot de passe organisateur : « toutleniveau » révèle toutes les cartes du
+// thème actuellement ouvert. Seul le hash SHA-256 est conservé dans le code.
+// Pour le remplacer, calculez le hash du nouveau mot avec hasheur.js ou la
+// console du navigateur, puis remplacez la valeur ci-dessous.
+const MASTER_PASSWORD_HASH = "3e72c11089eb7a46190fde584e7cac86b8b3b9b573d6d681c7720a633bdd9076";
+
 const RARETES_AUTORISEES = new Set([
   "Coquine",
   "Provocante",
@@ -482,6 +488,30 @@ async function tenterDeverrouillage(){
   const easterEggDeclenche = window.jouerEasterEgg?.(saisie) === true;
 
   const hash = await sha256(saisie);
+
+  // Le code maître s'applique uniquement au niveau actuellement sélectionné.
+  // La progression est enregistrée comme pour un déverrouillage classique.
+  if(hash === MASTER_PASSWORD_HASH){
+    const cartesRestantes = CARTES.filter(carte => !debloquees.has(carte.id));
+
+    if(!cartesRestantes.length){
+      feedback.textContent = "Toutes les cartes de ce niveau sont déjà révélées.";
+      feedback.className = "feedback ok";
+      input.value = "";
+      return;
+    }
+
+    window.jouerSon?.("bonneReponse");
+    cartesRestantes.forEach(carte => debloquees.add(carte.id));
+    sauverProgression(debloquees);
+    input.value = "";
+    feedback.textContent = `✦ ${cartesRestantes.length} carte${cartesRestantes.length > 1 ? "s" : ""} révélée${cartesRestantes.length > 1 ? "s" : ""} !`;
+    feedback.className = "feedback ok";
+    rendreGrille();
+    rendreProgression();
+    return;
+  }
+
   const carteTrouvee = CARTES.find(carte => carte.passwordHash === hash && !debloquees.has(carte.id));
 
   if(carteTrouvee){
