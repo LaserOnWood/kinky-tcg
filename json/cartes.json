@@ -245,7 +245,7 @@
       "name": "Sorti Nocturne",
       "description": "Une petit sortie nocturne au parc ?",
       "difficulty": "Perversion",
-      "seal": "🔞❤️‍🔥",
+      "seal": "💋",
       "cards": [
         {
           "id": 601,
@@ -254,7 +254,62 @@
           "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
           "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
           "title": "La Lune",
-          "image": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
+          "image": "assets/cartes/Tenue/Manteau_rouge.jpeg",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 602,
+          "type": "Lieu",
+          "_comment": "Mot de passe : Sandales",
+          "passwordHash": "69f08c765fdc1f0c7f3b0a197a83761e05442ca2941e0da2d5c50c8feff93950",
+          "hints": ["Ce porte en Ete .", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Lieux/Parc.webp",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 603,
+          "type": "Accesoire",
+          "_comment": "Mot de passe : Sandales",
+          "passwordHash": "69f08c765fdc1f0c7f3b0a197a83761e05442ca2941e0da2d5c50c8feff93950",
+          "hints": ["Tu marches sur moi, mais c'est moi qui te porte.","Je suis une promesse de nudité, de peau offerte au regard.","On me glisse en été, quand la sueur coule et que la chaleur monte.","Je suis plate, je suis légère, mais je claque contre ton talon à chaque pas."],
+          "title": "Les Sandales",
+          "image": "assets/cartes/Accessoires/Sandales_compensees.webp",
+          "description": "Pour gagner quelque centimetre.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 604,
+          "type": "Accesoire",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Accessoires/Tenue_de_charme.jpeg",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 605,
+          "type": "Action",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Actions/Tenue_de_charme.jpeg",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 606,
+          "type": "Action",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Actions/Tenue_de_charme.jpeg",
           "description": "La tenue est pose dans la salle de bain.",
           "rarity": "Coquine"
         }
