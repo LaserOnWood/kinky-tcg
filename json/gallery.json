@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T05:36:45.530Z",
+  "generatedAt": "2026-09-11T06:37:34.490Z",
   "count": 97,
   "images": [
     {
@@ -955,9 +955,9 @@
       "src": "assets/cartes/Tenue/Manteau_Rouge.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 107886,
-      "sizeLabel": "105.4 Ko",
-      "checksum": "dd804d028c24daa1c7516c22d06088609b978e9446ff6b9aa1df64f57aab378d"
+      "size": 1559268,
+      "sizeLabel": "1.5 Mo",
+      "checksum": "6bc05ae9b1cff1fead9e390b43963e53f964f3ca4fcd39929bcf7876b2b0dd95"
     },
     {
       "id": "assets-cartes-tenue-mere-noel-webp",
