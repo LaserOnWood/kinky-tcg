@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T00:40:26.218Z",
-  "count": 96,
+  "generatedAt": "2026-09-11T00:48:14.435Z",
+  "count": 97,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -177,6 +177,17 @@
       "size": 100446,
       "sizeLabel": "98.1 Ko",
       "checksum": "88f5100e83574f8a760eace555105c71a2eea3194812bdf9d63cc0bdf9073f0b"
+    },
+    {
+      "id": "assets-cartes-actions-cumwalk-webp",
+      "name": "Cumwalk",
+      "path": "assets/cartes/Actions/Cumwalk.webp",
+      "src": "assets/cartes/Actions/Cumwalk.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 150938,
+      "sizeLabel": "147.4 Ko",
+      "checksum": "af3e15f5cfeaae5c4d2063d629756b45f6e70c9041fa24fea79e2f5b4a29c5e2"
     },
     {
       "id": "assets-cartes-actions-facial-webp",
