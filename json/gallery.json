@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-10T21:31:51.574Z",
-  "count": 94,
+  "generatedAt": "2026-09-11T00:03:10.510Z",
+  "count": 95,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -914,6 +914,17 @@
       "size": 256158,
       "sizeLabel": "250.2 Ko",
       "checksum": "d2d6779cba062e207f30c18505e33e1e2f13a6f28445824dd2b5fe1d8a048712"
+    },
+    {
+      "id": "assets-cartes-tenue-manteau-rouge-webp",
+      "name": "Manteau Rouge",
+      "path": "assets/cartes/Tenue/Manteau Rouge.webp",
+      "src": "assets/cartes/Tenue/Manteau%20Rouge.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 107886,
+      "sizeLabel": "105.4 Ko",
+      "checksum": "dd804d028c24daa1c7516c22d06088609b978e9446ff6b9aa1df64f57aab378d"
     },
     {
       "id": "assets-cartes-tenue-mere-noel-webp",
