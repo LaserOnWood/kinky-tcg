@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T01:03:33.104Z",
-  "count": 97,
+  "generatedAt": "2026-09-11T01:04:42.023Z",
+  "count": 96,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -551,17 +551,6 @@
       "size": 93596,
       "sizeLabel": "91.4 Ko",
       "checksum": "c60acf856df19b664de5c035cb87bad82798e54c5c9a9b6c92000f4e1729a144"
-    },
-    {
-      "id": "assets-cartes-inspiration-jessica-rabbit-infirmire-webp",
-      "name": "Jessica Rabbit infirmire",
-      "path": "assets/cartes/Inspiration/Jessica_Rabbit_infirmire_.webp",
-      "src": "assets/cartes/Inspiration/Jessica_Rabbit_infirmire_.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 96860,
-      "sizeLabel": "94.6 Ko",
-      "checksum": "1632748740c68fd662c955da4480d09bce247fcea598a28e24406841a55fdc5e"
     },
     {
       "id": "assets-cartes-inspiration-la-sein-trinit-webp",
