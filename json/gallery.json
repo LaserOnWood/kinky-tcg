@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T06:37:34.490Z",
-  "count": 97,
+  "generatedAt": "2026-09-11T07:37:23.033Z",
+  "count": 99,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -168,6 +168,17 @@
       "checksum": "035ce8399a6645979b2256723bf1eb5736074f2116004bad156b0b132a7040cb"
     },
     {
+      "id": "assets-cartes-actions-cabine-d-essayage-webp",
+      "name": "Cabine d essayage",
+      "path": "assets/cartes/Actions/Cabine_d_essayage.webp",
+      "src": "assets/cartes/Actions/Cabine_d_essayage.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 135122,
+      "sizeLabel": "132.0 Ko",
+      "checksum": "a9ffb08d372b9ad2f177b97f1a05dffaa6a9d3c8a2b43064391318ed138494a8"
+    },
+    {
       "id": "assets-cartes-actions-creampie-webp",
       "name": "Creampie",
       "path": "assets/cartes/Actions/Creampie.webp",
@@ -210,6 +221,17 @@
       "size": 137722,
       "sizeLabel": "134.5 Ko",
       "checksum": "523f3d318cfea311d8a019ba934bb60a8b9ad0ad151ca926a4d378997c22eec2"
+    },
+    {
+      "id": "assets-cartes-actions-ecritures-corporelles-webp",
+      "name": "Ecritures corporelles",
+      "path": "assets/cartes/Actions/Ecritures_corporelles.webp",
+      "src": "assets/cartes/Actions/Ecritures_corporelles.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 106398,
+      "sizeLabel": "103.9 Ko",
+      "checksum": "14ce936fbfa9d124472ad1ad72c9b173524658e548b7cd6eacbc35c209734fae"
     },
     {
       "id": "assets-cartes-actions-facial-webp",
