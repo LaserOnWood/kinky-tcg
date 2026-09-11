@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T01:04:42.023Z",
-  "count": 96,
+  "generatedAt": "2026-09-11T05:36:45.530Z",
+  "count": 97,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -78,6 +78,17 @@
       "size": 156924,
       "sizeLabel": "153.2 Ko",
       "checksum": "990743c402cdcdddab18b0b7816ce6316ab804d06fdf6bf0fdb43f277d88281f"
+    },
+    {
+      "id": "assets-cartes-accessoires-gode-ceinture-webp",
+      "name": "Gode ceinture",
+      "path": "assets/cartes/Accessoires/Gode_ceinture.webp",
+      "src": "assets/cartes/Accessoires/Gode_ceinture.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 188610,
+      "sizeLabel": "184.2 Ko",
+      "checksum": "b7b65763b42596200b9b6638589e71ca2e98f666bbe0ce407dd8fa1036915766"
     },
     {
       "id": "assets-cartes-accessoires-harnais-webp",
