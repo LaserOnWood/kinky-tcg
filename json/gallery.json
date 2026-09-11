@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T00:48:14.435Z",
-  "count": 97,
+  "generatedAt": "2026-09-11T00:52:50.672Z",
+  "count": 98,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -188,6 +188,17 @@
       "size": 150938,
       "sizeLabel": "147.4 Ko",
       "checksum": "af3e15f5cfeaae5c4d2063d629756b45f6e70c9041fa24fea79e2f5b4a29c5e2"
+    },
+    {
+      "id": "assets-cartes-actions-ecritures-corporelles-exhib-webp",
+      "name": "Ecritures Corporelles (Exhib)",
+      "path": "assets/cartes/Actions/Ecritures_Corporelles_(Exhib).webp",
+      "src": "assets/cartes/Actions/Ecritures_Corporelles_(Exhib).webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 137722,
+      "sizeLabel": "134.5 Ko",
+      "checksum": "523f3d318cfea311d8a019ba934bb60a8b9ad0ad151ca926a4d378997c22eec2"
     },
     {
       "id": "assets-cartes-actions-facial-webp",
