@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T00:03:10.510Z",
-  "count": 95,
+  "generatedAt": "2026-09-11T00:40:26.218Z",
+  "count": 96,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -652,6 +652,17 @@
       "checksum": "af2d7a7e4251d171a81ae5e9699b073412d0481334eb664bc3cf067c6c265fc8"
     },
     {
+      "id": "assets-cartes-lieu-parc-webp",
+      "name": "Parc",
+      "path": "assets/cartes/Lieu/Parc.webp",
+      "src": "assets/cartes/Lieu/Parc.webp",
+      "category": "Lieu",
+      "extension": "WEBP",
+      "size": 126842,
+      "sizeLabel": "123.9 Ko",
+      "checksum": "74bac3303cd180fe5fe2f9c4fbed4e0d80778861c6db8fb7bc746f08b748f99b"
+    },
+    {
       "id": "assets-cartes-lieu-salle-de-bain-webp",
       "name": "Salle de bain",
       "path": "assets/cartes/Lieu/Salle_de_bain.webp",
@@ -918,8 +929,8 @@
     {
       "id": "assets-cartes-tenue-manteau-rouge-webp",
       "name": "Manteau Rouge",
-      "path": "assets/cartes/Tenue/Manteau Rouge.webp",
-      "src": "assets/cartes/Tenue/Manteau%20Rouge.webp",
+      "path": "assets/cartes/Tenue/Manteau_Rouge.webp",
+      "src": "assets/cartes/Tenue/Manteau_Rouge.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 107886,
