@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T10:04:26.425Z",
+  "generatedAt": "2026-09-11T20:21:11.545Z",
   "count": 99,
   "images": [
     {
@@ -289,6 +289,17 @@
       "checksum": "752d0a42511c99612665eff9889ae2da205e5e4972fbffddeb2773cb94e599c5"
     },
     {
+      "id": "assets-cartes-actions-interrogatoire-webp",
+      "name": "Interrogatoire",
+      "path": "assets/cartes/Actions/Interrogatoire.webp",
+      "src": "assets/cartes/Actions/Interrogatoire.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 1528838,
+      "sizeLabel": "1.5 Mo",
+      "checksum": "f4f53601988fc63cd037e3d3451b331b1e3ddcbf00f4fcfc71edb7fc65d4b833"
+    },
+    {
       "id": "assets-cartes-actions-milf-a-gode-ceinture-webp",
       "name": "MILF a gode ceinture",
       "path": "assets/cartes/Actions/MILF_a_gode_ceinture.webp",
@@ -518,17 +529,6 @@
       "size": 83546,
       "sizeLabel": "81.6 Ko",
       "checksum": "d5c98791045bb882d1a3317d9ad37f628110a83c37588363a6744cc959740657"
-    },
-    {
-      "id": "assets-cartes-inspiration-baise-sauvage-intense-webp",
-      "name": "Baise sauvage intense",
-      "path": "assets/cartes/Inspiration/Baise_sauvage_intense.webp",
-      "src": "assets/cartes/Inspiration/Baise_sauvage_intense.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 87374,
-      "sizeLabel": "85.3 Ko",
-      "checksum": "42781b9e89c7ad8ce2c4274592c5ec1017b31fdf149ae1fe452cf9de43b04e07"
     },
     {
       "id": "assets-cartes-inspiration-cuve-sperme-webp",
