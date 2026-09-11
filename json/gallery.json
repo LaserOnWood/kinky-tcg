@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T21:09:12.010Z",
+  "generatedAt": "2026-09-11T21:30:36.094Z",
   "count": 100,
   "images": [
     {
@@ -790,9 +790,9 @@
       "src": "assets/cartes/Positions/69.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 127912,
-      "sizeLabel": "124.9 Ko",
-      "checksum": "5bb982f38c8142197164f4290eef0e0b052680a071f5cdf0ed646f9d2b479c00"
+      "size": 1571510,
+      "sizeLabel": "1.5 Mo",
+      "checksum": "02776a4c769e07f3e005f1d586e8fd3c0134e6982642a87e2d9619c224471421"
     },
     {
       "id": "assets-cartes-positions-baise-sauvage-webp",
