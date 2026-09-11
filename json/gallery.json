@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T07:37:23.033Z",
+  "generatedAt": "2026-09-11T07:38:59.701Z",
   "count": 99,
   "images": [
     {
@@ -702,9 +702,9 @@
       "src": "assets/cartes/Lieu/Parc.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 126842,
-      "sizeLabel": "123.9 Ko",
-      "checksum": "74bac3303cd180fe5fe2f9c4fbed4e0d80778861c6db8fb7bc746f08b748f99b"
+      "size": 315716,
+      "sizeLabel": "308.3 Ko",
+      "checksum": "e38cd9b7f72cda324b11c0f8d19dec37fe62a335402752d6c7033d6a0cbe1a29"
     },
     {
       "id": "assets-cartes-lieu-salle-de-bain-webp",
