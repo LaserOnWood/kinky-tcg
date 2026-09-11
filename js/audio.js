@@ -35,7 +35,7 @@ const easterEggs = {
   nique: "surprise",
   salope: "salope",
   araara: "ara_ara",
-  folle: "yandere"
+  folle: "yandere_laugh"
 };
 
 let sonsDesactives = chargerPreferenceAudio();
