@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T00:52:50.672Z",
-  "count": 98,
+  "generatedAt": "2026-09-11T01:03:33.104Z",
+  "count": 97,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -1035,17 +1035,6 @@
       "size": 193302,
       "sizeLabel": "188.8 Ko",
       "checksum": "1a5935f68bde01a8922fd958ab55404cb561ef80605b202792b3e7992d9ac028"
-    },
-    {
-      "id": "assets-cartes-tenue-tenue-de-charme-jpeg",
-      "name": "Tenue de charme",
-      "path": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
-      "src": "assets/cartes/Tenue/Tenue_de_charme.jpeg",
-      "category": "Tenue",
-      "extension": "JPEG",
-      "size": 614816,
-      "sizeLabel": "600.4 Ko",
-      "checksum": "9947df038db55000d2e2a8bc479c46d87df1344d1fe9a3bb58c3bbd170aa91d2"
     },
     {
       "id": "assets-cartes-tenue-tenue-de-soire-webp",
