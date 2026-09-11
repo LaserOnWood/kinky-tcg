@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-11T20:21:11.545Z",
-  "count": 99,
+  "generatedAt": "2026-09-11T21:09:12.010Z",
+  "count": 100,
   "images": [
     {
       "id": "assets-cartes-la-main-aux-fesses-webp",
@@ -146,10 +146,10 @@
       "checksum": "c038e01c5f47cef2eb0ed272b25094ed89c1c5ecea85cb859529ae7146bef805"
     },
     {
-      "id": "assets-cartes-actions-bifle1-webp",
-      "name": "Bifle1",
-      "path": "assets/cartes/Actions/Bifle1.webp",
-      "src": "assets/cartes/Actions/Bifle1.webp",
+      "id": "assets-cartes-actions-bifle-webp",
+      "name": "Bifle",
+      "path": "assets/cartes/Actions/Bifle.webp",
+      "src": "assets/cartes/Actions/Bifle.webp",
       "category": "Actions",
       "extension": "WEBP",
       "size": 198948,
@@ -243,6 +243,17 @@
       "size": 106398,
       "sizeLabel": "103.9 Ko",
       "checksum": "14ce936fbfa9d124472ad1ad72c9b173524658e548b7cd6eacbc35c209734fae"
+    },
+    {
+      "id": "assets-cartes-actions-exhibition-lingerie-webp",
+      "name": "Exhibition (Lingerie)",
+      "path": "assets/cartes/Actions/Exhibition_(Lingerie).webp",
+      "src": "assets/cartes/Actions/Exhibition_(Lingerie).webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 1820366,
+      "sizeLabel": "1.7 Mo",
+      "checksum": "47c795c5c3be638e927feab13aa2508689e413e210fc79a0f83aee4f67c78cf6"
     },
     {
       "id": "assets-cartes-actions-facial-webp",
