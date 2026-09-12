@@ -11,9 +11,23 @@ const DEFAULT_COLOR = 0xff2f7e;
 const DISCORD_FIELD_LIMIT = 1024;
 const DISCORD_TITLE_LIMIT = 256;
 const MAX_PASSWORD_LENGTH = 200;
+const WEBHOOK_VARIABLE_PREFIX = "DISCORD_NOTIFICATION_WEBHOOK_URL_";
 
 function sendJson(response, status, body) {
   response.status(status).setHeader("Content-Type", "application/json").end(JSON.stringify(body));
+}
+
+function obtenirWebhooks() {
+  return Object.entries(process.env)
+    .map(([nom, valeur]) => {
+      const correspondance = nom.match(/^DISCORD_NOTIFICATION_WEBHOOK_URL_(\d+)$/);
+      return correspondance && valeur?.trim()
+        ? { index: Number(correspondance[1]), url: valeur.trim() }
+        : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.index - b.index)
+    .map(({ url }) => url);
 }
 
 function limiterTexte(valeur, longueur = DISCORD_FIELD_LIMIT) {
@@ -46,9 +60,9 @@ export default async function handler(request, response) {
     return sendJson(response, 405, { error: "Méthode non autorisée." });
   }
 
-  const webhookUrl = process.env.DISCORD_NOTIFICATION_WEBHOOK_URL;
-  if (!webhookUrl) {
-    console.error("DISCORD_NOTIFICATION_WEBHOOK_URL n'est pas configurée.");
+  const webhookUrls = obtenirWebhooks();
+  if (!webhookUrls.length) {
+    console.error(`Aucune variable ${WEBHOOK_VARIABLE_PREFIX}N n'est configurée.`);
     return sendJson(response, 500, { error: "Les notifications ne sont pas configurées." });
   }
 
@@ -110,21 +124,32 @@ export default async function handler(request, response) {
   const imageURL = obtenirURLImage(carte.image);
   if (imageURL) embed.image = { url: imageURL };
 
-  try {
-    const discordResponse = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ embeds: [embed] })
-    });
+  const resultats = await Promise.allSettled(
+    webhookUrls.map(async (webhookUrl) => {
+      const discordResponse = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ embeds: [embed] })
+      });
 
-    if (!discordResponse.ok) {
-      console.error(`Discord a répondu HTTP ${discordResponse.status}.`);
-      return sendJson(response, 502, { error: "Discord a refusé la notification." });
-    }
+      if (!discordResponse.ok) {
+        throw new Error(`Discord a répondu HTTP ${discordResponse.status}.`);
+      }
+    })
+  );
 
-    return sendJson(response, 200, { ok: true });
-  } catch (error) {
-    console.error("Envoi de la notification à Discord impossible :", error);
-    return sendJson(response, 502, { error: "Discord est momentanément indisponible." });
+  const nombreEnvoye = resultats.filter(({ status }) => status === "fulfilled").length;
+  resultats
+    .filter(({ status }) => status === "rejected")
+    .forEach(({ reason }) => console.error("Envoi d'une notification Discord impossible :", reason));
+
+  if (!nombreEnvoye) {
+    return sendJson(response, 502, { error: "Discord a refusé toutes les notifications." });
   }
+
+  return sendJson(response, 200, {
+    ok: true,
+    sent: nombreEnvoye,
+    total: webhookUrls.length
+  });
 }
