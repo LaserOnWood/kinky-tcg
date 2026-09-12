@@ -22,9 +22,10 @@ function obtenirURLImage(image) {
  * Demande au relais serveur d'envoyer un embed Discord.
  * @param {Object} carte - Carte venant d'être déverrouillée.
  * @param {string} motDePasseSaisi - Texte saisi par l'utilisateur.
+ * @param {string} niveauChoisi - Niveau sélectionné dans le jeu.
  * @returns {Promise<boolean>} true si le relais a accepté la requête.
  */
-async function notifierDiscord(carte, motDePasseSaisi) {
+async function notifierDiscord(carte, motDePasseSaisi, niveauChoisi) {
   if (!carte || typeof carte !== "object") {
     console.warn("Notification Discord ignorée : carte invalide.");
     return false;
@@ -41,7 +42,8 @@ async function notifierDiscord(carte, motDePasseSaisi) {
           rarity: carte.rarity,
           description: carte.description,
           actions: carte.actions,
-          image: obtenirURLImage(carte.image)
+          image: obtenirURLImage(carte.image),
+          niveau: niveauChoisi
         },
         motDePasseSaisi
       })

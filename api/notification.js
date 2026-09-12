@@ -80,6 +80,7 @@ export default async function handler(request, response) {
 
   const titreCarte = limiterTexte(carte.title, DISCORD_TITLE_LIMIT);
   const rarete = limiterTexte(carte.rarity);
+  const niveau = limiterTexte(payload.niveau, 256);
   const motDePasseSaisi = typeof payload.motDePasseSaisi === "string"
     ? payload.motDePasseSaisi.trim().slice(0, MAX_PASSWORD_LENGTH)
     : "";
@@ -97,6 +98,11 @@ export default async function handler(request, response) {
     {
       name: "Rareté",
       value: rarete,
+      inline: true
+    },
+    {
+      name: "Niveau choisi",
+      value: niveau,
       inline: true
     },
     {
