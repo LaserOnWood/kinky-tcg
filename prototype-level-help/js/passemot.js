@@ -497,7 +497,8 @@ async function tenterDeverrouillage(){
 
     // La notification est optionnelle et ne bloque jamais le déverrouillage.
     if (window.notifierDiscord) {
-      window.notifierDiscord(carteTrouvee, saisie);
+      const niveauChoisi = $("game-level-text")?.textContent?.trim() || "Niveau";
+      window.notifierDiscord(carteTrouvee, saisie, niveauChoisi);
     }
 
   } else {
