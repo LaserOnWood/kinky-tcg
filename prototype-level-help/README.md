@@ -12,7 +12,7 @@ Ce dossier est une copie autonome du jeu Kinky TCG intégrant un système d’ai
 
 ## Configuration Vercel
 
-Dans les paramètres du projet Vercel, ajouter une variable d’environnement nommée `FEEDBACK_DISCORD_WEBHOOK_URL`, avec l’URL du webhook Discord comme valeur. La variable doit être configurée pour les environnements souhaités, notamment **Production** et **Preview** si nécessaire. Ne pas utiliser de préfixe public tel que `NEXT_PUBLIC_` ou `VITE_`.
+Dans les paramètres du projet Vercel, ajouter les variables d’environnement `FEEDBACK_DISCORD_WEBHOOK_URL` et `DISCORD_NOTIFICATION_WEBHOOK_URL`, avec leurs URLs de webhook Discord respectives comme valeurs. La variable `DISCORD_NOTIFICATION_WEBHOOK_URL` est utilisée par `/api/notification` pour les cartes débloquées. Les variables doivent être configurées pour les environnements souhaités, notamment **Production** et **Preview** si nécessaire. Ne pas utiliser de préfixe public tel que `NEXT_PUBLIC_` ou `VITE_`.
 
 Après l’ajout ou la modification de la variable, créer un nouveau déploiement afin que la fonction serverless utilise la nouvelle configuration. Pour un développement local, copier `.env.example` dans `.env.local` et remplacer la valeur par un webhook de test; ne jamais committer ce fichier.
 
@@ -35,5 +35,6 @@ Puis ouvrir l’URL locale indiquée par la commande.
 - `js/passemot.js` : ouverture, fermeture et contenu dynamique de la modale.
 - `js/feedback.js` : envoi du formulaire vers `/api/feedback`, sans secret côté client.
 - `../../api/feedback.js` : relais serverless vers Discord avec `FEEDBACK_DISCORD_WEBHOOK_URL`.
+- `../../api/notification.js` : relais serverless des cartes débloquées avec `DISCORD_NOTIFICATION_WEBHOOK_URL`.
 
 Les niveaux et les raretés affichés correspondent aux valeurs existantes dans `json/cartes.json`.
