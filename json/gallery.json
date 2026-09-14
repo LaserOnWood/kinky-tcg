@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-13T12:29:59.726Z",
-  "count": 120,
+  "generatedAt": "2026-09-14T14:12:41.132Z",
+  "count": 122,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -111,6 +111,17 @@
       "size": 229494,
       "sizeLabel": "224.1 Ko",
       "checksum": "c038e01c5f47cef2eb0ed272b25094ed89c1c5ecea85cb859529ae7146bef805"
+    },
+    {
+      "id": "assets-cartes-actions-balade-en-foret-webp",
+      "name": "Balade en foret",
+      "path": "assets/cartes/Actions/Balade_en_foret.webp",
+      "src": "assets/cartes/Actions/Balade_en_foret.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 1652568,
+      "sizeLabel": "1.6 Mo",
+      "checksum": "eaf18d2092020c141a34c30fcc54951332e1ef6ced0897e6ae4ebb1ed2e7869e"
     },
     {
       "id": "assets-cartes-actions-bifle-webp",
@@ -344,26 +355,15 @@
       "checksum": "5ffb38fee82093ae066299b41366dbc118694fcf8482e2c2f90deb6e354188d0"
     },
     {
-      "id": "assets-cartes-inspiration-la-main-aux-fesses-webp",
-      "name": "La main aux fesses",
-      "path": "assets/cartes/Inspiration/_La_main_aux_fesses.webp",
-      "src": "assets/cartes/Inspiration/_La_main_aux_fesses.webp",
-      "category": "Inspiration",
+      "id": "assets-cartes-actions-succube-webp",
+      "name": "Succube",
+      "path": "assets/cartes/Actions/Succube.webp",
+      "src": "assets/cartes/Actions/Succube.webp",
+      "category": "Actions",
       "extension": "WEBP",
-      "size": 132474,
-      "sizeLabel": "129.4 Ko",
-      "checksum": "91457706ce26fe2dcad50de275d78dcc124d2ea9e2686158dfbac89ee0e50b25"
-    },
-    {
-      "id": "assets-cartes-inspiration-p-a-w-g-webp",
-      "name": "P.A.W.G",
-      "path": "assets/cartes/Inspiration/_P.A.W.G.webp",
-      "src": "assets/cartes/Inspiration/_P.A.W.G.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 128622,
-      "sizeLabel": "125.6 Ko",
-      "checksum": "f24046f664b80baf6e9cbe6bc059ba2f29cca6f3e8e17852a9b7bb7e1d0db18f"
+      "size": 1795270,
+      "sizeLabel": "1.7 Mo",
+      "checksum": "61c522796df28e23a2c92bbc2aa8da7c20e9182ff6c7911ab948a6d93967865a"
     },
     {
       "id": "assets-cartes-inspiration-a-laventure-webp",
@@ -575,17 +575,6 @@
       "checksum": "4aeb948fb92ad3c4d582901bfa9c5f30cacbd00df024eb26f2dbc80fff152b42"
     },
     {
-      "id": "assets-cartes-inspiration-faciale-webp",
-      "name": "Faciale",
-      "path": "assets/cartes/Inspiration/Faciale.webp",
-      "src": "assets/cartes/Inspiration/Faciale.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 146358,
-      "sizeLabel": "142.9 Ko",
-      "checksum": "b0a329133743d88e645605f4a3d04d3360090d3c2db36c7e6fc1d3af6141a5b6"
-    },
-    {
       "id": "assets-cartes-inspiration-fellation-de-milf-jpg",
       "name": "Fellation de MILF",
       "path": "assets/cartes/Inspiration/Fellation_de_MILF.jpg",
@@ -650,17 +639,6 @@
       "size": 90148,
       "sizeLabel": "88.0 Ko",
       "checksum": "c3ce6a47c7fc7440698665b2cb18a8f65128625d28cebbdefe2193a9813eedc0"
-    },
-    {
-      "id": "assets-cartes-inspiration-fesse-webp",
-      "name": "Fesse",
-      "path": "assets/cartes/Inspiration/Fesse.webp",
-      "src": "assets/cartes/Inspiration/Fesse.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 154018,
-      "sizeLabel": "150.4 Ko",
-      "checksum": "83b63cfdfb6e876742cf3e62c286ea492902cc296c4a1b9dcc21e52539c8f31b"
     },
     {
       "id": "assets-cartes-inspiration-fruit-defendu-webp",
@@ -826,6 +804,17 @@
       "size": 203278,
       "sizeLabel": "198.5 Ko",
       "checksum": "7adb505ff553a7eaeb611f51ae2d8fb792f819de61f528a468c2c3fe71034d9c"
+    },
+    {
+      "id": "assets-cartes-inspiration-p-a-w-g-webp",
+      "name": "P.A.W.G",
+      "path": "assets/cartes/Inspiration/P.A.W.G.webp",
+      "src": "assets/cartes/Inspiration/P.A.W.G.webp",
+      "category": "Inspiration",
+      "extension": "WEBP",
+      "size": 128622,
+      "sizeLabel": "125.6 Ko",
+      "checksum": "f24046f664b80baf6e9cbe6bc059ba2f29cca6f3e8e17852a9b7bb7e1d0db18f"
     },
     {
       "id": "assets-cartes-inspiration-partouze-webp",
@@ -1158,6 +1147,28 @@
       "checksum": "07993f0fd3caa408cb60efe715807a87c48135ea5c0c3119b0d87f42f4c82da3"
     },
     {
+      "id": "assets-cartes-rituel-pretresse-webp",
+      "name": "Pretresse",
+      "path": "assets/cartes/Rituel/Pretresse.webp",
+      "src": "assets/cartes/Rituel/Pretresse.webp",
+      "category": "Rituel",
+      "extension": "WEBP",
+      "size": 1551132,
+      "sizeLabel": "1.5 Mo",
+      "checksum": "567fd4c5ab9a184dd38e59ba58457f93e0fa6b89768cfc11a0d36ded8c0e2c5f"
+    },
+    {
+      "id": "assets-cartes-rituel-succube-webp",
+      "name": "Succube",
+      "path": "assets/cartes/Rituel/Succube.webp",
+      "src": "assets/cartes/Rituel/Succube.webp",
+      "category": "Rituel",
+      "extension": "WEBP",
+      "size": 289368,
+      "sizeLabel": "282.6 Ko",
+      "checksum": "08e9b99eda1aa4f5ba2e455dbf47ac1e7a6d2927ab1308333aef0413222f3c20"
+    },
+    {
       "id": "assets-cartes-tenue-accoutrement-de-milf-2-webp",
       "name": "Accoutrement de MILF 2",
       "path": "assets/cartes/Tenue/Accoutrement_de_MILF_2.webp",
@@ -1266,6 +1277,17 @@
       "size": 135298,
       "sizeLabel": "132.1 Ko",
       "checksum": "9fa9b24eb58e3dc000dfe33386fb4101a963ef0f6f1d424c76bc3ca4f473b9ee"
+    },
+    {
+      "id": "assets-cartes-tenue-papier-cadeaux-webp",
+      "name": "Papier cadeaux",
+      "path": "assets/cartes/Tenue/Papier_cadeaux.webp",
+      "src": "assets/cartes/Tenue/Papier_cadeaux.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 1630644,
+      "sizeLabel": "1.6 Mo",
+      "checksum": "4121b825d0c3e2b381dbca9255d28d9e9e5d39494bc99161d03b80a5f48140bb"
     },
     {
       "id": "assets-cartes-tenue-parade-nuptiale-webp",
