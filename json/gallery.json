@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-14T14:12:41.132Z",
-  "count": 122,
+  "generatedAt": "2026-09-14T19:46:53.180Z",
+  "count": 123,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -1134,6 +1134,17 @@
       "size": 126248,
       "sizeLabel": "123.3 Ko",
       "checksum": "01ac8c07105536c9922def5af137d98e82a9c7c0f4235ed3e2015c7c41243986"
+    },
+    {
+      "id": "assets-cartes-positions-missionaire-webp",
+      "name": "Missionaire",
+      "path": "assets/cartes/Positions/Missionaire.webp",
+      "src": "assets/cartes/Positions/Missionaire.webp",
+      "category": "Positions",
+      "extension": "WEBP",
+      "size": 125864,
+      "sizeLabel": "122.9 Ko",
+      "checksum": "74fcd30b920d5d1ce109579987ae4a7ec904006ad34523cfcc6254040dca39b6"
     },
     {
       "id": "assets-cartes-rituel-fetichisme-des-pieds-webp",
