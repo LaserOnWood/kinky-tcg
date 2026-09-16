@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-15T10:50:26.048Z",
-  "count": 120,
+  "generatedAt": "2026-09-16T12:32:01.102Z",
+  "count": 121,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -177,6 +177,17 @@
       "size": 118040,
       "sizeLabel": "115.3 Ko",
       "checksum": "573c187e9d809ead270e38284a536351fa8e145e9cae2f89e49e508323b9ea34"
+    },
+    {
+      "id": "assets-cartes-actions-coulante-webp",
+      "name": "Coulante",
+      "path": "assets/cartes/Actions/Coulante.webp",
+      "src": "assets/cartes/Actions/Coulante.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 280378,
+      "sizeLabel": "273.8 Ko",
+      "checksum": "cc90834ba842f41d488644ebb490c1e6232a6d84173e377c0c43e6a033e0e25d"
     },
     {
       "id": "assets-cartes-actions-creampie-webp",
