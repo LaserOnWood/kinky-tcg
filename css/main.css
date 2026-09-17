@@ -179,9 +179,12 @@ body {
 .catalog-entry {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin-top: 18px;
   padding: 8px 13px;
+  width: 220px;
+  min-height: 38px;
   border: 1px solid var(--color-border-line);
   border-radius: 99px;
   color: var(--color-accent-gold-soft);
