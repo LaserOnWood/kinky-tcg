@@ -33,8 +33,8 @@ sons.yandere_laugh.volume = 0.45
    Pour ajouter un easter egg, ajoutez simplement une entrée ici.
 */
 const easterEggs = {
-  stop: "yamete",
   nique: "surprise",
+  stop: "yamete",
   salope: "salope",
   araara: "ara_ara",
   folle: "yandere_laugh"
