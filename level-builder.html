@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171225">
+  <title>Atelier de niveaux — Kinky TCG</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#f8f5ff; --muted:#afa8c5; --bg:#100d1b; --panel:#1a1529; --panel-2:#231c36; --line:#3b3153; --pink:#ff5ca8; --gold:#ffc857; --cyan:#5ee7d8; --danger:#ff6b7a; --shadow:0 20px 60px #06040d80; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:radial-gradient(circle at 80% -10%, #4d2356 0, transparent 38%), var(--bg); font:15px/1.5 Manrope, sans-serif; min-height:100vh; }
+    button,input,textarea,select { font:inherit; } button { cursor:pointer; } .shell { width:min(1420px, calc(100% - 32px)); margin:auto; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:24px 0 18px; } .brand { text-decoration:none; color:var(--ink); font-weight:800; font-size:20px; letter-spacing:-.04em; } .brand span { color:var(--pink); }
+    .eyebrow { color:var(--gold); font:500 11px 'DM Mono', monospace; text-transform:uppercase; letter-spacing:.12em; } h1,h2,h3,p { margin-top:0; } h1 { font-size:clamp(30px,5vw,56px); line-height:1.05; letter-spacing:-.06em; margin:10px 0 14px; } h2 { font-size:20px; letter-spacing:-.03em; } h3 { font-size:16px; }
+    .hero { padding:42px 0 28px; max-width:850px; } .hero p { color:var(--muted); max-width:720px; font-size:16px; }
+    .layout { display:grid; grid-template-columns:minmax(0, 1fr) 390px; gap:22px; align-items:start; padding-bottom:70px; } .panel { background:linear-gradient(145deg,#211a32,#171323); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); padding:24px; } .panel + .panel { margin-top:18px; }
+    .panel-title { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:20px; } .panel-title p { color:var(--muted); margin:4px 0 0; font-size:13px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; } .field { display:flex; flex-direction:column; gap:7px; } .field.full { grid-column:1/-1; } label { font-size:12px; color:#d9d2e8; font-weight:700; } input,textarea,select { width:100%; color:var(--ink); background:#100d1c; border:1px solid var(--line); border-radius:11px; padding:11px 12px; outline:none; transition:.2s; } input:focus,textarea:focus,select:focus { border-color:var(--pink); box-shadow:0 0 0 3px #ff5ca821; } textarea { min-height:84px; resize:vertical; } select { appearance:auto; }
+    .btn { border:1px solid var(--line); border-radius:10px; padding:10px 14px; color:var(--ink); background:#2a2140; font-weight:700; transition:.2s; } .btn:hover { transform:translateY(-1px); filter:brightness(1.12); } .btn.primary { background:var(--pink); color:#240d1d; border-color:var(--pink); } .btn.gold { background:var(--gold); color:#27180a; border-color:var(--gold); } .btn.ghost { background:transparent; } .btn.danger { color:#ffb5bd; border-color:#7a3546; background:#321928; } .actions { display:flex; flex-wrap:wrap; gap:9px; } .muted { color:var(--muted); }
+    .cards-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:24px 0 12px; } .cards-list { display:grid; gap:13px; } .card-row { border:1px solid var(--line); border-radius:16px; background:#171223; overflow:hidden; } .card-row-head { display:flex; align-items:center; gap:10px; padding:14px 15px; background:#241b38; } .drag { color:var(--muted); cursor:grab; font-size:18px; } .card-number { color:var(--gold); font:500 12px 'DM Mono'; } .card-name { flex:1; font-weight:800; } .card-row-body { padding:15px; display:grid; gap:13px; } .row-actions { display:flex; gap:6px; } .icon-btn { border:0; color:var(--muted); background:transparent; padding:3px 5px; } .icon-btn:hover { color:var(--pink); }
+    .library { max-height:470px; overflow:auto; display:grid; gap:8px; padding-right:3px; } .library-item { display:flex; gap:10px; align-items:center; padding:11px; border:1px solid var(--line); border-radius:12px; background:#161121; } .library-item:hover { border-color:#80679d; } .library-item input { width:auto; accent-color:var(--pink); } .library-copy { min-width:0; flex:1; } .library-copy strong { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } .library-copy small { color:var(--muted); } .search { margin-bottom:10px; }
+    .sticky { position:sticky; top:18px; } .summary { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:18px; } .metric { background:#100d1c; border:1px solid var(--line); border-radius:13px; padding:12px 10px; } .metric strong { display:block; font-size:22px; } .metric span { color:var(--muted); font-size:11px; } .json { min-height:300px; font:12px/1.5 'DM Mono',monospace; color:#d8f7ed; background:#0c0a13; }
+    .notice { border-left:3px solid var(--cyan); background:#16332f55; border-radius:8px; color:#c5f7ef; padding:11px 13px; font-size:12px; margin-top:16px; } .toast { position:fixed; right:20px; bottom:20px; background:#f8f5ff; color:#171225; padding:13px 16px; border-radius:12px; font-weight:700; box-shadow:var(--shadow); transform:translateY(130%); transition:.3s; z-index:10; } .toast.show { transform:none; }
+    @media (max-width:900px) { .layout { grid-template-columns:1fr; } .sticky { position:static; } } @media (max-width:600px) { .shell { width:min(100% - 22px, 1420px); } .topbar { padding-top:16px; } .hero { padding-top:30px; } .panel { padding:17px; border-radius:17px; } .grid { grid-template-columns:1fr; } .field.full { grid-column:auto; } .actions .btn { flex:1 1 auto; } h1 { font-size:38px; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><a class="brand" href="index.html">Kinky<span>TCG</span></a><a class="btn ghost" href="index.html">← Retour au jeu</a></header>
+    <section class="hero"><div class="eyebrow">Outil organisateur · export local</div><h1>Atelier de niveaux</h1><p>Composez un niveau complet, associez une carte à chaque énigme, définissez les réponses acceptées, puis exportez un JSON prêt à intégrer dans le jeu.</p></section>
+    <main class="layout">
+      <section>
+        <div class="panel">
+          <div class="panel-title"><div><h2>1. Identité du niveau</h2><p>Ces informations seront incluses dans le fichier exporté.</p></div><span class="eyebrow">Métadonnées</span></div>
+          <div class="grid">
+            <div class="field"><label for="levelId">Identifiant unique *</label><input id="levelId" placeholder="ex: maison-01" autocomplete="off"></div>
+            <div class="field"><label for="levelTitle">Nom du niveau *</label><input id="levelTitle" placeholder="ex: Le parcours du grenier"></div>
+            <div class="field full"><label for="levelDescription">Description / ambiance</label><textarea id="levelDescription" placeholder="Décrivez le contexte, les règles ou l'ambiance du niveau..."></textarea></div>
+            <div class="field"><label for="author">Organisateur</label><input id="author" placeholder="Nom ou pseudo"></div>
+            <div class="field"><label for="version">Version</label><input id="version" value="1.0.0"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h2>2. Parcours et énigmes</h2><p>Chaque étape peut révéler une carte après une réponse valide.</p></div><button class="btn primary" id="addCardBtn">＋ Ajouter une carte</button></div>
+          <div id="cardsList" class="cards-list"></div>
+          <div id="emptyCards" class="notice">Aucune étape pour le moment. Choisissez une carte dans la bibliothèque ou ajoutez une carte personnalisée.</div>
+        </div>
+      </section>
+      <aside class="sticky">
+        <div class="panel">
+          <div class="panel-title"><div><h2>Bibliothèque de cartes</h2><p>Sélectionnez une carte du catalogue KinkList.</p></div></div>
+          <input class="search" id="cardSearch" placeholder="Rechercher une carte ou catégorie…">
+          <div id="library" class="library"><p class="muted">Chargement du catalogue…</p></div>
+          <div class="actions" style="margin-top:14px"><button class="btn ghost" id="addSelectedBtn">Ajouter les cartes sélectionnées</button><button class="btn ghost" id="addCustomBtn">＋ Carte personnalisée</button></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><div><h2>Export du niveau</h2><p>Le JSON est généré en direct.</p></div></div>
+          <div class="summary"><div class="metric"><strong id="metricCards">0</strong><span>cartes</span></div><div class="metric"><strong id="metricAnswers">0</strong><span>réponses</span></div><div class="metric"><strong id="metricReady">0%</strong><span>complet</span></div></div>
+          <div class="actions"><button class="btn gold" id="downloadBtn">↓ Télécharger le JSON</button><button class="btn primary" id="copyBtn">Copier le JSON</button><button class="btn ghost" id="saveBtn">Sauvegarder</button></div>
+          <textarea id="jsonPreview" class="json" readonly aria-label="Aperçu JSON"></textarea>
+          <div class="actions" style="margin-top:10px"><button class="btn ghost" id="importBtn">Importer un JSON</button><input type="file" id="importFile" accept="application/json,.json" hidden></div>
+          <div class="notice">Le fichier contient uniquement la définition du niveau. Il peut être ajouté ensuite au catalogue du jeu sans inclure vos préférences personnelles.</div>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    const state = { catalog: [], cards: [], draftKey: 'kinklist-level-builder-draft-v1' };
+    const $ = id => document.getElementById(id);
+    const fields = ['levelId','levelTitle','levelDescription','author','version'];
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    const slug = value => String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    function toast(message) { const node=$('toast'); node.textContent=message; node.classList.add('show'); clearTimeout(window.toastTimer); window.toastTimer=setTimeout(()=>node.classList.remove('show'),2600); }
+    function readMeta() { return Object.fromEntries(fields.map(id => [id.replace('level','').replace(/^./, c=>c.toLowerCase()), $(id).value.trim()])); }
+    function setMeta(meta={}) { fields.forEach(id => { const key=id.replace('level','').replace(/^./, c=>c.toLowerCase()); if(meta[key] !== undefined) $(id).value=meta[key]; }); }
+    function newCard(source={}, custom=false) { return { id: source.id || `step-${Date.now()}-${Math.random().toString(36).slice(2,6)}`, cardId: source.cardId || source.id || '', cardTitle: source.cardTitle || source.name || (custom ? 'Nouvelle carte' : 'Carte'), category: source.category || '', image: source.image || '', rarity: source.rarity || 'Commun', hint: source.hint || '', riddle: source.riddle || '', answerMode: source.answerMode || 'exact', answers: Array.isArray(source.answers) && source.answers.length ? source.answers : [''], response: source.response || '', description: source.description || '' }; }
+    function renderLibrary() { const term=$('cardSearch').value.toLowerCase(); const items=state.catalog.filter(c => `${c.name} ${c.category}`.toLowerCase().includes(term)); $('library').innerHTML=items.length ? items.map(c => `<label class="library-item"><input type="checkbox" value="${esc(c.id)}"><div class="library-copy"><strong>${esc(c.name)}</strong><small>${esc(c.category)}</small></div></label>`).join('') : '<p class="muted">Aucun résultat.</p>'; }
+    function renderCards() { $('emptyCards').style.display=state.cards.length?'none':'block'; $('cardsList').innerHTML=state.cards.map((card,index)=>`<article class="card-row" data-index="${index}"><div class="card-row-head"><span class="drag">⠿</span><span class="card-number">${String(index+1).padStart(2,'0')}</span><span class="card-name">${esc(card.cardTitle || 'Carte sans titre')}</span><div class="row-actions"><button class="icon-btn" data-action="up" title="Monter">↑</button><button class="icon-btn" data-action="down" title="Descendre">↓</button><button class="icon-btn" data-action="remove" title="Supprimer">×</button></div></div><div class="card-row-body"><div class="grid"><div class="field"><label>Titre de la carte</label><input data-field="cardTitle" value="${esc(card.cardTitle)}" placeholder="Ex: Le choix du privilège"></div><div class="field"><label>Rareté</label><select data-field="rarity">${['Commun','Rare','Épique','Légendaire'].map(x=>`<option ${card.rarity===x?'selected':''}>${x}</option>`).join('')}</select></div><div class="field full"><label>Indice physique</label><input data-field="hint" value="${esc(card.hint)}" placeholder="Ex: Cherchez près de la bibliothèque"></div><div class="field full"><label>Énigme / question *</label><textarea data-field="riddle" placeholder="Quelle est la prochaine étape ?">${esc(card.riddle)}</textarea></div><div class="field"><label>Type de réponse</label><select data-field="answerMode"><option value="exact" ${card.answerMode==='exact'?'selected':''}>Réponse exacte</option><option value="any" ${card.answerMode==='any'?'selected':''}>Une des réponses acceptées</option></select></div><div class="field"><label>Réponses acceptées *</label><input data-field="answers" value="${esc(card.answers.join(' | '))}" placeholder="réponse 1 | variante 2"></div><div class="field full"><label>Récompense / action révélée</label><textarea data-field="response" placeholder="Texte affiché quand l'énigme est résolue…">${esc(card.response)}</textarea></div></div></div></article>`).join(''); updatePreview(); }
+    function syncCard(target, field, value) { const i=Number(target.closest('.card-row').dataset.index); if(field==='answers') state.cards[i].answers=value.split('|').map(x=>x.trim()).filter(Boolean); else state.cards[i][field]=value; updatePreview(); }
+    async function sha256(value) { const bytes=new TextEncoder().encode(value.trim().toLowerCase()); const hash=await crypto.subtle.digest('SHA-256',bytes); return [...new Uint8Array(hash)].map(byte=>byte.toString(16).padStart(2,'0')).join(''); }
+    async function payload() { const meta=readMeta(); return { schema:'kinky-tcg.level/v1', id:meta.id || slug(meta.title) || 'niveau-sans-id', title:meta.title || 'Niveau sans titre', description:meta.description, author:meta.author, version:meta.version || '1.0.0', createdAt:new Date().toISOString(), steps:await Promise.all(state.cards.map(async(c,i)=>({ order:i+1, id:c.id, cardId:c.cardId || slug(c.cardTitle), card:{ title:c.cardTitle, image:c.image, rarity:c.rarity, description:c.description }, hint:c.hint, riddle:c.riddle, answerMode:c.answerMode, answers:c.answers, answerHashes:await Promise.all(c.answers.map(sha256)), passwordHash:c.answers[0] ? await sha256(c.answers[0]) : '', response:c.response }))) }; }
+    async function updatePreview() { const data=await payload(); $('jsonPreview').value=JSON.stringify(data,null,2); $('metricCards').textContent=state.cards.length; $('metricAnswers').textContent=state.cards.reduce((sum,c)=>sum+c.answers.length,0); const complete=state.cards.length && state.cards.every(c=>c.cardTitle&&c.riddle&&c.answers.length&&c.answers.every(Boolean)); $('metricReady').textContent=(complete?100:Math.round((state.cards.filter(c=>c.cardTitle&&c.riddle&&c.answers.length&&c.answers.every(Boolean)).length/Math.max(state.cards.length,1))*100))+'%'; }
+    function addCard(card) { state.cards.push(newCard(card, !card)); renderCards(); }
+    function saveDraft(show=true) { localStorage.setItem(state.draftKey, JSON.stringify({meta:readMeta(),cards:state.cards})); if(show) toast('Brouillon sauvegardé dans ce navigateur.'); }
+    async function loadCatalog() { try { const data=await fetch('json/cartes.json').then(r=>r.json()); state.catalog=data.themes.flatMap(theme=>theme.cards.map(card=>({id:String(card.id),name:card.title,category:theme.name,description:card.description,image:card.image,rarity:card.rarity}))); renderLibrary(); } catch(e) { $('library').innerHTML='<p class="muted">Catalogue indisponible. Vous pouvez utiliser des cartes personnalisées.</p>'; } }
+    function restoreDraft() { try { const draft=JSON.parse(localStorage.getItem(state.draftKey)); if(draft) { setMeta(draft.meta); state.cards=(draft.cards||[]).map(c=>newCard(c)); renderCards(); toast('Brouillon précédent restauré.'); } } catch(e) {} }
+    $('cardsList').addEventListener('input', e=>{ if(e.target.dataset.field) syncCard(e.target,e.target.dataset.field,e.target.value); }); $('cardsList').addEventListener('change', e=>{ if(e.target.dataset.field) syncCard(e.target,e.target.dataset.field,e.target.value); });
+    $('cardsList').addEventListener('click', e=>{ const action=e.target.dataset.action; if(!action)return; const row=e.target.closest('.card-row'), i=Number(row.dataset.index); if(action==='remove')state.cards.splice(i,1); if(action==='up'&&i>0)[state.cards[i-1],state.cards[i]]=[state.cards[i],state.cards[i-1]]; if(action==='down'&&i<state.cards.length-1)[state.cards[i+1],state.cards[i]]=[state.cards[i],state.cards[i+1]]; renderCards(); });
+    $('addCardBtn').onclick=()=>addCard({}); $('addCustomBtn').onclick=()=>{ addCard({cardTitle:'Carte personnalisée'}); window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}); }; $('cardSearch').oninput=renderLibrary;
+    $('addSelectedBtn').onclick=()=>{ const ids=[...$('library').querySelectorAll('input:checked')].map(x=>x.value); ids.forEach(id=>{const c=state.catalog.find(x=>x.id===id); if(c)addCard({cardId:c.id,cardTitle:c.name,category:c.category,description:c.description});}); $('library').querySelectorAll('input:checked').forEach(x=>x.checked=false); if(ids.length)toast(`${ids.length} carte(s) ajoutée(s).`); };
+    fields.forEach(id=>$(id).addEventListener('input',updatePreview)); $('saveBtn').onclick=()=>saveDraft(); $('downloadBtn').onclick=async()=>{ const data=await payload(), text=JSON.stringify(data,null,2); const blob=new Blob([text],{type:'application/json'}), url=URL.createObjectURL(blob), a=document.createElement('a'); a.href=url; a.download=`${data.id}.json`; a.click(); URL.revokeObjectURL(url); toast('JSON téléchargé.'); }; $('copyBtn').onclick=async()=>{ try{await navigator.clipboard.writeText($('jsonPreview').value);toast('JSON copié dans le presse-papiers.');}catch(e){$('jsonPreview').select();document.execCommand('copy');toast('JSON copié.');} };
+    $('importBtn').onclick=()=>$('importFile').click(); $('importFile').onchange=async e=>{ const file=e.target.files[0]; if(!file)return; try{ const data=JSON.parse(await file.text()); setMeta({id:data.id,title:data.title,description:data.description,author:data.author,version:data.version}); state.cards=(data.steps||[]).map(s=>newCard({id:s.id,cardId:s.cardId,cardTitle:s.card?.title,image:s.card?.image,rarity:s.card?.rarity,hint:s.hint,riddle:s.riddle,answerMode:s.answerMode,answers:s.answers,response:s.response,description:s.card?.description})); renderCards(); toast('Niveau importé.'); }catch(err){toast('Ce fichier JSON est invalide.');} e.target.value=''; };
+    loadCatalog(); restoreDraft(); updatePreview();
+  </script>
+</body>
+</html>
+
+<!-- Format exporté : chaque entrée de steps associe une carte, un indice, une énigme, une ou plusieurs réponses et la récompense affichée. -->
+  
