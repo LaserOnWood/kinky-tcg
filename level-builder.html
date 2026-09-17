@@ -67,7 +67,7 @@
   </div>
   <div id="toast" class="builder-toast" role="status"></div>
 <script>
-  const $=id=>document.getElementById(id); const state={assets:[],cards:[],activeCard:null,openCard:null,draft:'kinky-tcg-level-builder'}; const rarities=['Coquine','Provocante','Sulfureuse','Envoûtante','Audacieuse','Mythique']; const cardTypes=['Accessoire','Action','Lieu','Position','Rituel','Tenue'];
+  const $=id=>document.getElementById(id); const state={assets:[],cards:[],activeCard:null,openCard:null,draft:'kinky-tcg-level-builder'}; const rarities=['Coquine','Provocante','Audacieuse','Envoûtante','Sulfureuse','Mythique']; const cardTypes=['Accessoire','Action','Lieu','Position','Rituel','Tenue'];
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   const slug=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const metaFields=['themeId','themeName','themeDescription','difficulty','seal'];
