@@ -628,13 +628,17 @@ initialiserJeu();
     difficulty: {
       title: "Comprendre la difficulté",
       html: `
-        <h3>Facile</h3>
-        <p>Les indices sont directs et l’emplacement se déduit rapidement.</p>
-        <h3>Normal</h3>
-        <p>Les indices demandent davantage d’observation et un peu de réflexion.</p>
-        <h3>Difficile</h3>
-        <p>Les indices sont plus discrets : prenez le temps d’examiner votre environnement.</p>
-        <p class="info-note">La difficulté concerne surtout la recherche des mots de passe, pas la réalisation des cartes.</p>`
+        <h3>Innocence</h3>
+        <p>Le frisson du premier regard, là où le désir s'éveille sans encore oser tout révéler.</p>
+        <h3>Transgression</h3>
+        <p>L'interdit commence à devenir stimulant. On impose doucement ses premiers désirs.</p>
+        <h3>Perversion</h3>
+        <p>Les pudeurs tombent une à une. Les rôles s'affirment et s'endurcissent.</p>
+        <h3>Corruption</h3>
+        <p>Les limites morales sont définitivement franchies. L'esprit est soumis au plaisir brut</p>
+        <h3>Dépravation</h3>
+        <p>L'aboutissement ultime du vice : le lâcher-prise le plus sauvage et le plus inavouable.</p>
+        <p class="info-note">La difficulté concerne la recherche des mots de passe, ainsi que la réalisation des cartes.</p>`
     },
     rarity: {
       title: "Comprendre la rareté",
