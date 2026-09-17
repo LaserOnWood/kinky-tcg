@@ -31,6 +31,7 @@ const FLAT_HINTS_KEY = "kinky_tcg_hints_revealed";
 // Mode "thèmes" : mêmes préfixes que l'ancien tcgproto/js/passemot.js.
 const THEME_STORAGE_BASE = "kinky_tcg_progress_v0.2";
 const THEME_HINTS_BASE = "kinky_tcg_hints_revealed";
+const IMPORTED_THEMES_KEY = "kinky_tcg_imported_themes_v1";
 
 // Mot de passe organisateur : « toutleniveau » révèle toutes les cartes du
 // thème actuellement ouvert. Seul le hash SHA-256 est conservé dans le code.
@@ -55,6 +56,7 @@ let sceauActuel = "✦";     // symbole affiché au dos des cartes, personnalisa
 let debloquees = new Set();
 let indicesReveles = {};
 let completionSonJouePourTheme = false;
+let THEMES_OFFICIELS = [];
 
 /* ===========================================================================
    UTILITAIRES
@@ -128,6 +130,28 @@ function echapperHTML(valeur){
     "\"": "&quot;",
     "'": "&#039;"
   })[caractere]);
+}
+
+function chargerThemesImportes(){
+  try{
+    const brut = localStorage.getItem(IMPORTED_THEMES_KEY);
+    if(!brut){ return []; }
+    const themes = validerThemes(JSON.parse(brut), "Niveaux importés");
+    return themes.map(theme => ({ ...theme, __importe: true }));
+  }catch(erreur){
+    console.warn("Niveaux importés ignorés :", erreur);
+    return [];
+  }
+}
+
+function sauverThemesImportes(){
+  try{
+    localStorage.setItem(IMPORTED_THEMES_KEY, JSON.stringify(
+      THEMES.filter(theme => theme.__importe).map(({ __importe, ...theme }) => theme)
+    ));
+  }catch(erreur){
+    console.error("Impossible d'enregistrer les niveaux importés :", erreur);
+  }
 }
 
 /* ===========================================================================
@@ -240,7 +264,8 @@ async function chargerDonnees(){
     CARTES = validerCartes(donnees, "json/cartes.json");
   } else if(donnees && typeof donnees === "object" && Array.isArray(donnees.themes)){
     MODE = "themes";
-    THEMES = validerThemes(donnees.themes);
+    THEMES_OFFICIELS = validerThemes(donnees.themes);
+    THEMES = [...THEMES_OFFICIELS, ...chargerThemesImportes()];
   } else {
     throw new Error("Format de json/cartes.json non reconnu (tableau de cartes, ou objet { \"themes\": [...] } attendu).");
   }
@@ -309,7 +334,8 @@ function afficherSelectionThemes(){
   gameContent.classList.add("hidden");
 
   container.innerHTML = THEMES.map(theme => `
-    <div class="theme-card" data-theme-id="${echapperHTML(theme.id)}">
+    <div class="theme-card${theme.__importe ? " imported-theme-card" : ""}" data-theme-id="${echapperHTML(theme.id)}">
+      ${theme.__importe ? `<button class="remove-imported-theme" type="button" data-remove-theme="${echapperHTML(theme.id)}" aria-label="Supprimer le niveau importé">Supprimer</button>` : ""}
       <h3>${echapperHTML(theme.name)}</h3>
       <p>${echapperHTML(theme.description)}</p>
       <div class="theme-info">
@@ -361,6 +387,20 @@ function choisirTheme(themeId){
 // Délégation d'événements : fonctionne même si la grille de thèmes est
 // régénérée (au lieu d'un onclick="" par carte, fragile et peu sûr).
 $("themes-container")?.addEventListener("click", evenement => {
+  const boutonSuppression = evenement.target.closest("[data-remove-theme]");
+  if(boutonSuppression){
+    evenement.stopPropagation();
+    const themeId = boutonSuppression.dataset.removeTheme;
+    THEMES = THEMES.filter(theme => theme.id !== themeId);
+    sauverThemesImportes();
+    afficherSelectionThemes();
+    const status = $("level-import-status");
+    if(status){
+      status.className = "level-import-status success";
+      status.textContent = "Niveau importé supprimé de cet appareil.";
+    }
+    return;
+  }
   const carte = evenement.target.closest(".theme-card");
   if(carte && carte.dataset.themeId){
     choisirTheme(carte.dataset.themeId);
@@ -369,6 +409,52 @@ $("themes-container")?.addEventListener("click", evenement => {
 
 $("back-to-selection")?.addEventListener("click", () => {
   afficherSelectionThemes();
+});
+
+function afficherStatutImport(message, type = ""){
+  const status = $("level-import-status");
+  if(!status){ return; }
+  status.className = `level-import-status ${type}`.trim();
+  status.textContent = message;
+}
+
+$("import-level-button")?.addEventListener("click", () => {
+  $("import-level-file")?.click();
+});
+
+$("import-level-file")?.addEventListener("change", async evenement => {
+  const fichier = evenement.target.files?.[0];
+  evenement.target.value = "";
+  if(!fichier){ return; }
+
+  try{
+    const donnees = JSON.parse(await fichier.text());
+    const themesAImporter = Array.isArray(donnees?.themes)
+      ? donnees.themes
+      : (donnees && Array.isArray(donnees.cards) ? [donnees] : null);
+
+    if(!themesAImporter){
+      throw new Error("Le fichier doit contenir un objet { themes: [...] }.");
+    }
+
+    const themesValides = validerThemes(themesAImporter, "Fichier importé").map(theme => ({
+      ...theme,
+      id: `imported-${theme.id}`,
+      __importe: true
+    }));
+    const idsImportes = new Set(themesValides.map(theme => theme.id));
+    THEMES = [
+      ...THEMES_OFFICIELS,
+      ...THEMES.filter(theme => theme.__importe && !idsImportes.has(theme.id)),
+      ...themesValides
+    ];
+    sauverThemesImportes();
+    afficherSelectionThemes();
+    afficherStatutImport(`${themesValides.length} niveau(x) ajouté(s). Ils resteront disponibles sur cet appareil.`, "success");
+  }catch(erreur){
+    console.error("Import de niveau impossible :", erreur);
+    afficherStatutImport(`Import impossible : ${erreur.message}`, "error");
+  }
 });
 
 /* ===========================================================================

@@ -33,6 +33,13 @@
         <a class="catalog-entry" href="gallery.html"><i class="fa-solid fa-images" aria-hidden="true"></i> Consulter le catalogue visuel</a>
         <a class="catalog-entry" href="level-builder.html"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Créer un niveau</a>
       </div>
+      <div class="level-import-box" id="level-import-box">
+        <button class="catalog-entry level-import-button" id="import-level-button" type="button">
+          <i class="fa-solid fa-file-import" aria-hidden="true"></i> Ajouter un niveau JSON
+        </button>
+        <input id="import-level-file" type="file" accept="application/json,.json" hidden>
+        <p id="level-import-status" class="level-import-status" aria-live="polite"></p>
+      </div>
     </div>
 
     <div class="themes-stage">
