@@ -54,6 +54,7 @@ let selectedThemeId = null;
 let sceauActuel = "✦";     // symbole affiché au dos des cartes, personnalisable par thème
 let debloquees = new Set();
 let indicesReveles = {};
+let completionSonJouePourTheme = false;
 
 /* ===========================================================================
    UTILITAIRES
@@ -326,6 +327,7 @@ function choisirTheme(themeId){
   selectedThemeId = theme.id;
   CARTES = theme.cards; // déjà validées par validerThemes()
   sceauActuel = theme.seal;
+  completionSonJouePourTheme = false;
 
   debloquees = chargerProgression();
   indicesReveles = chargerIndicesReveles();
@@ -469,6 +471,15 @@ function rendreProgression(){
   }
 }
 
+function jouerSonCompletionSiNecessaire(){
+  if(completionSonJouePourTheme || !CARTES.length){ return; }
+
+  if(debloquees.size === CARTES.length){
+    completionSonJouePourTheme = true;
+    window.jouerSon?.("felicitation");
+  }
+}
+
 /* ===========================================================================
    LOGIQUE DE SAISIE DU MOT DE PASSE
    =========================================================================== */
@@ -509,6 +520,7 @@ async function tenterDeverrouillage(){
     feedback.className = "feedback ok";
     rendreGrille();
     rendreProgression();
+    jouerSonCompletionSiNecessaire();
     return;
   }
 
@@ -524,6 +536,7 @@ async function tenterDeverrouillage(){
 
     rendreGrille();
     rendreProgression();
+    jouerSonCompletionSiNecessaire();
 
     // La notification est optionnelle et ne bloque jamais le déverrouillage.
     if (window.notifierDiscord) {
