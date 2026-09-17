@@ -220,7 +220,7 @@ function validerThemes(themesData){
       difficulty: (typeof theme.difficulty === "string" && theme.difficulty.trim()) ? theme.difficulty.trim() : "—",
       // Symbole affiché au dos des cartes (dans .seal). Optionnel dans le JSON,
       // par défaut "✦" si absent ou vide. Peut être un emoji ou un court symbole.
-      seal: (typeof theme.seal === "string" && theme.seal.trim()) ? theme.seal.trim() : "✦",
+      seal: (typeof theme.seal === "string" && theme.seal.trim()) ? theme.seal.trim() : "♥️",
       cards: validerCartes(theme.cards, `Le thème « ${name} »`)
     };
   });
