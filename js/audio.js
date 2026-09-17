@@ -11,6 +11,7 @@ const sons = {
   bonneReponse: new Audio("assets/audio/bonne-reponse.mp3"),
   erreur: new Audio("assets/audio/erreur.mp3"),
   surprise: new Audio("assets/audio/surprise-mother-fucker.mp3"),
+  felicitation: new Audio("assets/audio/felicitation.mp3"),
   yamete: new Audio("assets/audio/yamete.mp3"),
   salope: new Audio("assets/audio/salope_ahh.mp3"),
   ara_ara: new Audio("assets/audio/ara-ara.mp3"),
@@ -20,6 +21,7 @@ const sons = {
 sons.bonneReponse.volume = 0.45;
 sons.erreur.volume = 0.45;
 sons.surprise.volume = 0.45;
+sons.felicitation.volume = 0.6;
 sons.yamete.volume = 0.45;
 sons.salope.volume = 0.45;
 sons.ara_ara.volume = 0.45;
