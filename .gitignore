@@ -1,2 +1,10 @@
-.env.example
-*.example
+# Secrets locaux : ne jamais commiter
+.env
+.env.*
+!.env.example
+
+# Dépendances installées par npm
+node_modules/
+
+# Dossier local de Vercel
+.vercel/
