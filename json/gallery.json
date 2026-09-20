@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T18:41:54.774Z",
+  "generatedAt": "2026-09-20T22:56:17.751Z",
   "count": 130,
   "images": [
     {
@@ -9,9 +9,9 @@
       "src": "assets/cartes/Accessoires/Bandeau_item.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 247110,
-      "sizeLabel": "241.3 Ko",
-      "checksum": "3e82756e787686d340a3c947cbd39a5762d3ce93b83e87f4713312b797b32f09"
+      "size": 94316,
+      "sizeLabel": "92.1 Ko",
+      "checksum": "b197df95e4297c7e5501a7b988af49c82828d6a4a80f9001fc4c4cb9959ead85"
     },
     {
       "id": "assets-cartes-accessoires-cage-de-chastete-webp",
@@ -20,9 +20,9 @@
       "src": "assets/cartes/Accessoires/Cage_de_chastete.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 222958,
-      "sizeLabel": "217.7 Ko",
-      "checksum": "21aafbf6a068c53d7e5bdc8584bf4af794411e708c6d05a3d422090d6e5f311a"
+      "size": 88590,
+      "sizeLabel": "86.5 Ko",
+      "checksum": "854f5195a6e14d741bf36a312a11b68bd6dfb2498f608156442b0fdc9ee080c5"
     },
     {
       "id": "assets-cartes-accessoires-couteau-webp",
@@ -31,9 +31,9 @@
       "src": "assets/cartes/Accessoires/Couteau.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 228866,
-      "sizeLabel": "223.5 Ko",
-      "checksum": "6bfb29b7879a345c8a5840a70cef16c3af90c41c6714804b74902f4854bca537"
+      "size": 91146,
+      "sizeLabel": "89.0 Ko",
+      "checksum": "e66c65daa932a20435f4a9016e0237bdb334d496b96cee0012a4836f78ba6d48"
     },
     {
       "id": "assets-cartes-accessoires-gamelle-webp",
@@ -42,9 +42,9 @@
       "src": "assets/cartes/Accessoires/Gamelle.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 156924,
-      "sizeLabel": "153.2 Ko",
-      "checksum": "990743c402cdcdddab18b0b7816ce6316ab804d06fdf6bf0fdb43f277d88281f"
+      "size": 119388,
+      "sizeLabel": "116.6 Ko",
+      "checksum": "107f736da4f0826501491d3414fadfa7e7e2ab5d60cab84131032ad9b30f43c2"
     },
     {
       "id": "assets-cartes-accessoires-gode-ceinture-webp",
@@ -53,9 +53,9 @@
       "src": "assets/cartes/Accessoires/Gode_ceinture.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 188610,
-      "sizeLabel": "184.2 Ko",
-      "checksum": "b7b65763b42596200b9b6638589e71ca2e98f666bbe0ce407dd8fa1036915766"
+      "size": 74284,
+      "sizeLabel": "72.5 Ko",
+      "checksum": "08e53ad9d442a90fca8e53e35d379be32e879ba2b6092cd3abf6f9d2058748ab"
     },
     {
       "id": "assets-cartes-accessoires-harnais-webp",
@@ -64,9 +64,9 @@
       "src": "assets/cartes/Accessoires/Harnais.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 161108,
-      "sizeLabel": "157.3 Ko",
-      "checksum": "bfba731f6c4851f6b0985ecc07d80b274753f6459798f514d30073fdd2c3068b"
+      "size": 124498,
+      "sizeLabel": "121.6 Ko",
+      "checksum": "f61550f87f8ce848383909eb66cb9c40edd74447865954c3a1c7b31ea821690d"
     },
     {
       "id": "assets-cartes-accessoires-milf-masque-webp",
@@ -75,9 +75,9 @@
       "src": "assets/cartes/Accessoires/Milf_Masque.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 225012,
-      "sizeLabel": "219.7 Ko",
-      "checksum": "50cba26361a1300794d435799549135379e89f08642aaba6cb099471d91a6bcc"
+      "size": 89992,
+      "sizeLabel": "87.9 Ko",
+      "checksum": "711dff94adf44c6d52436fa01ce63f2eef3473666bfdd1648aa67d823c8e8417"
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
@@ -86,9 +86,9 @@
       "src": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 511532,
-      "sizeLabel": "499.5 Ko",
-      "checksum": "70dc6fa3720f6e0b0afe4e8da2d38502c61dcd932f0f053d1aa003e262c6f575"
+      "size": 155090,
+      "sizeLabel": "151.5 Ko",
+      "checksum": "bcab75dafaf37e3dc61e096a669e0bbf2ff105c5d3805937dec37b0782cb49e4"
     },
     {
       "id": "assets-cartes-accessoires-sandales-compensees-webp",
@@ -97,20 +97,20 @@
       "src": "assets/cartes/Accessoires/Sandales_compensees.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 208276,
-      "sizeLabel": "203.4 Ko",
-      "checksum": "a65d0fa28639b160eb37102f3e79dea4652e5b92cbba1e75194bb48bb1ddd117"
+      "size": 83986,
+      "sizeLabel": "82.0 Ko",
+      "checksum": "a5ea85ecbdf809dcdfe853c5026f0f9a5d95e2082c3db438e5049f5208073ca3"
     },
     {
-      "id": "assets-cartes-accessoires-talons-png",
+      "id": "assets-cartes-accessoires-talons-webp",
       "name": "Talons",
-      "path": "assets/cartes/Accessoires/Talons.png",
-      "src": "assets/cartes/Accessoires/Talons.png",
+      "path": "assets/cartes/Accessoires/Talons.webp",
+      "src": "assets/cartes/Accessoires/Talons.webp",
       "category": "Accessoires",
-      "extension": "PNG",
-      "size": 3229734,
-      "sizeLabel": "3.1 Mo",
-      "checksum": "2cf2e64434e4fd5c56c473aa06b5fcbca8a9d72557d5fc577124ca63ed7f261b"
+      "extension": "WEBP",
+      "size": 85396,
+      "sizeLabel": "83.4 Ko",
+      "checksum": "67650c0c0392fe7f0fb74214197ef4a6614da2a8c72cb0befbdccc7ad05e4f9b"
     },
     {
       "id": "assets-cartes-actions-anus-de-milf-webp",
@@ -119,9 +119,9 @@
       "src": "assets/cartes/Actions/Anus_de_MILF.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 227846,
-      "sizeLabel": "222.5 Ko",
-      "checksum": "9f8619f92911019b9f3ce05640b5ce3e7cd86607974ac8ba907d1fec1df803c6"
+      "size": 83444,
+      "sizeLabel": "81.5 Ko",
+      "checksum": "917f0ef777c7ee85945f5fbcf577894847c9fba80b4d4a0d19a0d707a7738f28"
     },
     {
       "id": "assets-cartes-actions-baise-en-groupe-webp",
@@ -130,9 +130,9 @@
       "src": "assets/cartes/Actions/Baise_en_groupe.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 266204,
-      "sizeLabel": "260.0 Ko",
-      "checksum": "79ddc1d1d47f1320a9150109fd78560cd6df29b2ca2d0dc308b71e8f6dc0cb1c"
+      "size": 107224,
+      "sizeLabel": "104.7 Ko",
+      "checksum": "a96720b43d8bb9616c68eea6dc0430bf90f18a0fc45b9d01c9879787fb53cea5"
     },
     {
       "id": "assets-cartes-actions-baise-sauvage-intense-webp",
@@ -141,9 +141,9 @@
       "src": "assets/cartes/Actions/Baise_sauvage%26intense.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 229494,
-      "sizeLabel": "224.1 Ko",
-      "checksum": "c038e01c5f47cef2eb0ed272b25094ed89c1c5ecea85cb859529ae7146bef805"
+      "size": 92378,
+      "sizeLabel": "90.2 Ko",
+      "checksum": "2164bba753b6de9c48125e78489147110031aceb63bdbb177d49c158c60e6be2"
     },
     {
       "id": "assets-cartes-actions-balade-en-foret-webp",
@@ -152,9 +152,9 @@
       "src": "assets/cartes/Actions/Balade_en_foret.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 1652568,
-      "sizeLabel": "1.6 Mo",
-      "checksum": "eaf18d2092020c141a34c30fcc54951332e1ef6ced0897e6ae4ebb1ed2e7869e"
+      "size": 93770,
+      "sizeLabel": "91.6 Ko",
+      "checksum": "5f4762e7879e367f6304d90b53afc7de9cd0e11c8c2006c44b3dd0bc8d301f56"
     },
     {
       "id": "assets-cartes-actions-bifle-webp",
@@ -163,9 +163,9 @@
       "src": "assets/cartes/Actions/Bifle.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 198948,
-      "sizeLabel": "194.3 Ko",
-      "checksum": "ac970f6e9f8750d7d4df00c0d6c511afcadfe6d2e64bf2446f63c12a3c82736e"
+      "size": 79484,
+      "sizeLabel": "77.6 Ko",
+      "checksum": "67f5c42337e8461aab8b79e7f876ef66bc9d24063cf3894f269306d017a7442b"
     },
     {
       "id": "assets-cartes-actions-bouche-pleine-webp",
@@ -174,9 +174,9 @@
       "src": "assets/cartes/Actions/Bouche_pleine.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 251052,
-      "sizeLabel": "245.2 Ko",
-      "checksum": "345f0d9f64b0d3d8a65bdc68088729b9d88fefb43abcb33772ba1dd61ef37bf6"
+      "size": 87934,
+      "sizeLabel": "85.9 Ko",
+      "checksum": "7cadb98c239527e6063516c20c9d6e54fb7cbe02127d9a046a04c7000bfc027b"
     },
     {
       "id": "assets-cartes-actions-branlette-de-milf-webp",
@@ -185,9 +185,9 @@
       "src": "assets/cartes/Actions/Branlette_de_MILF.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 278490,
-      "sizeLabel": "272.0 Ko",
-      "checksum": "c77e7d00e038988579e2fdb134859fd9817fa5e09660f99aab35126d7ad1bf31"
+      "size": 99292,
+      "sizeLabel": "97.0 Ko",
+      "checksum": "ec7670f0f9dece22f3f2ea81419f1012e6687352e6cbf8f9302533c3e2c74ec7"
     },
     {
       "id": "assets-cartes-actions-branlette-espagnole-webp",
@@ -196,9 +196,9 @@
       "src": "assets/cartes/Actions/Branlette_Espagnole.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 3267259,
-      "sizeLabel": "3.1 Mo",
-      "checksum": "035ce8399a6645979b2256723bf1eb5736074f2116004bad156b0b132a7040cb"
+      "size": 86986,
+      "sizeLabel": "84.9 Ko",
+      "checksum": "648cb6afad06b2c431d0ba658a79885a4fed4af9ce80c375a2774d396205efa0"
     },
     {
       "id": "assets-cartes-actions-cabine-d-essayage-webp",
@@ -218,9 +218,9 @@
       "src": "assets/cartes/Actions/Contr%C3%B4le_de_police.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 118040,
-      "sizeLabel": "115.3 Ko",
-      "checksum": "573c187e9d809ead270e38284a536351fa8e145e9cae2f89e49e508323b9ea34"
+      "size": 91196,
+      "sizeLabel": "89.1 Ko",
+      "checksum": "f32a682c1c0824e6c1972918a2228d767ba3f315eb9551c40dbd9bc47a0f4e54"
     },
     {
       "id": "assets-cartes-actions-coulante-webp",
@@ -229,9 +229,9 @@
       "src": "assets/cartes/Actions/Coulante.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 280378,
-      "sizeLabel": "273.8 Ko",
-      "checksum": "cc90834ba842f41d488644ebb490c1e6232a6d84173e377c0c43e6a033e0e25d"
+      "size": 99130,
+      "sizeLabel": "96.8 Ko",
+      "checksum": "941db0acade9e55e010151b7c2933b96eed42843c6b52f5c13df3cfb5bcca8af"
     },
     {
       "id": "assets-cartes-actions-creampie-webp",
@@ -240,9 +240,9 @@
       "src": "assets/cartes/Actions/Creampie.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 78434,
-      "sizeLabel": "76.6 Ko",
-      "checksum": "2cffdc03b6335e2704c8ed54d7c134b6073accbcf06239cfae6c1b5d20aff9ef"
+      "size": 60846,
+      "sizeLabel": "59.4 Ko",
+      "checksum": "f46b371866f60f7b78374c9ad7893f7390259fbb5b38378de2658bdd1e11cd58"
     },
     {
       "id": "assets-cartes-actions-cum-swapping-webp",
@@ -251,9 +251,9 @@
       "src": "assets/cartes/Actions/Cum%20Swapping.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 283650,
-      "sizeLabel": "277.0 Ko",
-      "checksum": "42c7d14e4a8709623aa31dbc64c3c9354a420dfb7b474f8c280050a138641d2a"
+      "size": 97678,
+      "sizeLabel": "95.4 Ko",
+      "checksum": "de8c1cbb2eaa72bd1f099111d98693cf6c8e68a654c7963a5ecdafd9c5b5138c"
     },
     {
       "id": "assets-cartes-actions-cum-eating-webp",
@@ -262,9 +262,9 @@
       "src": "assets/cartes/Actions/Cum_Eating.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 100446,
-      "sizeLabel": "98.1 Ko",
-      "checksum": "88f5100e83574f8a760eace555105c71a2eea3194812bdf9d63cc0bdf9073f0b"
+      "size": 77886,
+      "sizeLabel": "76.1 Ko",
+      "checksum": "620edd2008670fc171c41e5f63659461a6ab06b3fc5a901b291e768827502bf6"
     },
     {
       "id": "assets-cartes-actions-cumwalk-webp",
@@ -273,9 +273,9 @@
       "src": "assets/cartes/Actions/Cumwalk.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 150938,
-      "sizeLabel": "147.4 Ko",
-      "checksum": "af3e15f5cfeaae5c4d2063d629756b45f6e70c9041fa24fea79e2f5b4a29c5e2"
+      "size": 116596,
+      "sizeLabel": "113.9 Ko",
+      "checksum": "37649930ad7b8d736e605133be0184477c59b576b6801cc00199e521dd7829b7"
     },
     {
       "id": "assets-cartes-actions-ecritures-corporelles-exhib-webp",
@@ -284,9 +284,9 @@
       "src": "assets/cartes/Actions/Ecritures_Corporelles_(Exhib).webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 137722,
-      "sizeLabel": "134.5 Ko",
-      "checksum": "523f3d318cfea311d8a019ba934bb60a8b9ad0ad151ca926a4d378997c22eec2"
+      "size": 105886,
+      "sizeLabel": "103.4 Ko",
+      "checksum": "b7a2c852d1817af844739c47b10bd6609bb3523c93b2c682799dfedd803bcc9a"
     },
     {
       "id": "assets-cartes-actions-ecritures-corporelles-webp",
@@ -306,9 +306,9 @@
       "src": "assets/cartes/Actions/Ejaculation_Buccale.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 265830,
-      "sizeLabel": "259.6 Ko",
-      "checksum": "7dd84496af3ff0f9d158f7f6786a55824901ed13ae2b1d767ca743da265b4e8f"
+      "size": 91158,
+      "sizeLabel": "89.0 Ko",
+      "checksum": "593fad7dbb3e2f012a8041988ab45e5c5b01c352bc9d4ce431cacef48d0d2ac2"
     },
     {
       "id": "assets-cartes-actions-exhibition-lingerie-webp",
@@ -317,9 +317,9 @@
       "src": "assets/cartes/Actions/Exhibition_(Lingerie).webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 1820366,
-      "sizeLabel": "1.7 Mo",
-      "checksum": "47c795c5c3be638e927feab13aa2508689e413e210fc79a0f83aee4f67c78cf6"
+      "size": 115224,
+      "sizeLabel": "112.5 Ko",
+      "checksum": "8a95b600704ebaf6b7115add076003273f10d83f7e98d690be27a0e988e22673"
     },
     {
       "id": "assets-cartes-actions-exhibition-webp",
@@ -328,9 +328,9 @@
       "src": "assets/cartes/Actions/Exhibition.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 332632,
-      "sizeLabel": "324.8 Ko",
-      "checksum": "35a094e3088ff6026b2a7fb5fc7ef1e435149e265ea52cc8e561e569868a40dd"
+      "size": 118388,
+      "sizeLabel": "115.6 Ko",
+      "checksum": "d78ba860c61877cad50ba3488051262f2985590689b04692a4b683d056eb3bbb"
     },
     {
       "id": "assets-cartes-actions-facial-webp",
@@ -339,9 +339,9 @@
       "src": "assets/cartes/Actions/Facial.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 118856,
-      "sizeLabel": "116.1 Ko",
-      "checksum": "254f336d65fdaa6f6a4721ebde1a2308083c1b12686aeaf960222fb4b654e9b2"
+      "size": 91064,
+      "sizeLabel": "88.9 Ko",
+      "checksum": "4ac3072d66b92407dadf950cc3abd469dbfbadc19ed3e855a24ef72c0a7143dc"
     },
     {
       "id": "assets-cartes-actions-fellation-de-milf-webp",
@@ -350,9 +350,9 @@
       "src": "assets/cartes/Actions/Fellation_de_MILF.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 155978,
-      "sizeLabel": "152.3 Ko",
-      "checksum": "e3d20d572abcb814ac812d34afb242cfb0e755cc980cb03406fca758215a460f"
+      "size": 99616,
+      "sizeLabel": "97.3 Ko",
+      "checksum": "6c80e492117326bd44d22ae292fd08c13360ffee76401242d22d7bc730481fb9"
     },
     {
       "id": "assets-cartes-actions-femme-au-foyer-webp",
@@ -361,9 +361,9 @@
       "src": "assets/cartes/Actions/Femme_au_foyer.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 296084,
-      "sizeLabel": "289.1 Ko",
-      "checksum": "c661ac54bebb95ed76b3112f7f403654eb2f158a5b2d93b9c2b02e17297978d8"
+      "size": 103930,
+      "sizeLabel": "101.5 Ko",
+      "checksum": "5892836bbff0495d98e7ffd92b239216652294658e9fcbca2b1ca1c40e3262e0"
     },
     {
       "id": "assets-cartes-actions-fessee-webp",
@@ -372,9 +372,9 @@
       "src": "assets/cartes/Actions/Fessee.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 1559816,
-      "sizeLabel": "1.5 Mo",
-      "checksum": "4455ce37db4839d6275fb97d16a4237d3c57115933fe63965e0a122189c7e034"
+      "size": 89506,
+      "sizeLabel": "87.4 Ko",
+      "checksum": "3f9acec67e1ebfb8753693a102fd81d8f38a802bb4f63dc7460cf8ce6feeac2a"
     },
     {
       "id": "assets-cartes-actions-gangbang-webp",
@@ -383,9 +383,9 @@
       "src": "assets/cartes/Actions/GangBang.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 284366,
-      "sizeLabel": "277.7 Ko",
-      "checksum": "8c3c056171a156fda702502bad265707212c159f7933ad254197468cbb3ff7bc"
+      "size": 115830,
+      "sizeLabel": "113.1 Ko",
+      "checksum": "37152f9ca0f1e24be9776c979fa27ab00cc114998fd29c74ebd84aade14ed0b0"
     },
     {
       "id": "assets-cartes-actions-gobage-de-boules-webp",
@@ -394,9 +394,9 @@
       "src": "assets/cartes/Actions/Gobage_de_boules.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 283416,
-      "sizeLabel": "276.8 Ko",
-      "checksum": "5bd5aef93cf99521f109a1f09cc923f20c3c09df398ce05e75ca31c3306e8b26"
+      "size": 96414,
+      "sizeLabel": "94.2 Ko",
+      "checksum": "6fa64e5092c7b87d64c6fdcbbf3f0f9e2e10335f605917b7628d2e7be06ddf06"
     },
     {
       "id": "assets-cartes-actions-gorge-profonde-webp",
@@ -405,9 +405,9 @@
       "src": "assets/cartes/Actions/Gorge_profonde.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 116634,
-      "sizeLabel": "113.9 Ko",
-      "checksum": "ed2daaa2a30ac20218e9fd89d48d130f2d4a791c65bd3b688cc22b9eedd49e82"
+      "size": 90700,
+      "sizeLabel": "88.6 Ko",
+      "checksum": "bbe31c5ab67ef029cccf91d20d22a339f281b37d2fcc489651b90bb58bfb617a"
     },
     {
       "id": "assets-cartes-actions-humiliation-de-milf-webp",
@@ -416,9 +416,9 @@
       "src": "assets/cartes/Actions/Humiliation_de_MILF.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 236100,
-      "sizeLabel": "230.6 Ko",
-      "checksum": "752d0a42511c99612665eff9889ae2da205e5e4972fbffddeb2773cb94e599c5"
+      "size": 150668,
+      "sizeLabel": "147.1 Ko",
+      "checksum": "2ec50518225a5d6f327a87d177c0eafec0b83a7ac5d97e18bb844dbd7a76c60a"
     },
     {
       "id": "assets-cartes-actions-interrogatoire-webp",
@@ -427,9 +427,9 @@
       "src": "assets/cartes/Actions/Interrogatoire.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 1528838,
-      "sizeLabel": "1.5 Mo",
-      "checksum": "f4f53601988fc63cd037e3d3451b331b1e3ddcbf00f4fcfc71edb7fc65d4b833"
+      "size": 101096,
+      "sizeLabel": "98.7 Ko",
+      "checksum": "26df981804fe125fdd89f24e6a3c6a79f6b34749accae35dc9e16a447f9bddd1"
     },
     {
       "id": "assets-cartes-actions-main-aux-fesses-webp",
@@ -438,9 +438,9 @@
       "src": "assets/cartes/Actions/Main_aux_fesses.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 1684322,
-      "sizeLabel": "1.6 Mo",
-      "checksum": "bc02135379ddbc87e4841e9906e1a7390d40792029573269973041f227682239"
+      "size": 85794,
+      "sizeLabel": "83.8 Ko",
+      "checksum": "5726c75ba44b99195b35dcebe939d5d6b73ea76edf09a0c8283e7ae2050975b5"
     },
     {
       "id": "assets-cartes-actions-milf-a-gode-ceinture-webp",
@@ -449,9 +449,9 @@
       "src": "assets/cartes/Actions/MILF_a_gode_ceinture.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 237856,
-      "sizeLabel": "232.3 Ko",
-      "checksum": "465aa9cc798bfaa1cb6822eeba7d5a5939b0d28abd7ffcc7e31ad4329014e062"
+      "size": 97456,
+      "sizeLabel": "95.2 Ko",
+      "checksum": "c3f4427fb37b7a6e6d995bfb79933297ed22ab835d54bb504ef6bcbe9c563357"
     },
     {
       "id": "assets-cartes-actions-milf-en-chaleur-webp",
@@ -460,9 +460,9 @@
       "src": "assets/cartes/Actions/MILF_en_chaleur.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 237456,
-      "sizeLabel": "231.9 Ko",
-      "checksum": "8e45dfdd15fa6fbe656bac4ca38ff8834a1a2a42858650bdfd93e63ac0c026af"
+      "size": 99434,
+      "sizeLabel": "97.1 Ko",
+      "checksum": "7f46dbee1cc49d22a7a68e563e37d319fda2068d0ccfb221349660499a4032d7"
     },
     {
       "id": "assets-cartes-actions-sans-capote-webp",
@@ -471,9 +471,9 @@
       "src": "assets/cartes/Actions/Sans_capote.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 251372,
-      "sizeLabel": "245.5 Ko",
-      "checksum": "2865a13f5a86f9ff9c8d94a85c562a01f96a6385f671e3a6ec45f27ddb0217e3"
+      "size": 85618,
+      "sizeLabel": "83.6 Ko",
+      "checksum": "e82fd320b8e9bcd210e5dcf751b79390a272dfd9147ba4fd63c082dbb08c20d6"
     },
     {
       "id": "assets-cartes-actions-selfie-en-action-webp",
@@ -482,20 +482,20 @@
       "src": "assets/cartes/Actions/Selfie_en_Action.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 227202,
-      "sizeLabel": "221.9 Ko",
-      "checksum": "4b0b9b33260737842886f2398d347da0deb7a50961f96c63054d22f4a9827661"
+      "size": 95304,
+      "sizeLabel": "93.1 Ko",
+      "checksum": "3e0c58f7e93d2c7740315f9c0f8594dec3826c6e4f41fdb57a1ec60305f19153"
     },
     {
-      "id": "assets-cartes-actions-souiller-png",
+      "id": "assets-cartes-actions-souiller-webp",
       "name": "Souiller",
-      "path": "assets/cartes/Actions/Souiller.png",
-      "src": "assets/cartes/Actions/Souiller.png",
+      "path": "assets/cartes/Actions/Souiller.webp",
+      "src": "assets/cartes/Actions/Souiller.webp",
       "category": "Actions",
-      "extension": "PNG",
-      "size": 3270940,
-      "sizeLabel": "3.1 Mo",
-      "checksum": "5ffb38fee82093ae066299b41366dbc118694fcf8482e2c2f90deb6e354188d0"
+      "extension": "WEBP",
+      "size": 93328,
+      "sizeLabel": "91.1 Ko",
+      "checksum": "9938ccc44f10ddc6ab91510370c4f2375a8fb7d41bcb2cd6e7387b4454b4b2be"
     },
     {
       "id": "assets-cartes-actions-succube-webp",
@@ -504,9 +504,9 @@
       "src": "assets/cartes/Actions/Succube.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 1795270,
-      "sizeLabel": "1.7 Mo",
-      "checksum": "61c522796df28e23a2c92bbc2aa8da7c20e9182ff6c7911ab948a6d93967865a"
+      "size": 101670,
+      "sizeLabel": "99.3 Ko",
+      "checksum": "f4a36101d71e811b6181b210a4765416bff4ce1ea99b3f7225e9471b5d43632a"
     },
     {
       "id": "assets-cartes-actions-vagin-de-milf-webp",
@@ -515,9 +515,9 @@
       "src": "assets/cartes/Actions/Vagin_de_MILF.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 289864,
-      "sizeLabel": "283.1 Ko",
-      "checksum": "2a1473c8063af03668bb46f3587146dc8132ae409584006ce6c53676c63ee7d3"
+      "size": 102886,
+      "sizeLabel": "100.5 Ko",
+      "checksum": "6781a77c0353fe414fb8d9825fb6450ccdc197b6ff125c0772644c0a6526e7b9"
     },
     {
       "id": "assets-cartes-inspiration-a-laventure-webp",
@@ -1120,9 +1120,9 @@
       "src": "assets/cartes/Lieu/Chambre.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 284786,
-      "sizeLabel": "278.1 Ko",
-      "checksum": "733619339d5d9ba411c6abf03517b91a39c5e36b3f5c93c11827f995a10e0df9"
+      "size": 113132,
+      "sizeLabel": "110.5 Ko",
+      "checksum": "46cdf2f922a38bff8e5fd44eb2613f396bbb122fba5cd174ad3cd438cb8456a0"
     },
     {
       "id": "assets-cartes-lieu-foret-webp",
@@ -1131,9 +1131,9 @@
       "src": "assets/cartes/Lieu/Foret.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 293444,
-      "sizeLabel": "286.6 Ko",
-      "checksum": "af2d7a7e4251d171a81ae5e9699b073412d0481334eb664bc3cf067c6c265fc8"
+      "size": 111056,
+      "sizeLabel": "108.5 Ko",
+      "checksum": "164eefcd17b96f960c0c186c82d8ba00d2e4e5cfeb4fd30e5c4162ab46c0e902"
     },
     {
       "id": "assets-cartes-lieu-parc-webp",
@@ -1142,9 +1142,9 @@
       "src": "assets/cartes/Lieu/Parc.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 315716,
-      "sizeLabel": "308.3 Ko",
-      "checksum": "e38cd9b7f72cda324b11c0f8d19dec37fe62a335402752d6c7033d6a0cbe1a29"
+      "size": 97680,
+      "sizeLabel": "95.4 Ko",
+      "checksum": "e9d507cdb21f0da0c6de725ffb1bc227e171d5e78d971805ef5b4233a01f00e0"
     },
     {
       "id": "assets-cartes-lieu-salle-de-bain-webp",
@@ -1153,9 +1153,9 @@
       "src": "assets/cartes/Lieu/Salle_de_bain.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 269300,
-      "sizeLabel": "263.0 Ko",
-      "checksum": "1ef7e965b982b185a178e36b71454b7a78e474fe8a1d57cf4f529d18f393d74c"
+      "size": 107402,
+      "sizeLabel": "104.9 Ko",
+      "checksum": "dd19178cffc854e80e77b7f7cc3a2d88985e374a58524896c7e235c8d7cc5e8e"
     },
     {
       "id": "assets-cartes-positions-69-webp",
@@ -1164,9 +1164,9 @@
       "src": "assets/cartes/Positions/69.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 1571510,
-      "sizeLabel": "1.5 Mo",
-      "checksum": "02776a4c769e07f3e005f1d586e8fd3c0134e6982642a87e2d9619c224471421"
+      "size": 87598,
+      "sizeLabel": "85.5 Ko",
+      "checksum": "8e476e1b8c110d910ebfe446d4e405d012c47f02e07daeb2c0c8c311dc594b05"
     },
     {
       "id": "assets-cartes-positions-baise-sauvage-webp",
@@ -1175,9 +1175,9 @@
       "src": "assets/cartes/Positions/Baise_sauvage.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 161546,
-      "sizeLabel": "157.8 Ko",
-      "checksum": "78c996cfc53bbeb98538ab963421d729d097513c914a66f6a1390650c963c6fa"
+      "size": 105460,
+      "sizeLabel": "103.0 Ko",
+      "checksum": "d7be261f502dc730b2480a683a23f5ec2046939c4f26859d261ec28e847fff77"
     },
     {
       "id": "assets-cartes-positions-cavali-re-webp",
@@ -1186,9 +1186,9 @@
       "src": "assets/cartes/Positions/Cavali%C3%A8re.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 98350,
-      "sizeLabel": "96.0 Ko",
-      "checksum": "e9d5bf567c05148dadad6f9666a1b6dfcfa177b721353f18bd4ecb0faf8ba6f1"
+      "size": 75720,
+      "sizeLabel": "73.9 Ko",
+      "checksum": "be0b94ab267a692a7bfed47a996e69d66dbb01bde34a0d1b0aade6c631916702"
     },
     {
       "id": "assets-cartes-positions-dominatrice-webp",
@@ -1197,9 +1197,9 @@
       "src": "assets/cartes/Positions/Dominatrice.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 120138,
-      "sizeLabel": "117.3 Ko",
-      "checksum": "285fa20c08b704004f52b079ed4526ca1c39391c9cb46052d0151087095ad97f"
+      "size": 91332,
+      "sizeLabel": "89.2 Ko",
+      "checksum": "3c090271e9001914fa29f07a1e628044cffa0628987fa7206896f9a762b925ff"
     },
     {
       "id": "assets-cartes-positions-en-attente-webp",
@@ -1208,9 +1208,9 @@
       "src": "assets/cartes/Positions/En_attente.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 233178,
-      "sizeLabel": "227.7 Ko",
-      "checksum": "bdaea760d1082842827345b3d6247b2cce2183a15f8d60dcd0d170453b7ee0da"
+      "size": 83912,
+      "sizeLabel": "81.9 Ko",
+      "checksum": "ad0cf552fb3a01bca3ad2cdb4a351561575bafbd3757f02e2163c7380ccab69c"
     },
     {
       "id": "assets-cartes-positions-facesitting-webp",
@@ -1219,9 +1219,9 @@
       "src": "assets/cartes/Positions/Facesitting.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 106800,
-      "sizeLabel": "104.3 Ko",
-      "checksum": "0476d8c3bf577ab3ee31551a97c721b018a5ea846bee7ddbcdf1b8a19ae5fcdf"
+      "size": 84086,
+      "sizeLabel": "82.1 Ko",
+      "checksum": "ef52e2ae4be11ef16eb9c80d2459169d41ac273306baa74d7e5dbd9ea60a98a2"
     },
     {
       "id": "assets-cartes-positions-levrette-webp",
@@ -1230,9 +1230,9 @@
       "src": "assets/cartes/Positions/Levrette.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 126248,
-      "sizeLabel": "123.3 Ko",
-      "checksum": "01ac8c07105536c9922def5af137d98e82a9c7c0f4235ed3e2015c7c41243986"
+      "size": 98016,
+      "sizeLabel": "95.7 Ko",
+      "checksum": "6db0cd568ba1e1714ac2fe1802fefda4780a73e4cfcfadd1abfe757fb3b8da59"
     },
     {
       "id": "assets-cartes-positions-missionaire-webp",
@@ -1241,9 +1241,9 @@
       "src": "assets/cartes/Positions/Missionaire.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 265536,
-      "sizeLabel": "259.3 Ko",
-      "checksum": "177539b121b5d6409745f903fbe8c43aaf9fbc2cfa5b60e590ac747341496394"
+      "size": 92874,
+      "sizeLabel": "90.7 Ko",
+      "checksum": "303bc5beb3f56affe1dca693635099fb96f3d29f30499aaf1e2c9663f710b0ac"
     },
     {
       "id": "assets-cartes-positions-nadu-webp",
@@ -1252,9 +1252,9 @@
       "src": "assets/cartes/Positions/Nadu.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 259124,
-      "sizeLabel": "253.1 Ko",
-      "checksum": "8c333dc28526912e0e859b2f78a9165e64a3d17b673b1a5c8bf5d85ed9b8f50f"
+      "size": 90124,
+      "sizeLabel": "88.0 Ko",
+      "checksum": "9f0e07e5d2e003e10a1a02d3f2985af245074e043adbd70124594c88aa95cd34"
     },
     {
       "id": "assets-cartes-rituel-fetichisme-des-pieds-webp",
@@ -1263,9 +1263,9 @@
       "src": "assets/cartes/Rituel/Fetichisme_des_pieds.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 125200,
-      "sizeLabel": "122.3 Ko",
-      "checksum": "07993f0fd3caa408cb60efe715807a87c48135ea5c0c3119b0d87f42f4c82da3"
+      "size": 96570,
+      "sizeLabel": "94.3 Ko",
+      "checksum": "9eb8ad8ae23576dbe1bb098908387b54227df318c8229934fe2b6296b65c79cb"
     },
     {
       "id": "assets-cartes-rituel-pretresse-webp",
@@ -1274,9 +1274,9 @@
       "src": "assets/cartes/Rituel/Pretresse.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 1551132,
-      "sizeLabel": "1.5 Mo",
-      "checksum": "567fd4c5ab9a184dd38e59ba58457f93e0fa6b89768cfc11a0d36ded8c0e2c5f"
+      "size": 94354,
+      "sizeLabel": "92.1 Ko",
+      "checksum": "eacbc8c48f77a064375607d2c37b87ade9cb8754721b069cd17ab7473e647461"
     },
     {
       "id": "assets-cartes-rituel-succube-webp",
@@ -1285,9 +1285,9 @@
       "src": "assets/cartes/Rituel/Succube.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 289368,
-      "sizeLabel": "282.6 Ko",
-      "checksum": "08e9b99eda1aa4f5ba2e455dbf47ac1e7a6d2927ab1308333aef0413222f3c20"
+      "size": 102446,
+      "sizeLabel": "100.0 Ko",
+      "checksum": "15e938f8cd35fe9fba643db5b6784ae28208774df27f08ff6468390ec8cccf54"
     },
     {
       "id": "assets-cartes-tenue-bonne-soeur-webp",
@@ -1296,9 +1296,9 @@
       "src": "assets/cartes/Tenue/Bonne_soeur.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 249698,
-      "sizeLabel": "243.8 Ko",
-      "checksum": "3c34034defed674dd0722abdd13347484f8ce1b9f4887ed2d479ede83a51522a"
+      "size": 93038,
+      "sizeLabel": "90.9 Ko",
+      "checksum": "acecdef4c49163b05fc93ce64319c0579e6063ad9d76bd09a1e234056bf944a2"
     },
     {
       "id": "assets-cartes-tenue-bunny-girl-webp",
@@ -1307,9 +1307,9 @@
       "src": "assets/cartes/Tenue/Bunny_girl.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 239618,
-      "sizeLabel": "234.0 Ko",
-      "checksum": "4bc44b2456a34e25710e99dfab22d8b2bb1567febf8f8941ba5030fcea092e70"
+      "size": 95638,
+      "sizeLabel": "93.4 Ko",
+      "checksum": "1637a7af0a64fb6448e05d1a49e4e5cd65c0e0a885bf346829647faed562c824"
     },
     {
       "id": "assets-cartes-tenue-ecoliere-webp",
@@ -1318,9 +1318,9 @@
       "src": "assets/cartes/Tenue/Ecoliere.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 134196,
-      "sizeLabel": "131.1 Ko",
-      "checksum": "b1bbab02e05305381ecc37d30194026ebadee43a244608d99150a16377b370e7"
+      "size": 101526,
+      "sizeLabel": "99.1 Ko",
+      "checksum": "c970199192191d91b50d27c7b22e0296a305fd0642b9c736e2efd91d2df6825f"
     },
     {
       "id": "assets-cartes-tenue-elegance-de-milf-webp",
@@ -1329,9 +1329,9 @@
       "src": "assets/cartes/Tenue/Elegance%20de%20MILF.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 226874,
-      "sizeLabel": "221.6 Ko",
-      "checksum": "fb16091a9521782eac122385806a116a449de9c70bf5e20e86810c93a0bfe982"
+      "size": 80740,
+      "sizeLabel": "78.8 Ko",
+      "checksum": "c2111802e91678338c8d86a0189f0eb5962529ceda9ffca6333d72dff9f93bb2"
     },
     {
       "id": "assets-cartes-tenue-infirmiere-webp",
@@ -1340,9 +1340,9 @@
       "src": "assets/cartes/Tenue/Infirmiere.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 256158,
-      "sizeLabel": "250.2 Ko",
-      "checksum": "d2d6779cba062e207f30c18505e33e1e2f13a6f28445824dd2b5fe1d8a048712"
+      "size": 102558,
+      "sizeLabel": "100.2 Ko",
+      "checksum": "85d373d66ab5c59996a80d2ced0a6325670a51556c13c08ea2cb3041a4c1d183"
     },
     {
       "id": "assets-cartes-tenue-manteau-rouge-webp",
@@ -1351,9 +1351,9 @@
       "src": "assets/cartes/Tenue/Manteau_Rouge.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 1559268,
-      "sizeLabel": "1.5 Mo",
-      "checksum": "6bc05ae9b1cff1fead9e390b43963e53f964f3ca4fcd39929bcf7876b2b0dd95"
+      "size": 83112,
+      "sizeLabel": "81.2 Ko",
+      "checksum": "701b4aab25afbb92affdba635c5bf19e12a642db87b03f2507d9fb3c355e0e0f"
     },
     {
       "id": "assets-cartes-tenue-mere-noel-webp",
@@ -1362,9 +1362,9 @@
       "src": "assets/cartes/Tenue/Mere_Noel.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 278992,
-      "sizeLabel": "272.5 Ko",
-      "checksum": "d0702b10b5664c093245ed60e0455a57bfeb22349249dd85b26a25bc4e932e2c"
+      "size": 114312,
+      "sizeLabel": "111.6 Ko",
+      "checksum": "bd4564a8a8b0133bcfd50bb2ad9227e665de830a3e9e88d3ad973d5caee50bba"
     },
     {
       "id": "assets-cartes-tenue-milf-masque-webp",
@@ -1373,9 +1373,9 @@
       "src": "assets/cartes/Tenue/Milf_masque.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 126896,
-      "sizeLabel": "123.9 Ko",
-      "checksum": "6a57032e733eaa481e29ce3e92fbe08bb2db671eec65004d52637352238cac73"
+      "size": 81970,
+      "sizeLabel": "80.0 Ko",
+      "checksum": "4986e79310415b5524e623a9038539bca8a96f1761378720ba1fdf770160b5a8"
     },
     {
       "id": "assets-cartes-tenue-papier-cadeaux-webp",
@@ -1384,9 +1384,9 @@
       "src": "assets/cartes/Tenue/Papier_cadeaux.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 1630644,
-      "sizeLabel": "1.6 Mo",
-      "checksum": "4121b825d0c3e2b381dbca9255d28d9e9e5d39494bc99161d03b80a5f48140bb"
+      "size": 81730,
+      "sizeLabel": "79.8 Ko",
+      "checksum": "2e14ddf89c01d127aa2f30185ede5ef5b678caf238438ac6c96ccb8529b38001"
     },
     {
       "id": "assets-cartes-tenue-soubrette-rose-webp",
@@ -1395,9 +1395,9 @@
       "src": "assets/cartes/Tenue/Soubrette_Rose.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 273166,
-      "sizeLabel": "266.8 Ko",
-      "checksum": "bddc87bfa926f80905339d8e9d70a9f587e5bc693676a9ee466a3cd002d5f35c"
+      "size": 93280,
+      "sizeLabel": "91.1 Ko",
+      "checksum": "bd6017e4ac8ea24868af1389287aef2b058bdd2242c4779273972089ec4d1f8e"
     },
     {
       "id": "assets-cartes-tenue-soubrette-webp",
@@ -1406,9 +1406,9 @@
       "src": "assets/cartes/Tenue/Soubrette.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 215944,
-      "sizeLabel": "210.9 Ko",
-      "checksum": "2633a6ed4c2450b51c780c23d0c11d90eafcf9746e17e371bf6ba0ef34e5d31a"
+      "size": 81200,
+      "sizeLabel": "79.3 Ko",
+      "checksum": "b0fdb55d3200156fe4b8ecec0403871412ec4046ded249dd8d9d7f2ee8350103"
     },
     {
       "id": "assets-cartes-tenue-tenue-de-charme-blanche-webp",
@@ -1417,9 +1417,9 @@
       "src": "assets/cartes/Tenue/Tenue_de_charme_(blanche).webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 193302,
-      "sizeLabel": "188.8 Ko",
-      "checksum": "1a5935f68bde01a8922fd958ab55404cb561ef80605b202792b3e7992d9ac028"
+      "size": 77382,
+      "sizeLabel": "75.6 Ko",
+      "checksum": "16644dd6f51958d3f5dad87fca3f74ecc4dfb447657fd24438d3ce09e68a8ae9"
     },
     {
       "id": "assets-cartes-tenue-tenue-de-soiree-webp",
@@ -1428,9 +1428,9 @@
       "src": "assets/cartes/Tenue/Tenue_de_soiree.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 133302,
-      "sizeLabel": "130.2 Ko",
-      "checksum": "8f539047093c44772d7b3e1baaefa929561030078a8a4e77fea20ebe4c2b9885"
+      "size": 85940,
+      "sizeLabel": "83.9 Ko",
+      "checksum": "0656736024f70cb14c6e0de9458979dee4f51089b35ee5684fd7fe7753bbcbb7"
     }
   ]
 }
