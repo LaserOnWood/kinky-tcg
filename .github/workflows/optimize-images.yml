@@ -1,0 +1,53 @@
+name: Optimiser les images
+
+# Lancement manuel : onglet Actions → « Optimiser les images » → Run workflow.
+# Par défaut c'est une SIMULATION (rien n'est modifié). Cocher la case pour appliquer.
+on:
+  workflow_dispatch:
+    inputs:
+      appliquer:
+        description: "Cocher pour modifier réellement les images (sinon simple simulation)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  optimiser:
+    name: Réduire le poids des illustrations
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installer sharp
+        run: npm install --no-save sharp
+
+      - name: Optimiser les images
+        run: node scripts/optimize-images.mjs ${{ inputs.appliquer && '--apply' || '' }}
+
+      - name: Régénérer l'inventaire de la galerie
+        if: ${{ inputs.appliquer }}
+        run: node scripts/generate-gallery.mjs
+
+      - name: Enregistrer les changements
+        if: ${{ inputs.appliquer }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -A assets/cartes json
+          if git diff --cached --quiet; then
+            echo "Rien à enregistrer."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Optimiser les images des cartes"
+          git push origin HEAD:main
