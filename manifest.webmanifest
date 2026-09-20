@@ -1,0 +1,12 @@
+{
+  "name": "Kinky TCG",
+  "short_name": "Kinky TCG",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d0509",
+  "theme_color": "#0d0509",
+  "icons": [
+    { "src": "assets/ico/trading-card.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
