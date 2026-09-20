@@ -506,8 +506,8 @@ function creerCarteHTML(carte){
         </div>
         <div class="face front holo" data-rarity="${echapperHTML(carte.rarity)}">
           <div class="rarity-tag" data-r="${echapperHTML(carte.rarity)}">${echapperHTML(carte.rarity)}</div>
-          <img class="art" src="${echapperHTML(carte.image)}" alt="${echapperHTML(carte.title)} — ${echapperHTML(carte.description)}" loading="lazy">
-        </div>
+          ${estDebloquee ? `<img class="art" src="${echapperHTML(carte.image)}" alt="${echapperHTML(carte.title)} — ${echapperHTML(carte.description)}" loading="lazy">` : ""}
+          </div>
       </div>
     </div>
   `;
