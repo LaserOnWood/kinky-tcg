@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-19T12:29:24.361Z",
-  "count": 129,
+  "generatedAt": "2026-09-20T18:41:54.774Z",
+  "count": 130,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -78,6 +78,17 @@
       "size": 225012,
       "sizeLabel": "219.7 Ko",
       "checksum": "50cba26361a1300794d435799549135379e89f08642aaba6cb099471d91a6bcc"
+    },
+    {
+      "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
+      "name": "Roulette de Wartenberg",
+      "path": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
+      "src": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 511532,
+      "sizeLabel": "499.5 Ko",
+      "checksum": "70dc6fa3720f6e0b0afe4e8da2d38502c61dcd932f0f053d1aa003e262c6f575"
     },
     {
       "id": "assets-cartes-accessoires-sandales-compensees-webp",
