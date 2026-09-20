@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Récupérer Kinky TCG
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Générer l’inventaire d’images
         run: node scripts/generate-gallery.mjs
@@ -37,7 +37,7 @@ jobs:
           git push origin HEAD:main
 
       - name: Récupérer le dépôt du site principal
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: LaserOnWood/LaserOnWood.github.io
           token: ${{ secrets.SITE_REPO_TOKEN }}
