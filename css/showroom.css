@@ -1,0 +1,410 @@
+/* Kinky TCG — Showroom des raretés
+   Styles isolés de la page showroom pour faciliter sa maintenance. */
+
+:root {
+  --showroom-line: var(--color-border-line);
+  --showroom-muted: var(--color-text-muted);
+  --showroom-display: var(--font-family-display);
+}
+
+body.showroom-page {
+  min-height: 100vh;
+  height: auto;
+  padding: 0 0 56px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.showroom-header {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(44px, 8vw, 82px) 20px 34px;
+  border-bottom: 1px solid var(--showroom-line);
+  text-align: center;
+}
+
+.showroom-header::before {
+  position: absolute;
+  inset: -160px 15% auto;
+  height: 260px;
+  content: "";
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(180, 108, 255, .2), transparent 70%);
+  filter: blur(9px);
+  pointer-events: none;
+}
+
+.showroom-header .eyebrow-text,
+.showroom-header h1,
+.showroom-subtitle,
+.showroom-actions {
+  position: relative;
+}
+
+.showroom-header h1 {
+  margin-bottom: 12px;
+  font-size: clamp(38px, 7vw, 64px);
+}
+
+.showroom-subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--showroom-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.showroom-page main {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 36px 20px 0;
+}
+
+.showroom-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 22px;
+  margin-inline: 0;
+  padding: 0 max(4px, calc((100% - min(78vw, 340px)) / 2)) 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-padding-inline: max(4px, calc((100% - min(78vw, 340px)) / 2));
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.showroom-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.showroom-tile {
+  flex: 0 0 min(78vw, 340px);
+  width: min(78vw, 340px);
+  min-width: 0;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.showroom-card .card-slot {
+  width: 100%;
+  max-width: 340px;
+  flex: 0 0 100%;
+  margin: 0 auto;
+}
+
+.showroom-card .card {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.showroom-card .front {
+  cursor: default;
+}
+
+.showroom-card .rarity-tag {
+  white-space: nowrap;
+}
+
+.showroom-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(155deg, #4a1a30, #11080f 72%);
+}
+
+.showroom-art::before {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  content: "";
+  background: radial-gradient(circle at 50% 45%, rgba(255, 255, 255, .18), transparent 30%);
+  opacity: .45;
+  pointer-events: none;
+}
+
+.showroom-icon {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  z-index: 1;
+  color: rgba(255, 255, 255, .94);
+  font-size: clamp(46px, 6vw, 64px);
+  text-shadow: 0 0 18px rgba(255, 255, 255, .46);
+  transform: translateX(-50%);
+}
+
+.art-coquine {
+  background: radial-gradient(circle at 66% 24%, rgba(234, 176, 194, .75), transparent 26%), linear-gradient(155deg, #743149, #160a13 73%);
+}
+
+.art-provocante {
+  background: radial-gradient(circle at 66% 24%, rgba(255, 79, 139, .85), transparent 28%), linear-gradient(155deg, #861b49, #190811 73%);
+}
+
+.art-audacieuse {
+  background: radial-gradient(circle at 66% 24%, rgba(180, 108, 255, .86), transparent 28%), linear-gradient(155deg, #4b2281, #13091e 73%);
+}
+
+.art-envoutante {
+  background: radial-gradient(circle at 66% 24%, rgba(130, 116, 232, .86), transparent 28%), linear-gradient(155deg, #30266d, #0d0a21 73%);
+}
+
+.art-sulfureuse {
+  background: radial-gradient(circle at 66% 24%, rgba(255, 102, 81, .88), transparent 28%), linear-gradient(155deg, #84162a, #21070d 73%);
+}
+
+.art-mythique {
+  background: radial-gradient(circle at 66% 24%, rgba(255, 255, 255, .92), transparent 25%), radial-gradient(circle at 28% 64%, rgba(217, 169, 79, .53), transparent 37%), linear-gradient(155deg, #716c67, #17100d 73%);
+}
+
+.showroom-copy {
+  position: absolute;
+  right: 16px;
+  bottom: 45px;
+  left: 16px;
+  z-index: 2;
+}
+
+.showroom-index {
+  margin: 0 0 7px;
+  color: var(--gold-soft);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.showroom-copy h2 {
+  margin: 0;
+  color: #fff7ef;
+  font-family: var(--showroom-display);
+  font-size: clamp(24px, 4vw, 36px);
+  font-style: italic;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.showroom-copy p {
+  min-height: 44px;
+  margin: 8px 0 0;
+  color: rgba(255, 247, 239, .82);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.showroom-note {
+  max-width: 870px;
+  margin: 32px auto 0;
+  padding: 15px 18px;
+  border: 1px solid var(--showroom-line);
+  border-radius: 13px;
+  background: rgba(26, 11, 20, .62);
+  color: var(--showroom-muted);
+  font-size: 12px;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.showroom-note strong {
+  color: var(--gold-soft);
+}
+
+/* Effet de base : balayage holographique doux partagé par les six cartes. */
+.front[data-rarity]::before {
+  animation: showroom-base-hologram 5.8s linear infinite alternate;
+}
+
+/* Provocante : vrais éclairs ramifiés, rares et discrets. */
+.front[data-rarity="Provocante"] .showroom-art::after {
+  position: absolute;
+  top: 16%;
+  left: 20%;
+  z-index: 2;
+  width: 22%;
+  height: 42%;
+  content: "";
+  background: linear-gradient(105deg, #fff 0 42%, #ffd7ed 44% 58%, #ff4f8b 62% 72%, transparent 74%);
+  clip-path: polygon(48% 0, 100% 0, 61% 34%, 88% 34%, 20% 100%, 38% 53%, 0 53%);
+  filter: drop-shadow(0 0 5px rgba(255, 79, 139, .82));
+  opacity: 0;
+  pointer-events: none;
+  transform: rotate(8deg) scale(.75);
+  animation: showroom-electric-bolts 7.4s steps(1, end) infinite;
+}
+
+.front[data-rarity="Provocante"] .showroom-copy::before {
+  position: absolute;
+  top: -145px;
+  right: 12%;
+  width: 18%;
+  height: 35%;
+  content: "";
+  background: linear-gradient(105deg, #fff 0 42%, #ffd7ed 44% 58%, #ff4f8b 62% 72%, transparent 74%);
+  clip-path: polygon(48% 0, 100% 0, 61% 34%, 88% 34%, 20% 100%, 38% 53%, 0 53%);
+  filter: drop-shadow(0 0 5px rgba(255, 79, 139, .72));
+  opacity: 0;
+  pointer-events: none;
+  transform: rotate(-12deg) scale(.7);
+  animation: showroom-electric-branch 7.4s steps(1, end) infinite;
+}
+
+/* Audacieuse : une goutte glisse doucement sur la surface de la carte. */
+.front[data-rarity="Audacieuse"] .showroom-art::after {
+  position: absolute;
+  top: -18%;
+  left: 20%;
+  z-index: 2;
+  width: 24%;
+  height: 34%;
+  content: "";
+  border: 1px solid rgba(219, 244, 255, .78);
+  border-radius: 58% 42% 64% 36% / 40% 54% 46% 60%;
+  background: radial-gradient(ellipse at 35% 28%, rgba(255, 255, 255, .82), rgba(139, 221, 255, .28) 35%, transparent 70%);
+  box-shadow: 6px 9px 13px rgba(126, 208, 255, .28), inset 3px 4px 5px rgba(255, 255, 255, .55);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0, 0) rotate(18deg) scale(.6);
+  animation: showroom-water-drop 6.2s ease-in-out infinite;
+}
+
+/* Envoûtante : brume mouvante et halo indigo centré sur le badge. */
+.front[data-rarity="Envoûtante"] .showroom-art::after {
+  position: absolute;
+  inset: -25%;
+  z-index: 2;
+  content: "";
+  background: radial-gradient(ellipse at 50% 46%, rgba(130, 116, 232, .82) 0 12%, rgba(130, 116, 232, .35) 29%, transparent 58%);
+  filter: blur(12px);
+  opacity: .42;
+  pointer-events: none;
+  animation: showroom-hypnotic-mist 6.8s ease-in-out infinite alternate;
+}
+
+/* Sulfureuse : langues de feu qui prennent naissance au niveau du badge. */
+.front[data-rarity="Sulfureuse"] .showroom-art::after {
+  position: absolute;
+  right: 18%;
+  bottom: 8%;
+  left: 50%;
+  z-index: 2;
+  width: 58%;
+  height: 34%;
+  content: "";
+  background: linear-gradient(90deg, #e23e57 0 32%, #ff9b45 54%, #ffe39a 72%, transparent 74%);
+  clip-path: polygon(0 100%, 9% 52%, 20% 72%, 29% 12%, 40% 58%, 53% 0, 59% 56%, 72% 25%, 77% 67%, 93% 44%, 100% 100%);
+  filter: blur(1px) drop-shadow(0 0 10px rgba(255, 76, 39, .78));
+  opacity: .74;
+  pointer-events: none;
+  transform: translateX(-50%) scaleY(.65);
+  transform-origin: 50% 100%;
+  animation: showroom-real-flame 3.6s ease-in-out infinite alternate;
+}
+
+/* Mythique : deux auras précieuse, or et platine, avec scintillements. */
+.front[data-rarity="Mythique"] .showroom-art::after {
+  position: absolute;
+  inset: -12%;
+  z-index: 2;
+  content: "";
+  background:
+    radial-gradient(circle at 29% 35%, #fff 0 1%, transparent 1.8%),
+    radial-gradient(circle at 72% 30%, #f6d77b 0 1.1%, transparent 1.9%),
+    radial-gradient(circle at 66% 70%, #fff 0 1%, transparent 1.8%),
+    radial-gradient(ellipse at 42% 45%, transparent 0 27%, rgba(246, 215, 123, .6) 28% 29%, transparent 31% 41%, rgba(242, 242, 242, .66) 42% 43%, transparent 45%);
+  background-size: 100% 100%;
+  mix-blend-mode: screen;
+  opacity: .36;
+  pointer-events: none;
+  animation: showroom-precious-aura 10s ease-in-out infinite alternate;
+}
+
+.front[data-rarity="Provocante"] .showroom-icon { animation: showroom-electric-icon 7.4s steps(1, end) infinite; }
+.front[data-rarity="Audacieuse"] .showroom-icon { animation: showroom-water-icon 6.2s ease-in-out infinite; }
+.front[data-rarity="Envoûtante"] .showroom-icon { animation: showroom-mist-icon 6.8s ease-in-out infinite alternate; }
+.front[data-rarity="Sulfureuse"] .showroom-icon { animation: showroom-flame-icon 3.6s ease-in-out infinite alternate; }
+.front[data-rarity="Mythique"] .showroom-icon { animation: showroom-mythic-icon 10s ease-in-out infinite alternate; }
+
+@keyframes showroom-base-hologram {
+  from { background-position: 0 50%; opacity: .44; }
+  to { background-position: 100% 50%; opacity: .72; }
+}
+
+@keyframes showroom-electric-bolts {
+  0%, 70%, 100% { opacity: 0; transform: rotate(8deg) scale(.75); }
+  73%, 76% { opacity: .72; transform: rotate(8deg) scale(1); }
+  79% { opacity: 0; transform: rotate(8deg) scale(.86); }
+}
+
+@keyframes showroom-electric-branch {
+  0%, 68%, 100% { opacity: 0; transform: rotate(-12deg) scale(.7); }
+  72%, 75% { opacity: .6; transform: rotate(-12deg) scale(.94); }
+  78% { opacity: 0; transform: rotate(-12deg) scale(.8); }
+}
+
+@keyframes showroom-water-drop {
+  0%, 18% { opacity: 0; transform: translate(0, 0) rotate(18deg) scale(.6); }
+  27% { opacity: .82; transform: translate(8%, 14%) rotate(10deg) scale(.9); }
+  64% { opacity: .7; transform: translate(58%, 170%) rotate(-8deg) scale(1); }
+  78%, 100% { opacity: 0; transform: translate(76%, 245%) rotate(-18deg) scale(.72); }
+}
+
+@keyframes showroom-hypnotic-mist {
+  from { opacity: .3; transform: translate(-9%, 4%) scale(.82) rotate(-8deg); }
+  to { opacity: .78; transform: translate(9%, -4%) scale(1.15) rotate(8deg); }
+}
+
+@keyframes showroom-real-flame {
+  from { opacity: .48; transform: translateX(-50%) scaleY(.58) skewX(-3deg); }
+  to { opacity: .9; transform: translateX(-50%) scaleY(1.06) skewX(5deg); }
+}
+
+@keyframes showroom-precious-aura {
+  from { opacity: .24; transform: rotate(-5deg) scale(.94); background-position: 0 0; }
+  to { opacity: .5; transform: rotate(5deg) scale(1.04); background-position: 3% -2%; }
+}
+
+@keyframes showroom-electric-icon {
+  0%, 16%, 100% { transform: translateX(-50%); }
+  20%, 24% { transform: translateX(calc(-50% + 3px)) scale(1.08); }
+  28% { transform: translateX(-50%); }
+  62%, 66% { transform: translateX(calc(-50% - 3px)) scale(1.06); }
+  70% { transform: translateX(-50%); }
+}
+
+@keyframes showroom-water-icon {
+  0%, 18%, 100% { transform: translateX(-50%) translateY(0); }
+  30%, 65% { transform: translateX(-50%) translateY(-3px); }
+}
+
+@keyframes showroom-mist-icon {
+  from { transform: translateX(-50%) scale(.94); filter: blur(0); }
+  to { transform: translateX(-50%) scale(1.07); filter: blur(1px); }
+}
+
+@keyframes showroom-flame-icon {
+  from { transform: translateX(-50%) scale(.97) rotate(-2deg); }
+  to { transform: translateX(-50%) scale(1.05) rotate(3deg); }
+}
+
+@keyframes showroom-mythic-icon {
+  from { transform: translateX(-50%) translateY(1px) rotate(-1deg); }
+  to { transform: translateX(-50%) translateY(-2px) rotate(1deg); }
+}
+
+@media (min-width: 700px) {
+  .showroom-grid { gap: 30px; }
+  .showroom-tile { flex-basis: 340px; width: 340px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showroom-grid { scroll-behavior: auto; }
+  .front[data-rarity]::before,
+  .front[data-rarity] .showroom-art::before,
+  .front[data-rarity] .showroom-icon {
+    animation: none !important;
+  }
+}
