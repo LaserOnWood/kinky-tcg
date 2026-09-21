@@ -1,213 +1,290 @@
-# Pass-Card · Kinky TCG
+# 🎴 Kinky TCG
 
 <div align="center">
 
-**Un jeu de cartes narratif, immersif et entièrement jouable dans le navigateur.**
+**Un jeu d'énigmes et de cartes, basé sur le thème du kink et de l'érotisme.**
 
-[![Application web statique](https://img.shields.io/badge/application-web%20statique-5c1228?style=for-the-badge)](https://github.com/LaserOnWood/kinky-tcg)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-d9a94f?style=for-the-badge&logo=javascript&logoColor=1a0b14)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
-[![Responsive](https://img.shields.io/badge/design-responsive-ff2f7e?style=for-the-badge)](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Responsive_Design)
+*Un maître du jeu crée un thème. L'autre résout les énigmes pour débloquer les cartes.*
 
-[**Jouer au projet**](https://laseronwood.github.io/game/tcgproto/) · [**Voir le dépôt**](https://github.com/LaserOnWood/kinky-tcg) · [**Signaler un problème**](https://github.com/LaserOnWood/kinky-tcg/issues)
+![Version](https://img.shields.io/badge/version-0.9-ff2f7e?style=for-the-badge)
+![18+](https://img.shields.io/badge/contenu-18%2B-5c1228?style=for-the-badge)
+![Licence du code](https://img.shields.io/badge/code-MIT-d9a94f?style=for-the-badge)
+
+[🎮 **Jouer**](https://laseronwood.github.io/game/tcgproto/) · [💻 **Voir le code**](https://github.com/LaserOnWood/kinky-tcg) · [🐛 **Signaler un problème**](https://github.com/LaserOnWood/kinky-tcg/issues)
 
 </div>
 
-> **Pass-Card** est une expérience de cartes à révéler : choisissez une ambiance, découvrez les indices, puis trouvez les réponses qui déverrouillent progressivement votre collection.
+> 🔞 **Contenu réservé aux adultes (18 ans et plus).** Kinky TCG est un jeu conçu pour les couples. Il aborde la sensualité et l'érotisme, et ses cartes proposent des gages et des mises en situation à caractère adulte. En continuant, vous confirmez être majeur·e et jouer avec un·e partenaire consentant·e.
 
-## À propos du projet
+## 📸 Aperçu
 
-Kinky TCG est un projet web indépendant conçu comme une expérience de jeu légère, visuelle et accessible directement depuis un navigateur. L’interface propose une sélection de thèmes, une collection de cartes à révéler, une progression persistante et une présentation adaptée aussi bien aux téléphones qu’aux écrans plus larges.
+<p align="center">
+  <img src="assets/screenshots/01-selection-themes.png" width="240" alt="Écran de sélection des thèmes">
+  &nbsp;
+  <img src="assets/screenshots/02-partie-en-cours.png" width="240" alt="Une partie en cours : carte verrouillée et son indice">
+  &nbsp;
+  <img src="assets/screenshots/03-carte-revelee.png" width="240" alt="Une carte révélée après avoir trouvé le bon mot de passe">
+</p>
 
-Le dépôt constitue la **source principale du projet**. Les modifications doivent être réalisées ici, puis poussées sur `main`. Un workflow GitHub synchronise ensuite le contenu vers le site public dans le dossier `game/tcgproto`.
+<p align="center"><em>Choix du thème · Carte verrouillée et son indice · Carte révélée</em></p>
 
-## Fonctionnalités
+## 🎯 Le concept
 
-| Fonctionnalité | Description |
+Kinky TCG transforme un moment à deux en **chasse aux énigmes**. Chaque carte est cachée derrière un mot de passe. Pour le trouver, il faut réfléchir aux indices et fouiller son environnement. Quand le bon mot est saisi, la carte se retourne, dévoile son illustration et propose une **action à réaliser**.
+
+Deux rôles :
+
+| Rôle | Ce qu'il fait |
 |---|---|
-| Sélection de thème | Choisissez l’ambiance de la partie avant de commencer. |
-| Cartes à révéler | Chaque carte possède un indice, une réponse et une illustration. |
-| Progression locale | Les cartes déjà découvertes sont conservées dans le navigateur. |
-| Notifications optionnelles | Une notification Discord peut être envoyée lors d’un déverrouillage si une URL de relais est configurée. Elle est désactivée par défaut. |
-| Indices supplémentaires | Certaines cartes proposent plusieurs niveaux d’aide via le bouton **Aide**. |
-| Code organisateur | Le code maître `toutleniveau` révèle instantanément toutes les cartes du thème sélectionné. |
-| Révélation animée | Les cartes se retournent et affichent leur illustration lorsqu’elles sont déverrouillées. |
-| Aperçu des illustrations | Une carte révélée peut être ouverte en grand format. |
-| Catalogue visuel | La page `gallery.html` liste les images du dossier `assets/` et permet de les rechercher, filtrer et ouvrir en grand. |
-| Interface responsive | Les cartes restent dans une zone dédiée à hauteur contrôlée et se parcourent horizontalement, sans défilement vertical parasite sur téléphone. |
-| Synchronisation automatique | Chaque mise à jour de `main` peut être publiée automatiquement sur le site principal. |
+| 🎩 **Le maître du jeu** | Crée un thème : ambiance, cartes, énigmes et mots de passe. Il prépare la partie pour l'autre. |
+| 🎯 **La personne cible** | Résout les énigmes pour débloquer les cartes, puis réalise les actions qu'elles proposent, sauf si la description d'une carte indique autre chose. |
 
-## Règles du jeu
+## 🕹️ Comment se déroule une partie
 
-Pass-Card se joue en plusieurs étapes simples. Commencez par choisir un thème parmi les ambiances proposées. Chaque thème possède sa propre collection de cartes, son niveau de difficulté et son identité visuelle.
+1. 🎩 Le maître du jeu prépare un **thème** (ou choisit un des thèmes existants).
+2. 🎯 La personne cible ouvre le jeu et **choisit le thème** dans le carrousel.
+3. 🃏 Chaque carte verrouillée affiche son **type** et un **indice**. Les indices peuvent renvoyer à des objets ou à des lieux du quotidien.
+4. 🔑 Elle **saisit le mot de passe** dans la barre du bas, puis appuie sur **Valider**.
+5. 💡 Bloquée ? Le bouton **Aide** dévoile l'indice suivant, quand la carte en propose plusieurs.
+6. ✨ Bonne réponse : la carte **se retourne** et révèle son illustration. Elle peut s'ouvrir en grand d'un simple toucher.
+7. 🏁 La jauge de progression se remplit. Le thème est terminé quand toutes les cartes sont révélées.
 
-Une fois la partie lancée, une carte verrouillée affiche un indice. Saisissez votre réponse dans la zone située en bas de l’écran, puis validez. La réponse est normalisée et comparée de manière sécurisée à l’empreinte SHA-256 enregistrée pour la carte : les mots de passe ne sont donc jamais stockés en clair dans les données du jeu.
+## ✨ Fonctionnalités
 
-| Étape | Action du joueur |
+| | Fonctionnalité | Description |
+|---|---|---|
+| 🎭 | **Thèmes** | Plusieurs ambiances, chacune avec sa difficulté et son sceau. |
+| 🃏 | **Cartes à révéler** | Un type, un ou plusieurs indices, une rareté et une illustration par carte. |
+| 🔄 | **Révélation animée** | Retournement 3D de la carte et effet holographique sur les illustrations. |
+| 💡 | **Aide progressive** | Plusieurs indices par carte, du plus discret au plus explicite. |
+| 💾 | **Progression conservée** | Cartes révélées et indices consultés restent dans le navigateur, thème par thème. |
+| 🔐 | **Mots de passe protégés** | Seules les empreintes SHA-256 sont dans les données, jamais les mots en clair. |
+| 🔊 | **Sons** | Effets pour les bonnes et mauvaises réponses, avec un bouton pour les couper. Quelques surprises sont cachées. |
+| 🛠️ | **Atelier de niveaux** | Un outil pour créer, exporter et importer ses propres thèmes. |
+| 🖼️ | **Catalogue visuel** | La page `gallery.html` liste toutes les illustrations, avec recherche, filtres et zoom. |
+| 📴 | **Hors ligne** | Installable sur l'écran d'accueil et jouable sans réseau après une première visite. |
+| 🔔 | **Notifications Discord** | Optionnelles : un message peut être envoyé à chaque carte révélée. |
+| 💬 | **Retours anonymes** | Un formulaire permet d'envoyer un avis sans compte ni adresse e-mail. |
+| 📱 | **Mobile d'abord** | Pensé pour le téléphone, confortable aussi sur tablette et ordinateur. |
+
+## 🎭 Les thèmes
+
+| Thème | Difficulté | En quelques mots |
+|---|---|---|
+| 🌸 **Classique** | Innocence | L'expérience originale, avec des défis équilibrés. |
+| 🍃 **Zen & Douceur** | Innocence | Un moment de détente absolue et de connexion. |
+| 🌚 **Aventure nocturne** | Transgression | Pour ceux qui aiment le mystère et l'exploration. |
+| 🔞 **Anniversaire spécial** | Perversion | Fêter un anniversaire de façon exceptionnelle et le graver dans les mémoires. |
+| 🎁 **Noël** | Perversion | Faire la fête de façon exceptionnelle et garder un souvenir inoubliable. |
+| 💋 **Sortie nocturne** | Dépravation | Une petite sortie nocturne au parc ? |
+
+### 🌶️ Les cinq niveaux de difficulté
+
+| Niveau | Ambiance |
 |---|---|
-| 1. Choisir une ambiance | Sélectionnez un thème pour charger sa collection de cartes. |
-| 2. Lire l’indice | Chaque carte propose un premier indice pour orienter votre réflexion. |
-| 3. Proposer une réponse | Saisissez votre réponse dans le champ prévu à cet effet, puis sélectionnez **Valider**. |
-| 4. Révéler la carte | Une réponse correcte retourne la carte et révèle son illustration, son titre et sa rareté. |
-| 5. Utiliser une aide | Si plusieurs indices existent, le bouton **Aide** permet de passer au niveau suivant. |
-| 6. Compléter la collection | La barre de progression indique le nombre de cartes déjà découvertes. |
+| Innocence | Le frisson du premier regard. |
+| Transgression | L'interdit devient stimulant. |
+| Perversion | Les pudeurs tombent, les rôles s'affirment. |
+| Corruption | Les limites morales sont franchies. |
+| Dépravation | Le lâcher-prise le plus total. |
 
-La progression et les indices consultés sont conservés dans le stockage local du navigateur. Le bouton **Retour** permet de revenir au sélecteur de thèmes. Une carte révélée peut également être ouverte en grand format en sélectionnant son illustration.
+### 💎 Les six raretés
 
-> **Objectif :** révéler toutes les cartes du thème choisi en trouvant les réponses à partir des indices proposés.
+Elles indiquent le caractère exceptionnel d'une carte, pas la difficulté de son mot de passe :
 
-## Démarrer en local
+`Coquine` · `Provocante` · `Audacieuse` · `Envoûtante` · `Sulfureuse` · `Mythique`
 
-Les cartes sont chargées avec `fetch`. Il est donc nécessaire d’utiliser un serveur HTTP local plutôt que d’ouvrir directement `index.html` avec l’URL `file://`.
+## 🛠️ Créer son propre thème
 
-Depuis la racine du dépôt, lancez par exemple :
+### 🧙 Avec l'atelier de niveaux
+
+Ouvrez `level-builder.html` (bouton **Créer un niveau** sur l'écran d'accueil). Vous y définissez le thème (nom, description, difficulté, sceau) puis ses cartes (titre, type, réponse, indices, image, rareté). Les réponses sont transformées en empreintes SHA-256 automatiquement. Le thème s'exporte en JSON par téléchargement ou par copie.
+
+Sur l'écran d'accueil, le bouton **Ajouter un niveau JSON** importe un thème sur l'appareil, sans toucher au code.
+
+### 📝 À la main, dans `json/cartes.json`
+
+Les thèmes officiels sont dans `json/cartes.json`, sous la forme `{ "themes": [ … ] }`. Une carte ressemble à ceci :
+
+```json
+{
+  "id": 101,
+  "type": "Objet",
+  "passwordHash": "<hash SHA-256 du mot de passe>",
+  "hints": ["Premier indice", "Second indice, plus explicite"],
+  "title": "Titre de la carte",
+  "image": "assets/cartes/Dossier/Image.webp",
+  "description": "Description de la carte.",
+  "actions": "Texte optionnel.",
+  "rarity": "Coquine"
+}
+```
+
+| Champ | Rôle |
+|---|---|
+| `id` | Entier unique dans le thème. |
+| `type` | Mot affiché au dos de la carte. |
+| `passwordHash` | Hash SHA-256 du mot de passe en minuscules, sans espaces autour. |
+| `hints` | Liste d'indices : le premier s'affiche d'abord, **Aide** passe aux suivants. |
+| `title`, `description` | Textes de la carte. |
+| `image` | Chemin relatif ou URL de l'illustration. |
+| `actions` | Optionnel. Repris dans la notification Discord. |
+| `rarity` | Une des six raretés ci-dessus. |
+
+Le fichier est du JSON strict, sans commentaires. Le jeu vérifie chaque carte au chargement et signale clairement les erreurs.
+
+**🔑 Générer un hash** : ouvrez le jeu, puis dans la console du navigateur :
+
+```js
+await genererHash("mon-mot-de-passe")
+```
+
+Le mot est comparé en minuscules et sans espaces autour, mais **les accents comptent** (« clé » et « cle » donnent deux hashs différents). Ne mettez jamais un mot de passe en clair dans le dépôt.
+
+**🖼️ Images** : le format recommandé est le WebP, environ 1000 px de large (une carte s'affiche à 340 px au maximum sur téléphone).
+
+## 🖼️ Le catalogue visuel
+
+`gallery.html` réunit toutes les illustrations de `assets/cartes/` : recherche, filtres par catégorie, zoom. Pratique pour le maître du jeu qui compose un thème. ⚠️ Cette page **dévoile toutes les illustrations** : à ne pas ouvrir devant la personne cible.
+
+## 📴 Hors ligne et installation
+
+Un manifeste (`manifest.webmanifest`) et un service worker (`sw.js`) rendent le jeu installable sur l'écran d'accueil et utilisable sans connexion, par exemple pour un thème qui se joue en extérieur.
+
+- Après une première visite en ligne, les fichiers du jeu et les illustrations des thèmes sont mémorisés.
+- Les fichiers du jeu sont récupérés en priorité sur le réseau : une mise à jour publiée s'affiche dès qu'il y a une connexion.
+- Hors ligne, les notifications Discord ne sont pas envoyées, et les sons peuvent ne pas fonctionner selon l'appareil.
+
+## 🔔 Notifications Discord et retours
+
+Deux fonctions serveur (`api/notification.js` et `api/feedback.js`) relaient les messages vers Discord. Les adresses de webhook restent côté serveur, dans les variables d'environnement, et ne sont jamais dans le code :
+
+| Variable | Rôle |
+|---|---|
+| `DISCORD_NOTIFICATION_WEBHOOK_URL_1`, `_2`, … | Une ou plusieurs adresses recevant une notification à chaque carte révélée. |
+| `FEEDBACK_DISCORD_WEBHOOK_URL` | Adresse recevant les retours anonymes. |
+
+Le fichier `.env.example` montre le format. Ne commitez jamais un vrai fichier `.env`.
+
+Sans configuration, le jeu fonctionne normalement : l'envoi échoue en silence et ne bloque jamais le déblocage d'une carte.
+
+> 👀 **À savoir pour les joueurs :** une notification contient le titre de la carte, sa rareté, sa description, l'action éventuelle, son illustration, le niveau choisi et **le mot saisi**.
+
+Ces fonctions ne tournent que sur Vercel. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
+
+## 🚀 Lancer le jeu en local
+
+Les cartes sont chargées avec `fetch` : il faut passer par un serveur HTTP local plutôt que d'ouvrir `index.html` directement.
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Ouvrez ensuite [http://localhost:8000](http://localhost:8000) dans votre navigateur.
+Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et les retours, utilisez la [CLI Vercel](https://vercel.com/docs/cli) (`vercel dev`).
 
-Pour arrêter le serveur, utilisez `Ctrl+C` dans le terminal qui l’exécute.
-
-## Catalogue d’images
-
-La page [`gallery.html`](gallery.html) charge l’inventaire `json/gallery.json`. Ce fichier est généré à partir de tous les formats d’images pris en charge dans `assets/cartes/`, y compris les sous-dossiers.
-
-| Commande | Rôle |
-| --- | --- |
-| `pnpm gallery:index` | Génère ou actualise une seule fois `json/gallery.json`. |
-| `pnpm gallery:watch` | Surveille `assets/cartes/` et régénère l’inventaire après chaque ajout, retrait, renommage ou modification. |
-
-Le workflow de synchronisation régénère également l’inventaire avant de copier les fichiers vers le site public. Lorsqu’un changement est détecté dans `assets/cartes/`, il enregistre automatiquement le nouveau `json/gallery.json` dans `main`, puis le site public reçoit la version mise à jour. Le script compare les chemins, formats, tailles et empreintes des fichiers ; il ne crée donc pas de commit superflu si l’inventaire est déjà à jour.
-
-## Modifier les cartes
-
-Les données jouables se trouvent dans [`json/cartes.json`](json/cartes.json). Chaque carte peut notamment définir un identifiant, un type, une rareté, une image, une description, plusieurs indices et une empreinte de réponse.
-
-| Fichier | Rôle |
-|---|---|
-| `json/cartes.json` | Collection actuellement utilisée par le jeu. |
-| `json/cartes_original.json` | Copie de référence des données d’origine. |
-| `json/README.md` | Notes de format et consignes relatives aux données. |
-
-Après une modification des données, rechargez la page et testez au minimum la sélection du thème, le déverrouillage d’une carte et la progression.
-
-### Code organisateur pour révéler un niveau
-
-Depuis l’écran d’un thème, saisissez `toutleniveau` dans le champ de code pour révéler toutes les cartes de ce thème en une seule fois. Le code fonctionne uniquement sur le niveau actuellement ouvert et la progression est conservée dans le `localStorage`, comme pour les codes individuels.
-
-Le code n’est pas stocké en clair dans le script : seul son hash SHA-256 est présent dans [`js/passemot.js`](js/passemot.js), dans la constante `MASTER_PASSWORD_HASH`. Pour le modifier, calculez le hash du nouveau code avec l’utilitaire [`js/hasheur.js`](js/hasheur.js), puis remplacez cette constante.
-
-## Structure du projet
+## 🗂️ Structure du projet
 
 ```text
 .
-├── index.html              # Point d’entrée de l’application
-├── css/
-│   ├── style.css           # Palette, composants communs et surcharge Bootstrap sombre
-│   └── layout-v3.css       # Mise en page du jeu en trois zones, responsive
+├── index.html            # Écran d'accueil et jeu
+├── gallery.html          # Catalogue visuel des illustrations
+├── level-builder.html    # Atelier de niveaux
+├── manifest.webmanifest  # Installation sur l'écran d'accueil
+├── sw.js                 # Service worker (mode hors ligne)
+├── api/                  # Fonctions serveur Vercel (Discord)
+├── assets/
+│   ├── cartes/           # Illustrations, classées par catégorie
+│   ├── audio/            # Effets sonores
+│   └── ico/              # Icône
+├── css/                  # Feuilles de style
 ├── js/
-│   ├── passemot.js         # Chargement des données et logique principale
-│   ├── carousel.js         # Navigation du sélecteur de thèmes
-│   ├── hasheur.js          # Utilitaire de génération de hash en console
-│   └── notification.js     # Notification Discord optionnelle, inactive sans configuration
+│   ├── passemot.js       # Logique principale du jeu
+│   ├── audio.js          # Sons
+│   ├── carousel.js       # Carrousel de thèmes
+│   ├── feedback.js       # Formulaire de retours
+│   ├── notification.js   # Envoi des notifications
+│   ├── hasheur.js        # Générateur de hash (console)
+│   ├── gallery.js        # Catalogue
+│   └── level-builder.js  # Atelier de niveaux
 ├── json/
-│   ├── cartes.json         # Données actives du jeu
-│   ├── cartes_original.json  # Copie de référence
-│   ├── gallery.json        # Inventaire généré des fichiers présents dans assets/
-│   └── README.md           # Documentation des données
-├── gallery.html            # Catalogue visuel des illustrations
-├── scripts/
-│   ├── generate-gallery.mjs # Génération de l’inventaire JSON
-│   └── watch-gallery.mjs    # Surveillance locale du dossier assets/
-└── .github/workflows/
-    └── sync-to-site.yml    # Synchronisation vers le site public
+│   ├── cartes.json       # Thèmes et cartes du jeu
+│   └── gallery.json      # Inventaire des images (généré)
+├── docs/screenshots/     # Captures d'écran du README
+├── scripts/              # Outils de maintenance (Node.js)
+└── .github/workflows/    # Publication et optimisation
 ```
 
-## Déploiement et synchronisation
+## 🧰 Outils de maintenance
 
-Le dépôt `LaserOnWood/kinky-tcg` est la source de vérité. Le workflow `.github/workflows/sync-to-site.yml` synchronise le projet vers `LaserOnWood/LaserOnWood.github.io`, dans `game/tcgproto`.
-
-Pour permettre cette synchronisation, le dépôt doit disposer d’un secret GitHub nommé `SITE_REPO_TOKEN`. Ce secret doit autoriser la lecture et l’écriture dans le dépôt du site public ; il ne doit jamais être ajouté aux fichiers du projet ni affiché dans les logs.
-
-Le fonctionnement recommandé est le suivant :
-
-```text
-Modification locale
-        ↓
-Commit sur main
-        ↓
-Push vers kinky-tcg
-        ↓
-Workflow de synchronisation
-        ↓
-Publication dans game/tcgproto
-```
-
-Avant chaque publication, vérifiez que les chemins restent relatifs au dossier du projet :
-
-```html
-<link rel="stylesheet" href="css/style.css">
-<script src="js/passemot.js"></script>
-```
-
-Évitez d’ajouter une balise `<base href="../">` dans `index.html`, car elle peut casser le chargement des ressources lorsque le projet est synchronisé dans un sous-dossier.
-
-## Vérifications recommandées
-
-Avant de pousser une modification importante, lancez une prévisualisation locale et contrôlez les principaux parcours :
-
-1. Le sélecteur de thèmes s’affiche correctement.
-2. Le choix d’un thème ouvre bien l’écran de jeu.
-3. Les cartes et leurs illustrations sont chargées.
-4. Une réponse correcte retourne la carte et met à jour la progression.
-5. Le bouton **Retour** restaure le sélecteur de thèmes.
-6. Le rendu reste utilisable sur téléphone, tablette et ordinateur.
-7. La dernière ligne de cartes reste accessible malgré la barre de saisie fixe.
-
-## Historique des versions
-
-Le projet évolue par itérations courtes, avec une attention particulière portée au confort de jeu sur téléphone et à la fiabilité de la synchronisation vers le site public.
-
-| Version / étape | Évolution principale |
+| Commande | Rôle |
 |---|---|
-| Prototype initial | Mise en place du jeu de cartes, des indices, des réponses hashées et de la progression locale. |
-| Sélection thématique | Ajout de plusieurs univers et d’un écran de choix avant l’accès à la partie. |
-| Interface responsive | Adaptation de la grille et de la zone de saisie aux téléphones, tablettes et ordinateurs. |
-| Carrousel mobile | Ajout d’un défilement horizontal tactile pour les cartes sur les petits écrans. |
-| Hauteur mobile adaptative | Utilisation de `dvh` pour adapter la hauteur aux navigateurs mobiles et supprimer le défilement vertical parasite. |
-| Mise en page en trois zones | Header, zone de cartes et zone de saisie sont désormais gérés par une grille de hauteur contrôlée. |
-| Finition unifiée | Les cartes utilisent une bordure dorée et le fond Bootstrap est surchargé avec la palette sombre du jeu. |
-| Organisation des ressources | Déplacement des scripts et des ressources vers une structure plus claire, avec des chemins compatibles avec la synchronisation dans `game/tcgproto`. |
-| Documentation actuelle | README enrichi, règles de jeu documentées et procédure de développement local clarifiée. |
+| `npm run gallery:index` | Régénère `json/gallery.json` à partir de `assets/cartes/`. |
+| `npm run gallery:watch` | Régénère l'inventaire à chaque changement dans `assets/cartes/`. |
+| `node scripts/optimize-images.mjs` | **Simulation** : liste ce que l'optimisation des images ferait, sans rien modifier. |
+| `node scripts/optimize-images.mjs --apply` | Redimensionne les images à 1000 px de large et les convertit en WebP. Nécessite `npm install sharp`. |
 
-Pour consulter l’historique technique détaillé :
+L'optimisation existe aussi comme workflow GitHub : onglet **Actions**, « Optimiser les images », **Run workflow**. Sans case cochée, c'est une simulation ; en cochant la case, les images sont modifiées et le résultat est enregistré dans `main`.
 
-```bash
-git log --oneline --decorate
-```
+## ☁️ Déploiement
 
-Les versions publiques sont synchronisées depuis la branche `main`. Les changements importants doivent donc être testés localement avant chaque push afin de préserver la compatibilité avec le workflow de publication.
+Le dépôt `LaserOnWood/kinky-tcg` est la source unique du projet. Chaque push sur `main` publie le jeu :
 
-## Technologies utilisées
+| Destination | Fonctionnement |
+|---|---|
+| ▲ **Vercel** | Hébergement avec fonctions serveur (notifications, retours). Se met à jour à chaque push. |
+| 🐙 **GitHub Pages** | Le workflow `sync-to-site.yml` copie le jeu dans `game/tcgproto` du dépôt `LaserOnWood.github.io`. Il demande le secret `SITE_REPO_TOKEN`. C'est le lien public « Jouer ». |
+| 📡 **Hébergement FTP** | Le workflow `lws.yml` envoie les fichiers par FTP. Il demande les secrets `FTP_SERVER`, `FTP_USERNAME` et `FTP_PASSWORD`. |
 
-Le projet repose volontairement sur une architecture légère et sans étape de compilation : **HTML**, **CSS** et **JavaScript** natifs. Les polices Google Fonts et les icônes Font Awesome sont chargées depuis des CDN dans l’interface principale.
+Un commit fait par un workflow ne déclenche pas les autres workflows : après « Optimiser les images », lancez « Synchroniser avec le site principal » à la main.
 
-Cette approche facilite l’hébergement statique, la maintenance rapide des données et la publication automatique sans dépendance à un serveur applicatif.
+Les chemins du jeu doivent rester **relatifs** (`css/main.css`, `js/passemot.js`), car il est aussi publié dans un sous-dossier. Évitez la balise `<base>`.
 
-## Contribution
+## 🧱 Technologies
 
-Les propositions d’amélioration sont les bienvenues. Pour contribuer, créez une branche dédiée, effectuez vos changements, testez le parcours complet, puis ouvrez une pull request avec une description concise du problème traité et du comportement attendu.
+HTML, CSS et JavaScript natifs, sans étape de compilation, avec [Bootstrap](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/) et Google Fonts ([Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) et [Poppins](https://fonts.google.com/specimen/Poppins)) chargés depuis des CDN. L'API Web Crypto calcule les empreintes SHA-256. Node.js n'intervient que pour les outils de maintenance.
 
-Les changements de logique, de données ou de synchronisation doivent rester compatibles avec le fonctionnement du site public dans `game/tcgproto`.
+## 🗺️ Prochaines étapes
 
-## Licence et contenu
+**Déjà en place** dans les dernières versions :
 
-Ce projet est un prototype indépendant. Les contenus, illustrations, textes et données de cartes doivent être considérés comme appartenant au projet, sauf indication contraire explicite dans les fichiers concernés. Avant toute réutilisation publique, vérifiez les droits associés aux ressources utilisées.
+- [x] 📴 Mode hors ligne et installation sur l'écran d'accueil
+- [x] 🪶 Illustrations allégées (environ 80 % de poids en moins)
+- [x] 🔄 Retournement 3D des cartes à chaque déblocage
+- [x] 🛠️ Atelier de niveaux et catalogue visuel
 
-## Ressources
+**Idées à l'étude** :
 
-- [Documentation MDN · JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript)
-- [Documentation MDN · Responsive design](https://developer.mozilla.org/fr/docs/Learn/CSS/CSS_layout/Responsive_Design)
-- [GitHub Actions · Documentation](https://docs.github.com/fr/actions)
-- [Font Awesome · Documentation](https://fontawesome.com/docs)
+- [ ] 🔞 Écran d'avertissement 18+ à l'entrée du jeu
+- [ ] 🔤 Réponses tolérantes : accents, majuscules et espaces ignorés
+- [ ] 💾 Export et import de la progression, pour changer d'appareil
+- [ ] 🃏 Carte « Joker » pour passer un gage, avec des limites choisies par les joueurs
+- [ ] 🎨 Thèmes finalisés : illustrations et mots de passe définitifs pour chacun
+- [ ] 🔒 Protection renforcée des mots de passe et du contenu des cartes
+- [ ] 🌍 Traduction anglaise
+
+## 🤝 Contribuer
+
+Les contributions cohérentes avec l'esprit et l'architecture du jeu sont les bienvenues : corrections, améliorations d'accessibilité, traductions, nouveaux thèmes.
+
+1. 💬 Ouvrez d'abord une **issue** pour les changements importants.
+2. 🌿 Travaillez sur une branche dédiée.
+3. ✅ Testez le parcours complet sur téléphone et ordinateur : choix du thème, déblocage d'une carte, progression, retour à l'accueil, et le jeu hors ligne si vous touchez à `sw.js`.
+4. 🔀 Ouvrez une **pull request** qui décrit le problème et le comportement attendu.
+
+Les illustrations proposées doivent être des créations fictives : **aucune image de personne réelle**.
+
+## 🎨 Crédits
+
+| | |
+|---|---|
+| 👤 **Concept, prompts et développement** | AzaSwitch |
+| 🖼️ **Illustrations** | Générées avec **Stable Diffusion** à partir des prompts d'AzaSwitch, puis mises en forme avec le générateur de cartes [YGO Carder](https://lauqerm.github.io/ygocarder/) de Lauqerm. |
+| 🔊 **Sons** | Récupérés sur [MyInstants](https://www.myinstants.com/fr/index/fr/). Les droits appartiennent à leurs ayants droit respectifs. |
+| 🧩 **Bibliothèques et polices** | Bootstrap, Font Awesome, Cormorant Garamond, Poppins. |
+
+> ℹ️ Kinky TCG est un projet indépendant, **non affilié à Konami**. *Yu-Gi-Oh!* est une marque de Konami Digital Entertainment.
+
+## 📜 Licence
+
+- 💻 **Code** (HTML, CSS, JavaScript, fonctions serveur, scripts, workflows) : licence **MIT**, voir le fichier [`LICENSE`](LICENSE).
+- 🎴 **Contenus** (illustrations, textes et données des cartes, sons) : **non couverts par la licence MIT**. Tous droits réservés, hors éléments tiers listés dans les crédits. Ne les réutilisez pas sans l'accord de l'auteur.
