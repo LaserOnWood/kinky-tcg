@@ -489,6 +489,12 @@ function obtenirIndiceActuel(carteId){
   return Number.isInteger(indice) && indice >= 0 ? indice : 0;
 }
 
+/* Balise <img> de l'illustration. Créée seulement pour une carte débloquée :
+   les cartes verrouillées ne chargent aucune image. */
+function creerImageHTML(carte, chargement = "lazy"){
+  return `<img class="art" src="${echapperHTML(carte.image)}" alt="${echapperHTML(carte.title)} — ${echapperHTML(carte.description)}" loading="${chargement}">`;
+}
+
 function creerCarteHTML(carte){
   const estDebloquee = debloquees.has(carte.id);
   const indiceActuel = obtenirIndiceActuel(carte.id);
@@ -506,7 +512,7 @@ function creerCarteHTML(carte){
         </div>
         <div class="face front holo" data-rarity="${echapperHTML(carte.rarity)}">
           <div class="rarity-tag" data-r="${echapperHTML(carte.rarity)}">${echapperHTML(carte.rarity)}</div>
-          ${estDebloquee ? `<img class="art" src="${echapperHTML(carte.image)}" alt="${echapperHTML(carte.title)} — ${echapperHTML(carte.description)}" loading="lazy">` : ""}
+          ${estDebloquee ? creerImageHTML(carte) : ""}
           </div>
       </div>
     </div>
@@ -523,16 +529,74 @@ function rendreGrille(){
       afficherIndiceSupplementaire(Number(bouton.dataset.cardId));
     });
   });
+}
 
-  // Clic sur l'illustration d'une carte débloquée : ouvre l'aperçu en grand.
-  grid.querySelectorAll(".art").forEach(image => {
-    image.addEventListener("click", evenement => {
-      const carteElement = image.closest(".card");
-      if(!carteElement || !carteElement.classList.contains("unlocked")){ return; }
-      evenement.stopPropagation();
-      ouvrirLightbox(image.src, image.alt);
-    });
-  });
+// Clic sur l'illustration d'une carte débloquée : ouvre l'aperçu en grand.
+// Délégation d'événements : fonctionne aussi pour les images ajoutées lors d'un déblocage.
+$("grid")?.addEventListener("click", evenement => {
+  const image = evenement.target.closest(".art");
+  if(!image){ return; }
+  const carteElement = image.closest(".card");
+  if(!carteElement || !carteElement.classList.contains("unlocked")){ return; }
+  evenement.stopPropagation();
+  ouvrirLightbox(image.src, image.alt);
+});
+
+/* ===========================================================================
+   RÉVÉLATION ANIMÉE D'UNE CARTE (flip 3D)
+   ---------------------------------------------------------------------------
+   Reconstruire toute la grille créerait la carte déjà retournée, donc sans
+   animation. On garde donc la carte existante : on lui ajoute son illustration,
+   puis la classe « unlocked » qui déclenche la transition CSS (rotateY 180°,
+   voir .card dans main.css).
+   =========================================================================== */
+
+const attendre = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// true si la carte est au moins à 60 % visible dans le carrousel.
+function carteEstVisible(element){
+  const cadre = $("grid").getBoundingClientRect();
+  const boite = element.getBoundingClientRect();
+  const largeurVisible = Math.min(boite.right, cadre.right) - Math.max(boite.left, cadre.left);
+  return boite.width > 0 && largeurVisible > boite.width * 0.6;
+}
+
+// Retourne la carte avec animation. Ne rejette jamais (résout quand c'est fini).
+async function revelerCarte(carteId, delai = 0){
+  try{
+    if(delai > 0){ await attendre(delai); }
+
+    const carte = CARTES.find(element => element.id === carteId);
+    const carteElement = $("grid").querySelector(`.card[data-id="${carteId}"]`);
+    if(!carte || !carteElement || carteElement.classList.contains("unlocked")){ return; }
+
+    // 1. L'illustration est ajoutée maintenant (les cartes verrouillées n'en ont pas).
+    const face = carteElement.querySelector(".face.front");
+    let image = face?.querySelector(".art") || null;
+    if(face && !image){
+      face.insertAdjacentHTML("beforeend", creerImageHTML(carte, "eager"));
+      image = face.querySelector(".art");
+    }
+
+    // 2. Carte hors de l'écran : on la centre d'abord.
+    const emplacement = carteElement.closest(".card-slot");
+    if(emplacement && !carteEstVisible(emplacement)){
+      emplacement.scrollIntoView?.({ behavior: "smooth", inline: "center", block: "nearest" });
+      await attendre(450);
+    }
+
+    // 3. On attend (1,2 s max) que l'image soit prête pour ne pas retourner une carte vide.
+    if(image?.decode){
+      await Promise.race([image.decode().catch(() => {}), attendre(1200)]);
+    }
+
+    // 4. Le flip : le navigateur enregistre l'état de départ, puis on ajoute la classe.
+    void carteElement.offsetWidth;
+    carteElement.classList.add("unlocked");
+    await attendre(600); // durée de la transition CSS (0,55 s)
+  }catch(erreur){
+    console.warn("Révélation animée impossible :", erreur);
+  }
 }
 
 function afficherIndiceSupplementaire(carteId){
@@ -546,14 +610,21 @@ function afficherIndiceSupplementaire(carteId){
   rendreGrille();
 }
 
-function rendreProgression(){
+// « revelation » (optionnel) : promesse de revelerCarte(). L'écran de fin
+// attend alors la fin du flip au lieu de le masquer aussitôt.
+function rendreProgression(revelation = null){
   const total = CARTES.length;
   const n = debloquees.size;
   $("progress-label").textContent = `${n} / ${total}`;
   $("progress-fill").style.width = `${total ? (n / total) * 100 : 0}%`;
 
   if(total > 0 && n === total){
-    $("overlay").classList.add("show");
+    const afficherFin = () => $("overlay").classList.add("show");
+    if(revelation){
+      revelation.then(() => setTimeout(afficherFin, 500));
+    }else{
+      afficherFin();
+    }
   }
 }
 
@@ -604,8 +675,9 @@ async function tenterDeverrouillage(){
     input.value = "";
     feedback.textContent = `✦ ${cartesRestantes.length} carte${cartesRestantes.length > 1 ? "s" : ""} révélée${cartesRestantes.length > 1 ? "s" : ""} !`;
     feedback.className = "feedback ok";
-    rendreGrille();
-    rendreProgression();
+    // Les cartes se retournent l'une après l'autre (décalage de 150 ms, plafonné à 1,5 s).
+    const revelations = cartesRestantes.map((carte, index) => revelerCarte(carte.id, Math.min(index * 150, 1500)));
+    rendreProgression(Promise.all(revelations));
     jouerSonCompletionSiNecessaire();
     return;
   }
@@ -620,8 +692,7 @@ async function tenterDeverrouillage(){
     feedback.textContent = `✦ « ${carteTrouvee.title} » révélée !`;
     feedback.className = "feedback ok";
 
-    rendreGrille();
-    rendreProgression();
+    rendreProgression(revelerCarte(carteTrouvee.id));
     jouerSonCompletionSiNecessaire();
 
     // La notification est optionnelle et ne bloque jamais le déverrouillage.
