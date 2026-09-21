@@ -257,10 +257,8 @@ HTML, CSS et JavaScript natifs, sans étape de compilation, avec [Bootstrap](htt
 - [ ] 🔞 Écran d'avertissement 18+ à l'entrée du jeu
 - [ ] 🔤 Réponses tolérantes : accents, majuscules et espaces ignorés
 - [ ] 💾 Export et import de la progression, pour changer d'appareil
-- [ ] 🃏 Carte « Joker » pour passer un gage, avec des limites choisies par les joueurs
 - [ ] 🎨 Thèmes finalisés : illustrations et mots de passe définitifs pour chacun
 - [ ] 🔒 Protection renforcée des mots de passe et du contenu des cartes
-- [ ] 🌍 Traduction anglaise
 
 ## 🤝 Contribuer
 
