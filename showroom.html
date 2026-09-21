@@ -36,19 +36,32 @@
     .showroom-header h1 { margin-bottom: 12px; font-size: clamp(38px, 7vw, 64px); }
     .showroom-subtitle { max-width: 680px; margin: 0 auto; color: var(--ink-muted); font-size: 13px; line-height: 1.7; }
 
-    .showroom-page main { max-width: 1400px; padding: 36px 20px 0; }
+    .showroom-page main { width: 100%; max-width: 1400px; margin: 0 auto; padding: 36px 20px 0; }
     .showroom-grid {
-      display: grid;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
+      display: flex;
+      flex-wrap: nowrap;
       gap: 22px;
-      align-items: start;
+      align-items: flex-start;
+      margin-inline: 0;
+      padding: 0 max(4px, calc((100% - min(78vw, 340px)) / 2)) 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: max(4px, calc((100% - min(78vw, 340px)) / 2));
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
-    @media (min-width: 580px) { .showroom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (min-width: 900px) { .showroom-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    @media (min-width: 1240px) { .showroom-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; } }
-
-    .showroom-tile { min-width: 0; }
-    .showroom-card .card { max-width: 280px; margin: 0 auto; }
+    .showroom-grid::-webkit-scrollbar { display: none; }
+    .showroom-tile {
+      flex: 0 0 min(78vw, 340px);
+      width: min(78vw, 340px);
+      min-width: 0;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+    /* Même largeur et même ratio que le carrousel principal du jeu. */
+    .showroom-card .card-slot { width: 100%; max-width: 340px; flex: 0 0 100%; margin: 0 auto; }
+    .showroom-card .card { width: 100%; max-width: 340px; margin: 0 auto; }
     .showroom-card .front { cursor: default; }
     .showroom-card .rarity-tag { white-space: nowrap; }
 
@@ -71,7 +84,7 @@
 
     .showroom-copy { position: absolute; z-index: 2; right: 16px; bottom: 45px; left: 16px; }
     .showroom-index { margin: 0 0 7px; color: var(--gold-soft); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
-    .showroom-copy h2 { margin: 0; color: #fff7ef; font-family: var(--ff-display); font-size: clamp(28px, 4vw, 36px); font-style: italic; line-height: 1; }
+    .showroom-copy h2 { margin: 0; color: #fff7ef; font-family: var(--ff-display); font-size: clamp(24px, 4vw, 36px); font-style: italic; line-height: 1; overflow-wrap: anywhere; }
     .showroom-copy p { min-height: 44px; margin: 8px 0 0; color: rgba(255,247,239,.82); font-size: 11px; line-height: 1.55; }
 
     .showroom-note {
@@ -81,6 +94,11 @@
       font-size: 12px; line-height: 1.65; text-align: center;
     }
     .showroom-note strong { color: var(--gold-soft); }
+
+    @media (min-width: 700px) {
+      .showroom-grid { gap: 30px; }
+      .showroom-tile { flex-basis: 340px; width: 340px; }
+    }
 
   </style>
 </head>
