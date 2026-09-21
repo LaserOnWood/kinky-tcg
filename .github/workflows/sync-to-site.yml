@@ -56,6 +56,8 @@ jobs:
           cp -a ./json site/game/tcgproto/
           cp -a ./index.html site/game/tcgproto/
           cp -a ./gallery.html site/game/tcgproto/
+          cp -a ./showroom.html site/game/tcgproto/
+          cp -a ./level-builder.html site/game/tcgproto/
           cp -a ./sw.js ./manifest.webmanifest site/game/tcgproto/
 
       - name: Publier les changements
