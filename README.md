@@ -19,11 +19,11 @@
 ## 📸 Aperçu
 
 <p align="center">
-  <img src="assets/screenshots/01-selection-themes.png" width="240" alt="Écran de sélection des thèmes">
+  <img src="docs/screenshots/01-selection-themes.png" width="240" alt="Écran de sélection des thèmes">
   &nbsp;
-  <img src="assets/screenshots/02-partie-en-cours.png" width="240" alt="Une partie en cours : carte verrouillée et son indice">
+  <img src="docs/screenshots/02-partie-en-cours.png" width="240" alt="Une partie en cours : carte verrouillée et son indice">
   &nbsp;
-  <img src="assets/screenshots/03-carte-revelee.png" width="240" alt="Une carte révélée après avoir trouvé le bon mot de passe">
+  <img src="docs/screenshots/03-carte-revelee.png" width="240" alt="Une carte révélée après avoir trouvé le bon mot de passe">
 </p>
 
 <p align="center"><em>Choix du thème · Carte verrouillée et son indice · Carte révélée</em></p>
