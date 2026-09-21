@@ -42,10 +42,10 @@ async function notifierDiscord(carte, motDePasseSaisi, niveauChoisi) {
           rarity: carte.rarity,
           description: carte.description,
           actions: carte.actions,
-          image: obtenirURLImage(carte.image),
-          niveau: niveauChoisi
+          image: obtenirURLImage(carte.image)
         },
-        motDePasseSaisi
+        motDePasseSaisi,
+        niveau: niveauChoisi
       })
     });
 
