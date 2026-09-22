@@ -23,7 +23,7 @@ import sharp from "sharp";
 
 // ---------------------------------------------------------------- RÉGLAGES --
 const LARGEUR_MAX = 1000;              // largeur maximale en pixels
-const QUALITE = 80;                    // qualité WebP (1-100)
+const QUALITE = 90;                    // qualité WebP (1-100)
 const DOSSIERS_IGNORES = new Set(["Inspiration"]); // sous-dossiers de assets/cartes/ à ne pas toucher
 const EXTENSIONS = new Set([".webp", ".png", ".jpg", ".jpeg"]);
 // ----------------------------------------------------------------------------
