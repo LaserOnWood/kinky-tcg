@@ -271,7 +271,7 @@
           "title": "La Lune",
           "image": "assets/cartes/Accessoires/Bandeau_item.webp",
           "description": "La tenue est pose dans la salle de bain.",
-          "rarity": "Coquine"
+          "rarity": "Audacieuse"
         },
         {
           "id": 503,
@@ -286,6 +286,17 @@
         },
         {
           "id": 504,
+          "type": "Position",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Positions/Missionaire.webp",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 505,
           "type": "Action",
           "_comment": "Mot de passe : Lune",
           "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
@@ -293,7 +304,18 @@
           "title": "La Lune",
           "image": "assets/cartes/Actions/Creampie.webp",
           "description": "La tenue est pose dans la salle de bain.",
-          "rarity": "Coquine"
+          "rarity": "Envoûtante"
+        },
+        {
+          "id": 506,
+          "type": "Action",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Actions/Cum_Eating.webp",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Sulfureuse"
         }
       ]
     },
