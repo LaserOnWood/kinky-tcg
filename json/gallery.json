@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-22T22:53:53.115Z",
-  "count": 132,
+  "generatedAt": "2026-09-23T10:00:11.355Z",
+  "count": 134,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -507,6 +507,17 @@
       "size": 93328,
       "sizeLabel": "91.1 Ko",
       "checksum": "9938ccc44f10ddc6ab91510370c4f2375a8fb7d41bcb2cd6e7387b4454b4b2be"
+    },
+    {
+      "id": "assets-cartes-actions-striptease-webp",
+      "name": "Striptease",
+      "path": "assets/cartes/Actions/Striptease.webp",
+      "src": "assets/cartes/Actions/Striptease.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 153382,
+      "sizeLabel": "149.8 Ko",
+      "checksum": "21a54ccb43c49823ae939c5e6de6fd6b456f9a9b857cd3a466a1ea9772b2a4fe"
     },
     {
       "id": "assets-cartes-actions-succube-webp",
@@ -1288,6 +1299,17 @@
       "size": 94354,
       "sizeLabel": "92.1 Ko",
       "checksum": "eacbc8c48f77a064375607d2c37b87ade9cb8754721b069cd17ab7473e647461"
+    },
+    {
+      "id": "assets-cartes-rituel-striptease-webp",
+      "name": "Striptease",
+      "path": "assets/cartes/Rituel/Striptease.webp",
+      "src": "assets/cartes/Rituel/Striptease.webp",
+      "category": "Rituel",
+      "extension": "WEBP",
+      "size": 152560,
+      "sizeLabel": "149.0 Ko",
+      "checksum": "316a8bd9a9ba74d4fb3d4a724aae3aa503d9c378727377d54cfe635a4d316513"
     },
     {
       "id": "assets-cartes-rituel-succube-webp",
