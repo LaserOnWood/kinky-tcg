@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T16:34:36.957Z",
+  "generatedAt": "2026-09-26T16:41:03.840Z",
   "count": 140,
   "images": [
     {
@@ -36,26 +36,26 @@
       "checksum": "e66c65daa932a20435f4a9016e0237bdb334d496b96cee0012a4836f78ba6d48"
     },
     {
-      "id": "assets-cartes-accessoires-cravache-etoilee-png",
+      "id": "assets-cartes-accessoires-cravache-etoilee-webp",
       "name": "Cravache etoilee",
-      "path": "assets/cartes/Accessoires/Cravache_etoilee.png",
-      "src": "assets/cartes/Accessoires/Cravache_etoilee.png",
+      "path": "assets/cartes/Accessoires/Cravache_etoilee.webp",
+      "src": "assets/cartes/Accessoires/Cravache_etoilee.webp",
       "category": "Accessoires",
-      "extension": "PNG",
-      "size": 4416508,
-      "sizeLabel": "4.2 Mo",
-      "checksum": "45277083b1b727ccb2880f1eee26ff1fc66703dd98978678b2e910cc36ad7207"
+      "extension": "WEBP",
+      "size": 224420,
+      "sizeLabel": "219.2 Ko",
+      "checksum": "c5c971e2f43900d53af5dfcad6ef91bc8957a5fcadb12fcf7a36cda8f056be9e"
     },
     {
-      "id": "assets-cartes-accessoires-cravache-png",
+      "id": "assets-cartes-accessoires-cravache-webp",
       "name": "Cravache",
-      "path": "assets/cartes/Accessoires/Cravache.png",
-      "src": "assets/cartes/Accessoires/Cravache.png",
+      "path": "assets/cartes/Accessoires/Cravache.webp",
+      "src": "assets/cartes/Accessoires/Cravache.webp",
       "category": "Accessoires",
-      "extension": "PNG",
-      "size": 4447996,
-      "sizeLabel": "4.2 Mo",
-      "checksum": "89af88921554d85154d0a21ac14c6eed3ab80baf44c78f5e913b389751edec51"
+      "extension": "WEBP",
+      "size": 230122,
+      "sizeLabel": "224.7 Ko",
+      "checksum": "16f7f60065dfc8cfb39955c764a21af18fee1e05df5eecaf9a110ade3b3b89e1"
     },
     {
       "id": "assets-cartes-accessoires-gamelle-webp",
@@ -91,15 +91,15 @@
       "checksum": "f61550f87f8ce848383909eb66cb9c40edd74447865954c3a1c7b31ea821690d"
     },
     {
-      "id": "assets-cartes-accessoires-magic-wand-png",
+      "id": "assets-cartes-accessoires-magic-wand-webp",
       "name": "Magic wand",
-      "path": "assets/cartes/Accessoires/Magic_wand.png",
-      "src": "assets/cartes/Accessoires/Magic_wand.png",
+      "path": "assets/cartes/Accessoires/Magic_wand.webp",
+      "src": "assets/cartes/Accessoires/Magic_wand.webp",
       "category": "Accessoires",
-      "extension": "PNG",
-      "size": 4110716,
-      "sizeLabel": "3.9 Mo",
-      "checksum": "1350c2a76ea5cf01c703f8241e996dbf95fd1216eced368b63f77fe982d12963"
+      "extension": "WEBP",
+      "size": 180710,
+      "sizeLabel": "176.5 Ko",
+      "checksum": "29fb0647d03c38e9cc6bad49bb9e84b4d74ac7ac11f053d2795e05d4be38c4ee"
     },
     {
       "id": "assets-cartes-accessoires-menottes-webp",
