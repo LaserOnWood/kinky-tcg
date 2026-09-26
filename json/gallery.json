@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T01:34:23.698Z",
+  "generatedAt": "2026-09-26T01:47:35.096Z",
   "count": 136,
   "images": [
     {
@@ -91,15 +91,15 @@
       "checksum": "711dff94adf44c6d52436fa01ce63f2eef3473666bfdd1648aa67d823c8e8417"
     },
     {
-      "id": "assets-cartes-accessoires-paddle-png",
+      "id": "assets-cartes-accessoires-paddle-webp",
       "name": "Paddle",
-      "path": "assets/cartes/Accessoires/Paddle.png",
-      "src": "assets/cartes/Accessoires/Paddle.png",
+      "path": "assets/cartes/Accessoires/Paddle.webp",
+      "src": "assets/cartes/Accessoires/Paddle.webp",
       "category": "Accessoires",
-      "extension": "PNG",
-      "size": 4695226,
-      "sizeLabel": "4.5 Mo",
-      "checksum": "725b531195551fdf2cbeb8afe566f64fcaa691a0ef4db1d09772f86f7a3206a2"
+      "extension": "WEBP",
+      "size": 270650,
+      "sizeLabel": "264.3 Ko",
+      "checksum": "239cd948c2582c8e8a58d11da0848dec5232f86cafa27886afb9c01d840bb8c3"
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
@@ -432,15 +432,15 @@
       "checksum": "bbe31c5ab67ef029cccf91d20d22a339f281b37d2fcc489651b90bb58bfb617a"
     },
     {
-      "id": "assets-cartes-actions-grinding-png",
+      "id": "assets-cartes-actions-grinding-webp",
       "name": "Grinding",
-      "path": "assets/cartes/Actions/Grinding.png",
-      "src": "assets/cartes/Actions/Grinding.png",
+      "path": "assets/cartes/Actions/Grinding.webp",
+      "src": "assets/cartes/Actions/Grinding.webp",
       "category": "Actions",
-      "extension": "PNG",
-      "size": 3280712,
-      "sizeLabel": "3.1 Mo",
-      "checksum": "dbabadaa7b1c50e05447622d046cbeb6e156cb4aa72066b44d17115395b9c19a"
+      "extension": "WEBP",
+      "size": 157850,
+      "sizeLabel": "154.2 Ko",
+      "checksum": "79a8bad641b566c20e78a8dc49dca2db4b03e6f51e0eba4b5055d436718daf62"
     },
     {
       "id": "assets-cartes-actions-humiliation-de-milf-webp",
