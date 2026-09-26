@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-26T01:47:35.096Z",
-  "count": 136,
+  "generatedAt": "2026-09-26T11:57:45.095Z",
+  "count": 137,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -232,6 +232,17 @@
       "size": 135122,
       "sizeLabel": "132.0 Ko",
       "checksum": "a9ffb08d372b9ad2f177b97f1a05dffaa6a9d3c8a2b43064391318ed138494a8"
+    },
+    {
+      "id": "assets-cartes-actions-caresses-mutuelle-webp",
+      "name": "Caresses mutuelle",
+      "path": "assets/cartes/Actions/Caresses_mutuelle.webp",
+      "src": "assets/cartes/Actions/Caresses_mutuelle.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 169582,
+      "sizeLabel": "165.6 Ko",
+      "checksum": "11a16a16ccb28e979fe4f925ac4442497e8706aa782eaabb73f58b947d916718"
     },
     {
       "id": "assets-cartes-actions-contr-le-de-police-webp",
