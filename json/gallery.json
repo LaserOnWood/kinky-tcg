@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-23T10:00:11.355Z",
-  "count": 134,
+  "generatedAt": "2026-09-26T01:33:57.870Z",
+  "count": 135,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -89,6 +89,17 @@
       "size": 89992,
       "sizeLabel": "87.9 Ko",
       "checksum": "711dff94adf44c6d52436fa01ce63f2eef3473666bfdd1648aa67d823c8e8417"
+    },
+    {
+      "id": "assets-cartes-accessoires-paddle-png",
+      "name": "Paddle",
+      "path": "assets/cartes/Accessoires/Paddle.png",
+      "src": "assets/cartes/Accessoires/Paddle.png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 4695226,
+      "sizeLabel": "4.5 Mo",
+      "checksum": "725b531195551fdf2cbeb8afe566f64fcaa691a0ef4db1d09772f86f7a3206a2"
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
