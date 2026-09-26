@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-26T01:33:57.870Z",
-  "count": 135,
+  "generatedAt": "2026-09-26T01:34:23.698Z",
+  "count": 136,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -430,6 +430,17 @@
       "size": 90700,
       "sizeLabel": "88.6 Ko",
       "checksum": "bbe31c5ab67ef029cccf91d20d22a339f281b37d2fcc489651b90bb58bfb617a"
+    },
+    {
+      "id": "assets-cartes-actions-grinding-png",
+      "name": "Grinding",
+      "path": "assets/cartes/Actions/Grinding.png",
+      "src": "assets/cartes/Actions/Grinding.png",
+      "category": "Actions",
+      "extension": "PNG",
+      "size": 3280712,
+      "sizeLabel": "3.1 Mo",
+      "checksum": "dbabadaa7b1c50e05447622d046cbeb6e156cb4aa72066b44d17115395b9c19a"
     },
     {
       "id": "assets-cartes-actions-humiliation-de-milf-webp",
