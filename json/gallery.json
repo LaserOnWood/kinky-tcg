@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-26T11:57:45.095Z",
-  "count": 137,
+  "generatedAt": "2026-09-26T16:34:36.957Z",
+  "count": 140,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -36,6 +36,28 @@
       "checksum": "e66c65daa932a20435f4a9016e0237bdb334d496b96cee0012a4836f78ba6d48"
     },
     {
+      "id": "assets-cartes-accessoires-cravache-etoilee-png",
+      "name": "Cravache etoilee",
+      "path": "assets/cartes/Accessoires/Cravache_etoilee.png",
+      "src": "assets/cartes/Accessoires/Cravache_etoilee.png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 4416508,
+      "sizeLabel": "4.2 Mo",
+      "checksum": "45277083b1b727ccb2880f1eee26ff1fc66703dd98978678b2e910cc36ad7207"
+    },
+    {
+      "id": "assets-cartes-accessoires-cravache-png",
+      "name": "Cravache",
+      "path": "assets/cartes/Accessoires/Cravache.png",
+      "src": "assets/cartes/Accessoires/Cravache.png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 4447996,
+      "sizeLabel": "4.2 Mo",
+      "checksum": "89af88921554d85154d0a21ac14c6eed3ab80baf44c78f5e913b389751edec51"
+    },
+    {
       "id": "assets-cartes-accessoires-gamelle-webp",
       "name": "Gamelle",
       "path": "assets/cartes/Accessoires/Gamelle.webp",
@@ -67,6 +89,17 @@
       "size": 124498,
       "sizeLabel": "121.6 Ko",
       "checksum": "f61550f87f8ce848383909eb66cb9c40edd74447865954c3a1c7b31ea821690d"
+    },
+    {
+      "id": "assets-cartes-accessoires-magic-wand-png",
+      "name": "Magic wand",
+      "path": "assets/cartes/Accessoires/Magic_wand.png",
+      "src": "assets/cartes/Accessoires/Magic_wand.png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 4110716,
+      "sizeLabel": "3.9 Mo",
+      "checksum": "1350c2a76ea5cf01c703f8241e996dbf95fd1216eced368b63f77fe982d12963"
     },
     {
       "id": "assets-cartes-accessoires-menottes-webp",
