@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T23:51:05.116Z",
+  "generatedAt": "2026-09-27T23:57:23.090Z",
   "count": 136,
   "images": [
     {
@@ -1307,9 +1307,9 @@
       "src": "assets/cartes/Rituel/Dominatrice.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 136232,
-      "sizeLabel": "133.0 Ko",
-      "checksum": "29bbde03c60e590ef6f6781d00958dd732004a568e95da4ef244accef8cfcb19"
+      "size": 165548,
+      "sizeLabel": "161.7 Ko",
+      "checksum": "ca8da45bfb0d105c975f90b33871ea582ad4347877bf0f582fad82bf16c14aa5"
     },
     {
       "id": "assets-cartes-rituel-fetichisme-des-pieds-webp",
@@ -1329,9 +1329,9 @@
       "src": "assets/cartes/Rituel/Pretresse.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 94354,
-      "sizeLabel": "92.1 Ko",
-      "checksum": "eacbc8c48f77a064375607d2c37b87ade9cb8754721b069cd17ab7473e647461"
+      "size": 142416,
+      "sizeLabel": "139.1 Ko",
+      "checksum": "f3f718e7dc4a0fbc22e881a32847229d146394d273c26502290305d15f111385"
     },
     {
       "id": "assets-cartes-rituel-striptease-webp",
@@ -1340,9 +1340,9 @@
       "src": "assets/cartes/Rituel/Striptease.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 152560,
-      "sizeLabel": "149.0 Ko",
-      "checksum": "316a8bd9a9ba74d4fb3d4a724aae3aa503d9c378727377d54cfe635a4d316513"
+      "size": 128716,
+      "sizeLabel": "125.7 Ko",
+      "checksum": "3084d48abaaa595d9066892d978fac14555affae1186105694419dfbbb1f7a8b"
     },
     {
       "id": "assets-cartes-rituel-succube-webp",
@@ -1351,9 +1351,9 @@
       "src": "assets/cartes/Rituel/Succube.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 102446,
-      "sizeLabel": "100.0 Ko",
-      "checksum": "15e938f8cd35fe9fba643db5b6784ae28208774df27f08ff6468390ec8cccf54"
+      "size": 147822,
+      "sizeLabel": "144.4 Ko",
+      "checksum": "a08eb4ba7a4b2730bb59dc99b4f81758fe52a6d859df758691933976b12346d5"
     },
     {
       "id": "assets-cartes-tenue-bikini-webp",
