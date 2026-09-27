@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-26T16:41:03.840Z",
-  "count": 140,
+  "generatedAt": "2026-09-27T00:58:13.746Z",
+  "count": 141,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -12,6 +12,17 @@
       "size": 94316,
       "sizeLabel": "92.1 Ko",
       "checksum": "b197df95e4297c7e5501a7b988af49c82828d6a4a80f9001fc4c4cb9959ead85"
+    },
+    {
+      "id": "assets-cartes-accessoires-barre-d-ecartement-png",
+      "name": "Barre d ecartement",
+      "path": "assets/cartes/Accessoires/Barre_d_ecartement.png",
+      "src": "assets/cartes/Accessoires/Barre_d_ecartement.png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 4844032,
+      "sizeLabel": "4.6 Mo",
+      "checksum": "4e466cd37ef5ecb7c7f0058403a499e2a59fd74e02d6419fcfa72f1d290d687e"
     },
     {
       "id": "assets-cartes-accessoires-cage-de-chastete-webp",
