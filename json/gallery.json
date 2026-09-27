@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-27T01:37:29.860Z",
-  "count": 137,
+  "generatedAt": "2026-09-27T01:38:23.751Z",
+  "count": 136,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -958,17 +958,6 @@
       "size": 142110,
       "sizeLabel": "138.8 Ko",
       "checksum": "35aaed7c23c776e4d3c8b0808be75569fad3c25b651933f0427dc2a61bc16b17"
-    },
-    {
-      "id": "assets-cartes-inspiration-nonne-bonne-soeur-webp",
-      "name": "Nonne bonne soeur",
-      "path": "assets/cartes/Inspiration/Nonne_bonne_soeur_.webp",
-      "src": "assets/cartes/Inspiration/Nonne_bonne_soeur_.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 135298,
-      "sizeLabel": "132.1 Ko",
-      "checksum": "9fa9b24eb58e3dc000dfe33386fb4101a963ef0f6f1d424c76bc3ca4f473b9ee"
     },
     {
       "id": "assets-cartes-inspiration-offrande-sexuelle-webp",
