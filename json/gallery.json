@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-27T01:38:23.751Z",
-  "count": 136,
+  "generatedAt": "2026-09-27T21:29:02.343Z",
+  "count": 137,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-item-webp",
@@ -1299,6 +1299,17 @@
       "size": 90124,
       "sizeLabel": "88.0 Ko",
       "checksum": "9f0e07e5d2e003e10a1a02d3f2985af245074e043adbd70124594c88aa95cd34"
+    },
+    {
+      "id": "assets-cartes-rituel-dominatrice-webp",
+      "name": "Dominatrice",
+      "path": "assets/cartes/Rituel/Dominatrice.webp",
+      "src": "assets/cartes/Rituel/Dominatrice.webp",
+      "category": "Rituel",
+      "extension": "WEBP",
+      "size": 186970,
+      "sizeLabel": "182.6 Ko",
+      "checksum": "3bef981927884286a7eedf85c3a1a9b0ae6b4154c096ff9ed3aafb8604eb4988"
     },
     {
       "id": "assets-cartes-rituel-fetichisme-des-pieds-webp",
