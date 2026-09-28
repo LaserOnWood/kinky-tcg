@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:49:35.279Z",
+  "generatedAt": "2026-09-28T20:20:19.060Z",
   "count": 136,
   "images": [
     {
@@ -31,9 +31,9 @@
       "src": "assets/cartes/Accessoires/Cage_de_chastete.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 88590,
-      "sizeLabel": "86.5 Ko",
-      "checksum": "854f5195a6e14d741bf36a312a11b68bd6dfb2498f608156442b0fdc9ee080c5"
+      "size": 87104,
+      "sizeLabel": "85.1 Ko",
+      "checksum": "dfda16b2106ccc537f37605c024367a11539e7b9d431588fc255c8c7784e455d"
     },
     {
       "id": "assets-cartes-accessoires-couteau-webp",
@@ -86,9 +86,9 @@
       "src": "assets/cartes/Accessoires/Gode_ceinture.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 74284,
-      "sizeLabel": "72.5 Ko",
-      "checksum": "08e53ad9d442a90fca8e53e35d379be32e879ba2b6092cd3abf6f9d2058748ab"
+      "size": 65944,
+      "sizeLabel": "64.4 Ko",
+      "checksum": "49bee8c3cbbf620aebe3816545f4c7b0be3a1d2b83c3e8579cff4eb24bff20c0"
     },
     {
       "id": "assets-cartes-accessoires-harnais-webp",
@@ -108,9 +108,9 @@
       "src": "assets/cartes/Accessoires/Magic_wand.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 180710,
-      "sizeLabel": "176.5 Ko",
-      "checksum": "29fb0647d03c38e9cc6bad49bb9e84b4d74ac7ac11f053d2795e05d4be38c4ee"
+      "size": 110434,
+      "sizeLabel": "107.8 Ko",
+      "checksum": "bc5db9b6ceef0b7239454df5df2c8105f8e605682d0031ae33bac0f44ae09dad"
     },
     {
       "id": "assets-cartes-accessoires-menottes-webp",
@@ -119,9 +119,9 @@
       "src": "assets/cartes/Accessoires/Menottes.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 185906,
-      "sizeLabel": "181.5 Ko",
-      "checksum": "211a13631540227c69f77ff3c6a1587116ef5c6c9fb316e2e874f5019826cacd"
+      "size": 110642,
+      "sizeLabel": "108.0 Ko",
+      "checksum": "e3e87af41109d70b0beac41aaea16af12d041f33518e514aa1e689619691a996"
     },
     {
       "id": "assets-cartes-accessoires-milf-masque-webp",
@@ -141,9 +141,9 @@
       "src": "assets/cartes/Accessoires/Paddle.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 270650,
-      "sizeLabel": "264.3 Ko",
-      "checksum": "239cd948c2582c8e8a58d11da0848dec5232f86cafa27886afb9c01d840bb8c3"
+      "size": 214278,
+      "sizeLabel": "209.3 Ko",
+      "checksum": "a7d47cd5493390e07acd273ff5df7d7e571691b679d033d57ae80f6a5c6d6bdb"
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
@@ -163,9 +163,9 @@
       "src": "assets/cartes/Accessoires/Sandales_compensees.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 83986,
-      "sizeLabel": "82.0 Ko",
-      "checksum": "a5ea85ecbdf809dcdfe853c5026f0f9a5d95e2082c3db438e5049f5208073ca3"
+      "size": 80288,
+      "sizeLabel": "78.4 Ko",
+      "checksum": "cc7077001fc96243587f899c7e429e6d9f3abab036346955191ce9a70dc966c2"
     },
     {
       "id": "assets-cartes-accessoires-talons-webp",
@@ -1164,9 +1164,9 @@
       "src": "assets/cartes/Lieu/Chambre.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 113132,
-      "sizeLabel": "110.5 Ko",
-      "checksum": "46cdf2f922a38bff8e5fd44eb2613f396bbb122fba5cd174ad3cd438cb8456a0"
+      "size": 196958,
+      "sizeLabel": "192.3 Ko",
+      "checksum": "7484a2c5db3586458af4c5fdc13c77b3efd02eea5962cddbc6dc22d4c6da281b"
     },
     {
       "id": "assets-cartes-lieu-foret-webp",
@@ -1186,9 +1186,9 @@
       "src": "assets/cartes/Lieu/Parc.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 97680,
-      "sizeLabel": "95.4 Ko",
-      "checksum": "e9d507cdb21f0da0c6de725ffb1bc227e171d5e78d971805ef5b4233a01f00e0"
+      "size": 175174,
+      "sizeLabel": "171.1 Ko",
+      "checksum": "ac964f17b4222fc888ea49485bb2201dd86b3c684e82d90177544113956ba0ec"
     },
     {
       "id": "assets-cartes-lieu-salle-de-bain-webp",
@@ -1197,9 +1197,9 @@
       "src": "assets/cartes/Lieu/Salle_de_bain.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 107402,
-      "sizeLabel": "104.9 Ko",
-      "checksum": "dd19178cffc854e80e77b7f7cc3a2d88985e374a58524896c7e235c8d7cc5e8e"
+      "size": 186592,
+      "sizeLabel": "182.2 Ko",
+      "checksum": "1a8715110a3fe27526143e5cd9c03470b6e7db2be4306d1be63b093acaf96007"
     },
     {
       "id": "assets-cartes-positions-69-webp",
@@ -1318,9 +1318,9 @@
       "src": "assets/cartes/Rituel/Fetichisme_des_pieds.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 96570,
-      "sizeLabel": "94.3 Ko",
-      "checksum": "9eb8ad8ae23576dbe1bb098908387b54227df318c8229934fe2b6296b65c79cb"
+      "size": 89304,
+      "sizeLabel": "87.2 Ko",
+      "checksum": "e977a4a90ab9667e7eb2ef7ba91c86d2d6799e7252298c8bc2c3553dab8cb2db"
     },
     {
       "id": "assets-cartes-rituel-pretresse-webp",
