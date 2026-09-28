@@ -12,18 +12,14 @@
  * ============================================================================
  */
 
-const VERSION = "v2";
+const VERSION = "v2.0.1";
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
 
 // Fichiers copiés dès la 1re visite
 const FICHIERS_APP = [
-  "./", "index.html", "manifest.webmanifest",
-  "css/main.css", "css/feedback.css",
-  "js/feedback.js", "js/notification.js", "js/audio.js",
-  "js/passemot.js", "js/hasheur.js", "js/carousel.js",
-  URL_CARTES
+  "./", "index.html", "manifest.webmanifest", "css/main.css", "css/feedback.css", "js/feedback.js", "js/notification.js", "js/audio.js", "js/passemot.js", "js/hasheur.js", "js/carousel.js", "json/gallery.json",  URL_CARTES
 ];
 
 /**
