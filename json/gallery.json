@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T09:49:09.880Z",
+  "generatedAt": "2026-09-28T09:49:35.279Z",
   "count": 136,
   "images": [
     {
@@ -147,9 +147,9 @@
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
-      "name": "Roulette de wartenberg",
-      "path": "assets/cartes/Accessoires/Roulette_de_wartenberg.webp",
-      "src": "assets/cartes/Accessoires/Roulette_de_wartenberg.webp",
+      "name": "Roulette de Wartenberg",
+      "path": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
+      "src": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
       "category": "Accessoires",
       "extension": "WEBP",
       "size": 336134,
@@ -1379,9 +1379,9 @@
     },
     {
       "id": "assets-cartes-tenue-bunny-girl-webp",
-      "name": "Bunny Girl",
-      "path": "assets/cartes/Tenue/Bunny_Girl.webp",
-      "src": "assets/cartes/Tenue/Bunny_Girl.webp",
+      "name": "Bunny girl",
+      "path": "assets/cartes/Tenue/Bunny_girl.webp",
+      "src": "assets/cartes/Tenue/Bunny_girl.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 147480,
@@ -1423,9 +1423,9 @@
     },
     {
       "id": "assets-cartes-tenue-manteau-rouge-webp",
-      "name": "Manteau rouge",
-      "path": "assets/cartes/Tenue/Manteau_rouge.webp",
-      "src": "assets/cartes/Tenue/Manteau_rouge.webp",
+      "name": "Manteau Rouge",
+      "path": "assets/cartes/Tenue/Manteau_Rouge.webp",
+      "src": "assets/cartes/Tenue/Manteau_Rouge.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 129204,
@@ -1434,9 +1434,9 @@
     },
     {
       "id": "assets-cartes-tenue-mere-noel-webp",
-      "name": "Mere noel",
-      "path": "assets/cartes/Tenue/Mere_noel.webp",
-      "src": "assets/cartes/Tenue/Mere_noel.webp",
+      "name": "Mere Noel",
+      "path": "assets/cartes/Tenue/Mere_Noel.webp",
+      "src": "assets/cartes/Tenue/Mere_Noel.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 186220,
@@ -1456,9 +1456,9 @@
     },
     {
       "id": "assets-cartes-tenue-soubrette-rose-webp",
-      "name": "Soubrette rose",
-      "path": "assets/cartes/Tenue/Soubrette_rose.webp",
-      "src": "assets/cartes/Tenue/Soubrette_rose.webp",
+      "name": "Soubrette Rose",
+      "path": "assets/cartes/Tenue/Soubrette_Rose.webp",
+      "src": "assets/cartes/Tenue/Soubrette_Rose.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 148772,
