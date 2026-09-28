@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T23:16:51.007Z",
+  "generatedAt": "2026-09-28T23:30:07.531Z",
   "count": 136,
   "images": [
     {
@@ -122,17 +122,6 @@
       "size": 110642,
       "sizeLabel": "108.0 Ko",
       "checksum": "e3e87af41109d70b0beac41aaea16af12d041f33518e514aa1e689619691a996"
-    },
-    {
-      "id": "assets-cartes-accessoires-milf-masque-webp",
-      "name": "Milf Masque",
-      "path": "assets/cartes/Accessoires/Milf_Masque.webp",
-      "src": "assets/cartes/Accessoires/Milf_Masque.webp",
-      "category": "Accessoires",
-      "extension": "WEBP",
-      "size": 89992,
-      "sizeLabel": "87.9 Ko",
-      "checksum": "711dff94adf44c6d52436fa01ce63f2eef3473666bfdd1648aa67d823c8e8417"
     },
     {
       "id": "assets-cartes-accessoires-paddle-webp",
@@ -551,6 +540,17 @@
       "size": 99434,
       "sizeLabel": "97.1 Ko",
       "checksum": "7f46dbee1cc49d22a7a68e563e37d319fda2068d0ccfb221349660499a4032d7"
+    },
+    {
+      "id": "assets-cartes-actions-milf-masquee-png",
+      "name": "MILF Masquee",
+      "path": "assets/cartes/Actions/MILF_Masquee.png",
+      "src": "assets/cartes/Actions/MILF_Masquee.png",
+      "category": "Actions",
+      "extension": "PNG",
+      "size": 1724818,
+      "sizeLabel": "1.6 Mo",
+      "checksum": "4574c706fa554855cc3e31c8fbb88dc41b9601bbae2ba9dcafb0f23886c615ac"
     },
     {
       "id": "assets-cartes-actions-sans-capote-webp",
