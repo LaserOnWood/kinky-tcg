@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T23:30:07.531Z",
+  "generatedAt": "2026-09-28T23:30:42.003Z",
   "count": 136,
   "images": [
     {
@@ -542,15 +542,15 @@
       "checksum": "7f46dbee1cc49d22a7a68e563e37d319fda2068d0ccfb221349660499a4032d7"
     },
     {
-      "id": "assets-cartes-actions-milf-masquee-png",
+      "id": "assets-cartes-actions-milf-masquee-webp",
       "name": "MILF Masquee",
-      "path": "assets/cartes/Actions/MILF_Masquee.png",
-      "src": "assets/cartes/Actions/MILF_Masquee.png",
+      "path": "assets/cartes/Actions/MILF_Masquee.webp",
+      "src": "assets/cartes/Actions/MILF_Masquee.webp",
       "category": "Actions",
-      "extension": "PNG",
-      "size": 1724818,
-      "sizeLabel": "1.6 Mo",
-      "checksum": "4574c706fa554855cc3e31c8fbb88dc41b9601bbae2ba9dcafb0f23886c615ac"
+      "extension": "WEBP",
+      "size": 93696,
+      "sizeLabel": "91.5 Ko",
+      "checksum": "cf9be493b7d3d8b566ad51c8bafe49facc1d8971dc50104dd2f09675cff0cb8e"
     },
     {
       "id": "assets-cartes-actions-sans-capote-webp",
