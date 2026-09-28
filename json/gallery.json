@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-09-27T23:57:23.090Z",
+  "generatedAt": "2026-09-28T09:49:09.880Z",
   "count": 136,
   "images": [
     {
-      "id": "assets-cartes-accessoires-bandeau-item-webp",
-      "name": "Bandeau item",
-      "path": "assets/cartes/Accessoires/Bandeau_item.webp",
-      "src": "assets/cartes/Accessoires/Bandeau_item.webp",
+      "id": "assets-cartes-accessoires-bandeau-webp",
+      "name": "Bandeau",
+      "path": "assets/cartes/Accessoires/Bandeau.webp",
+      "src": "assets/cartes/Accessoires/Bandeau.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 94316,
-      "sizeLabel": "92.1 Ko",
-      "checksum": "b197df95e4297c7e5501a7b988af49c82828d6a4a80f9001fc4c4cb9959ead85"
+      "size": 159660,
+      "sizeLabel": "155.9 Ko",
+      "checksum": "d414e03773240e25359e39c30a2e6166c32562dbb4633886e147c5bfef301b95"
     },
     {
       "id": "assets-cartes-accessoires-barre-d-ecartement-webp",
@@ -20,9 +20,9 @@
       "src": "assets/cartes/Accessoires/Barre_d_ecartement.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 314720,
-      "sizeLabel": "307.3 Ko",
-      "checksum": "444735811df73346c6f9f5e6b5ae55c51132181af2f7e63fedbf9b41203c42cf"
+      "size": 383794,
+      "sizeLabel": "374.8 Ko",
+      "checksum": "b8ecda400245c31a26cadcb3c6ee84e55023f86bd19762b385a646e9817d6f13"
     },
     {
       "id": "assets-cartes-accessoires-cage-de-chastete-webp",
@@ -42,9 +42,9 @@
       "src": "assets/cartes/Accessoires/Couteau.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 91146,
-      "sizeLabel": "89.0 Ko",
-      "checksum": "e66c65daa932a20435f4a9016e0237bdb334d496b96cee0012a4836f78ba6d48"
+      "size": 138364,
+      "sizeLabel": "135.1 Ko",
+      "checksum": "1e0c115bbcf3861e869df5ec02b0118a14fa60e62fec4ba95c1a568b476b35c3"
     },
     {
       "id": "assets-cartes-accessoires-cravache-etoilee-webp",
@@ -53,9 +53,9 @@
       "src": "assets/cartes/Accessoires/Cravache_etoilee.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 224420,
-      "sizeLabel": "219.2 Ko",
-      "checksum": "c5c971e2f43900d53af5dfcad6ef91bc8957a5fcadb12fcf7a36cda8f056be9e"
+      "size": 247936,
+      "sizeLabel": "242.1 Ko",
+      "checksum": "6e26bfc832ad779321508f573db05e634a1d34e756141f9967245d501459efb6"
     },
     {
       "id": "assets-cartes-accessoires-cravache-webp",
@@ -64,9 +64,9 @@
       "src": "assets/cartes/Accessoires/Cravache.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 230122,
-      "sizeLabel": "224.7 Ko",
-      "checksum": "16f7f60065dfc8cfb39955c764a21af18fee1e05df5eecaf9a110ade3b3b89e1"
+      "size": 257892,
+      "sizeLabel": "251.8 Ko",
+      "checksum": "2ceb692ae107fdbc352fefb19667f1c705a48bc71cf1c244316abbb32806a311"
     },
     {
       "id": "assets-cartes-accessoires-gamelle-webp",
@@ -75,9 +75,9 @@
       "src": "assets/cartes/Accessoires/Gamelle.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 119388,
-      "sizeLabel": "116.6 Ko",
-      "checksum": "107f736da4f0826501491d3414fadfa7e7e2ab5d60cab84131032ad9b30f43c2"
+      "size": 218252,
+      "sizeLabel": "213.1 Ko",
+      "checksum": "d1e1a926cf47a645e7e0366112c1a0cead1af739e89756087dc49734375db620"
     },
     {
       "id": "assets-cartes-accessoires-gode-ceinture-webp",
@@ -147,14 +147,14 @@
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
-      "name": "Roulette de Wartenberg",
-      "path": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
-      "src": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
+      "name": "Roulette de wartenberg",
+      "path": "assets/cartes/Accessoires/Roulette_de_wartenberg.webp",
+      "src": "assets/cartes/Accessoires/Roulette_de_wartenberg.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 155090,
-      "sizeLabel": "151.5 Ko",
-      "checksum": "bcab75dafaf37e3dc61e096a669e0bbf2ff105c5d3805937dec37b0782cb49e4"
+      "size": 336134,
+      "sizeLabel": "328.3 Ko",
+      "checksum": "d855f8eca8aa0a61eb7d7ce3ef2e92c16612810f2d161e7a6ffa230d6e0717cf"
     },
     {
       "id": "assets-cartes-accessoires-sandales-compensees-webp",
@@ -174,9 +174,9 @@
       "src": "assets/cartes/Accessoires/Talons.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 85396,
-      "sizeLabel": "83.4 Ko",
-      "checksum": "67650c0c0392fe7f0fb74214197ef4a6614da2a8c72cb0befbdccc7ad05e4f9b"
+      "size": 101746,
+      "sizeLabel": "99.4 Ko",
+      "checksum": "b0d7bd65917925ebdae0b69e31f360f8c2eabc4b8804a769f743afa526f11293"
     },
     {
       "id": "assets-cartes-actions-anus-de-milf-webp",
@@ -1379,9 +1379,9 @@
     },
     {
       "id": "assets-cartes-tenue-bunny-girl-webp",
-      "name": "Bunny girl",
-      "path": "assets/cartes/Tenue/Bunny_girl.webp",
-      "src": "assets/cartes/Tenue/Bunny_girl.webp",
+      "name": "Bunny Girl",
+      "path": "assets/cartes/Tenue/Bunny_Girl.webp",
+      "src": "assets/cartes/Tenue/Bunny_Girl.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 147480,
@@ -1423,9 +1423,9 @@
     },
     {
       "id": "assets-cartes-tenue-manteau-rouge-webp",
-      "name": "Manteau Rouge",
-      "path": "assets/cartes/Tenue/Manteau_Rouge.webp",
-      "src": "assets/cartes/Tenue/Manteau_Rouge.webp",
+      "name": "Manteau rouge",
+      "path": "assets/cartes/Tenue/Manteau_rouge.webp",
+      "src": "assets/cartes/Tenue/Manteau_rouge.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 129204,
@@ -1434,9 +1434,9 @@
     },
     {
       "id": "assets-cartes-tenue-mere-noel-webp",
-      "name": "Mere Noel",
-      "path": "assets/cartes/Tenue/Mere_Noel.webp",
-      "src": "assets/cartes/Tenue/Mere_Noel.webp",
+      "name": "Mere noel",
+      "path": "assets/cartes/Tenue/Mere_noel.webp",
+      "src": "assets/cartes/Tenue/Mere_noel.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 186220,
@@ -1456,9 +1456,9 @@
     },
     {
       "id": "assets-cartes-tenue-soubrette-rose-webp",
-      "name": "Soubrette Rose",
-      "path": "assets/cartes/Tenue/Soubrette_Rose.webp",
-      "src": "assets/cartes/Tenue/Soubrette_Rose.webp",
+      "name": "Soubrette rose",
+      "path": "assets/cartes/Tenue/Soubrette_rose.webp",
+      "src": "assets/cartes/Tenue/Soubrette_rose.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 148772,
