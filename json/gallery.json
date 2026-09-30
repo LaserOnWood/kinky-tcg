@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-29T22:56:40.985Z",
-  "count": 138,
+  "generatedAt": "2026-09-30T09:40:42.855Z",
+  "count": 137,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -597,26 +597,15 @@
       "checksum": "9938ccc44f10ddc6ab91510370c4f2375a8fb7d41bcb2cd6e7387b4454b4b2be"
     },
     {
-      "id": "assets-cartes-actions-striptease-png",
-      "name": "Striptease",
-      "path": "assets/cartes/Actions/Striptease.png",
-      "src": "assets/cartes/Actions/Striptease.png",
-      "category": "Actions",
-      "extension": "PNG",
-      "size": 1653167,
-      "sizeLabel": "1.6 Mo",
-      "checksum": "df255915a9b7d0dcde5cd6c32bbacecbee4f5f5bb0b37214f51015ff955d4c43"
-    },
-    {
       "id": "assets-cartes-actions-striptease-webp",
       "name": "Striptease",
       "path": "assets/cartes/Actions/Striptease.webp",
       "src": "assets/cartes/Actions/Striptease.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 153382,
-      "sizeLabel": "149.8 Ko",
-      "checksum": "21a54ccb43c49823ae939c5e6de6fd6b456f9a9b857cd3a466a1ea9772b2a4fe"
+      "size": 70574,
+      "sizeLabel": "68.9 Ko",
+      "checksum": "f13b501f5ca36f6f5c51abc526b34992675229daf6a223fce743d2daa11b2d36"
     },
     {
       "id": "assets-cartes-actions-succube-webp",
