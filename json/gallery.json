@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T09:40:42.855Z",
+  "generatedAt": "2026-10-01T00:16:01.797Z",
   "count": 137,
   "images": [
     {
@@ -251,9 +251,9 @@
       "src": "assets/cartes/Actions/Branlette_Espagnole.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 86986,
-      "sizeLabel": "84.9 Ko",
-      "checksum": "648cb6afad06b2c431d0ba658a79885a4fed4af9ce80c375a2774d396205efa0"
+      "size": 103634,
+      "sizeLabel": "101.2 Ko",
+      "checksum": "8431f2b93e297b975606185a650659de5d8e7e3b285975f59017fb0206d171e5"
     },
     {
       "id": "assets-cartes-actions-cabine-d-essayage-webp",
@@ -1246,17 +1246,6 @@
       "checksum": "be0b94ab267a692a7bfed47a996e69d66dbb01bde34a0d1b0aade6c631916702"
     },
     {
-      "id": "assets-cartes-positions-dominatrice-webp",
-      "name": "Dominatrice",
-      "path": "assets/cartes/Positions/Dominatrice.webp",
-      "src": "assets/cartes/Positions/Dominatrice.webp",
-      "category": "Positions",
-      "extension": "WEBP",
-      "size": 91332,
-      "sizeLabel": "89.2 Ko",
-      "checksum": "3c090271e9001914fa29f07a1e628044cffa0628987fa7206896f9a762b925ff"
-    },
-    {
       "id": "assets-cartes-positions-en-attente-webp",
       "name": "En attente",
       "path": "assets/cartes/Positions/En_attente.webp",
@@ -1461,9 +1450,20 @@
       "src": "assets/cartes/Tenue/Papier_cadeaux.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 81730,
-      "sizeLabel": "79.8 Ko",
-      "checksum": "2e14ddf89c01d127aa2f30185ede5ef5b678caf238438ac6c96ccb8529b38001"
+      "size": 83710,
+      "sizeLabel": "81.7 Ko",
+      "checksum": "8617ab227275d14c2ebf40e0d1a52d1bcec35769c682ade180e367f7554f7d77"
+    },
+    {
+      "id": "assets-cartes-tenue-secretaire-webp",
+      "name": "Secretaire",
+      "path": "assets/cartes/Tenue/Secretaire.webp",
+      "src": "assets/cartes/Tenue/Secretaire.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 102200,
+      "sizeLabel": "99.8 Ko",
+      "checksum": "c180b87648e17f055be74cde65bc51e69a5464fd6a85e49584cb25eaeac19de9"
     },
     {
       "id": "assets-cartes-tenue-soubrette-rose-webp",
@@ -1483,9 +1483,9 @@
       "src": "assets/cartes/Tenue/Soubrette.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 81200,
-      "sizeLabel": "79.3 Ko",
-      "checksum": "b0fdb55d3200156fe4b8ecec0403871412ec4046ded249dd8d9d7f2ee8350103"
+      "size": 93644,
+      "sizeLabel": "91.4 Ko",
+      "checksum": "72a75d251dac820e61f0956fe171612884917a20cc30a3b00b3970904b8f8686"
     },
     {
       "id": "assets-cartes-tenue-tenue-de-charme-blanche-webp",
