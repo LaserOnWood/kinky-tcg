@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-01T18:26:06.145Z",
-  "count": 139,
+  "generatedAt": "2026-10-01T19:11:34.554Z",
+  "count": 137,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -614,9 +614,9 @@
       "src": "assets/cartes/Actions/Souiller.webp",
       "category": "Actions",
       "extension": "WEBP",
-      "size": 93328,
-      "sizeLabel": "91.1 Ko",
-      "checksum": "9938ccc44f10ddc6ab91510370c4f2375a8fb7d41bcb2cd6e7387b4454b4b2be"
+      "size": 84564,
+      "sizeLabel": "82.6 Ko",
+      "checksum": "80b06a81f1cb38fa072e2535f1e8c24d7fd016ef2ea82817aed89af28b6ebffd"
     },
     {
       "id": "assets-cartes-actions-striptease-webp",
@@ -672,28 +672,6 @@
       "size": 136002,
       "sizeLabel": "132.8 Ko",
       "checksum": "6c16de5b921bf491ee1971b40376b55214b41036a6f4294adcf8a4e820b7526c"
-    },
-    {
-      "id": "assets-cartes-inspiration-adultre-webp",
-      "name": "Adultre",
-      "path": "assets/cartes/Inspiration/Adultre.webp",
-      "src": "assets/cartes/Inspiration/Adultre.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 136240,
-      "sizeLabel": "133.0 Ko",
-      "checksum": "eb9f0e8efad9ac699d5f2235b9d38ba1ad12ef87c3a4e1b11f32ffb115314f96"
-    },
-    {
-      "id": "assets-cartes-inspiration-baise-endiable-webp",
-      "name": "Baise endiable",
-      "path": "assets/cartes/Inspiration/Baise_endiable_.webp",
-      "src": "assets/cartes/Inspiration/Baise_endiable_.webp",
-      "category": "Inspiration",
-      "extension": "WEBP",
-      "size": 83546,
-      "sizeLabel": "81.6 Ko",
-      "checksum": "d5c98791045bb882d1a3317d9ad37f628110a83c37588363a6744cc959740657"
     },
     {
       "id": "assets-cartes-inspiration-beaute-de-milf-webp",
@@ -1241,9 +1219,9 @@
       "src": "assets/cartes/Positions/69.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 87598,
-      "sizeLabel": "85.5 Ko",
-      "checksum": "8e476e1b8c110d910ebfe446d4e405d012c47f02e07daeb2c0c8c311dc594b05"
+      "size": 87874,
+      "sizeLabel": "85.8 Ko",
+      "checksum": "686e329a11ccdac7aad998466f57e2f341d72603e642c53f9494bcb620f5b661"
     },
     {
       "id": "assets-cartes-positions-baise-sauvage-webp",
@@ -1274,9 +1252,9 @@
       "src": "assets/cartes/Positions/En_attente.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 83912,
-      "sizeLabel": "81.9 Ko",
-      "checksum": "ad0cf552fb3a01bca3ad2cdb4a351561575bafbd3757f02e2163c7380ccab69c"
+      "size": 76000,
+      "sizeLabel": "74.2 Ko",
+      "checksum": "df7d88cf0f206b4483c4de58c802b8317b2fdbdd4e9352f0c3d95739ef7db2be"
     },
     {
       "id": "assets-cartes-positions-facesitting-webp",
@@ -1301,15 +1279,15 @@
       "checksum": "6db0cd568ba1e1714ac2fe1802fefda4780a73e4cfcfadd1abfe757fb3b8da59"
     },
     {
-      "id": "assets-cartes-positions-missionaire-webp",
-      "name": "Missionaire",
-      "path": "assets/cartes/Positions/Missionaire.webp",
-      "src": "assets/cartes/Positions/Missionaire.webp",
+      "id": "assets-cartes-positions-missionnaire-webp",
+      "name": "Missionnaire",
+      "path": "assets/cartes/Positions/Missionnaire.webp",
+      "src": "assets/cartes/Positions/Missionnaire.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 92874,
-      "sizeLabel": "90.7 Ko",
-      "checksum": "303bc5beb3f56affe1dca693635099fb96f3d29f30499aaf1e2c9663f710b0ac"
+      "size": 97550,
+      "sizeLabel": "95.3 Ko",
+      "checksum": "2f2a77c6e0f76eca66ad4f80e6fb29478a24bb5d94c96b5f9432c202a3060cf4"
     },
     {
       "id": "assets-cartes-positions-nadu-webp",
@@ -1318,9 +1296,9 @@
       "src": "assets/cartes/Positions/Nadu.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 90124,
-      "sizeLabel": "88.0 Ko",
-      "checksum": "9f0e07e5d2e003e10a1a02d3f2985af245074e043adbd70124594c88aa95cd34"
+      "size": 85754,
+      "sizeLabel": "83.7 Ko",
+      "checksum": "0b325fd4c1d1099b920011cf2a9166465dd436c242417a04ac0649aabf43bd09"
     },
     {
       "id": "assets-cartes-rituel-dominatrice-webp",
