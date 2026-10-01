@@ -12,7 +12,7 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.1.a";
+const VERSION = "v2.0.1.b";
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
