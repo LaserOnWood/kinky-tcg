@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T19:52:45.668Z",
+  "generatedAt": "2026-10-01T20:03:31.202Z",
   "count": 137,
   "images": [
     {
@@ -97,9 +97,9 @@
       "src": "assets/cartes/Accessoires/Harnais.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 124498,
-      "sizeLabel": "121.6 Ko",
-      "checksum": "f61550f87f8ce848383909eb66cb9c40edd74447865954c3a1c7b31ea821690d"
+      "size": 130100,
+      "sizeLabel": "127.1 Ko",
+      "checksum": "49365aefbb5cc2b089142f450cf26566ab5e66749b60177a64d8be287c2dcc35"
     },
     {
       "id": "assets-cartes-accessoires-magic-wand-webp",
