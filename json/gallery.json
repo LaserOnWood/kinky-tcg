@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T19:11:34.554Z",
+  "generatedAt": "2026-10-01T19:52:45.668Z",
   "count": 137,
   "images": [
     {
@@ -1235,15 +1235,15 @@
       "checksum": "d7be261f502dc730b2480a683a23f5ec2046939c4f26859d261ec28e847fff77"
     },
     {
-      "id": "assets-cartes-positions-cavali-re-webp",
-      "name": "Cavalière",
-      "path": "assets/cartes/Positions/Cavalière.webp",
-      "src": "assets/cartes/Positions/Cavali%C3%A8re.webp",
+      "id": "assets-cartes-positions-cavaliere-webp",
+      "name": "Cavaliere",
+      "path": "assets/cartes/Positions/Cavaliere.webp",
+      "src": "assets/cartes/Positions/Cavaliere.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 75720,
-      "sizeLabel": "73.9 Ko",
-      "checksum": "be0b94ab267a692a7bfed47a996e69d66dbb01bde34a0d1b0aade6c631916702"
+      "size": 65718,
+      "sizeLabel": "64.2 Ko",
+      "checksum": "6126d007d9e47aa7fd9e412930a61f0a5fd8a8d63f9a1206ef76c2accfed4e5e"
     },
     {
       "id": "assets-cartes-positions-en-attente-webp",
@@ -1263,9 +1263,9 @@
       "src": "assets/cartes/Positions/Facesitting.webp",
       "category": "Positions",
       "extension": "WEBP",
-      "size": 84086,
-      "sizeLabel": "82.1 Ko",
-      "checksum": "ef52e2ae4be11ef16eb9c80d2459169d41ac273306baa74d7e5dbd9ea60a98a2"
+      "size": 72068,
+      "sizeLabel": "70.4 Ko",
+      "checksum": "a238d95cfd36f0e31376db6aef16e04577a865f13aaad7236b2e02d9492ffeee"
     },
     {
       "id": "assets-cartes-positions-levrette-webp",
