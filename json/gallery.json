@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T22:35:47.513Z",
+  "generatedAt": "2026-10-03T16:05:02.930Z",
   "count": 136,
   "images": [
     {
@@ -9,9 +9,9 @@
       "src": "assets/cartes/Accessoires/Bandeau.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 159660,
-      "sizeLabel": "155.9 Ko",
-      "checksum": "d414e03773240e25359e39c30a2e6166c32562dbb4633886e147c5bfef301b95"
+      "size": 114294,
+      "sizeLabel": "111.6 Ko",
+      "checksum": "23a3e66cd91f37d4810bf024de1b1a86b4eadb2b4a2ec7a99b34bff380a51bb6"
     },
     {
       "id": "assets-cartes-accessoires-barre-d-ecartement-webp",
@@ -20,9 +20,9 @@
       "src": "assets/cartes/Accessoires/Barre_d_ecartement.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 383794,
-      "sizeLabel": "374.8 Ko",
-      "checksum": "b8ecda400245c31a26cadcb3c6ee84e55023f86bd19762b385a646e9817d6f13"
+      "size": 241526,
+      "sizeLabel": "235.9 Ko",
+      "checksum": "dade67d0ef56c8092af1dfb9c7d33a30488b6920fc4393decf22ee71cb850ed8"
     },
     {
       "id": "assets-cartes-accessoires-cage-de-chastete-webp",
@@ -42,9 +42,9 @@
       "src": "assets/cartes/Accessoires/Couteau.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 138364,
-      "sizeLabel": "135.1 Ko",
-      "checksum": "1e0c115bbcf3861e869df5ec02b0118a14fa60e62fec4ba95c1a568b476b35c3"
+      "size": 95286,
+      "sizeLabel": "93.1 Ko",
+      "checksum": "09ff5cf9874408ced121a8458662f0c1578890693bfc09ba7aa2a6695b6540b5"
     },
     {
       "id": "assets-cartes-accessoires-cravache-etoilee-webp",
@@ -53,9 +53,9 @@
       "src": "assets/cartes/Accessoires/Cravache_etoilee.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 247936,
-      "sizeLabel": "242.1 Ko",
-      "checksum": "6e26bfc832ad779321508f573db05e634a1d34e756141f9967245d501459efb6"
+      "size": 166430,
+      "sizeLabel": "162.5 Ko",
+      "checksum": "a2e3b2f876d22ef97150300efdc3e5b47ea9ed581f97f8511c4e3089f6ac424e"
     },
     {
       "id": "assets-cartes-accessoires-cravache-webp",
@@ -64,9 +64,9 @@
       "src": "assets/cartes/Accessoires/Cravache.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 257892,
-      "sizeLabel": "251.8 Ko",
-      "checksum": "2ceb692ae107fdbc352fefb19667f1c705a48bc71cf1c244316abbb32806a311"
+      "size": 172380,
+      "sizeLabel": "168.3 Ko",
+      "checksum": "b7ab8c6e713feb5ea37ca4b9b3fa0523065d5f6691488b47b47124d8ddd8c707"
     },
     {
       "id": "assets-cartes-accessoires-gamelle-webp",
@@ -75,9 +75,9 @@
       "src": "assets/cartes/Accessoires/Gamelle.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 218252,
-      "sizeLabel": "213.1 Ko",
-      "checksum": "d1e1a926cf47a645e7e0366112c1a0cead1af739e89756087dc49734375db620"
+      "size": 153822,
+      "sizeLabel": "150.2 Ko",
+      "checksum": "34c79c3199e97266975f9bbf5098a6e558ae5367c9aebf4a6d3ec532bdfdf8df"
     },
     {
       "id": "assets-cartes-accessoires-gode-ceinture-webp",
@@ -130,9 +130,9 @@
       "src": "assets/cartes/Accessoires/Paddle.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 214278,
-      "sizeLabel": "209.3 Ko",
-      "checksum": "a7d47cd5493390e07acd273ff5df7d7e571691b679d033d57ae80f6a5c6d6bdb"
+      "size": 207768,
+      "sizeLabel": "202.9 Ko",
+      "checksum": "ffc80cf892b98b8899cab9190d7bf8c667152de1dde2ee15f0b45e56e8986117"
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
@@ -141,9 +141,9 @@
       "src": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 336134,
-      "sizeLabel": "328.3 Ko",
-      "checksum": "d855f8eca8aa0a61eb7d7ce3ef2e92c16612810f2d161e7a6ffa230d6e0717cf"
+      "size": 222110,
+      "sizeLabel": "216.9 Ko",
+      "checksum": "728f61aaffa05bc8602f2edd2ed894c6492a7f6ff80ba2621352cf40e5345e38"
     },
     {
       "id": "assets-cartes-accessoires-sandales-compensees-webp",
@@ -163,9 +163,9 @@
       "src": "assets/cartes/Accessoires/Talons.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 101746,
-      "sizeLabel": "99.4 Ko",
-      "checksum": "b0d7bd65917925ebdae0b69e31f360f8c2eabc4b8804a769f743afa526f11293"
+      "size": 73216,
+      "sizeLabel": "71.5 Ko",
+      "checksum": "47a363171316488d34eb5f2bae0748053ce8933a9a05bc1625397780c7ca9ade"
     },
     {
       "id": "assets-cartes-actions-adultere-webp",
@@ -1164,9 +1164,9 @@
       "src": "assets/cartes/Lieu/Chambre.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 196958,
-      "sizeLabel": "192.3 Ko",
-      "checksum": "7484a2c5db3586458af4c5fdc13c77b3efd02eea5962cddbc6dc22d4c6da281b"
+      "size": 135184,
+      "sizeLabel": "132.0 Ko",
+      "checksum": "51ce6aa28555c434684c42f31ba2e0be0a9c60293e2a3268877b99634b199a43"
     },
     {
       "id": "assets-cartes-lieu-foret-webp",
@@ -1186,9 +1186,9 @@
       "src": "assets/cartes/Lieu/Parc.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 175174,
-      "sizeLabel": "171.1 Ko",
-      "checksum": "ac964f17b4222fc888ea49485bb2201dd86b3c684e82d90177544113956ba0ec"
+      "size": 120324,
+      "sizeLabel": "117.5 Ko",
+      "checksum": "1c9f888b1309fb03446f3c7195d24d7bac83256e12b233cd649a77eb004dae55"
     },
     {
       "id": "assets-cartes-lieu-salle-de-bain-webp",
@@ -1197,9 +1197,9 @@
       "src": "assets/cartes/Lieu/Salle_de_bain.webp",
       "category": "Lieu",
       "extension": "WEBP",
-      "size": 186592,
-      "sizeLabel": "182.2 Ko",
-      "checksum": "1a8715110a3fe27526143e5cd9c03470b6e7db2be4306d1be63b093acaf96007"
+      "size": 130984,
+      "sizeLabel": "127.9 Ko",
+      "checksum": "33bb9aefe1515bd61fc28f884181867f86a9c4bd8a7b1f949e2cf729a5344af0"
     },
     {
       "id": "assets-cartes-positions-69-webp",
@@ -1296,9 +1296,9 @@
       "src": "assets/cartes/Rituel/Dominatrice.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 165548,
-      "sizeLabel": "161.7 Ko",
-      "checksum": "ca8da45bfb0d105c975f90b33871ea582ad4347877bf0f582fad82bf16c14aa5"
+      "size": 117990,
+      "sizeLabel": "115.2 Ko",
+      "checksum": "8582a96f82624e1daf9b944abc1f5c4b60c97fc70e447da57f11954c2102c00c"
     },
     {
       "id": "assets-cartes-rituel-fetichisme-des-pieds-webp",
@@ -1318,9 +1318,9 @@
       "src": "assets/cartes/Rituel/Pretresse.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 142416,
-      "sizeLabel": "139.1 Ko",
-      "checksum": "f3f718e7dc4a0fbc22e881a32847229d146394d273c26502290305d15f111385"
+      "size": 101486,
+      "sizeLabel": "99.1 Ko",
+      "checksum": "2560bcdfe42a441e04516cf15bde6fa917aa37fb11015e90f026540e205c6db0"
     },
     {
       "id": "assets-cartes-rituel-striptease-webp",
@@ -1329,9 +1329,9 @@
       "src": "assets/cartes/Rituel/Striptease.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 128716,
-      "sizeLabel": "125.7 Ko",
-      "checksum": "3084d48abaaa595d9066892d978fac14555affae1186105694419dfbbb1f7a8b"
+      "size": 92610,
+      "sizeLabel": "90.4 Ko",
+      "checksum": "f91933b06b11afee142214ab8b86588b0858526f40e1594f4eb9257f215b5ed9"
     },
     {
       "id": "assets-cartes-rituel-succube-webp",
@@ -1340,9 +1340,9 @@
       "src": "assets/cartes/Rituel/Succube.webp",
       "category": "Rituel",
       "extension": "WEBP",
-      "size": 147822,
-      "sizeLabel": "144.4 Ko",
-      "checksum": "a08eb4ba7a4b2730bb59dc99b4f81758fe52a6d859df758691933976b12346d5"
+      "size": 104158,
+      "sizeLabel": "101.7 Ko",
+      "checksum": "c372574085a4557de0a4958f2d3670a0f563ab95120cc1c35e141934d247c36d"
     },
     {
       "id": "assets-cartes-tenue-bikini-webp",
@@ -1351,9 +1351,9 @@
       "src": "assets/cartes/Tenue/Bikini.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 139804,
-      "sizeLabel": "136.5 Ko",
-      "checksum": "4be3fc0408c51c3f5b6de2cd2d17faa63f5da687c0e4753fcf6efb4a98973713"
+      "size": 98864,
+      "sizeLabel": "96.5 Ko",
+      "checksum": "43492f200c308a39207bd6dc48533b772e4034e984183da4eef9a3bedd839b93"
     },
     {
       "id": "assets-cartes-tenue-bonne-soeur-webp",
@@ -1362,9 +1362,9 @@
       "src": "assets/cartes/Tenue/Bonne_soeur.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 143792,
-      "sizeLabel": "140.4 Ko",
-      "checksum": "b6d81218766d0acf6d82112112d942d4128f41f1cc59dbe32dc07f0e74c35621"
+      "size": 101658,
+      "sizeLabel": "99.3 Ko",
+      "checksum": "0ab4d9328dd5ca4657853782b9a8b60c32ac333e275691f0f3053b9bd4bfe662"
     },
     {
       "id": "assets-cartes-tenue-bunny-girl-webp",
@@ -1373,9 +1373,9 @@
       "src": "assets/cartes/Tenue/Bunny_girl.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 147480,
-      "sizeLabel": "144.0 Ko",
-      "checksum": "017be79719f8ee7b445c45eef68882cac58d74bda7f2abb770d010283b84d8fa"
+      "size": 103890,
+      "sizeLabel": "101.5 Ko",
+      "checksum": "9083f6bef3067abfa22a615ec246e313bd81ef3c6a8643bdff17e94cc8ea37e5"
     },
     {
       "id": "assets-cartes-tenue-ecoliere-webp",
@@ -1384,9 +1384,9 @@
       "src": "assets/cartes/Tenue/Ecoliere.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 162640,
-      "sizeLabel": "158.8 Ko",
-      "checksum": "28143dd379ff93cf1f3acf85ef943488de50d4ba92fd8b7ba01450744cd9f783"
+      "size": 115116,
+      "sizeLabel": "112.4 Ko",
+      "checksum": "e5a5b85ea91f910f4b992c7b764afb3a35f32529d31acc183f2e4c9c2596ce6c"
     },
     {
       "id": "assets-cartes-tenue-elegance-de-milf-webp",
@@ -1395,9 +1395,9 @@
       "src": "assets/cartes/Tenue/Elegance_de_MILF.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 123478,
-      "sizeLabel": "120.6 Ko",
-      "checksum": "7958f0af7f2ea81045208d787403d71051a74ba5e7ffc81af9748527258f96c8"
+      "size": 88524,
+      "sizeLabel": "86.4 Ko",
+      "checksum": "fda2c54f69cbe965ddc6125662f9d9ad8ac7215738ac996f17d18079199dcf9c"
     },
     {
       "id": "assets-cartes-tenue-infirmiere-webp",
@@ -1406,9 +1406,9 @@
       "src": "assets/cartes/Tenue/Infirmiere.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 168514,
-      "sizeLabel": "164.6 Ko",
-      "checksum": "298570303b153867b818e22de0ea83990a6f318f122450be7054678f749deec8"
+      "size": 117460,
+      "sizeLabel": "114.7 Ko",
+      "checksum": "8fa2ddf03cb49cbfdc4ccc057369aa999c52c8946f2c3989e6c9eec94cde222e"
     },
     {
       "id": "assets-cartes-tenue-manteau-rouge-webp",
@@ -1417,9 +1417,9 @@
       "src": "assets/cartes/Tenue/Manteau_Rouge.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 129204,
-      "sizeLabel": "126.2 Ko",
-      "checksum": "fc9c38b0497cd4ab7deb4df9a5d8f1f315607f8145017090a4f51f6806f1ea41"
+      "size": 91844,
+      "sizeLabel": "89.7 Ko",
+      "checksum": "2bec5ba6e520cdb56caeeda68ee6ded4272596b9c53e55f2edc9db2ca8c6123d"
     },
     {
       "id": "assets-cartes-tenue-mere-noel-webp",
@@ -1428,9 +1428,9 @@
       "src": "assets/cartes/Tenue/Mere_Noel.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 186220,
-      "sizeLabel": "181.9 Ko",
-      "checksum": "be09d70408dbfdd2e8c5067a567a17de1806300e0003b761b92dc3bcf39623a9"
+      "size": 134990,
+      "sizeLabel": "131.8 Ko",
+      "checksum": "38804fde44021f97dae557dc956fcc2003e687f9e05106d37164d86e548653d9"
     },
     {
       "id": "assets-cartes-tenue-papier-cadeaux-webp",
@@ -1461,9 +1461,9 @@
       "src": "assets/cartes/Tenue/Soubrette_Rose.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 148772,
-      "sizeLabel": "145.3 Ko",
-      "checksum": "a847dea984a6af2bdd4be0e836c5efacc3a6eadaf9b50579b1d8c8c471252017"
+      "size": 107108,
+      "sizeLabel": "104.6 Ko",
+      "checksum": "8be316b88acce95d711b9fdedce4b6094e682dfeb1b614abe2e77573d964fab8"
     },
     {
       "id": "assets-cartes-tenue-soubrette-webp",
@@ -1483,9 +1483,9 @@
       "src": "assets/cartes/Tenue/Tenue_de_charme_(blanche).webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 114452,
-      "sizeLabel": "111.8 Ko",
-      "checksum": "d5c661d1f88b20d7b2c6f83b5f46e4524c57649f2749f2d24399ae6154f51d73"
+      "size": 83184,
+      "sizeLabel": "81.2 Ko",
+      "checksum": "66809725c99f7e3e7d65780c4a0c15b6e583455838a2103a6586303a4f5c6fad"
     },
     {
       "id": "assets-cartes-tenue-tenue-de-soiree-webp",
