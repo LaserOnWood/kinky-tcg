@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T21:01:47.459Z",
+  "generatedAt": "2026-10-03T21:02:21.184Z",
   "count": 89,
   "images": [
     {
@@ -851,9 +851,9 @@
     },
     {
       "id": "assets-cartes-tenue-bunny-girl-webp",
-      "name": "Bunny girl",
-      "path": "assets/cartes/Tenue/Bunny_girl.webp",
-      "src": "assets/cartes/Tenue/Bunny_girl.webp",
+      "name": "Bunny Girl",
+      "path": "assets/cartes/Tenue/Bunny_Girl.webp",
+      "src": "assets/cartes/Tenue/Bunny_Girl.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 103890,
