@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-03T21:03:38.631Z",
-  "count": 89,
+  "generatedAt": "2026-10-03T21:20:15.543Z",
+  "count": 91,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -584,6 +584,28 @@
       "size": 66524,
       "sizeLabel": "65.0 Ko",
       "checksum": "80ff1a730ae2badb5f5762a486939e1c3219a7fa12038efe0eb51c7d0a5f0fc2"
+    },
+    {
+      "id": "assets-cartes-actions-parking-levrette-webp",
+      "name": "Parking Levrette",
+      "path": "assets/cartes/Actions/Parking_Levrette.webp",
+      "src": "assets/cartes/Actions/Parking_Levrette.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 75814,
+      "sizeLabel": "74.0 Ko",
+      "checksum": "dab64d1585f5bf1f06c93c469506d621f78d9e91da43753bca7645daa3f11ddc"
+    },
+    {
+      "id": "assets-cartes-actions-parking-missionnaire-webp",
+      "name": "Parking Missionnaire",
+      "path": "assets/cartes/Actions/Parking_Missionnaire.webp",
+      "src": "assets/cartes/Actions/Parking_Missionnaire.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 75832,
+      "sizeLabel": "74.1 Ko",
+      "checksum": "5955f769583eac7eccc597b1fbb01358951ad4c5785e4f37a6232bdaec9d3fdf"
     },
     {
       "id": "assets-cartes-actions-sans-capote-webp",
