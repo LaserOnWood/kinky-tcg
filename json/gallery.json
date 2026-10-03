@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-03T22:12:26.587Z",
-  "count": 91,
+  "generatedAt": "2026-10-03T22:15:56.232Z",
+  "count": 90,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -716,17 +716,6 @@
       "size": 61958,
       "sizeLabel": "60.5 Ko",
       "checksum": "65ae30c20552a93b9ad4d79dd5b7be957a771f3cd37d086c2b3f9573f097aa30"
-    },
-    {
-      "id": "assets-cartes-positions-baise-sauvage-webp",
-      "name": "Baise sauvage",
-      "path": "assets/cartes/Positions/Baise_sauvage.webp",
-      "src": "assets/cartes/Positions/Baise_sauvage.webp",
-      "category": "Positions",
-      "extension": "WEBP",
-      "size": 75852,
-      "sizeLabel": "74.1 Ko",
-      "checksum": "ff1cd2e55fc156122447f599e033f373623c9e67bcb05d1f948fe924bb897013"
     },
     {
       "id": "assets-cartes-positions-cavaliere-webp",
