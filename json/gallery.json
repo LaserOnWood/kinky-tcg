@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T19:28:50.541Z",
+  "generatedAt": "2026-10-03T19:40:16.940Z",
   "count": 136,
   "images": [
     {
@@ -136,9 +136,9 @@
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
-      "name": "Roulette de Wartenberg",
-      "path": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
-      "src": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
+      "name": "Roulette de wartenberg",
+      "path": "assets/cartes/Accessoires/Roulette_de_wartenberg.webp",
+      "src": "assets/cartes/Accessoires/Roulette_de_wartenberg.webp",
       "category": "Accessoires",
       "extension": "WEBP",
       "size": 164828,
@@ -389,9 +389,9 @@
     },
     {
       "id": "assets-cartes-actions-ejaculation-buccale-webp",
-      "name": "Ejaculation Buccale",
-      "path": "assets/cartes/Actions/Ejaculation_Buccale.webp",
-      "src": "assets/cartes/Actions/Ejaculation_Buccale.webp",
+      "name": "Ejaculation buccale",
+      "path": "assets/cartes/Actions/Ejaculation_buccale.webp",
+      "src": "assets/cartes/Actions/Ejaculation_buccale.webp",
       "category": "Actions",
       "extension": "WEBP",
       "size": 61302,
@@ -1368,9 +1368,9 @@
     },
     {
       "id": "assets-cartes-tenue-bunny-girl-webp",
-      "name": "Bunny girl",
-      "path": "assets/cartes/Tenue/Bunny_girl.webp",
-      "src": "assets/cartes/Tenue/Bunny_girl.webp",
+      "name": "Bunny Girl",
+      "path": "assets/cartes/Tenue/Bunny_Girl.webp",
+      "src": "assets/cartes/Tenue/Bunny_Girl.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 103890,
@@ -1412,9 +1412,9 @@
     },
     {
       "id": "assets-cartes-tenue-manteau-rouge-webp",
-      "name": "Manteau Rouge",
-      "path": "assets/cartes/Tenue/Manteau_Rouge.webp",
-      "src": "assets/cartes/Tenue/Manteau_Rouge.webp",
+      "name": "Manteau rouge",
+      "path": "assets/cartes/Tenue/Manteau_rouge.webp",
+      "src": "assets/cartes/Tenue/Manteau_rouge.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 91844,
@@ -1423,9 +1423,9 @@
     },
     {
       "id": "assets-cartes-tenue-mere-noel-webp",
-      "name": "Mere Noel",
-      "path": "assets/cartes/Tenue/Mere_Noel.webp",
-      "src": "assets/cartes/Tenue/Mere_Noel.webp",
+      "name": "Mere noel",
+      "path": "assets/cartes/Tenue/Mere_noel.webp",
+      "src": "assets/cartes/Tenue/Mere_noel.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 134990,
@@ -1439,9 +1439,9 @@
       "src": "assets/cartes/Tenue/Papier_cadeaux.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 60486,
-      "sizeLabel": "59.1 Ko",
-      "checksum": "de33128b6b6b8c4ed5e7541c6ba14c9ac22a8403afe491b29aea6e726ba80a77"
+      "size": 64174,
+      "sizeLabel": "62.7 Ko",
+      "checksum": "7c28f8a03601d4c353b1cb9a42c1b5bcb8afe6eb52de376f284baba2e1280d58"
     },
     {
       "id": "assets-cartes-tenue-secretaire-webp",
@@ -1456,9 +1456,9 @@
     },
     {
       "id": "assets-cartes-tenue-soubrette-rose-webp",
-      "name": "Soubrette Rose",
-      "path": "assets/cartes/Tenue/Soubrette_Rose.webp",
-      "src": "assets/cartes/Tenue/Soubrette_Rose.webp",
+      "name": "Soubrette rose",
+      "path": "assets/cartes/Tenue/Soubrette_rose.webp",
+      "src": "assets/cartes/Tenue/Soubrette_rose.webp",
       "category": "Tenue",
       "extension": "WEBP",
       "size": 107108,
