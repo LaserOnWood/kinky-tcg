@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-03T22:15:56.232Z",
-  "count": 90,
+  "generatedAt": "2026-10-04T14:21:22.546Z",
+  "count": 91,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -298,6 +298,17 @@
       "size": 68450,
       "sizeLabel": "66.8 Ko",
       "checksum": "1ac325839507efdd6774496f2fd272c893b2891e3032ab95d008abfa859032b4"
+    },
+    {
+      "id": "assets-cartes-actions-controle-de-police-png",
+      "name": "Controle de Police",
+      "path": "assets/cartes/Actions/Controle_de_Police.png",
+      "src": "assets/cartes/Actions/Controle_de_Police.png",
+      "category": "Actions",
+      "extension": "PNG",
+      "size": 2117774,
+      "sizeLabel": "2.0 Mo",
+      "checksum": "a6a5a293d827f9fb02b93f696c9a73bf19d81a7678d6fc3269ef9649efb41282"
     },
     {
       "id": "assets-cartes-actions-contr-le-de-police-webp",
