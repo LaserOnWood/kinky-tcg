@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-04T14:23:25.423Z",
-  "count": 90,
+  "generatedAt": "2026-10-04T15:03:17.962Z",
+  "count": 91,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -122,6 +122,17 @@
       "size": 86386,
       "sizeLabel": "84.4 Ko",
       "checksum": "da0ddc42e6e237ae3ac77fd043196d8a77d0459a1d53b2ca90a8bc0121659c4a"
+    },
+    {
+      "id": "assets-cartes-accessoires-oeuf-chaine-png",
+      "name": "Oeuf chaine",
+      "path": "assets/cartes/Accessoires/Oeuf_chaine.png",
+      "src": "assets/cartes/Accessoires/Oeuf_chaine.png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 3828577,
+      "sizeLabel": "3.7 Mo",
+      "checksum": "282cb7f881f304f30d7f500a147ff9293bb3fb90e3a70f949c1c9a6e048ce660"
     },
     {
       "id": "assets-cartes-accessoires-paddle-webp",
