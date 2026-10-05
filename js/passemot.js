@@ -29,9 +29,9 @@ const FLAT_STORAGE_KEY = "kinky_tcg_progress_v0.4.a.hints";
 const FLAT_HINTS_KEY = "kinky_tcg_hints_revealed";
 
 // Mode "thèmes" : mêmes préfixes que l'ancien tcgproto/js/passemot.js.
-const THEME_STORAGE_BASE = "kinky_tcg_progress_v1";
+const THEME_STORAGE_BASE = "kinky_tcg_progress_v0.2";
 const THEME_HINTS_BASE = "kinky_tcg_hints_revealed";
-const IMPORTED_THEMES_KEY = "kinky_tcg_imported_themes_v1.1";
+const IMPORTED_THEMES_KEY = "kinky_tcg_imported_themes_v1";
 
 // Mot de passe organisateur : « toutleniveau » révèle toutes les cartes du
 // thème actuellement ouvert. Seul le hash SHA-256 est conservé dans le code.
@@ -74,9 +74,13 @@ async function sha256(message){
   return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 }
 
-// Normalise la saisie : minuscules + suppression des espaces superflus.
+// Normalise la saisie : espaces, casse et accents sont ignorés.
 function normaliser(texte){
-  return texte.trim().toLowerCase();
+  return texte
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 function getStorageKey(){

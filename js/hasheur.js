@@ -6,8 +6,16 @@
    2. Tapez : await genererHash("mon-mot-de-passe")
    3. Copiez le résultat dans le champ "passwordHash" de la carte voulue.
    ========================================================================== */
+function normaliserCode(motDePasse){
+  return String(motDePasse ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
 async function genererHash(motDePasse){
-  const h = await sha256(normaliser(motDePasse));
+  const h = await sha256(normaliserCode(motDePasse));
   console.log(`"${motDePasse}" → ${h}`);
   return h;
 }
