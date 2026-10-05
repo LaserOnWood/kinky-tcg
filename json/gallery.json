@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T12:13:11.962Z",
+  "generatedAt": "2026-10-05T12:15:39.466Z",
   "count": 92,
   "images": [
     {
@@ -795,15 +795,15 @@
       "checksum": "6bceb54d5de91a63b4ba9f2fc2f257912c8a4723408b93f678baf118cb073f94"
     },
     {
-      "id": "assets-cartes-positions-sous-le-bureau-png",
+      "id": "assets-cartes-positions-sous-le-bureau-webp",
       "name": "Sous le bureau",
-      "path": "assets/cartes/Positions/Sous_le_bureau.png",
-      "src": "assets/cartes/Positions/Sous_le_bureau.png",
+      "path": "assets/cartes/Positions/Sous_le_bureau.webp",
+      "src": "assets/cartes/Positions/Sous_le_bureau.webp",
       "category": "Positions",
-      "extension": "PNG",
-      "size": 2033932,
-      "sizeLabel": "1.9 Mo",
-      "checksum": "65103ed01e13028bbf8cc381819fa7014ad8743998595dec9d78f6a558291a07"
+      "extension": "WEBP",
+      "size": 68662,
+      "sizeLabel": "67.1 Ko",
+      "checksum": "aa19a07ea85268a2da63bebd7f0aff0f52641e1aff4c1b0fb93f07efb7d4e16d"
     },
     {
       "id": "assets-cartes-rituel-dominatrice-webp",
