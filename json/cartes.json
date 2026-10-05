@@ -404,6 +404,122 @@
           "rarity": "Mythique"
         }
       ]
+    },
+    {
+      "id": "Suprise_Alex",
+      "name": "Sortie Surprise",
+      "description": "Une parenthèse impromptue qui sort de l'ordinaire, en conservant cette touche de perversité excitante qui nous va si bien.",
+      "difficulty": "Corruption",
+      "seal": "🥵",
+      "cards": [
+        {
+          "id": 701,
+          "type": "Tenue",
+          "passwordHash": "23df2ca41316489504d44f3adad8b2d9752bc0cd7e65045d51810c5c8c879c47",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'allume pour voir dans le noir."],
+          "title": "La Lueur",
+          "image": "assets/cartes/Tenue/Manteau_Rouge.webp",
+          "description": ".",
+          "rarity": "Audacieuse"
+        },
+        {
+          "id": 702,
+          "type": "Lieu",
+          "passwordHash": "23df2ca41316489504d44f3adad8b2d9752bc0cd7e65045d51810c5c8c879c47",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'allume pour voir dans le noir."],
+          "title": "La Lueur",
+          "image": "assets/cartes/Lieu/Ascenceur.webp",
+          "description": "Un lieu exigue.",
+          "rarity": "Audacieuse"
+        },
+        {
+          "id": 703,
+          "type": "Action",
+          "passwordHash": "e49ec5f68827a836467c4f3e3a54fa7b10a2acbd949d6aa79f85f629be684f23",
+          "hints": ["Le temps s'écoule grain par grain.", "C'est un objet qui mesure le temps."],
+          "title": "Le Sablier",
+          "image": "assets/cartes/Actions/Exhibition_Lingerie.webp",
+          "description": "Une action rapide à accomplir avant que le temps ne soit écoulé.",
+          "rarity": "Envoûtante"
+        },
+        {
+          "id": 704,
+          "type": "Action",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Actions/Coulante.webp",
+          "description":"p",
+          "rarity":"Coquine"
+        },
+        {
+          "id": 705,
+          "type": "Action",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Actions/Fellation_de_MILF.webp",
+          "description":"p",
+          "rarity":"Coquine"
+        },
+        {
+          "id":706,
+          "type": "Lieu",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Lieu/Salon.webp",
+          "description":"p",
+          "rarity":"Coquine"
+        },
+        {
+          "id": 707,
+          "type": "Action",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Actions/Selfie_en_Action.webp",
+          "description":"p",
+          "rarity":"Coquine"
+        },
+        {
+          "id": 708,
+          "type": "Action",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Actions/Adultere.webp",
+          "description":"p",
+          "rarity":"Coquine"
+        },
+        {
+          "id": 709,
+          "type": "Action",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Actions/Baise_endiablee.webp",
+          "description":"p",
+          "rarity":"Coquine"
+        },
+        {
+          "id": 710,
+          "type": "Action",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Actions/Creampie.webp",
+          "description":"p",
+          "rarity":"Coquine"
+        }
+      ]
     }
   ]
 }
