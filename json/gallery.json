@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-04T15:03:50.914Z",
-  "count": 91,
+  "generatedAt": "2026-10-05T12:13:11.962Z",
+  "count": 92,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -793,6 +793,17 @@
       "size": 60484,
       "sizeLabel": "59.1 Ko",
       "checksum": "6bceb54d5de91a63b4ba9f2fc2f257912c8a4723408b93f678baf118cb073f94"
+    },
+    {
+      "id": "assets-cartes-positions-sous-le-bureau-png",
+      "name": "Sous le bureau",
+      "path": "assets/cartes/Positions/Sous_le_bureau.png",
+      "src": "assets/cartes/Positions/Sous_le_bureau.png",
+      "category": "Positions",
+      "extension": "PNG",
+      "size": 2033932,
+      "sizeLabel": "1.9 Mo",
+      "checksum": "65103ed01e13028bbf8cc381819fa7014ad8743998595dec9d78f6a558291a07"
     },
     {
       "id": "assets-cartes-rituel-dominatrice-webp",
