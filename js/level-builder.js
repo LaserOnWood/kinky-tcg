@@ -17,6 +17,7 @@ const rarities = [
 const cardTypes = [
   "Accessoire",
   "Action",
+  "Evenement",
   "Lieu",
   "Position",
   "Rituel",
