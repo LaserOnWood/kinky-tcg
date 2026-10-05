@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const projectRoot = path.resolve(path.dirname(__filename), "..");
 const assetsDirectory = path.join(projectRoot, "assets", "cartes");
 const outputPath = path.join(projectRoot, "json", "gallery.json");
+const builderIndexPath = path.join(assetsDirectory, "index.json");
 const supportedExtensions = new Set([".avif", ".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"]);
 
 function formatBytes(bytes) {
@@ -67,6 +68,14 @@ export async function generateGallery() {
 
   images.sort((first, second) => first.path.localeCompare(second.path, "fr"));
 
+  // Le level-builder utilise un index plus léger, généré depuis le même scan.
+  // Les fichiers supprimés ou renommés ne peuvent donc pas rester dans sa liste.
+  const builderImages = images.map(({ path: imagePath, name, category }) => ({
+    path: imagePath,
+    name,
+    category
+  }));
+
   let previousInventory;
   try {
     previousInventory = JSON.parse(await fs.readFile(outputPath, "utf8"));
@@ -74,18 +83,35 @@ export async function generateGallery() {
     previousInventory = undefined;
   }
 
-  if (previousInventory && JSON.stringify(previousInventory.images) === JSON.stringify(images)) {
+  const galleryUnchanged = previousInventory && JSON.stringify(previousInventory.images) === JSON.stringify(images);
+  if (!galleryUnchanged) {
+    const inventory = { generatedAt: new Date().toISOString(), count: images.length, images };
+
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
+    await fs.writeFile(`${outputPath}.tmp`, `${JSON.stringify(inventory, null, 2)}\n`, "utf8");
+    await fs.rename(`${outputPath}.tmp`, outputPath);
+    previousInventory = inventory;
+    console.log(`gallery.json actualisé : ${inventory.count} image(s) indexée(s).`);
+  } else {
     console.log(`gallery.json inchangé : ${images.length} image(s) indexée(s).`);
-    return previousInventory;
   }
 
-  const inventory = { generatedAt: new Date().toISOString(), count: images.length, images };
+  let previousBuilderIndex;
+  try {
+    previousBuilderIndex = JSON.parse(await fs.readFile(builderIndexPath, "utf8"));
+  } catch {
+    previousBuilderIndex = undefined;
+  }
 
-  await fs.mkdir(path.dirname(outputPath), { recursive: true });
-  await fs.writeFile(`${outputPath}.tmp`, `${JSON.stringify(inventory, null, 2)}\n`, "utf8");
-  await fs.rename(`${outputPath}.tmp`, outputPath);
-  console.log(`gallery.json actualisé : ${inventory.count} image(s) indexée(s).`);
-  return inventory;
+  if (JSON.stringify(previousBuilderIndex) !== JSON.stringify(builderImages)) {
+    await fs.writeFile(`${builderIndexPath}.tmp`, `${JSON.stringify(builderImages, null, 2)}\n`, "utf8");
+    await fs.rename(`${builderIndexPath}.tmp`, builderIndexPath);
+    console.log(`assets/cartes/index.json actualisé : ${builderImages.length} image(s) indexée(s).`);
+  } else {
+    console.log(`assets/cartes/index.json inchangé : ${builderImages.length} image(s) indexée(s).`);
+  }
+
+  return previousInventory;
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {

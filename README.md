@@ -218,7 +218,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 
 | Commande | Rôle |
 |---|---|
-| `npm run gallery:index` | Régénère `json/gallery.json` à partir de `assets/cartes/`. |
+| `npm run gallery:index` | Régénère `json/gallery.json` et `assets/cartes/index.json` à partir de `assets/cartes/`. |
 | `npm run gallery:watch` | Régénère l'inventaire à chaque changement dans `assets/cartes/`. |
 | `node scripts/optimize-images.mjs` | **Simulation** : liste ce que l'optimisation des images ferait, sans rien modifier. |
 | `node scripts/optimize-images.mjs --apply` | Redimensionne les images à 1000 px de large et les convertit en WebP. Nécessite `npm install sharp`. |

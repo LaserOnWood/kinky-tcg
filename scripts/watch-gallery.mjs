@@ -16,7 +16,7 @@ async function refresh() {
 }
 
 await refresh();
-console.log("Surveillance active : les changements dans assets/cartes/ régénèrent json/gallery.json.");
+console.log("Surveillance active : les changements dans assets/cartes/ régénèrent json/gallery.json et assets/cartes/index.json.");
 
 const watcher = watch(assetsDirectory, { recursive: true }, () => {
   clearTimeout(pendingRefresh);
