@@ -285,7 +285,7 @@ $("importFile").onchange = async (e) => {
   }
   e.target.value = "";
 };
-fetch("assets/cartes/index.json")
+fetch("assets/cartes/index.json", { cache: "no-store" })
   .then((r) => r.json())
   .then((assets) => {
     state.assets = assets;
