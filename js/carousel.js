@@ -109,11 +109,15 @@
   // Le conteneur reçoit le focus automatiquement (autofocus dans index.html),
   // puis ces touches restent disponibles même avant tout clic dans la zone.
   container.addEventListener("keydown", event => {
-    const step = Math.max(120, Math.round(container.clientWidth * 0.8));
     let targetScrollLeft;
 
-    if (event.key === "ArrowLeft") targetScrollLeft = container.scrollLeft - step;
-    if (event.key === "ArrowRight") targetScrollLeft = container.scrollLeft + step;
+    // Les flèches changent de thème un par un et le centrent dans la zone.
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      event.preventDefault();
+      scrollToCard(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
+      return;
+    }
+
     if (event.key === "PageUp") targetScrollLeft = container.scrollLeft - container.clientWidth;
     if (event.key === "PageDown") targetScrollLeft = container.scrollLeft + container.clientWidth;
     if (event.key === "Home") targetScrollLeft = 0;
