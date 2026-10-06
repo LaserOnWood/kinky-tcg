@@ -327,11 +327,12 @@ body {
   cursor: grabbing;
 }
 
-/* Le focus clavier reste disponible sans afficher le contour blanc natif. */
+/* Le focus clavier reste actif, mais son contour natif est masqué :
+   le conteneur reste prêt à recevoir les flèches sans encart visuel. */
 .themes-list:focus,
 .themes-list:focus-visible {
-  outline: none;
-  box-shadow: inset 0 0 0 1px rgba(217, 169, 79, 0.28);
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 /* ===== CARTES DE THÈME — TAILLE ORIGINALE CONSERVÉE ===== */
