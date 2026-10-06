@@ -106,7 +106,7 @@ function renderCards() {
   $("stepsList").innerHTML = state.cards
     .map(
       (c, i) =>
-        `<article class="step-card${state.openCard === i ? "" : " collapsed"}" data-index="${i}"><header class="step-head" aria-expanded="${state.openCard === i}"><span class="step-index">${String(i + 1).padStart(2, "0")}</span><img class="step-thumb" src="${esc(c.image || "assets/ico/trading-card.png")}" alt=""><strong>${esc(c.title)}</strong><button class="btn btn-sm btn-builder-outline" data-action="up">↑</button><button class="btn btn-sm btn-builder-outline" data-action="down">↓</button><button class="btn btn-sm btn-builder-outline" data-action="remove">×</button></header><div class="step-body"><div class="builder-grid"><div class="builder-field"><label>Titre *</label><input data-field="title" value="${esc(c.title)}"></div><div class="builder-field"><label>Type</label><select data-field="type">${cardTypes.map((type) => `<option value="${esc(type)}"${type === c.type ? " selected" : ""}>${esc(type)}</option>`).join("")}</select></div><div class="builder-field"><label>Mot(s) de passe / réponse *</label><input data-field="password" value="${esc(c.password)}" placeholder="réponse | variante"></div><div class="builder-field"><label>Rareté</label><select data-field="rarity">${rarities.map((r) => `<option value="${esc(r)}"${r === c.rarity ? " selected" : ""}>${esc(r)}</option>`).join("")}</select></div><div class="builder-field builder-full"><label>Énigmes / indices (une ligne par indice)</label><textarea data-field="hints">${esc(c.hints.join("\n"))}</textarea></div><div class="builder-field builder-full"><label>Image</label><input data-field="image" value="${esc(c.image)}" placeholder="assets/cartes/Actions/…"></div><div class="builder-field builder-full"><label>Description</label><textarea data-field="description">${esc(c.description)}</textarea></div><div class="builder-field builder-full"><label>Action / réponse révélée</label><textarea data-field="actions">${esc(c.actions)}</textarea></div></div></div></article>`,
+        `<article class="step-card${state.openCard === i ? "" : " collapsed"}" data-index="${i}"><header class="step-head" aria-expanded="${state.openCard === i}"><span class="step-index">${String(i + 1).padStart(2, "0")}</span><img class="step-thumb" src="${esc(c.image || "assets/ico/trading-card.png")}" alt=""><strong>${esc(c.title)}</strong><button class="btn btn-sm btn-builder-outline" data-action="up">↑</button><button class="btn btn-sm btn-builder-outline" data-action="down">↓</button><button class="btn btn-sm btn-builder-outline" data-action="remove">×</button></header><div class="step-body"><div class="builder-grid"><div class="builder-field"><label>Titre *</label><input data-field="title" value="${esc(c.title)}"></div><div class="builder-field"><label>Type</label><select data-field="type">${cardTypes.map((type) => `<option value="${esc(type)}"${type === c.type ? " selected" : ""}>${esc(type)}</option>`).join("")}</select></div><div class="builder-field"><label>Mot de passe / réponse *</label><input data-field="password" value="${esc(c.password)}" placeholder="Réponse"></div><div class="builder-field"><label>Rareté</label><select data-field="rarity">${rarities.map((r) => `<option value="${esc(r)}"${r === c.rarity ? " selected" : ""}>${esc(r)}</option>`).join("")}</select></div><div class="builder-field builder-full"><label>Énigmes / indices (une ligne par indice)</label><textarea data-field="hints">${esc(c.hints.join("\n"))}</textarea></div><div class="builder-field builder-full"><label>Image</label><input data-field="image" value="${esc(c.image)}" placeholder="assets/cartes/Actions/…"></div><div class="builder-field builder-full"><label>Description</label><textarea data-field="description">${esc(c.description)}</textarea></div><div class="builder-field builder-full"><label>Action / réponse révélée</label><textarea data-field="actions">${esc(c.actions)}</textarea></div></div></div></article>`,
     )
     .join("");
   update();
@@ -156,14 +156,11 @@ async function exportData() {
         seal: m.seal,
         cards: await Promise.all(
           state.cards.map(async (c) => {
-            const answers = c.password
-              .split("|")
-              .map((x) => x.trim())
-              .filter(Boolean);
+            const answer = c.password.trim();
             return {
               id: Number(c.id) || c.id,
               type: c.type,
-              passwordHash: answers[0] ? await sha(answers[0]) : c.passwordHash,
+              passwordHash: answer ? await sha(answer) : c.passwordHash,
               hints: c.hints,
               title: c.title,
               image: c.image,
