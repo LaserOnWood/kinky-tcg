@@ -45,16 +45,28 @@
   // La zone étant horizontale, transforme la molette verticale en défilement
   // horizontal. La conversion de deltaMode évite les écarts entre souris,
   // trackpads et navigateurs.
-  container.addEventListener("wheel", event => {
+  const handleWheel = event => {
+    const themesStage = container.closest(".themes-stage");
+    if (!themesStage?.contains(event.target)) return;
+
     const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? container.clientWidth : 1;
-    const distance = (event.deltaX + event.deltaY) * unit;
+    // Une roulette classique envoie deltaY ; une roulette horizontale ou un
+    // trackpad peut envoyer deltaX. On ne les additionne pas pour éviter une
+    // annulation lorsque les deux axes sont renseignés.
+    const rawDistance = Math.abs(event.deltaY) > 0 ? event.deltaY : event.deltaX;
+    const distance = rawDistance * unit;
     const maxScrollLeft = container.scrollWidth - container.clientWidth;
-    if (!distance || maxScrollLeft <= 0) return;
+    if (!Number.isFinite(distance) || !distance || maxScrollLeft <= 0) return;
 
     const nextScrollLeft = Math.max(0, Math.min(maxScrollLeft, container.scrollLeft + distance));
     event.preventDefault();
     container.scrollLeft = nextScrollLeft;
-  }, { passive: false });
+  };
+
+  // Capture au niveau document : certains navigateurs traitent la molette
+  // avant le conteneur scrollable, notamment quand le pointeur est sur une
+  // carte enfant.
+  document.addEventListener("wheel", handleWheel, { passive: false, capture: true });
 
   // Alternative fiable avec une souris qui ne possède pas de molette horizontale.
   let dragStartX = 0;
