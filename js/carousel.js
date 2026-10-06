@@ -79,13 +79,17 @@
     dragStartX = event.clientX;
     dragStartScrollLeft = container.scrollLeft;
     isDragging = false;
-    container.setPointerCapture?.(event.pointerId);
   });
 
   container.addEventListener("pointermove", event => {
-    if (!container.hasPointerCapture?.(event.pointerId)) return;
+    if (event.pointerType === "touch" || event.buttons !== 1) return;
     const distance = event.clientX - dragStartX;
-    if (Math.abs(distance) > 5) isDragging = true;
+    if (Math.abs(distance) > 5 && !isDragging) {
+      isDragging = true;
+      // La capture ne démarre qu'après un déplacement réel, afin qu'un clic
+      // simple conserve sa cible .theme-card et déclenche la sélection.
+      container.setPointerCapture?.(event.pointerId);
+    }
     if (isDragging) {
       event.preventDefault();
       container.scrollLeft = dragStartScrollLeft - distance;
