@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T12:15:39.466Z",
+  "generatedAt": "2026-10-06T09:59:04.902Z",
   "count": 92,
   "images": [
     {
@@ -377,10 +377,10 @@
       "checksum": "7bdea947b92075cbc8e716e5c9559509eb63bf10b98846ea6ea1c2ea1284c4b4"
     },
     {
-      "id": "assets-cartes-actions-ecriture-corporelles-exhib-webp",
-      "name": "Ecriture corporelles exhib",
-      "path": "assets/cartes/Actions/Ecriture_corporelles_exhib.webp",
-      "src": "assets/cartes/Actions/Ecriture_corporelles_exhib.webp",
+      "id": "assets-cartes-actions-ecritures-corporelles-exhib-webp",
+      "name": "Ecritures corporelles exhib",
+      "path": "assets/cartes/Actions/Ecritures_corporelles_exhib.webp",
+      "src": "assets/cartes/Actions/Ecritures_corporelles_exhib.webp",
       "category": "Actions",
       "extension": "WEBP",
       "size": 74826,
