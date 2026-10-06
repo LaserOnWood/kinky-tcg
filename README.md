@@ -170,7 +170,25 @@ Sans configuration, le jeu fonctionne normalement : l'envoi échoue en silence e
 
 > 👀 **À savoir pour les joueurs :** une notification contient le titre de la carte, sa rareté, sa description, l'action éventuelle, son illustration, le niveau choisi et **le mot saisi**.
 
-Ces fonctions ne tournent que sur Vercel. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
+Sur Vercel, le fonctionnement reste inchangé : les fonctions `api/notification.js` et `api/feedback.js` utilisent les variables d'environnement ci-dessus. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
+
+### Tester les notifications sans Vercel
+
+Le dépôt fournit aussi un serveur local Node.js qui sert le jeu et expose localement le même endpoint `/api/notification`. Il lit un webhook Discord depuis un fichier local ignoré par Git :
+
+```bash
+cp discord-webhook.txt.example .discord-webhook.txt
+# Remplacez l'URL dans .discord-webhook.txt par votre webhook Discord réel.
+npm run dev:local
+```
+
+Ouvrez ensuite <http://127.0.0.1:8000>. Le fichier `.discord-webhook.txt` doit contenir une URL `https://discord.com/api/webhooks/...`, une seule URL active par ligne ; les lignes commençant par `#` sont ignorées. **Ne commitez jamais ce fichier et ne partagez jamais son contenu.**
+
+Le serveur local ne remplace pas Vercel : il sert uniquement aux tests locaux. Pour tester le déploiement Vercel et les deux fonctions serveur avec les variables d’environnement, utilisez toujours :
+
+```bash
+vercel dev
+```
 
 ## 🚀 Lancer le jeu en local
 
@@ -211,6 +229,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   └── gallery.json      # Inventaire des images (généré)
 ├── docs/screenshots/     # Captures d'écran du README
 ├── scripts/              # Outils de maintenance (Node.js)
+│   ├── local-server.mjs  # Serveur local avec webhook depuis .discord-webhook.txt
 └── .github/workflows/    # Publication et optimisation
 ```
 

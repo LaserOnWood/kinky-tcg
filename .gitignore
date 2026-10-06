@@ -8,3 +8,4 @@ node_modules/
 
 # Dossier local de Vercel
 .vercel/
+.discord-webhook.txt
