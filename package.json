@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev:local": "node scripts/local-server.mjs",
     "gallery:index": "node scripts/generate-gallery.mjs",
     "gallery:watch": "node scripts/watch-gallery.mjs",
     "images:optimize": "node scripts/optimize-images.mjs",
