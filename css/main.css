@@ -318,6 +318,22 @@ body {
   display: none;
 }
 
+.themes-list {
+  cursor: grab;
+  outline: none;
+}
+
+.themes-list:active {
+  cursor: grabbing;
+}
+
+/* Le focus clavier reste disponible sans afficher le contour blanc natif. */
+.themes-list:focus,
+.themes-list:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(217, 169, 79, 0.28);
+}
+
 /* ===== CARTES DE THÈME — TAILLE ORIGINALE CONSERVÉE ===== */
 .theme-card {
   position: relative;

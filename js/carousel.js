@@ -43,19 +43,56 @@
   next?.addEventListener("click", () => scrollToCard(activeIndex + 1));
 
   // La zone étant horizontale, transforme la molette verticale en défilement
-  // horizontal. Cela fonctionne avec une souris classique comme avec un
-  // trackpad, sans empêcher le défilement lorsqu'il n'y a rien à parcourir.
+  // horizontal. La conversion de deltaMode évite les écarts entre souris,
+  // trackpads et navigateurs.
   container.addEventListener("wheel", event => {
-    const distance = event.deltaX || event.deltaY;
+    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? container.clientWidth : 1;
+    const distance = (event.deltaX + event.deltaY) * unit;
     const maxScrollLeft = container.scrollWidth - container.clientWidth;
     if (!distance || maxScrollLeft <= 0) return;
 
     const nextScrollLeft = Math.max(0, Math.min(maxScrollLeft, container.scrollLeft + distance));
-    if (nextScrollLeft !== container.scrollLeft) {
-      event.preventDefault();
-      container.scrollLeft = nextScrollLeft;
-    }
+    event.preventDefault();
+    container.scrollLeft = nextScrollLeft;
   }, { passive: false });
+
+  // Alternative fiable avec une souris qui ne possède pas de molette horizontale.
+  let dragStartX = 0;
+  let dragStartScrollLeft = 0;
+  let isDragging = false;
+  let suppressClick = false;
+
+  container.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch" || event.button !== 0) return;
+    dragStartX = event.clientX;
+    dragStartScrollLeft = container.scrollLeft;
+    isDragging = false;
+    container.setPointerCapture?.(event.pointerId);
+  });
+
+  container.addEventListener("pointermove", event => {
+    if (!container.hasPointerCapture?.(event.pointerId)) return;
+    const distance = event.clientX - dragStartX;
+    if (Math.abs(distance) > 5) isDragging = true;
+    if (isDragging) {
+      event.preventDefault();
+      container.scrollLeft = dragStartScrollLeft - distance;
+    }
+  });
+
+  container.addEventListener("pointerup", event => {
+    if (container.hasPointerCapture?.(event.pointerId)) container.releasePointerCapture?.(event.pointerId);
+    suppressClick = isDragging;
+    isDragging = false;
+  });
+
+  container.addEventListener("click", event => {
+    if (suppressClick) {
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+    }
+  }, true);
 
   // Le conteneur reçoit le focus automatiquement (autofocus dans index.html),
   // puis ces touches restent disponibles même avant tout clic dans la zone.
