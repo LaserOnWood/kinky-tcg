@@ -60,7 +60,7 @@
 
     const nextScrollLeft = Math.max(0, Math.min(maxScrollLeft, container.scrollLeft + distance));
     event.preventDefault();
-    container.scrollLeft = nextScrollLeft;
+    container.scrollTo({ left: nextScrollLeft, behavior: "smooth" });
   };
 
   // Capture au niveau document : certains navigateurs traitent la molette

@@ -321,6 +321,7 @@ body {
 .themes-list {
   cursor: grab;
   outline: none;
+  scroll-behavior: smooth;
 }
 
 .themes-list:active {
