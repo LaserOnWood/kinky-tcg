@@ -420,7 +420,7 @@
           "title": "La Lueur",
           "image": "assets/cartes/Tenue/Manteau_Rouge.webp",
           "description": "La MILF porte son manteau rouge favoris.",
-          "_actions": "Enveloppe ton corps de ce rouge intense, et assure-toi qu'il n'y ait rien d'autre que de la lingerie pour couvrir tes courbes impatientes.",
+          "actions": "Enveloppe ton corps de ce rouge intense, et assure-toi qu'il n'y ait rien d'autre que de la lingerie pour couvrir tes courbes impatientes.",
           "rarity": "Audacieuse"
         },
         {
@@ -431,18 +431,18 @@
           "title": "La Lueur",
           "image": "assets/cartes/Lieu/Ascenceur.webp",
           "description": "Un lieu exigu qui laisse place à une légère perversité.",
-          "_actions": ".",
+          "actions": ".",
           "rarity": "Coquine"
         },
         {
           "id": 703,
           "type": "Action",
           "passwordHash": "e49ec5f68827a836467c4f3e3a54fa7b10a2acbd949d6aa79f85f629be684f23",
-          "hints": ["Le temps s'écoule grain par grain.", "C'est un objet qui mesure le temps."],
+          "hints": ["Un symbole pour faire patienter.", "Un sable qui coule.", "C'est un objet qui mesure le temps.","Le temps s'écoule grain par grain."],
           "title": "Le Sablier",
           "image": "assets/cartes/Actions/Exhibition_Lingerie.webp",
           "description": "Une action rapide à accomplir avant que le temps ne soit écoulé.",
-          "_actions": "Dans cet ascenseur, tu feras monter la température et la tension sexuelle.",
+          "actions": "Dans cet ascenseur, tu feras monter la température et la tension sexuelle.",
           "rarity": "Provocante"
         },
         {
@@ -454,6 +454,7 @@
           "title":"Petit poucet",
           "image":"assets/cartes/Lieu/Salon.webp",
           "description":"p",
+          "actions": "",
           "rarity":"Sulfureuse"
         },
         {
@@ -465,6 +466,7 @@
           "title":"Petit poucet",
           "image":"assets/cartes/Actions/Coulante.webp",
           "description":"p",
+          "actions": "",
           "rarity":"Envoûtante"
         },
         {
@@ -476,6 +478,7 @@
           "title":"Petit poucet",
           "image":"assets/cartes/Actions/Fellation_de_MILF.webp",
           "description":"p",
+          "actions": "",
           "rarity":"Coquine"
         },
         {
@@ -487,6 +490,7 @@
           "title":"Petit poucet",
           "image":"assets/cartes/Actions/Selfie_en_Action.webp",
           "description":"p",
+          "actions": "",
           "rarity":"Provocante"
         },
         {
@@ -498,6 +502,7 @@
           "title":"Petit poucet",
           "image":"assets/cartes/Actions/Adultere.webp",
           "description":"p",
+          "actions": "",
           "rarity":"Sulfureuse"
         },
         {
@@ -509,6 +514,7 @@
           "title":"Petit poucet",
           "image":"assets/cartes/Actions/Baise_endiablee.webp",
           "description":"p",
+          "actions": "",
           "rarity":"Sulfureuse"
         },
         {
@@ -518,8 +524,9 @@
           "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
           "hints":["p","p","p"],
           "title":"Petit poucet",
-          "image":"assets/cartes/Actions/Creampie.webp",
+          "image":"assets/cartes/Actions/Souiller.webp",
           "description":"p",
+          "actions": "",
           "rarity":"Mythique"
         }
       ]
