@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-06T09:59:04.902Z",
-  "count": 92,
+  "generatedAt": "2026-10-06T21:47:43.768Z",
+  "count": 95,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -377,6 +377,17 @@
       "checksum": "7bdea947b92075cbc8e716e5c9559509eb63bf10b98846ea6ea1c2ea1284c4b4"
     },
     {
+      "id": "assets-cartes-actions-doigtage-webp",
+      "name": "Doigtage",
+      "path": "assets/cartes/Actions/Doigtage.webp",
+      "src": "assets/cartes/Actions/Doigtage.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 64792,
+      "sizeLabel": "63.3 Ko",
+      "checksum": "cb0d4e9160ab818ec30697ee6e27635c59a2efc311b90c6f1ba9d8d8295e0208"
+    },
+    {
       "id": "assets-cartes-actions-ecritures-corporelles-exhib-webp",
       "name": "Ecritures corporelles exhib",
       "path": "assets/cartes/Actions/Ecritures_corporelles_exhib.webp",
@@ -617,6 +628,17 @@
       "size": 75832,
       "sizeLabel": "74.1 Ko",
       "checksum": "5955f769583eac7eccc597b1fbb01358951ad4c5785e4f37a6232bdaec9d3fdf"
+    },
+    {
+      "id": "assets-cartes-actions-plug-milf-webp",
+      "name": "Plug MILF",
+      "path": "assets/cartes/Actions/Plug_MILF.webp",
+      "src": "assets/cartes/Actions/Plug_MILF.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 72508,
+      "sizeLabel": "70.8 Ko",
+      "checksum": "f3dd7133775700a047f0301b74bb253860f5988d3007e6a5e21185037e7ac3ca"
     },
     {
       "id": "assets-cartes-actions-sans-capote-webp",
@@ -958,6 +980,17 @@
       "size": 64174,
       "sizeLabel": "62.7 Ko",
       "checksum": "7c28f8a03601d4c353b1cb9a42c1b5bcb8afe6eb52de376f284baba2e1280d58"
+    },
+    {
+      "id": "assets-cartes-tenue-policiere-webp",
+      "name": "Policiere",
+      "path": "assets/cartes/Tenue/Policiere.webp",
+      "src": "assets/cartes/Tenue/Policiere.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 88334,
+      "sizeLabel": "86.3 Ko",
+      "checksum": "fd2bcae1a8762e7e4b1d53976730348c29b80ebb8e7affdf62e7e07680b05d24"
     },
     {
       "id": "assets-cartes-tenue-secretaire-webp",
