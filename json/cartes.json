@@ -141,7 +141,7 @@
           "passwordHash": "51bb0f998c8d9ac16f9ea044dba7d402d9b61b373ee69d7ba95b7643f437edf8",
           "hints": ["Je me porte sur les yeux ou le visage pour préserver le mystère.","Quand le visuel s'efface, tous les autres sens deviennent plus intenses.","L'accessoire idéal pour obéir à l'aveugle et etre guider","Il prive tes yeux de lumière pour que chaque effleurement te fasse frissonner."],
           "title": "La vue",
-          "image": "assets/cartes/Accessoires/Milf_Masque.webp",
+          "image": "assets/cartes/Actions/Milf_Masquee.webp",
           "description": "La perte d'un sens permettra d'en savourer d'autre.",
           "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
           "rarity": "Provocante"
@@ -213,7 +213,7 @@
           "passwordHash": "d8bbd72947b36d2ca6c6f95d96e27f9de1595820483ab973cd43977e4dc0e3e1",
           "hints": ["L'art de la pipe où l'on va jusqu'au bout, sans jamais utiliser les dents.","C'est la partie du corps que l'on sent se serrer quand on avale.","Entre la bouche et l'estomac, je suis le passage étroit que tout doit franchir."],
           "title": "L'Apné",
-          "image": "assets/cartes/Positions/Missionaire.webp",
+          "image": "assets/cartes/Positions/Missionnaire.webp",
           "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
           "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
           "rarity": "Sulfureuse"
@@ -269,7 +269,7 @@
           "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
           "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
           "title": "La Lune",
-          "image": "assets/cartes/Accessoires/Bandeau_item.webp",
+          "image": "assets/cartes/Accessoires/Bandeau.webp",
           "description": "La tenue est pose dans la salle de bain.",
           "rarity": "Audacieuse"
         },
@@ -291,7 +291,7 @@
           "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
           "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
           "title": "La Lune",
-          "image": "assets/cartes/Positions/Missionaire.webp",
+          "image": "assets/cartes/Positions/Missionnaire.webp",
           "description": "La tenue est pose dans la salle de bain.",
           "rarity": "Coquine"
         },
@@ -366,7 +366,7 @@
           "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
           "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
           "title": "La Lune",
-          "image": "assets/cartes/Actions/Ecritures_Corporelles_(Exhib).webp",
+          "image": "assets/cartes/Actions/Ecritures_corporelles_exhib.webp",
           "description": "La tenue est pose dans la salle de bain.",
           "rarity": "Provocante"
         },
@@ -430,9 +430,9 @@
           "hints": ["Elle éclaire dans l'obscurité.", "On l'allume pour voir dans le noir."],
           "title": "La Lueur",
           "image": "assets/cartes/Lieu/Ascenceur.webp",
-          "description": "Un lieu exigue.",
-          "_actions": "",
-          "rarity": "Audacieuse"
+          "description": "Un lieu exigu qui laisse place à une légère perversité.",
+          "_actions": ".",
+          "rarity": "Provocante"
         },
         {
           "id": 703,
@@ -442,7 +442,19 @@
           "title": "Le Sablier",
           "image": "assets/cartes/Actions/Exhibition_Lingerie.webp",
           "description": "Une action rapide à accomplir avant que le temps ne soit écoulé.",
-          "rarity": "Envoûtante"
+          "_actions": "Dans cet ascenseur, tu feras monter la température et la tension sexuelle.",
+          "rarity": "Provocante"
+        },
+        {
+          "id":706,
+          "type": "Lieu",
+          "_comment":"Mot de passe : Foret",
+          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+          "hints":["p","p","p"],
+          "title":"Petit poucet",
+          "image":"assets/cartes/Lieu/Salon.webp",
+          "description":"p",
+          "rarity":"Sulfureuse"
         },
         {
           "id": 704,
@@ -453,7 +465,7 @@
           "title":"Petit poucet",
           "image":"assets/cartes/Actions/Coulante.webp",
           "description":"p",
-          "rarity":"Coquine"
+          "rarity":"Envoûtante"
         },
         {
           "id": 705,
@@ -463,17 +475,6 @@
           "hints":["p","p","p"],
           "title":"Petit poucet",
           "image":"assets/cartes/Actions/Fellation_de_MILF.webp",
-          "description":"p",
-          "rarity":"Coquine"
-        },
-        {
-          "id":706,
-          "type": "Lieu",
-          "_comment":"Mot de passe : Foret",
-          "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
-          "hints":["p","p","p"],
-          "title":"Petit poucet",
-          "image":"assets/cartes/Lieu/Salon.webp",
           "description":"p",
           "rarity":"Coquine"
         },
