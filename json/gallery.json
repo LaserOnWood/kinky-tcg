@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-07T15:04:13.642Z",
-  "count": 96,
+  "generatedAt": "2026-10-07T21:44:14.774Z",
+  "count": 99,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -34,6 +34,17 @@
       "size": 70768,
       "sizeLabel": "69.1 Ko",
       "checksum": "0a57f76bad3389ccfe955134c6a43627d66cbfd667c5176b51d0a4611297808d"
+    },
+    {
+      "id": "assets-cartes-accessoires-cagoule-webp",
+      "name": "Cagoule",
+      "path": "assets/cartes/Accessoires/Cagoule.webp",
+      "src": "assets/cartes/Accessoires/Cagoule.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 143998,
+      "sizeLabel": "140.6 Ko",
+      "checksum": "2662900a8e640db655e471453196943705019ce8b1851d5acaa7cfa3ebb35404"
     },
     {
       "id": "assets-cartes-accessoires-couteau-webp",
@@ -487,6 +498,17 @@
       "checksum": "769fe1b078a1580afb29611875d1923adb90262e284b03931ace09ae4b31792d"
     },
     {
+      "id": "assets-cartes-actions-fisting-webp",
+      "name": "Fisting",
+      "path": "assets/cartes/Actions/Fisting.webp",
+      "src": "assets/cartes/Actions/Fisting.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 67800,
+      "sizeLabel": "66.2 Ko",
+      "checksum": "349e24beaae12c9784cb44a7d78c96a5f87a6f423c797b783feeccde06b298cf"
+    },
+    {
       "id": "assets-cartes-actions-footjob-webp",
       "name": "Footjob",
       "path": "assets/cartes/Actions/Footjob.webp",
@@ -749,6 +771,17 @@
       "size": 130984,
       "sizeLabel": "127.9 Ko",
       "checksum": "33bb9aefe1515bd61fc28f884181867f86a9c4bd8a7b1f949e2cf729a5344af0"
+    },
+    {
+      "id": "assets-cartes-lieu-salon-webp",
+      "name": "Salon",
+      "path": "assets/cartes/Lieu/Salon.webp",
+      "src": "assets/cartes/Lieu/Salon.webp",
+      "category": "Lieu",
+      "extension": "WEBP",
+      "size": 91736,
+      "sizeLabel": "89.6 Ko",
+      "checksum": "3929934bd03e9c0dc4cdc0a8fdf5acef748874cfe6012cd4dee1206289a96ca4"
     },
     {
       "id": "assets-cartes-positions-69-webp",
