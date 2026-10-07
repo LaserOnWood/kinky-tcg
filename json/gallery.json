@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-06T21:47:43.768Z",
-  "count": 95,
+  "generatedAt": "2026-10-07T15:04:13.642Z",
+  "count": 96,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -485,6 +485,17 @@
       "size": 44088,
       "sizeLabel": "43.1 Ko",
       "checksum": "769fe1b078a1580afb29611875d1923adb90262e284b03931ace09ae4b31792d"
+    },
+    {
+      "id": "assets-cartes-actions-footjob-webp",
+      "name": "Footjob",
+      "path": "assets/cartes/Actions/Footjob.webp",
+      "src": "assets/cartes/Actions/Footjob.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 77890,
+      "sizeLabel": "76.1 Ko",
+      "checksum": "74b3af7d59d1237efb78c21a262b57cb279828b2d6d30ee240e57c4b4b5bb6fa"
     },
     {
       "id": "assets-cartes-actions-gangbang-webp",
