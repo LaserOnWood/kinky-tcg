@@ -5,8 +5,8 @@
   "start_url": "./index.html",
   "scope": "./",
   "display": "fullscreen",
-  "background_color": "#0d0509",
-  "theme_color": "#0d0509",
+  "background_color": "#5c1228",
+  "theme_color": "#ff2f7e",
   "lang": "fr",
   "icons": [
     {
@@ -25,6 +25,12 @@
       "src": "assets/ico/manifest-icon-512.maskable.png",
       "sizes": "512x512",
       "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/ico/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "maskable"
     },
     {
@@ -35,6 +41,7 @@
     }
   ],
   "orientation": "portrait",
+  "id": "/?homescreen=1",
   "shortcuts": [
     {
       "name": "Voir la galerie",
