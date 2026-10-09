@@ -25,12 +25,6 @@
       "src": "assets/ico/manifest-icon-512.maskable.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/ico/manifest-icon-512.maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
       "purpose": "maskable"
     },
     {
@@ -40,5 +34,12 @@
       "purpose": "any"
     }
   ],
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "shortcuts": [
+    {
+      "name": "Voir la galerie",
+      "url": "/gallery.html",
+      "description": null
+    }
+  ]
 }
