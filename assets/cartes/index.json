@@ -330,6 +330,11 @@
     "category": "Actions"
   },
   {
+    "path": "assets/cartes/Lieu/Ascenseur_Luxe.webp",
+    "name": "Ascenseur Luxe",
+    "category": "Lieu"
+  },
+  {
     "path": "assets/cartes/Lieu/Chambre.webp",
     "name": "Chambre",
     "category": "Lieu"
