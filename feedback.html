@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#5c1228">
+  <meta name="description" content="Partagez anonymement votre avis sur Kinky TCG.">
+  <title>Feedback anonyme • Kinky TCG</title>
+
+  <!-- Bibliothèques communes du projet : Bootstrap 5.3.8 et Font Awesome. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/ico/trading-card.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/feedback.css">
+  <link rel="stylesheet" href="css/feedback-page.css">
+</head>
+<body class="feedback-page">
+  <header class="container feedback-page-header">
+    <a class="feedback-page-brand" href="index.html" aria-label="Kinky TCG — retour au jeu">
+      <span class="feedback-page-brand-mark" aria-hidden="true"><i class="fa-solid fa-comment-dots"></i></span>
+      <span>Kinky <strong>TCG</strong></span>
+    </a>
+    <a class="feedback-page-return" href="index.html">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      <span>Retour au jeu</span>
+    </a>
+  </header>
+
+  <main class="container feedback-page-main">
+    <section class="feedback-page-panel" aria-labelledby="feedback-page-title">
+      <p class="eyebrow-text">Votre avis compte</p>
+      <h1 id="feedback-page-title">Feedback anonyme</h1>
+      <p class="feedback-intro" id="feedback-page-intro">
+        Aucun compte ni adresse e-mail ne sont nécessaires. Votre message sera transmis au salon Discord de test.
+      </p>
+
+      <form id="feedback-form" aria-describedby="feedback-page-intro">
+        <label for="feedback-type">Type de retour</label>
+        <select id="feedback-type" name="type">
+          <option value="Suggestion">Suggestion</option>
+          <option value="Problème">Problème</option>
+          <option value="Avis général">Avis général</option>
+          <option value="Autre">Autre</option>
+        </select>
+
+        <label for="feedback-message">Votre message</label>
+        <textarea id="feedback-message" name="message" rows="7" maxlength="1500" placeholder="Écrivez votre retour ici…" required></textarea>
+
+        <p class="feedback-status" id="feedback-status" role="status" aria-live="polite"></p>
+        <button class="feedback-submit" type="submit">
+          Envoyer le message <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <p class="feedback-page-privacy"><i class="fa-solid fa-lock" aria-hidden="true"></i> Votre retour est anonyme : ne saisissez pas d’informations personnelles.</p>
+    </section>
+  </main>
+
+  <footer class="container feedback-page-footer">
+    <span>KINKY TCG</span>
+    <a href="index.html">Retour à l’accueil</a>
+  </footer>
+
+  <script src="js/feedback.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+    }
+  </script>
+</body>
+</html>

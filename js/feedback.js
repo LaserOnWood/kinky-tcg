@@ -13,7 +13,7 @@
   const type = document.getElementById("feedback-type");
   const message = document.getElementById("feedback-message");
   const status = document.getElementById("feedback-status");
-  if (!modal || !opener || !closer || !form || !type || !message || !status) return;
+  if (!form || !type || !message || !status) return;
 
   let lastTrigger = null;
 
@@ -23,6 +23,7 @@
   }
 
   function open() {
+    if (!modal) return;
     lastTrigger = opener;
     modal.hidden = false;
     document.body.classList.add("info-modal-open");
@@ -30,6 +31,7 @@
   }
 
   function close() {
+    if (!modal) return;
     modal.hidden = true;
     document.body.classList.remove("info-modal-open");
     lastTrigger?.focus();
@@ -45,7 +47,7 @@
     }
 
     const submitButton = form.querySelector("button[type=submit]");
-    submitButton.disabled = true;
+    if (submitButton) submitButton.disabled = true;
     setStatus("Envoi en cours…");
 
     try {
@@ -61,15 +63,17 @@
       console.error("Envoi du feedback impossible :", error);
       setStatus("L’envoi a échoué. Réessayez dans quelques instants.", "is-error");
     } finally {
-      submitButton.disabled = false;
+      if (submitButton) submitButton.disabled = false;
     }
   }
 
-  opener.addEventListener("click", open);
-  closer.addEventListener("click", close);
-  modal.querySelector("[data-feedback-close]")?.addEventListener("click", close);
+  opener?.addEventListener("click", open);
+  closer?.addEventListener("click", close);
+  modal?.querySelector("[data-feedback-close]")?.addEventListener("click", close);
   form.addEventListener("submit", submit);
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.hidden) close();
-  });
+  if (modal) {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) close();
+    });
+  }
 })();
