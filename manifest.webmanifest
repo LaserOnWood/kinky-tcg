@@ -31,7 +31,7 @@
   "screenshots" : [
     {
       "src": "docs/screenshots/01-selection-themes.png",
-      "sizes": "1280x720",
+      "sizes": "780x1688",
       "type": "image/png",
       "platform": "wide"
     }
@@ -46,9 +46,5 @@
     }
   ],
   "dir": "auto",
-  "display_override": [
-    "fullscreen",
-    "minimal-ui",
-    "window-controls-overlay"
-  ]
+  "display": "fullscreen"
 }
