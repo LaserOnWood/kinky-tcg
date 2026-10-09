@@ -42,7 +42,12 @@
     {
       "name": "Voir la galerie",
       "url": "/gallery.html",
-      "description": null
+      "description": "Permet d'accéder directement à la galerie de cartes."
+    },
+    {
+      "name": "Créer un niveau",
+      "url": "/level-builder.html",
+      "description": "Permet de créer et de personnaliser ses propres niveaux de jeu."
     }
   ],
   "dir": "auto",
