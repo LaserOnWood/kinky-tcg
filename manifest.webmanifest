@@ -48,5 +48,11 @@
       "url": "/gallery.html",
       "description": null
     }
+  ],
+  "dir": "auto",
+  "display_override": [
+    "fullscreen",
+    "minimal-ui",
+    "window-controls-overlay"
   ]
 }
