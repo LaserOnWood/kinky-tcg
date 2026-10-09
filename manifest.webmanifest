@@ -10,15 +10,9 @@
   "lang": "fr",
   "icons": [
     {
-      "src": "assets/ico/launchericon-192x192.png",
+      "src": "assets/ico/trading-card-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "assets/ico/trading-card-192x192.webp",
-      "sizes": "192x192",
-      "type": "image/webp",
       "purpose": "any"
     },
     {
