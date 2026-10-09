@@ -4,11 +4,16 @@
   "description": "Kinky TCG est un jeu d'enigmes et de cartes, basé sur le thème du kink et de l'érotisme.",
   "start_url": "./index.html",
   "scope": "./",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#0d0509",
   "theme_color": "#0d0509",
   "lang": "fr",
   "icons": [
-    { "src": "assets/ico/trading-card.png", "sizes": "512x512", "type": "image/png" }
-  ]
+    {
+      "src": "assets/ico/trading-card.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait"
 }
