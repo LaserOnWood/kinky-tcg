@@ -28,6 +28,14 @@
       "purpose": "any"
     }
   ],
+  "screenshots" : [
+    {
+      "src": "docs/screenshots/01-selection-themes.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide"
+    }
+  ],
   "orientation": "portrait",
   "id": "/?homescreen=1",
   "shortcuts": [
