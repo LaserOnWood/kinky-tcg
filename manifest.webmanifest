@@ -69,6 +69,12 @@
       "description": "Permet de créer et de personnaliser ses propres niveaux de jeu.",
       "url": "/level-builder.html",
       "icons": [{ "src": "/assets/icons/construction_96.png", "sizes": "96x96", "type": "image/png" }]
+    },
+    {
+      "name": "Faire un feedback",
+      "description": "Permet de donner son avis sur le jeu.",
+      "url": "/feedback.html",
+      "icons": [{ "src": "/assets/icons/_96.png", "sizes": "96x96", "type": "image/png" }]
     }
   ]
 }
