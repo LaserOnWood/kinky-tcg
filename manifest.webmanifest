@@ -34,6 +34,24 @@
       "sizes": "780x1688",
       "type": "image/png",
       "platform": "wide"
+    },
+    {
+      "src": "docs/screenshots/02-selection-cartes.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "platform": "wide"
+    },
+    {
+      "src": "docs/screenshots/03-selection-niveau.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "platform": "wide"
+    },
+    {
+      "src": "docs/screenshots/04-jeu.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "platform": "wide"
     }
   ],
   "orientation": "portrait",
