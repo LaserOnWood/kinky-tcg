@@ -17,16 +17,20 @@
 > 🔞 **Contenu réservé aux adultes (18 ans et plus).** Kinky TCG est un jeu conçu pour les couples. Il aborde la sensualité et l'érotisme, et ses cartes proposent des gages et des mises en situation à caractère adulte. En continuant, vous confirmez être majeur·e et jouer avec un·e partenaire consentant·e.
 
 ## 📸 Aperçu
-
-<p align="center">
-  <img src="docs/screenshots/01-selection-themes.png" width="240" alt="Écran de sélection des thèmes">
-  &nbsp;
-  <img src="docs/screenshots/02-partie-en-cours.png" width="240" alt="Une partie en cours : carte verrouillée et son indice">
-  &nbsp;
-  <img src="docs/screenshots/03-carte-revelee.png" width="240" alt="Une carte révélée après avoir trouvé le bon mot de passe">
-</p>
-
-<p align="center"><em>Choix du thème · Carte verrouillée et son indice · Carte révélée</em></p>
+<center>
+  <table align="center">
+    <tr>
+      <td><img src="docs/screenshots/01-selection-themes.png" alt="Écran de sélection des thèmes" width="240" style="display: inline" /></td>
+      <td><img src="docs/screenshots/02-partie-en-cours.png" alt="Une partie en cours : carte verrouillée et son indice" width="240" style="display: inline" /></td>
+      <td><img src="docs/screenshots/03-carte-revelee.png" alt="Une carte révélée après avoir trouvé le bon mot de passe" width="240" style="display: inline" /></td>
+    </tr>
+    <tr align="center">
+      <td>Choix du thème</td>
+      <td>Carte verrouillé et son indice</td>
+      <td>Carte révélé</td>
+    </tr>
+  </table>
+</center>
 
 ## 🎯 Le concept
 
