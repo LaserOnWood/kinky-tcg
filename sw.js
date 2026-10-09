@@ -12,14 +12,14 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.1.4"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.1.5"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
 
 // Fichiers copiés dès la 1re visite
 const FICHIERS_APP = [
-  "./", "index.html", "manifest.webmanifest", "css/main.css", "css/feedback.css", "js/feedback.js", "js/notification.js", "js/audio.js", "js/passemot.js", "js/hasheur.js", "js/carousel.js", "json/gallery.json", "/gallery.html", "/level-builder.html",  URL_CARTES
+  "./", "index.html", "feedback.html", "manifest.webmanifest", "css/main.css", "css/feedback.css", "css/feedback-page.css", "js/feedback.js", "js/notification.js", "js/audio.js", "js/passemot.js", "js/hasheur.js", "js/carousel.js", "json/gallery.json", "/gallery.html", "/level-builder.html",  URL_CARTES
 ];
 
 /**

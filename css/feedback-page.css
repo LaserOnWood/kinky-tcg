@@ -1,0 +1,172 @@
+/* Page de feedback dédiée — reprend la palette et les motifs de Kinky TCG. */
+.feedback-page {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(255, 47, 126, .11), transparent 28rem),
+    radial-gradient(circle at 12% 88%, rgba(217, 169, 79, .08), transparent 24rem),
+    var(--color-bg-main);
+}
+
+.feedback-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: clamp(18px, 4vw, 34px);
+  padding-bottom: clamp(18px, 4vw, 34px);
+}
+
+.feedback-page-brand,
+.feedback-page-return {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.feedback-page-brand {
+  font-family: var(--font-family-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.feedback-page-brand strong { color: var(--color-accent-gold-soft); }
+
+.feedback-page-brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border-line);
+  border-radius: 50%;
+  color: var(--color-accent-magenta);
+  background: rgba(26, 11, 20, .76);
+  font-size: 14px;
+}
+
+.feedback-page-return {
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 1px solid var(--color-border-line);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.feedback-page-return:hover,
+.feedback-page-return:focus-visible {
+  border-color: var(--color-accent-gold-primary);
+  color: var(--color-accent-gold-soft);
+  outline: 0;
+  transform: translateY(-1px);
+}
+
+.feedback-page-main {
+  display: grid;
+  flex: 1 0 auto;
+  align-items: center;
+  padding-top: clamp(16px, 5vh, 52px);
+  padding-bottom: clamp(28px, 7vh, 72px);
+}
+
+.feedback-page-panel {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 720px);
+  margin-inline: auto;
+  overflow: hidden;
+  padding: clamp(26px, 6vw, 54px);
+  border: 1px solid var(--color-border-line);
+  border-top: 2px solid var(--color-accent-gold-primary);
+  background: linear-gradient(145deg, rgba(36, 15, 28, .96), rgba(13, 5, 9, .98));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .42);
+}
+
+.feedback-page-panel::before {
+  position: absolute;
+  z-index: -1;
+  top: -145px;
+  right: -115px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(217, 169, 79, .09);
+  border-radius: 50%;
+  box-shadow: 0 0 0 26px rgba(255, 47, 126, .025), 0 0 0 58px rgba(217, 169, 79, .02);
+  content: "";
+  pointer-events: none;
+}
+
+.feedback-page-panel > .eyebrow-text { margin-bottom: 10px; }
+.feedback-page-panel h1 {
+  max-width: 620px;
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(42px, 8vw, 68px);
+  font-style: italic;
+  font-weight: 600;
+  line-height: .98;
+  background: linear-gradient(100deg, var(--color-text-primary) 25%, var(--color-accent-gold-soft) 62%, var(--color-accent-magenta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.feedback-page .feedback-intro {
+  max-width: 570px;
+  margin: 18px 0 0;
+  font-size: 13px;
+}
+
+.feedback-page #feedback-form { margin-top: 28px; }
+.feedback-page #feedback-form label { margin-top: 20px; font-size: 12px; }
+.feedback-page #feedback-form select { min-height: 48px; font-size: 16px; }
+.feedback-page #feedback-form textarea { min-height: 190px; font-size: 16px; }
+.feedback-page .feedback-status { margin-top: 14px; font-size: 12px; }
+.feedback-page .feedback-submit { min-height: 50px; margin-top: 8px; font-size: 13px; }
+.feedback-page .feedback-submit i { margin-left: 7px; }
+
+.feedback-page-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 20px 0 0;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+.feedback-page-privacy i { margin-top: 2px; color: var(--color-accent-gold-primary); }
+
+.feedback-page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 0;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  color: var(--color-text-muted);
+  font-size: 10px;
+  letter-spacing: .16em;
+}
+.feedback-page-footer a { color: inherit; letter-spacing: normal; text-decoration-color: var(--color-border-line); }
+.feedback-page-footer a:hover,
+.feedback-page-footer a:focus-visible { color: var(--color-accent-gold-soft); }
+
+@media (max-width: 575.98px) {
+  .feedback-page-header { gap: 10px; }
+  .feedback-page-brand { gap: 8px; font-size: 21px; }
+  .feedback-page-brand-mark { width: 34px; height: 34px; }
+  .feedback-page-return { min-height: 40px; padding-inline: 11px; font-size: 11px; }
+  .feedback-page-main { padding-top: 12px; padding-bottom: 34px; }
+  .feedback-page-panel { padding: 26px 20px 24px; }
+  .feedback-page-panel h1 { font-size: clamp(40px, 11vw, 56px); }
+  .feedback-page #feedback-form { margin-top: 24px; }
+  .feedback-page #feedback-form textarea { min-height: 165px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-page-return { transition: none; }
+}

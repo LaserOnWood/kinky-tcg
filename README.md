@@ -68,7 +68,7 @@ Deux rôles :
 | 🖼️ | **Catalogue visuel** | La page `gallery.html` liste toutes les illustrations, avec recherche, filtres et zoom. |
 | 📴 | **Hors ligne** | Installable sur l'écran d'accueil et jouable sans réseau après une première visite. |
 | 🔔 | **Notifications Discord** | Optionnelles : un message peut être envoyé à chaque carte révélée. |
-| 💬 | **Retours anonymes** | Un formulaire permet d'envoyer un avis sans compte ni adresse e-mail. |
+| 💬 | **Retours anonymes** | Une popup dans le jeu et la page `feedback.html` permettent d'envoyer un avis sans compte ni adresse e-mail. |
 | 📱 | **Mobile d'abord** | Pensé pour le téléphone, confortable aussi sur tablette et ordinateur. |
 
 ## 🎭 Les thèmes
@@ -176,6 +176,8 @@ Sans configuration, le jeu fonctionne normalement : l'envoi échoue en silence e
 
 Sur Vercel, le fonctionnement reste inchangé : les fonctions `api/notification.js` et `api/feedback.js` utilisent les variables d'environnement ci-dessus. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
 
+Le bouton **Feedback** dans une partie conserve sa popup. La page `feedback.html` propose le même formulaire dans une vue dédiée, accessible depuis l'accueil, depuis la popup et depuis le raccourci de l'application installée.
+
 ### Tester les notifications sans Vercel
 
 Le dépôt fournit aussi un serveur local Node.js qui sert le jeu et expose localement le même endpoint `/api/notification`. Il lit un webhook Discord depuis un fichier local ignoré par Git :
@@ -209,6 +211,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 ```text
 .
 ├── index.html            # Écran d'accueil et jeu
+├── feedback.html         # Formulaire de feedback dans une page dédiée
 ├── gallery.html          # Catalogue visuel des illustrations
 ├── level-builder.html    # Atelier de niveaux
 ├── manifest.webmanifest  # Installation sur l'écran d'accueil
@@ -219,11 +222,13 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   ├── audio/            # Effets sonores
 │   └── ico/              # Icône
 ├── css/                  # Feuilles de style
+│   ├── feedback.css      # Styles partagés du formulaire de retours
+│   └── feedback-page.css # Mise en page dédiée au feedback
 ├── js/
 │   ├── passemot.js       # Logique principale du jeu
 │   ├── audio.js          # Sons
 │   ├── carousel.js       # Carrousel de thèmes
-│   ├── feedback.js       # Formulaire de retours
+│   ├── feedback.js       # Traitement partagé du formulaire de retours
 │   ├── notification.js   # Envoi des notifications
 │   ├── hasheur.js        # Générateur de hash (console)
 │   ├── gallery.js        # Catalogue

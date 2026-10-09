@@ -24,8 +24,11 @@
 .feedback-modal-close { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--color-border-line); border-radius: 50%; color: var(--color-text-muted); background: transparent; cursor: pointer; }
 .feedback-modal-close:hover, .feedback-modal-close:focus-visible { border-color: var(--color-accent-gold-primary); color: var(--color-accent-gold-soft); outline: 0; }
 .feedback-intro { margin: 0 0 20px; color: var(--color-text-muted); font-size: 12px; line-height: 1.6; }
+.feedback-page-link-wrap { margin: -8px 0 14px; text-align: right; }
+.feedback-page-link { display: inline-flex; align-items: center; gap: 7px; color: var(--color-accent-gold-soft); font-size: 11px; text-decoration-color: var(--color-border-line); text-underline-offset: 3px; }
+.feedback-page-link:hover, .feedback-page-link:focus-visible { color: var(--color-accent-platinum-soft); }
 #feedback-form label { display: block; margin: 13px 0 6px; color: var(--color-accent-gold-soft); font-size: 11px; font-weight: 600; }
-#feedback-form select, #feedback-form textarea { width: 100%; border: 1px solid var(--color-border-line); border-radius: 8px; color: var(--color-text-primary); background: rgba(13, 5, 9, .75); font: inherit; font-size: 14px; outline: 0; }
+#feedback-form select, #feedback-form textarea { width: 100%; border: 1px solid var(--color-border-line); border-radius: 8px; color: var(--color-text-primary); background: rgba(13, 5, 9, .75); font: inherit; font-size: 16px; outline: 0; }
 #feedback-form select { min-height: 42px; padding: 8px 10px; }
 #feedback-form textarea { min-height: 120px; padding: 10px; resize: vertical; }
 #feedback-form select:focus, #feedback-form textarea:focus { border-color: var(--color-accent-magenta); box-shadow: 0 0 0 3px rgba(255, 47, 126, .1); }
