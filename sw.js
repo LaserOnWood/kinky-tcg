@@ -19,7 +19,7 @@ const URL_CARTES = "json/cartes.json";
 
 // Fichiers copiés dès la 1re visite
 const FICHIERS_APP = [
-  "./", "index.html", "manifest.webmanifest", "css/main.css", "css/feedback.css", "js/feedback.js", "js/notification.js", "js/audio.js", "js/passemot.js", "js/hasheur.js", "js/carousel.js", "json/gallery.json",  URL_CARTES
+  "./", "index.html", "manifest.webmanifest", "css/main.css", "css/feedback.css", "js/feedback.js", "js/notification.js", "js/audio.js", "js/passemot.js", "js/hasheur.js", "js/carousel.js", "json/gallery.json", "/gallery.html", "/level-builder.html",  URL_CARTES
 ];
 
 /**
