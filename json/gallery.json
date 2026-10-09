@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-07T21:44:14.774Z",
-  "count": 99,
+  "generatedAt": "2026-10-09T06:01:08.581Z",
+  "count": 100,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -727,6 +727,17 @@
       "size": 71400,
       "sizeLabel": "69.7 Ko",
       "checksum": "3ce06c26ac2506b4d3c3392d5086ff2863c5b820e076b5d7ef8625dda6407838"
+    },
+    {
+      "id": "assets-cartes-lieu-ascenseur-luxe-webp",
+      "name": "Ascenseur Luxe",
+      "path": "assets/cartes/Lieu/Ascenseur_Luxe.webp",
+      "src": "assets/cartes/Lieu/Ascenseur_Luxe.webp",
+      "category": "Lieu",
+      "extension": "WEBP",
+      "size": 91622,
+      "sizeLabel": "89.5 Ko",
+      "checksum": "bfb4f4b0e29b391815426a91ac88ffb4d4a963922699ae56f0a6efcd430b9c3f"
     },
     {
       "id": "assets-cartes-lieu-chambre-webp",
