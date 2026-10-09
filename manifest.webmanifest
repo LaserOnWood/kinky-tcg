@@ -10,9 +10,28 @@
   "lang": "fr",
   "icons": [
     {
-      "src": "assets/ico/trading-card.png",
+      "src": "kinky-tcg/assets/ico/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "kinky-tcg/assets/ico/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "kinky-tcg/assets/ico/manifest-icon-512.maskable.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "kinky-tcg/assets/ico/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "orientation": "portrait"
