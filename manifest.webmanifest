@@ -62,13 +62,13 @@
       "name": "Voir la galerie",
       "description": "Permet d'accéder directement à la galerie de cartes.",
       "url": "/gallery.html",
-      "icons": [{ "src": "icons/shortcut-gallerie.png", "sizes": "96x96", "type": "image/png" }]
+      "icons": [{ "src": "/icons/shortcut-gallerie.png", "sizes": "24x24", "type": "image/png" }]
     },
     {
       "name": "Créer un niveau",
       "description": "Permet de créer et de personnaliser ses propres niveaux de jeu.",
       "url": "/level-builder.html",
-      "icons": [{ "src": "icons/shortcut-niveaux.png", "sizes": "96x96", "type": "image/png" }]
+      "icons": [{ "src": "/icons/shortcut-niveaux.png", "sizes": "24x24", "type": "image/png" }]
     }
   ]
 }
