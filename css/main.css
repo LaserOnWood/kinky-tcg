@@ -1603,57 +1603,58 @@ body.info-modal-open { overflow: hidden; }
    NIVEAU HASARD — une carte indépendante par dossier/catégorie
    ========================================================================== */
 #game-content.hasard-mode .cards-zone {
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
 }
 
-#game-content.hasard-mode .cards-swipe-hint,
 #game-content.hasard-mode .entry-bar,
 #game-content.hasard-mode .progress-wrap {
   display: none !important;
 }
 
 .cards-grid.hasard-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-content: start;
-  align-items: stretch;
-  gap: clamp(12px, 2vw, 22px);
-  padding: clamp(12px, 2.5vw, 24px);
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scroll-snap-type: none;
-  touch-action: pan-y;
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 4vw, 30px);
+  padding: clamp(8px, 2cqh, 18px) max(16px, calc((100% - min(78cqw, 340px)) / 2));
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(16px, calc((100% - min(78cqw, 340px)) / 2));
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
 
-.hasard-instructions {
-  grid-column: 1 / -1;
-  margin: 0;
-  padding: 10px 14px;
-  border: 1px solid var(--color-border-line);
-  border-radius: 12px;
-  background: rgba(26, 11, 20, 0.72);
-  color: var(--color-text-muted);
-  font-size: 12px;
-  line-height: 1.5;
-  text-align: center;
+.cards-grid.hasard-grid::-webkit-scrollbar {
+  display: none;
 }
 
-.hasard-instructions i {
-  margin-right: 7px;
-  color: var(--color-accent-gold-primary);
+.cards-grid.hasard-grid > .hasard-slot {
+  flex: 0 0 min(78cqw, 340px, 64.38cqh);
+  width: min(78cqw, 340px, 64.38cqh);
+  height: auto !important;
+  aspect-ratio: var(--card-aspect-ratio);
+  max-height: 94cqh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  perspective: 1200px;
 }
 
 .hasard-category {
+  width: 100%;
+  height: 100%;
   min-width: 0;
   display: grid;
-  grid-template-rows: auto minmax(120px, 1fr) auto;
-  gap: 10px;
-  padding: 12px;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(8px, 1.5cqh, 12px);
+  padding: clamp(9px, 2cqw, 14px);
+  overflow: hidden;
   border: 1px solid var(--color-border-line);
-  border-radius: var(--radius-medium);
+  border-radius: clamp(10px, 2.4cqw, var(--radius-medium));
   background: linear-gradient(155deg, rgba(36, 15, 28, 0.94), rgba(13, 5, 9, 0.95));
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.025);
+  box-shadow: var(--shadow-depth-heavy), inset 0 1px rgba(255, 255, 255, 0.025);
 }
 
 .hasard-category-heading {
@@ -1681,20 +1682,25 @@ body.info-modal-open { overflow: hidden; }
 }
 
 .hasard-art-open {
-  position: relative;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-width: 0;
-  aspect-ratio: 4 / 5;
   overflow: hidden;
   padding: 0;
-  border: 1px solid rgba(217, 169, 79, 0.28);
-  border-radius: 11px;
-  background: var(--color-bg-main);
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
   cursor: zoom-in;
 }
 
 .hasard-art {
-  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   transition: transform 0.35s ease;
 }
 
@@ -1755,47 +1761,25 @@ body.info-modal-open { overflow: hidden; }
 }
 
 @media (max-width: 760px) {
-  .cards-grid.hasard-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .hasard-category {
-    gap: 8px;
-    padding: 9px;
-  }
-
   .hasard-category-heading {
     align-items: center;
-  }
-
-  .hasard-card-footer {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .hasard-card-name {
-    text-align: center;
-  }
-
-  .hasard-shuffle {
-    width: 100%;
-    min-height: 40px;
   }
 }
 
 @media (max-width: 360px) {
-  .cards-grid.hasard-grid {
-    gap: 8px;
-    padding: 8px;
-  }
-
-  .hasard-category {
-    padding: 7px;
-  }
-
   .hasard-category-heading h2 {
     font-size: 19px;
+  }
+}
+
+@media (min-width: 700px) {
+  .cards-grid.hasard-grid {
+    padding-inline: max(16px, calc((100% - min(44cqw, 340px)) / 2));
+    scroll-padding-inline: max(16px, calc((100% - min(44cqw, 340px)) / 2));
+  }
+
+  .cards-grid.hasard-grid > .hasard-slot {
+    flex-basis: min(44cqw, 340px, 64.38cqh);
+    width: min(44cqw, 340px, 64.38cqh);
   }
 }
