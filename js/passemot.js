@@ -23,6 +23,7 @@
    =========================================================================== */
 
 const CARTES_URL = "json/cartes.json";
+const HASARD_CATALOGUE_URL = "assets/cartes/index.json";
 
 // Mode "plat" : mêmes clés que l'ancien tcg/js/passemot.js (progression conservée).
 const FLAT_STORAGE_KEY = "kinky_tcg_progress_v0.4.a.hints";
@@ -57,6 +58,10 @@ let debloquees = new Set();
 let indicesReveles = {};
 let completionSonJouePourTheme = false;
 let THEMES_OFFICIELS = [];
+let modeHasardActif = false;
+let categoriesHasard = [];
+let tiragesHasard = new Map();
+let themeSelectionRequestId = 0;
 
 /* ===========================================================================
    UTILITAIRES
@@ -240,16 +245,18 @@ function validerThemes(themesData){
     idsThemes.add(id);
 
     const name = (typeof theme.name === "string" && theme.name.trim()) ? theme.name.trim() : id;
+    const mode = theme.mode === "hasard" ? "hasard" : "classique";
 
     return {
       id,
       name,
       description: (typeof theme.description === "string") ? theme.description.trim() : "",
       difficulty: (typeof theme.difficulty === "string" && theme.difficulty.trim()) ? theme.difficulty.trim() : "—",
+      mode,
       // Symbole affiché au dos des cartes (dans .seal). Optionnel dans le JSON,
       // par défaut "✦" si absent ou vide. Peut être un emoji ou un court symbole.
       seal: (typeof theme.seal === "string" && theme.seal.trim()) ? theme.seal.trim() : "♥️",
-      cards: validerCartes(theme.cards, `Le thème « ${name} »`)
+      cards: mode === "hasard" ? [] : validerCartes(theme.cards, `Le thème « ${name} »`)
     };
   });
 }
@@ -273,6 +280,76 @@ async function chargerDonnees(){
   } else {
     throw new Error("Format de json/cartes.json non reconnu (tableau de cartes, ou objet { \"themes\": [...] } attendu).");
   }
+}
+
+// L'inventaire est généré depuis les dossiers assets/cartes/<catégorie>/.
+// Les chemins sont contrôlés avant d'être utilisés dans le jeu.
+async function chargerCatalogueHasard(){
+  const reponse = await fetch(HASARD_CATALOGUE_URL, { cache: "no-store" });
+  if(!reponse.ok){
+    throw new Error(`Impossible de charger ${HASARD_CATALOGUE_URL} (${reponse.status}).`);
+  }
+
+  const donnees = await reponse.json();
+  if(!Array.isArray(donnees)){
+    throw new Error("L'inventaire des images doit être une liste.");
+  }
+
+  return donnees
+    .filter(image => {
+      if(!image || typeof image !== "object"){ return false; }
+      const category = String(image.category ?? "").trim();
+      const path = String(image.path ?? "").trim();
+      return Boolean(
+        category && !category.includes("/") && !category.includes("\\") &&
+        path.startsWith(`assets/cartes/${category}/`) &&
+        !path.split("/").includes("..") &&
+        /\.(webp|png|jpe?g|gif)$/i.test(path)
+      );
+    })
+    .map(image => ({
+      category: String(image.category).trim(),
+      name: (typeof image.name === "string" && image.name.trim()) ? image.name.trim() : String(image.path).split("/").pop(),
+      path: String(image.path).trim()
+    }));
+}
+
+function regrouperImagesHasard(images){
+  const groupes = new Map();
+  images.forEach(image => {
+    if(!groupes.has(image.category)){ groupes.set(image.category, []); }
+    groupes.get(image.category).push(image);
+  });
+
+  const ordreSouhaite = ["Actions", "Lieu", "Accessoires", "Positions", "Rituel", "Tenue"];
+  return [...groupes.entries()]
+    .sort(([a], [b]) => {
+      const indexA = ordreSouhaite.indexOf(a);
+      const indexB = ordreSouhaite.indexOf(b);
+      if(indexA < 0 && indexB < 0){ return a.localeCompare(b, "fr"); }
+      if(indexA < 0){ return 1; }
+      if(indexB < 0){ return -1; }
+      return indexA - indexB;
+    })
+    .map(([name, cards]) => ({ name, cards }));
+}
+
+function nomCategorieHasard(categorie){
+  const libelles = {
+    Actions: "Action",
+    Accessoires: "Accessoire",
+    Positions: "Position",
+    Lieu: "Lieu",
+    Rituel: "Rituel",
+    Tenue: "Tenue"
+  };
+  return libelles[categorie] || categorie;
+}
+
+function tirerCarteHasard(cartes, cheminActuel = ""){
+  const autresCartes = cartes.filter(carte => carte.path !== cheminActuel);
+  const choix = autresCartes.length ? autresCartes : cartes;
+  return choix[Math.floor(Math.random() * choix.length)];
 }
 
 /* ===========================================================================
@@ -344,23 +421,63 @@ function afficherSelectionThemes(){
       <p>${echapperHTML(theme.description)}</p>
       <div class="theme-info">
         <span class="diff-badge">${echapperHTML(theme.difficulty)}</span>
-        <span class="card-count">${theme.cards.length} cartes</span>
+        <span class="card-count">${theme.mode === "hasard" ? "Tirages par catégorie" : `${theme.cards.length} cartes`}</span>
       </div>
     </div>
   `).join("");
 }
 
-function choisirTheme(themeId){
+async function choisirTheme(themeId){
   const theme = THEMES.find(t => t.id === themeId);
   if(!theme){ return; }
 
+  const requestId = ++themeSelectionRequestId;
+  const estHasard = theme.mode === "hasard";
+  let categoriesPreparees = [];
+  let tiragesPrepares = new Map();
+
+  if(estHasard){
+    try{
+      const inventaire = await chargerCatalogueHasard();
+      categoriesPreparees = regrouperImagesHasard(inventaire).filter(groupe => groupe.cards.length > 0);
+      if(!categoriesPreparees.length){
+        throw new Error("Aucune image n'a été trouvée dans les dossiers de catégories.");
+      }
+      if(requestId !== themeSelectionRequestId){ return; }
+      tiragesPrepares = new Map(
+        categoriesPreparees.map(groupe => [groupe.name, tirerCarteHasard(groupe.cards)])
+      );
+    }catch(erreur){
+      if(requestId !== themeSelectionRequestId){ return; }
+      console.error("Chargement du niveau Hasard impossible :", erreur);
+      const status = $("level-import-status");
+      if(status){
+        status.className = "level-import-status error";
+        status.dataset.hasardError = "true";
+        status.textContent = "Impossible de charger les catégories d'images. Vérifie que assets/cartes/index.json est présent, puis réessaie.";
+      }
+      return;
+    }
+  }
+  if(requestId !== themeSelectionRequestId){ return; }
+
+  modeHasardActif = estHasard;
+  categoriesHasard = categoriesPreparees;
+  tiragesHasard = tiragesPrepares;
+  const status = $("level-import-status");
+  if(status?.dataset.hasardError === "true"){
+    status.className = "level-import-status";
+    status.textContent = "";
+    delete status.dataset.hasardError;
+  }
+
   selectedThemeId = theme.id;
-  CARTES = theme.cards; // déjà validées par validerThemes()
+  CARTES = modeHasardActif ? [] : theme.cards; // les cartes classiques sont déjà validées
   sceauActuel = theme.seal;
   completionSonJouePourTheme = false;
 
-  debloquees = chargerProgression();
-  indicesReveles = chargerIndicesReveles();
+  debloquees = modeHasardActif ? new Set() : chargerProgression();
+  indicesReveles = modeHasardActif ? {} : chargerIndicesReveles();
 
   const titre = $("game-title");
   if(titre){ titre.textContent = theme.name; }
@@ -373,18 +490,24 @@ function choisirTheme(themeId){
   const niveauSceau = $("game-level-seal");
   if(niveauSceau){ niveauSceau.textContent = theme.seal || "✦"; }
 
+  $("game-content")?.classList.toggle("hasard-mode", modeHasardActif);
+  document.querySelector(".progress-wrap")?.classList.toggle("d-none", modeHasardActif);
+  $("overlay")?.classList.remove("show");
+
   if(ecranSelectionDisponible()){
     $("selection-screen").classList.add("hidden");
     $("game-content").classList.remove("hidden");
   }
 
-  nettoyerProgression();
-  nettoyerIndicesReveles();
+  if(!modeHasardActif){
+    nettoyerProgression();
+    nettoyerIndicesReveles();
+  }
   rendreGrille();
   rendreProgression();
 
-  input.disabled = false;
-  btn.disabled = false;
+  input.disabled = modeHasardActif;
+  btn.disabled = modeHasardActif;
   feedback.textContent = "";
 }
 
@@ -523,8 +646,44 @@ function creerCarteHTML(carte){
   `;
 }
 
+function creerCarteHasardHTML(groupe){
+  const tirage = tiragesHasard.get(groupe.name) || tirerCarteHasard(groupe.cards);
+  const nomCategorie = nomCategorieHasard(groupe.name);
+
+  return `
+    <section class="hasard-category" aria-label="Catégorie ${echapperHTML(nomCategorie)}">
+      <div class="hasard-category-heading">
+        <span class="hasard-category-kicker">Catégorie</span>
+        <h2>${echapperHTML(nomCategorie)}</h2>
+      </div>
+      <button class="hasard-art-open" type="button" aria-label="Agrandir la carte ${echapperHTML(tirage.name)}">
+        <img class="art hasard-art" src="${echapperHTML(tirage.path)}" alt="${echapperHTML(nomCategorie)} : ${echapperHTML(tirage.name)}" loading="lazy">
+      </button>
+      <div class="hasard-card-footer">
+        <p class="hasard-card-name">${echapperHTML(tirage.name)}</p>
+        <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(nomCategorie)}">
+          <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+          <span>Shuffle</span>
+        </button>
+      </div>
+    </section>
+  `;
+}
+
 function rendreGrille(){
   const grid = $("grid");
+  if(modeHasardActif){
+    grid.classList.add("hasard-grid");
+    grid.innerHTML = `
+      <p class="hasard-instructions"><i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+        Une carte par catégorie. Le bouton Shuffle renouvelle uniquement la catégorie correspondante.
+      </p>
+      ${categoriesHasard.map(creerCarteHasardHTML).join("")}
+    `;
+    return;
+  }
+
+  grid.classList.remove("hasard-grid");
   grid.innerHTML = CARTES.map(creerCarteHTML).join("");
 
   grid.querySelectorAll(".hint-btn").forEach(bouton => {
@@ -538,8 +697,25 @@ function rendreGrille(){
 // Clic sur l'illustration d'une carte débloquée : ouvre l'aperçu en grand.
 // Délégation d'événements : fonctionne aussi pour les images ajoutées lors d'un déblocage.
 $("grid")?.addEventListener("click", evenement => {
+  const boutonMelanger = evenement.target.closest("[data-hasard-category]");
+  if(boutonMelanger && modeHasardActif){
+    evenement.stopPropagation();
+    const nom = boutonMelanger.dataset.hasardCategory;
+    const groupe = categoriesHasard.find(categorie => categorie.name === nom);
+    if(!groupe){ return; }
+    const tirageActuel = tiragesHasard.get(nom);
+    tiragesHasard.set(nom, tirerCarteHasard(groupe.cards, tirageActuel?.path));
+    rendreGrille();
+    return;
+  }
+
   const image = evenement.target.closest(".art");
   if(!image){ return; }
+  if(modeHasardActif){
+    evenement.stopPropagation();
+    ouvrirLightbox(image.src, image.alt);
+    return;
+  }
   const carteElement = image.closest(".card");
   if(!carteElement || !carteElement.classList.contains("unlocked")){ return; }
   evenement.stopPropagation();
@@ -617,6 +793,7 @@ function afficherIndiceSupplementaire(carteId){
 // « revelation » (optionnel) : promesse de revelerCarte(). L'écran de fin
 // attend alors la fin du flip au lieu de le masquer aussitôt.
 function rendreProgression(revelation = null){
+  if(modeHasardActif){ return; }
   const total = CARTES.length;
   const n = debloquees.size;
   $("progress-label").textContent = `${n} / ${total}`;

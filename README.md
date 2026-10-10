@@ -92,6 +92,12 @@ Deux rôles :
 | Corruption | Les limites morales sont franchies. |
 | Dépravation | Le lâcher-prise le plus total. |
 
+### 🎲 Le niveau Hasard
+
+Le thème officiel **Hasard** propose une carte tirée au hasard dans chaque dossier de `assets/cartes/` : Actions, Lieu, Accessoires, Positions, Rituel et Tenue. Le bouton **Shuffle** d'une catégorie renouvelle uniquement sa carte ; les autres tirages restent inchangés. Touchez une illustration pour l'agrandir.
+
+Les cartes affichées sont alimentées par `assets/cartes/index.json`, généré à partir des dossiers d'images. Après l'ajout, le retrait ou le déplacement d'une illustration, régénérez l'inventaire avec `npm run gallery:index`. Les nouveaux dossiers deviennent ainsi des catégories de tirage sans qu'il soit nécessaire d'ajouter leurs images une à une dans `json/cartes.json`.
+
 ### 💎 Les six raretés
 
 Elles indiquent le caractère exceptionnel d'une carte, pas la difficulté de son mot de passe :

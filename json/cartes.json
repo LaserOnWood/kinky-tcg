@@ -528,6 +528,15 @@
           "rarity":"Mythique"
         }
       ]
+    },
+    {
+      "id": "hasard",
+      "name": "Hasard",
+      "description": "Composez votre tirage : une carte par catégorie, et mélangez chacune séparément.",
+      "difficulty": "Tirage libre",
+      "seal": "🎲",
+      "mode": "hasard",
+      "cards": []
     }
   ]
 }
