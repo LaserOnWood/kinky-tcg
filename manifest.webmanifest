@@ -76,5 +76,10 @@
       "url": "/feedback.html",
       "icons": [{ "src": "/assets/icons/feedback_96.png", "sizes": "96x96", "type": "image/png" }]
     }
+  ],
+  "categories": [
+    "games",
+    "lifestyle",
+    "productivity"
   ]
 }
