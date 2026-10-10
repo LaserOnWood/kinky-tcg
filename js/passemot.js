@@ -491,6 +491,12 @@ async function choisirTheme(themeId){
   if(niveauSceau){ niveauSceau.textContent = theme.seal || "✦"; }
 
   $("game-content")?.classList.toggle("hasard-mode", modeHasardActif);
+  const swipeHint = document.querySelector("#game-content .cards-swipe-hint");
+  if(swipeHint){
+    swipeHint.innerHTML = modeHasardActif
+      ? '<i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les catégories'
+      : '<i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes';
+  }
   document.querySelector(".progress-wrap")?.classList.toggle("d-none", modeHasardActif);
   $("overlay")?.classList.remove("show");
 
@@ -651,22 +657,24 @@ function creerCarteHasardHTML(groupe){
   const nomCategorie = nomCategorieHasard(groupe.name);
 
   return `
-    <section class="hasard-category" aria-label="Catégorie ${echapperHTML(nomCategorie)}">
-      <div class="hasard-category-heading">
-        <span class="hasard-category-kicker">Catégorie</span>
-        <h2>${echapperHTML(nomCategorie)}</h2>
-      </div>
-      <button class="hasard-art-open" type="button" aria-label="Agrandir la carte ${echapperHTML(tirage.name)}">
-        <img class="art hasard-art" src="${echapperHTML(tirage.path)}" alt="${echapperHTML(nomCategorie)} : ${echapperHTML(tirage.name)}" loading="lazy">
-      </button>
-      <div class="hasard-card-footer">
-        <p class="hasard-card-name">${echapperHTML(tirage.name)}</p>
-        <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(nomCategorie)}">
-          <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
-          <span>Shuffle</span>
+    <div class="card-slot hasard-slot">
+      <section class="hasard-category" aria-label="Catégorie ${echapperHTML(nomCategorie)}">
+        <div class="hasard-category-heading">
+          <span class="hasard-category-kicker">Catégorie</span>
+          <h2>${echapperHTML(nomCategorie)}</h2>
+        </div>
+        <button class="hasard-art-open" type="button" aria-label="Agrandir la carte ${echapperHTML(tirage.name)}">
+          <img class="art hasard-art" src="${echapperHTML(tirage.path)}" alt="${echapperHTML(nomCategorie)} : ${echapperHTML(tirage.name)}" loading="lazy">
         </button>
-      </div>
-    </section>
+        <div class="hasard-card-footer">
+          <p class="hasard-card-name">${echapperHTML(tirage.name)}</p>
+          <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(nomCategorie)}">
+            <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+            <span>Shuffle</span>
+          </button>
+        </div>
+      </section>
+    </div>
   `;
 }
 
@@ -674,12 +682,7 @@ function rendreGrille(){
   const grid = $("grid");
   if(modeHasardActif){
     grid.classList.add("hasard-grid");
-    grid.innerHTML = `
-      <p class="hasard-instructions"><i class="fa-solid fa-shuffle" aria-hidden="true"></i>
-        Une carte par catégorie. Le bouton Shuffle renouvelle uniquement la catégorie correspondante.
-      </p>
-      ${categoriesHasard.map(creerCarteHasardHTML).join("")}
-    `;
+    grid.innerHTML = categoriesHasard.map(creerCarteHasardHTML).join("");
     return;
   }
 
@@ -703,9 +706,11 @@ $("grid")?.addEventListener("click", evenement => {
     const nom = boutonMelanger.dataset.hasardCategory;
     const groupe = categoriesHasard.find(categorie => categorie.name === nom);
     if(!groupe){ return; }
+    const positionCarrousel = $("grid").scrollLeft;
     const tirageActuel = tiragesHasard.get(nom);
     tiragesHasard.set(nom, tirerCarteHasard(groupe.cards, tirageActuel?.path));
     rendreGrille();
+    $("grid").scrollLeft = positionCarrousel;
     return;
   }
 
