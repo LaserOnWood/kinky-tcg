@@ -1682,6 +1682,7 @@ body.info-modal-open { overflow: hidden; }
 }
 
 .hasard-art-open {
+  position: relative;
   min-height: 0;
   display: flex;
   align-items: center;
