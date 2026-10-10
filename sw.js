@@ -12,14 +12,15 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.1.5"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.1.6"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
+const URL_CATALOGUE_HASARD = "assets/cartes/index.json";
 
 // Fichiers copiés dès la 1re visite
 const FICHIERS_APP = [
-  "./", "index.html", "feedback.html", "manifest.webmanifest", "css/main.css", "css/feedback.css", "css/feedback-page.css", "js/feedback.js", "js/notification.js", "js/audio.js", "js/passemot.js", "js/hasheur.js", "js/carousel.js", "json/gallery.json", "/gallery.html", "/level-builder.html",  URL_CARTES
+  "./", "index.html", "feedback.html", "manifest.webmanifest", "css/main.css", "css/feedback.css", "css/feedback-page.css", "js/feedback.js", "js/notification.js", "js/audio.js", "js/passemot.js", "js/hasheur.js", "js/carousel.js", "json/gallery.json", "/gallery.html", "/level-builder.html", URL_CARTES, URL_CATALOGUE_HASARD
 ];
 
 /**
@@ -33,6 +34,22 @@ async function precacherImages(reponseCartes) {
     const cartes = Array.isArray(donnees)
       ? donnees
       : (donnees.themes || []).flatMap((theme) => theme.cards || []);
+
+    // Les cartes du thème Hasard viennent du catalogue des dossiers d'images,
+    // plutôt que de json/cartes.json. On les met aussi en cache hors ligne.
+    try {
+      const reponseCatalogue = await fetch(URL_CATALOGUE_HASARD, { cache: "no-store" });
+      if (reponseCatalogue.ok) {
+        const catalogue = await reponseCatalogue.json();
+        if (Array.isArray(catalogue)) {
+          cartes.push(...catalogue
+            .filter((image) => typeof image?.path === "string")
+            .map((image) => ({ image: image.path })));
+        }
+      }
+    } catch (erreur) {
+      console.warn("[sw] Catalogue Hasard non préchargé :", erreur);
+    }
 
     const urls = [...new Set(
       cartes

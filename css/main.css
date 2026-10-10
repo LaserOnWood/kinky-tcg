@@ -1597,3 +1597,205 @@ body {
 }
 
 body.info-modal-open { overflow: hidden; }
+
+
+/* ==========================================================================
+   NIVEAU HASARD — une carte indépendante par dossier/catégorie
+   ========================================================================== */
+#game-content.hasard-mode .cards-zone {
+  grid-template-rows: minmax(0, 1fr);
+}
+
+#game-content.hasard-mode .cards-swipe-hint,
+#game-content.hasard-mode .entry-bar,
+#game-content.hasard-mode .progress-wrap {
+  display: none !important;
+}
+
+.cards-grid.hasard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: start;
+  align-items: stretch;
+  gap: clamp(12px, 2vw, 22px);
+  padding: clamp(12px, 2.5vw, 24px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: none;
+  touch-action: pan-y;
+}
+
+.hasard-instructions {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border-line);
+  border-radius: 12px;
+  background: rgba(26, 11, 20, 0.72);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.hasard-instructions i {
+  margin-right: 7px;
+  color: var(--color-accent-gold-primary);
+}
+
+.hasard-category {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto minmax(120px, 1fr) auto;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--color-border-line);
+  border-radius: var(--radius-medium);
+  background: linear-gradient(155deg, rgba(36, 15, 28, 0.94), rgba(13, 5, 9, 0.95));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.hasard-category-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hasard-category-kicker {
+  color: var(--color-accent-gold-primary);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hasard-category-heading h2 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-display);
+  font-size: clamp(20px, 2.5vw, 27px);
+  font-style: italic;
+  line-height: 1;
+}
+
+.hasard-art-open {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(217, 169, 79, 0.28);
+  border-radius: 11px;
+  background: var(--color-bg-main);
+  cursor: zoom-in;
+}
+
+.hasard-art {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.hasard-art-open:hover .hasard-art {
+  transform: scale(1.035);
+}
+
+.hasard-card-footer {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hasard-card-name {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--color-text-primary);
+  font-size: clamp(11px, 1.3vw, 14px);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hasard-shuffle {
+  flex: 0 0 auto;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 79, 139, 0.5);
+  border-radius: 999px;
+  background: linear-gradient(110deg, rgba(255, 47, 126, 0.2), rgba(217, 169, 79, 0.12));
+  color: var(--color-text-primary);
+  font: 600 11px/1 var(--font-family-body);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.hasard-shuffle:hover,
+.hasard-shuffle:focus-visible {
+  border-color: var(--color-accent-gold-primary);
+  background: rgba(255, 47, 126, 0.28);
+}
+
+.hasard-shuffle:active {
+  transform: scale(0.96);
+}
+
+.hasard-shuffle:focus-visible,
+.hasard-art-open:focus-visible {
+  outline: 2px solid var(--color-accent-gold-soft);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .cards-grid.hasard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .hasard-category {
+    gap: 8px;
+    padding: 9px;
+  }
+
+  .hasard-category-heading {
+    align-items: center;
+  }
+
+  .hasard-card-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hasard-card-name {
+    text-align: center;
+  }
+
+  .hasard-shuffle {
+    width: 100%;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cards-grid.hasard-grid {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .hasard-category {
+    padding: 7px;
+  }
+
+  .hasard-category-heading h2 {
+    font-size: 19px;
+  }
+}
