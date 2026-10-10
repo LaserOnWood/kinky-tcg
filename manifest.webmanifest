@@ -1,14 +1,16 @@
 {
   "name": "Kinky TCG",
+  "theme_color": "#ff2f7e",
+  "background_color": "#5c1228",
   "short_name": "Kinky TCG",
-  "description": "Kinky TCG est un jeu d'enigmes et de cartes, basé sur le thème du kink et de l'érotisme.",
+  "display": "standalone",
+  "orientation": "portrait",
   "start_url": "./index.html",
   "scope": "./",
-  "display": "standalone",
-  "dir": "auto",
-  "background_color": "#5c1228",
-  "theme_color": "#ff2f7e",
   "lang": "fr",
+  "dir": "ltr",
+  "description": "Kinky TCG est un jeu d'enigmes et de cartes, basé sur le thème du kink et de l'érotisme.",
+  "categories": ["games", "lifestyle", "productivity"],
   "icons": [
     {
       "src": "assets/ico/trading-card-192x192.png",
@@ -29,7 +31,27 @@
       "purpose": "any"
     }
   ],
-  "screenshots" : [
+  "shortcuts": [
+    {
+      "name": "Voir la galerie",
+      "description": "Permet d'accéder directement à la galerie de cartes.",
+      "url": "/gallery.html",
+      "icons": [{"src": "/assets/icons/filter_96.png","sizes": "96x96","type": "image/png"}]
+    },
+    {
+      "name": "Créer un niveau",
+      "description": "Permet de créer et de personnaliser ses propres niveaux de jeu.",
+      "url": "/level-builder.html",
+      "icons": [{"src": "/assets/icons/construction_96.png","sizes": "96x96","type": "image/png"}]
+    },
+    {
+      "name": "Faire un feedback",
+      "description": "Permet de donner son avis sur le jeu.",
+      "url": "/feedback.html",
+      "icons": [{"src": "/assets/icons/feedback_96.png","sizes": "96x96","type": "image/png"}]
+    }
+  ],
+  "screenshots": [
     {
       "src": "docs/screenshots/01-selection-themes.png",
       "sizes": "780x1688",
@@ -47,39 +69,6 @@
       "sizes": "780x1688",
       "type": "image/png",
       "platform": "wide"
-    },
-    {
-      "src": "docs/screenshots/04-jeu.png",
-      "sizes": "780x1688",
-      "type": "image/png",
-      "platform": "wide"
     }
-  ],
-  "orientation": "portrait",
-  "id": "/?homescreen=1",
-  "shortcuts": [
-    {
-      "name": "Voir la galerie",
-      "description": "Permet d'accéder directement à la galerie de cartes.",
-      "url": "/gallery.html",
-      "icons": [{ "src": "/assets/icons/filter_96.png", "sizes": "96x96", "type": "image/png" }]
-    },
-    {
-      "name": "Créer un niveau",
-      "description": "Permet de créer et de personnaliser ses propres niveaux de jeu.",
-      "url": "/level-builder.html",
-      "icons": [{ "src": "/assets/icons/construction_96.png", "sizes": "96x96", "type": "image/png" }]
-    },
-    {
-      "name": "Faire un feedback",
-      "description": "Permet de donner son avis sur le jeu.",
-      "url": "/feedback.html",
-      "icons": [{ "src": "/assets/icons/feedback_96.png", "sizes": "96x96", "type": "image/png" }]
-    }
-  ],
-  "categories": [
-    "games",
-    "lifestyle",
-    "productivity"
   ]
 }
