@@ -429,7 +429,7 @@
           "passwordHash": "23df2ca41316489504d44f3adad8b2d9752bc0cd7e65045d51810c5c8c879c47",
           "hints": ["Je vis dans une cage, mais je ne suis pas un animal.", "Je monte et je descends toute la journée sans jamais me déplacer sur les côtés.","Si tu me prends, tu gagnes du temps","Si je tombe en panne, mieux vaut ne pas être claustrophobe."],
           "title": "La Cabine d'ascenseur",
-          "image": "assets/cartes/Lieu/Ascenceur_Immeuble.webp",
+          "image": "assets/cartes/Lieu/Ascenseur_Luxe.webp",
           "description": "Un lieu exigu qui laisse place à une légère perversité.",
           "actions": ".",
           "rarity": "Coquine"
