@@ -31,6 +31,15 @@
 #feedback-form select, #feedback-form textarea { width: 100%; border: 1px solid var(--color-border-line); border-radius: 8px; color: var(--color-text-primary); background: rgba(13, 5, 9, .75); font: inherit; font-size: 16px; outline: 0; }
 #feedback-form select { min-height: 42px; padding: 8px 10px; }
 #feedback-form textarea { min-height: 120px; padding: 10px; resize: vertical; }
+#feedback-form .feedback-file-field[hidden] { display: none; }
+#feedback-form .feedback-file-field { margin-top: 16px; padding: 14px; border: 1px solid var(--color-border-line); border-radius: 10px; background: rgba(13, 5, 9, .56); }
+#feedback-form .feedback-file-field label { margin-top: 0; }
+#feedback-form input[type="file"] { width: 100%; min-height: 44px; padding: 8px; border: 1px solid var(--color-border-line); border-radius: 8px; color: var(--color-text-primary); background: rgba(13, 5, 9, .75); font: inherit; font-size: 14px; }
+#feedback-form input[type="file"]::file-selector-button { margin-right: 10px; padding: 6px 10px; border: 1px solid var(--color-border-line); border-radius: 999px; color: var(--color-accent-gold-soft); background: var(--color-bg-panel-secondary); font: inherit; cursor: pointer; }
+#feedback-form input[type="file"]:focus-visible { border-color: var(--color-accent-magenta); outline: 2px solid rgba(255, 47, 126, .22); outline-offset: 2px; }
+.feedback-file-help, .feedback-file-name, .feedback-file-status { margin: 8px 0 0; color: var(--color-text-muted); font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.feedback-file-name { color: var(--color-accent-gold-soft); }
+.feedback-file-status.is-error { color: #ff8fae; }
 #feedback-form select:focus, #feedback-form textarea:focus { border-color: var(--color-accent-magenta); box-shadow: 0 0 0 3px rgba(255, 47, 126, .1); }
 .feedback-status { min-height: 20px; margin: 10px 0 0; color: var(--color-text-muted); font-size: 11px; line-height: 1.4; }
 .feedback-status.is-error { color: #ff8fae; }
