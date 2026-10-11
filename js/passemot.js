@@ -321,7 +321,7 @@ function regrouperImagesHasard(images){
     groupes.get(image.category).push(image);
   });
 
-  const ordreSouhaite = ["Actions", "Lieu", "Accessoires", "Positions", "Rituel", "Tenue"];
+  const ordreSouhaite = ["Tenue", "Lieu", "Rituel", "Accessoires", "Positions", "Actions" ];
   return [...groupes.entries()]
     .sort(([a], [b]) => {
       const indexA = ordreSouhaite.indexOf(a);
@@ -665,7 +665,7 @@ function creerCarteHasardHTML(groupe){
       </div>
       <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(nomCategorie)}">
         <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
-        <span>Shuffle · ${echapperHTML(nomCategorie)}</span>
+        <span>· ${echapperHTML(nomCategorie)}</span>
       </button>
     </div>
   `;
