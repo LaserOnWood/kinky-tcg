@@ -98,6 +98,8 @@ Le thème officiel **Hasard** propose une carte tirée au hasard dans chaque dos
 
 Les cartes affichées sont alimentées par `assets/cartes/index.json`, généré à partir des dossiers d'images. Après l'ajout, le retrait ou le déplacement d'une illustration, régénérez l'inventaire avec `npm run gallery:index`. Les nouveaux dossiers deviennent ainsi des catégories de tirage sans qu'il soit nécessaire d'ajouter leurs images une à une dans `json/cartes.json`.
 
+La logique propre à ce mode — chargement et regroupement du catalogue, tirages, rendu des cartes et boutons **Shuffle** — est isolée dans `js/hasard.js`. `js/passemot.js` garde l'orchestration générale du jeu et du changement de thème.
+
 ### 💎 Les six raretés
 
 Elles indiquent le caractère exceptionnel d'une carte, pas la difficulté de son mot de passe :
@@ -232,6 +234,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   └── feedback-page.css # Mise en page dédiée au feedback
 ├── js/
 │   ├── passemot.js       # Logique principale du jeu
+│   ├── hasard.js         # Mode Hasard : catalogue, tirages, cartes et interactions
 │   ├── audio.js          # Sons
 │   ├── carousel.js       # Carrousel de thèmes
 │   ├── feedback.js       # Traitement partagé du formulaire de retours

@@ -23,7 +23,6 @@
    =========================================================================== */
 
 const CARTES_URL = "json/cartes.json";
-const HASARD_CATALOGUE_URL = "assets/cartes/index.json";
 
 // Mode "plat" : mêmes clés que l'ancien tcg/js/passemot.js (progression conservée).
 const FLAT_STORAGE_KEY = "kinky_tcg_progress_v0.4.a.hints";
@@ -58,9 +57,6 @@ let debloquees = new Set();
 let indicesReveles = {};
 let completionSonJouePourTheme = false;
 let THEMES_OFFICIELS = [];
-let modeHasardActif = false;
-let categoriesHasard = [];
-let tiragesHasard = new Map();
 let themeSelectionRequestId = 0;
 
 /* ===========================================================================
@@ -282,76 +278,6 @@ async function chargerDonnees(){
   }
 }
 
-// L'inventaire est généré depuis les dossiers assets/cartes/<catégorie>/.
-// Les chemins sont contrôlés avant d'être utilisés dans le jeu.
-async function chargerCatalogueHasard(){
-  const reponse = await fetch(HASARD_CATALOGUE_URL, { cache: "no-store" });
-  if(!reponse.ok){
-    throw new Error(`Impossible de charger ${HASARD_CATALOGUE_URL} (${reponse.status}).`);
-  }
-
-  const donnees = await reponse.json();
-  if(!Array.isArray(donnees)){
-    throw new Error("L'inventaire des images doit être une liste.");
-  }
-
-  return donnees
-    .filter(image => {
-      if(!image || typeof image !== "object"){ return false; }
-      const category = String(image.category ?? "").trim();
-      const path = String(image.path ?? "").trim();
-      return Boolean(
-        category && !category.includes("/") && !category.includes("\\") &&
-        path.startsWith(`assets/cartes/${category}/`) &&
-        !path.split("/").includes("..") &&
-        /\.(webp|png|jpe?g|gif)$/i.test(path)
-      );
-    })
-    .map(image => ({
-      category: String(image.category).trim(),
-      name: (typeof image.name === "string" && image.name.trim()) ? image.name.trim() : String(image.path).split("/").pop(),
-      path: String(image.path).trim()
-    }));
-}
-
-function regrouperImagesHasard(images){
-  const groupes = new Map();
-  images.forEach(image => {
-    if(!groupes.has(image.category)){ groupes.set(image.category, []); }
-    groupes.get(image.category).push(image);
-  });
-
-  const ordreSouhaite = ["Tenue", "Lieu", "Rituel", "Accessoires", "Positions", "Actions" ];
-  return [...groupes.entries()]
-    .sort(([a], [b]) => {
-      const indexA = ordreSouhaite.indexOf(a);
-      const indexB = ordreSouhaite.indexOf(b);
-      if(indexA < 0 && indexB < 0){ return a.localeCompare(b, "fr"); }
-      if(indexA < 0){ return 1; }
-      if(indexB < 0){ return -1; }
-      return indexA - indexB;
-    })
-    .map(([name, cards]) => ({ name, cards }));
-}
-
-function nomCategorieHasard(categorie){
-  const libelles = {
-    Actions: "Action",
-    Accessoires: "Accessoire",
-    Positions: "Position",
-    Lieu: "Lieu",
-    Rituel: "Rituel",
-    Tenue: "Tenue"
-  };
-  return libelles[categorie] || categorie;
-}
-
-function tirerCarteHasard(cartes, cheminActuel = ""){
-  const autresCartes = cartes.filter(carte => carte.path !== cheminActuel);
-  const choix = autresCartes.length ? autresCartes : cartes;
-  return choix[Math.floor(Math.random() * choix.length)];
-}
-
 /* ===========================================================================
    AGRANDISSEMENT DE L'IMAGE (LIGHTBOX)
    ---------------------------------------------------------------------------
@@ -433,20 +359,12 @@ async function choisirTheme(themeId){
 
   const requestId = ++themeSelectionRequestId;
   const estHasard = theme.mode === "hasard";
-  let categoriesPreparees = [];
-  let tiragesPrepares = new Map();
+  let preparationHasard = null;
 
   if(estHasard){
     try{
-      const inventaire = await chargerCatalogueHasard();
-      categoriesPreparees = regrouperImagesHasard(inventaire).filter(groupe => groupe.cards.length > 0);
-      if(!categoriesPreparees.length){
-        throw new Error("Aucune image n'a été trouvée dans les dossiers de catégories.");
-      }
+      preparationHasard = await window.HasardMode.preparer();
       if(requestId !== themeSelectionRequestId){ return; }
-      tiragesPrepares = new Map(
-        categoriesPreparees.map(groupe => [groupe.name, tirerCarteHasard(groupe.cards)])
-      );
     }catch(erreur){
       if(requestId !== themeSelectionRequestId){ return; }
       console.error("Chargement du niveau Hasard impossible :", erreur);
@@ -461,9 +379,12 @@ async function choisirTheme(themeId){
   }
   if(requestId !== themeSelectionRequestId){ return; }
 
-  modeHasardActif = estHasard;
-  categoriesHasard = categoriesPreparees;
-  tiragesHasard = tiragesPrepares;
+  if(estHasard){
+    window.HasardMode.activer(preparationHasard);
+  }else{
+    window.HasardMode.desactiver();
+  }
+  const modeHasardActif = window.HasardMode.estActif();
   const status = $("level-import-status");
   if(status?.dataset.hasardError === "true"){
     status.className = "level-import-status";
@@ -648,34 +569,15 @@ function creerCarteHTML(carte){
           ${estDebloquee ? creerImageHTML(carte) : ""}
           </div>
       </div>
-    </div>
-  `;
-}
-
-function creerCarteHasardHTML(groupe){
-  const tirage = tiragesHasard.get(groupe.name) || tirerCarteHasard(groupe.cards);
-  const nomCategorie = nomCategorieHasard(groupe.name);
-
-  return `
-    <div class="card-slot hasard-slot" role="group" aria-label="Carte ${echapperHTML(nomCategorie)}">
-      <div class="card unlocked hasard-card">
-        <div class="face front">
-          <img class="art hasard-art" src="${echapperHTML(tirage.path)}" alt="${echapperHTML(nomCategorie)} : ${echapperHTML(tirage.name)}" loading="lazy">
-        </div>
       </div>
-      <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(nomCategorie)}">
-        <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
-        <span>· ${echapperHTML(nomCategorie)}</span>
-      </button>
     </div>
   `;
 }
-
 function rendreGrille(){
   const grid = $("grid");
-  if(modeHasardActif){
+  if(window.HasardMode.estActif()){
     grid.classList.add("hasard-grid");
-    grid.innerHTML = categoriesHasard.map(creerCarteHasardHTML).join("");
+    window.HasardMode.rendreGrille(grid);
     return;
   }
 
@@ -693,27 +595,14 @@ function rendreGrille(){
 // Clic sur l'illustration d'une carte débloquée : ouvre l'aperçu en grand.
 // Délégation d'événements : fonctionne aussi pour les images ajoutées lors d'un déblocage.
 $("grid")?.addEventListener("click", evenement => {
-  const boutonMelanger = evenement.target.closest("[data-hasard-category]");
-  if(boutonMelanger && modeHasardActif){
-    evenement.stopPropagation();
-    const nom = boutonMelanger.dataset.hasardCategory;
-    const groupe = categoriesHasard.find(categorie => categorie.name === nom);
-    if(!groupe){ return; }
-    const positionCarrousel = $("grid").scrollLeft;
-    const tirageActuel = tiragesHasard.get(nom);
-    tiragesHasard.set(nom, tirerCarteHasard(groupe.cards, tirageActuel?.path));
-    rendreGrille();
-    $("grid").scrollLeft = positionCarrousel;
-    return;
-  }
+  if(window.HasardMode.gererClicGrille(evenement, {
+    grille: $("grid"),
+    rendre: rendreGrille,
+    ouvrirLightbox
+  })){ return; }
 
   const image = evenement.target.closest(".art");
   if(!image){ return; }
-  if(modeHasardActif){
-    evenement.stopPropagation();
-    ouvrirLightbox(image.src, image.alt);
-    return;
-  }
   const carteElement = image.closest(".card");
   if(!carteElement || !carteElement.classList.contains("unlocked")){ return; }
   evenement.stopPropagation();
@@ -791,7 +680,7 @@ function afficherIndiceSupplementaire(carteId){
 // « revelation » (optionnel) : promesse de revelerCarte(). L'écran de fin
 // attend alors la fin du flip au lieu de le masquer aussitôt.
 function rendreProgression(revelation = null){
-  if(modeHasardActif){ return; }
+  if(window.HasardMode.estActif()){ return; }
   const total = CARTES.length;
   const n = debloquees.size;
   $("progress-label").textContent = `${n} / ${total}`;
