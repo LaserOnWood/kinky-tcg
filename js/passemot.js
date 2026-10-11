@@ -657,23 +657,16 @@ function creerCarteHasardHTML(groupe){
   const nomCategorie = nomCategorieHasard(groupe.name);
 
   return `
-    <div class="card-slot hasard-slot">
-      <section class="hasard-category" aria-label="Catégorie ${echapperHTML(nomCategorie)}">
-        <div class="hasard-category-heading">
-          <span class="hasard-category-kicker">Catégorie</span>
-          <h2>${echapperHTML(nomCategorie)}</h2>
-        </div>
-        <button class="hasard-art-open" type="button" aria-label="Agrandir la carte ${echapperHTML(tirage.name)}">
+    <div class="card-slot hasard-slot" role="group" aria-label="Carte ${echapperHTML(nomCategorie)}">
+      <div class="card unlocked hasard-card">
+        <div class="face front">
           <img class="art hasard-art" src="${echapperHTML(tirage.path)}" alt="${echapperHTML(nomCategorie)} : ${echapperHTML(tirage.name)}" loading="lazy">
-        </button>
-        <div class="hasard-card-footer">
-          <p class="hasard-card-name">${echapperHTML(tirage.name)}</p>
-          <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(nomCategorie)}">
-            <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
-            <span>Shuffle</span>
-          </button>
         </div>
-      </section>
+      </div>
+      <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(nomCategorie)}">
+        <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+        <span>Shuffle · ${echapperHTML(nomCategorie)}</span>
+      </button>
     </div>
   `;
 }
