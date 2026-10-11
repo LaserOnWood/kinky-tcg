@@ -184,7 +184,7 @@ Sans configuration, le jeu fonctionne normalement : l'envoi échoue en silence e
 
 Sur Vercel, le fonctionnement reste inchangé : les fonctions `api/notification.js` et `api/feedback.js` utilisent les variables d'environnement ci-dessus. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
 
-Le bouton **Feedback** dans une partie conserve sa popup. La page `feedback.html` propose le même formulaire dans une vue dédiée, accessible depuis l'accueil, depuis la popup et depuis le raccourci de l'application installée.
+Le bouton **Feedback** dans une partie conserve sa popup. La page `feedback.html` propose le même formulaire dans une vue dédiée, accessible depuis l'accueil, depuis la popup et depuis le raccourci de l'application installée. Pour le motif **Proposition de niveau**, le formulaire demande un export JSON du level-builder (512 Ko maximum). L’API vérifie le schéma et les cartes avant de joindre le fichier au message Discord ; elle ne l’importe pas automatiquement dans le jeu.
 
 ### Tester les notifications sans Vercel
 
