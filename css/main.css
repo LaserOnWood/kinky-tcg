@@ -46,7 +46,7 @@
 
   /* Variables structurelles */
   --selection-max-width: 1180px;
-  --theme-card-width: 100%;
+  --theme-card-width: 340px;
   --game-header-height: clamp(92px, 15dvh, 132px);
   --game-footer-height: 88px;
   --card-aspect-ratio: 5/7.3;
@@ -336,13 +336,13 @@ body {
   box-shadow: none !important;
 }
 
-/* ===== CARTES DE THÈME — UNE CARTE OCCUPE TOUTE LA LARGEUR ===== */
+/* ===== CARTES DE THÈME — LARGEUR FIXE, ZONE DU CARROUSEL PLEINE LARGEUR ===== */
 .theme-card {
   position: relative;
   isolation: isolate;
   flex: 0 0 var(--theme-card-width);
   width: var(--theme-card-width);
-  max-width: 100%;
+  max-width: min(var(--theme-card-width), 100%);
   min-height: 410px;
   display: flex;
   flex-direction: column;
@@ -409,7 +409,7 @@ body {
 
 .theme-card:focus-visible,
 .theme-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.02);
   border-color: var(--color-accent-gold-primary);
   box-shadow: 0 28px 55px rgba(0, 0, 0, 0.62), 0 0 24px rgba(255, 47, 126, 0.18);
   outline: 0;
@@ -1221,7 +1221,7 @@ body {
    RESPONSIVE — SEULEMENT LES CORRECTIONS ANTI-DÉBORDEMENT
    ========================================================================== */
 
-/* ===== SUR TOUS LES TÉLÉPHONES : LE THÈME REMPLIT LA ZONE DISPONIBLE ===== */
+/* ===== SUR TOUS LES TÉLÉPHONES : CARTES À 340 PX, ADAPTÉES AUX ÉCRANS PLUS ÉTROITS ===== */
 @media screen and (max-width: 768px) {
   body,
   .selection-screen,
@@ -1234,14 +1234,14 @@ body {
   }
   
   .theme-card {
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    flex: 0 0 var(--theme-card-width) !important;
+    width: var(--theme-card-width) !important;
+    max-width: min(var(--theme-card-width), 100%) !important;
     min-width: 0 !important;
   }
   
   .themes-container, .themes-list {
-    padding-inline: 4px !important;
+    padding-inline: max(4px, calc((100% - min(var(--theme-card-width), 100%)) / 2)) !important;
   }
 }
 
@@ -1250,12 +1250,12 @@ body {
   .themes-container, .themes-list {
     justify-content: flex-start;
     overflow-x: auto;
-    padding-inline: 4px;
+    padding-inline: max(16px, calc((100% - var(--theme-card-width)) / 2));
   }
   .theme-card {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 var(--theme-card-width);
+    width: var(--theme-card-width);
+    max-width: min(var(--theme-card-width), 100%);
   }
 }
 
@@ -1263,12 +1263,12 @@ body {
 @media (max-width: 899px) {
   .themes-container, .themes-list {
     margin-inline: 0;
-    padding-inline: 4px;
+    padding-inline: max(4px, calc((100% - min(var(--theme-card-width), 100%)) / 2));
   }
   .theme-card {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 var(--theme-card-width);
+    width: var(--theme-card-width);
+    max-width: min(var(--theme-card-width), 100%);
   }
 }
 
