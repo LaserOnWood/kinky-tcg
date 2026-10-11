@@ -46,7 +46,7 @@
 
   /* Variables structurelles */
   --selection-max-width: 1180px;
-  --theme-card-width: 340px;  /* Taille originale */
+  --theme-card-width: 100%;
   --game-header-height: clamp(92px, 15dvh, 132px);
   --game-footer-height: 88px;
   --card-aspect-ratio: 5/7.3;
@@ -286,7 +286,7 @@ body {
 
 .themes-stage {
   width: 100%;
-  max-width: var(--selection-max-width);
+  max-width: none;
   min-height: 0;
   flex: 1 1 0;
   position: relative;
@@ -336,11 +336,13 @@ body {
   box-shadow: none !important;
 }
 
-/* ===== CARTES DE THÈME — TAILLE ORIGINALE CONSERVÉE ===== */
+/* ===== CARTES DE THÈME — UNE CARTE OCCUPE TOUTE LA LARGEUR ===== */
 .theme-card {
   position: relative;
   isolation: isolate;
-  flex: 0 0 var(--theme-card-width); /* ← 340px comme avant */
+  flex: 0 0 var(--theme-card-width);
+  width: var(--theme-card-width);
+  max-width: 100%;
   min-height: 410px;
   display: flex;
   flex-direction: column;
@@ -407,7 +409,7 @@ body {
 
 .theme-card:focus-visible,
 .theme-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
   border-color: var(--color-accent-gold-primary);
   box-shadow: 0 28px 55px rgba(0, 0, 0, 0.62), 0 0 24px rgba(255, 47, 126, 0.18);
   outline: 0;
@@ -1219,7 +1221,7 @@ body {
    RESPONSIVE — SEULEMENT LES CORRECTIONS ANTI-DÉBORDEMENT
    ========================================================================== */
 
-/* ===== SUR TOUS LES TÉLÉPHONES : SÉCURITÉ ANTI-DÉBORDEMENT ===== */
+/* ===== SUR TOUS LES TÉLÉPHONES : LE THÈME REMPLIT LA ZONE DISPONIBLE ===== */
 @media screen and (max-width: 768px) {
   body,
   .selection-screen,
@@ -1231,16 +1233,15 @@ body {
     overflow-x: hidden !important;
   }
   
-  /* On garde la taille originale des cartes, on empêche juste le débordement */
   .theme-card {
-    flex: 0 0 var(--theme-card-width) !important; /* ← 340px conservé */
-    max-width: 85vw !important; /* ← Empêche de dépasser */
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
     min-width: 0 !important;
   }
   
-  /* On ajuste le padding du conteneur pour que la carte reste centrée */
   .themes-container, .themes-list {
-    padding-inline: max(4px, calc((100% - min(85vw, 340px)) / 2)) !important;
+    padding-inline: 4px !important;
   }
 }
 
@@ -1249,22 +1250,25 @@ body {
   .themes-container, .themes-list {
     justify-content: flex-start;
     overflow-x: auto;
-    padding-inline: max(16px, calc((100% - var(--theme-card-width)) / 2));
+    padding-inline: 4px;
   }
   .theme-card {
-    flex: 0 0 var(--theme-card-width);
-    max-width: var(--theme-card-width);
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
 /* ===== LE RESTE DU RESPONSIVE EXISTANT (inchangé) ===== */
 @media (max-width: 899px) {
   .themes-container, .themes-list {
-    margin-inline: -4px;
-    padding-inline: calc((100% - min(90vw, var(--theme-card-width))) / 2);
+    margin-inline: 0;
+    padding-inline: 4px;
   }
   .theme-card {
-    flex: 0 0 min(90vw, var(--theme-card-width));
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
