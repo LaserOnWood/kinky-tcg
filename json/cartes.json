@@ -245,6 +245,37 @@
       ]
     },
     {
+      "id": "Halloween",
+      "name": "Halloween",
+      "description": "Dans le but de faire la fete de façon exceptionnelle et de graver cet moment dans nos mémoires.",
+      "difficulty": "Perversion",
+      "seal": "🎃",
+      "cards": [
+        {
+          "id": 501,
+          "type": "Tenue",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Tenue/Bonne_soeur.webp",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Coquine"
+        },
+        {
+          "id": 502,
+          "type": "Accesoire",
+          "_comment": "Mot de passe : Lune",
+          "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+          "hints": ["Elle éclaire dans l'obscurité.", "On l'appercoit dans le ciel.", "Elle nous tourne autour"],
+          "title": "La Lune",
+          "image": "assets/cartes/Accessoires/Bandeau.webp",
+          "description": "La tenue est pose dans la salle de bain.",
+          "rarity": "Audacieuse"
+        }
+      ]
+    },
+    {
       "id": "Noel",
       "name": "Noel",
       "description": "Dans le but de faire la fete de façon exceptionnelle et de graver cet moment dans nos mémoires.",
@@ -320,8 +351,8 @@
       ]
     },
     {
-      "id": "Parc",
-      "name": "Sorti Nocturne",
+      "id": "ParcNocturne",
+      "name": "Sorti Nocturne au Parc",
       "description": "Une petit sortie nocturne au parc ?",
       "difficulty": "Dépravation",
       "seal": "💋",
