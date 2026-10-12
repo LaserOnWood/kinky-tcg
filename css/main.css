@@ -381,31 +381,82 @@ body {
   transition: opacity 0.35s, background-position 0.6s;
 }
 
-/* Variations dynamiques de fond des thèmes */
-.theme-card:nth-child(4n+1) {
+/* Variations dynamiques de fond des thèmes (cycle de 8) + halo qui pulse */
+
+/* Variable animable : multiplicateur de l'intensité et de la taille du halo */
+@property --pulse {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@keyframes halo-pulse {
+  0%, 100% { --pulse: 0.75; }
+  50%      { --pulse: 1.2; }
+}
+
+.theme-card {
+  /* Valeurs par défaut = variation 1 (rose magenta) */
+  --halo-rgb: 255, 47, 126;
+  --halo-pos: 70% 12%;
+  --halo-alpha: 0.33;
+  --halo-size: 38%;
+  --bg-from: #421327;
+  --halo-delay: 0s;
+
   background:
     linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
-    radial-gradient(circle at 70% 12%, rgba(255, 47, 126, 0.33), transparent 38%),
-    linear-gradient(145deg, #421327, #1a0b14 68%);
+    radial-gradient(
+      circle at var(--halo-pos),
+      rgba(var(--halo-rgb), calc(var(--halo-alpha) * var(--pulse))),
+      transparent calc(var(--halo-size) * var(--pulse))
+    ),
+    linear-gradient(145deg, var(--bg-from), #1a0b14 68%);
+
+  animation: halo-pulse 5s ease-in-out infinite;
+  animation-delay: var(--halo-delay);
 }
-.theme-card:nth-child(4n+2) {
+
+.theme-card:nth-child(8n+2) { /* Bleu acier */
+  --halo-rgb: 79, 179, 217;  --halo-pos: 30% 15%;  --halo-alpha: 0.35;
+  --bg-from: #123347;        --halo-delay: -0.6s;
+}
+.theme-card:nth-child(8n+3) { /* Or */
+  --halo-rgb: 217, 169, 79;  --halo-pos: 72% 12%;  --halo-alpha: 0.36;
+  --bg-from: #573711;        --halo-delay: -1.2s;
+}
+.theme-card:nth-child(8n+4) { /* Platine */
+  --halo-rgb: 229, 228, 226; --halo-pos: 28% 16%;  --halo-alpha: 0.30;
+  --bg-from: #403e47;        --halo-delay: -1.8s;
+}
+.theme-card:nth-child(8n+5) { /* Violet améthyste */
+  --halo-rgb: 168, 99, 235;  --halo-pos: 50% 10%;  --halo-alpha: 0.38;  --halo-size: 40%;
+  --bg-from: #2f1450;        --halo-delay: -2.4s;
+}
+.theme-card:nth-child(8n+6) { /* Vert émeraude */
+  --halo-rgb: 62, 201, 140;  --halo-pos: 20% 14%;  --halo-alpha: 0.34;
+  --bg-from: #0f3d2e;        --halo-delay: -3s;
+}
+.theme-card:nth-child(8n+7) { /* Rouge rubis */
+  --halo-rgb: 230, 40, 56;   --halo-pos: 76% 18%;  --halo-alpha: 0.36;
+  --bg-from: #4d0f18;        --halo-delay: -3.6s;
+}
+.theme-card:nth-child(8n+8) { /* Rose cuivré */
+  --halo-rgb: 240, 160, 130; --halo-pos: 45% 12%;  --halo-alpha: 0.34;  --halo-size: 40%;
+  --bg-from: #5c2a26;        --halo-delay: -4.2s;
+}
+
+/* Accessibilité : pas de pulsation si l'utilisateur réduit les animations */
+@media (prefers-reduced-motion: reduce) {
+  .theme-card { animation: none; }
+}
+
+/*.theme-card:nth-child(4n+5) {
   background:
     linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
-    radial-gradient(circle at 30% 15%, rgba(79, 179, 217, 0.35), transparent 38%),
-    linear-gradient(145deg, #123347, #1a0b14 68%);
-}
-.theme-card:nth-child(4n+3) {
-  background:
-    linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
-    radial-gradient(circle at 72% 12%, rgba(217, 169, 79, 0.36), transparent 38%),
-    linear-gradient(145deg, #573711, #1a0b14 68%);
-}
-.theme-card:nth-child(4n+4) {
-  background:
-    linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
-    radial-gradient(circle at 28% 16%, rgba(229, 228, 226, 0.3), transparent 38%),
-    linear-gradient(145deg, #403e47, #1a0b14 68%);
-}
+    radial-gradient(circle at 70% 12%, rgba(175, 255, 47, 0.33), transparent 38%),
+    linear-gradient(145deg, #42133a, #1a0b14 68%);
+}*/
 
 .theme-card:focus-visible,
 .theme-card:hover {
