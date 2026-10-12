@@ -48,3 +48,18 @@
 .feedback-submit:disabled { cursor: wait; opacity: .6; }
 @media (max-width: 480px) { .feedback-open span { display: none; } .feedback-modal-panel { padding: 28px 20px 22px; } }
 .header-left .feedback-open { flex: 0 0 auto; }
+
+/* Mobile : le bouton Feedback (icône seule) prend les mêmes dimensions que le
+   bouton Retour (rond de 40 px) au lieu d'un ovale étroit, avec un petit espace entre les deux. */
+@media (max-width: 699px) {
+  .header-left { align-items: center; gap: 8px; }
+  .header-left .feedback-open {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 1;
+  }
+}
