@@ -1,6 +1,141 @@
 /*
- * Kinky TCG — carrousel de sélection des thèmes v2
+ * Kinky TCG — carrousels (thèmes + cartes du jeu) v3
+ * - Carrousel de sélection des thèmes (flèches, points, glisser, clavier)
+ * - Molette de souris : un cran = une carte, dans les thèmes ET dans le jeu
  */
+
+/* ===========================================================================
+   MOLETTE DE SOURIS → UN CRAN = UNE CARTE (compatible scroll-snap)
+   ---------------------------------------------------------------------------
+   zone      : élément qui capte la molette
+   conteneur : élément qui défile horizontalement
+   selecteur : sélecteur CSS des cartes à parcourir
+   =========================================================================== */
+function activerMolette({ zone, conteneur, selecteur }) {
+  if (!zone || !conteneur) return;
+
+  const reduireMouvement = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+  let cible = null;       // index de la carte visée pendant le défilement
+  let cibleScroll = 0;    // position de défilement (px) correspondant à cette carte
+  let animation = null;   // identifiant requestAnimationFrame
+  let dernierTemps = 0;
+  let verrou = false;     // trackpad : une seule carte par geste
+  let cumul = 0;          // trackpad : cumul des petits déplacements
+  let resetCumul;
+
+  // Index de la carte la plus proche du centre visible du conteneur.
+  const carteCentrale = (cartes) => {
+    const rect = conteneur.getBoundingClientRect();
+    const centre = rect.left + rect.width / 2;
+    let meilleure = 0;
+    let meilleureDistance = Infinity;
+    cartes.forEach((carte, index) => {
+      const r = carte.getBoundingClientRect();
+      const distance = Math.abs(r.left + r.width / 2 - centre);
+      if (distance < meilleureDistance) {
+        meilleureDistance = distance;
+        meilleure = index;
+      }
+    });
+    return meilleure;
+  };
+
+  // Arrête l'animation et rend la main au navigateur (snap + défilement fluide du CSS).
+  const arreter = () => {
+    if (animation !== null) cancelAnimationFrame(animation);
+    animation = null;
+    cible = null;
+    conteneur.style.scrollSnapType = "";
+    conteneur.style.scrollBehavior = "";
+  };
+
+  // Une image de l'animation : on se rapproche de la cible (jamais de blocage).
+  const pas = (temps) => {
+    const dt = Math.min(50, temps - dernierTemps);
+    dernierTemps = temps;
+
+    const ecart = cibleScroll - conteneur.scrollLeft;
+    if (Math.abs(ecart) < 0.5) {
+      conteneur.scrollLeft = cibleScroll;
+      arreter(); // le snap se réactive et reste sur la carte centrée
+      return;
+    }
+
+    let delta = ecart * (1 - Math.exp(-dt / 90));
+    if (Math.abs(delta) < 1) delta = Math.sign(ecart) * Math.min(1, Math.abs(ecart));
+    conteneur.scrollLeft += delta;
+    animation = requestAnimationFrame(pas);
+  };
+
+  // Avance d'une carte à partir de la carte déjà visée (ou de la carte centrale).
+  // Chaque appel s'additionne : 5 crans rapprochés = 5 cartes.
+  const aller = (cartes, sens) => {
+    const depart = cible ?? carteCentrale(cartes);
+    const arrivee = Math.max(0, Math.min(cartes.length - 1, depart + sens));
+    if (arrivee === depart) return;
+
+    cible = arrivee;
+    const rect = conteneur.getBoundingClientRect();
+    const r = cartes[arrivee].getBoundingClientRect();
+    const max = conteneur.scrollWidth - conteneur.clientWidth;
+    cibleScroll = Math.max(0, Math.min(max,
+      conteneur.scrollLeft + (r.left + r.width / 2) - (rect.left + rect.width / 2)));
+
+    if (reduireMouvement) {
+      arreter();
+      conteneur.scrollLeft = cibleScroll;
+      return;
+    }
+
+    // Pendant l'animation, on suspend le snap et le défilement fluide du CSS.
+    conteneur.style.scrollSnapType = "none";
+    conteneur.style.scrollBehavior = "auto";
+    if (animation === null) {
+      dernierTemps = performance.now();
+      animation = requestAnimationFrame(pas);
+    }
+  };
+
+  // Si l'utilisateur touche ou fait glisser le carrousel, on arrête l'animation.
+  conteneur.addEventListener("pointerdown", arreter);
+  conteneur.addEventListener("touchstart", arreter, { passive: true });
+
+  zone.addEventListener("wheel", (event) => {
+    if (event.ctrlKey) return;                                   // zoom par pincement
+    if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return; // geste horizontal : géré nativement
+
+    const cartes = [...conteneur.querySelectorAll(selecteur)];
+    if (cartes.length < 2 || conteneur.scrollWidth <= conteneur.clientWidth) return;
+    if (!event.deltaY) return;
+
+    event.preventDefault();
+    const sens = event.deltaY > 0 ? 1 : -1;
+
+    // Molette de souris (crans nets) : chaque cran = une carte, sans blocage.
+    const estCran = event.deltaMode !== 0 || Math.abs(event.deltaY) >= 50;
+    if (estCran) {
+      aller(cartes, sens);
+      return;
+    }
+
+    // Trackpad (nombreux petits déplacements) : une carte par geste.
+    if (verrou) return;
+    cumul += event.deltaY;
+    clearTimeout(resetCumul);
+    resetCumul = setTimeout(() => { cumul = 0; }, 200);
+    if (Math.abs(cumul) < 40) return;
+
+    aller(cartes, cumul > 0 ? 1 : -1);
+    cumul = 0;
+    verrou = true;
+    setTimeout(() => { verrou = false; }, 450);
+  }, { passive: false });
+}
+
+/* ===========================================================================
+   CARROUSEL DE SÉLECTION DES THÈMES
+   =========================================================================== */
 (() => {
   const container = document.getElementById("themes-container");
   const dots = document.getElementById("theme-dots");
@@ -42,31 +177,13 @@
   previous?.addEventListener("click", () => scrollToCard(activeIndex - 1));
   next?.addEventListener("click", () => scrollToCard(activeIndex + 1));
 
-  // La zone étant horizontale, transforme la molette verticale en défilement
-  // horizontal. La conversion de deltaMode évite les écarts entre souris,
-  // trackpads et navigateurs.
-  const handleWheel = event => {
-    const themesStage = container.closest(".themes-stage");
-    if (!themesStage?.contains(event.target)) return;
-
-    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? container.clientWidth : 1;
-    // Une roulette classique envoie deltaY ; une roulette horizontale ou un
-    // trackpad peut envoyer deltaX. On ne les additionne pas pour éviter une
-    // annulation lorsque les deux axes sont renseignés.
-    const rawDistance = Math.abs(event.deltaY) > 0 ? event.deltaY : event.deltaX;
-    const distance = rawDistance * unit;
-    const maxScrollLeft = container.scrollWidth - container.clientWidth;
-    if (!Number.isFinite(distance) || !distance || maxScrollLeft <= 0) return;
-
-    const nextScrollLeft = Math.max(0, Math.min(maxScrollLeft, container.scrollLeft + distance));
-    event.preventDefault();
-    container.scrollTo({ left: nextScrollLeft, behavior: "smooth" });
-  };
-
-  // Capture au niveau document : certains navigateurs traitent la molette
-  // avant le conteneur scrollable, notamment quand le pointeur est sur une
-  // carte enfant.
-  document.addEventListener("wheel", handleWheel, { passive: false, capture: true });
+  // Molette : un thème à la fois (le scroll-snap du CSS annulait les petits
+  // défilements pixel par pixel de l'ancienne version).
+  activerMolette({
+    zone: container.closest(".themes-stage"),
+    conteneur: container,
+    selecteur: ".theme-card"
+  });
 
   // Alternative fiable avec une souris qui ne possède pas de molette horizontale.
   let dragStartX = 0;
@@ -167,3 +284,12 @@
 
   updateDots();
 })();
+
+/* ===========================================================================
+   CARTES DU JEU : molette (valable aussi pour le thème Hasard)
+   =========================================================================== */
+activerMolette({
+  zone: document.getElementById("grid"),
+  conteneur: document.getElementById("grid"),
+  selecteur: ".card-slot"
+});
