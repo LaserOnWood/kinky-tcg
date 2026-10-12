@@ -908,8 +908,8 @@ body {
 }
 
 .seal {
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   /* Mêmes couleurs que la carte de thème (variables --halo-* / --bg-from de data-tone) */
   background:
@@ -920,7 +920,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 30px;
   color: var(--color-bg-main);
   box-shadow: 0 0 0 3px rgba(217, 169, 79, 0.15), 0 4px 14px rgba(0, 0, 0, 0.5);
 }
@@ -948,7 +948,7 @@ body {
   content: "— indice — ";
   display: block;
   color: var(--color-accent-gold-primary);
-  font-size: 9.5px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 4px;
@@ -956,12 +956,12 @@ body {
 
 .hint-btn {
   margin-top: 8px;
-  padding: 6px 12px;
+  padding: 6px 16px;
   background: linear-gradient(100deg, var(--color-accent-magenta), var(--color-accent-gold-soft));
   border: none;
   border-radius: 99px;
   color: #fff;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.05em;
   cursor: pointer;
