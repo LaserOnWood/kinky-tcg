@@ -341,12 +341,12 @@ function afficherSelectionThemes(){
   gameContent.classList.add("hidden");
 
   container.innerHTML = THEMES.map(theme => `
-    <div class="theme-card${theme.__importe ? " imported-theme-card" : ""}" data-theme-id="${echapperHTML(theme.id)}">
+    <div class="theme-card${theme.__importe ? " imported-theme-card" : ""}" data-theme-id="${echapperHTML(theme.id)}" role="button" tabindex="0">
       ${theme.__importe ? `<button class="remove-imported-theme" type="button" data-remove-theme="${echapperHTML(theme.id)}" aria-label="Supprimer le niveau importé">Supprimer</button>` : ""}
       <h3>${echapperHTML(theme.name)}</h3>
       <p>${echapperHTML(theme.description)}</p>
       <div class="theme-info">
-        <span class="diff-badge">${echapperHTML(theme.difficulty)}</span>
+        <span class="difficulty-badge">${echapperHTML(theme.difficulty)}</span>
         <span class="card-count">${theme.mode === "hasard" ? "Tirages par catégorie" : `${theme.cards.length} cartes`}</span>
       </div>
     </div>
@@ -458,6 +458,13 @@ $("themes-container")?.addEventListener("click", evenement => {
   const carte = evenement.target.closest(".theme-card");
   if(carte && carte.dataset.themeId){
     choisirTheme(carte.dataset.themeId);
+  }
+});
+
+$("themes-container")?.addEventListener("keydown", e => {
+  if((e.key === "Enter" || e.key === " ") && e.target.matches(".theme-card")){
+    e.preventDefault();
+    choisirTheme(e.target.dataset.themeId);
   }
 });
 
