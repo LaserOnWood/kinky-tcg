@@ -393,6 +393,8 @@ async function choisirTheme(themeId){
   }
 
   selectedThemeId = theme.id;
+  // Même variation de couleur que la carte de thème (cycle de 8, voir data-tone dans main.css)
+  $("game-content").dataset.tone = (THEMES.findIndex(t => t.id === theme.id) % 8) + 1;
   CARTES = modeHasardActif ? [] : theme.cards; // les cartes classiques sont déjà validées
   sceauActuel = theme.seal;
   completionSonJouePourTheme = false;

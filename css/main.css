@@ -395,6 +395,16 @@ body {
   50%      { --pulse: 1.2; }
 }
 
+/* Variation 1 (rose magenta) : valeurs par défaut, aussi héritées par .seal dans l'écran de jeu */
+#game-content {
+  --halo-rgb: 255, 47, 126;
+  --halo-pos: 70% 12%;
+  --halo-alpha: 0.33;
+  --halo-size: 38%;
+  --bg-from: #421327;
+  --halo-delay: 0s;
+}
+
 .theme-card {
   /* Valeurs par défaut = variation 1 (rose magenta) */
   --halo-rgb: 255, 47, 126;
@@ -417,38 +427,46 @@ body {
   animation-delay: var(--halo-delay);
 }
 
-.theme-card:nth-child(8n+2) { /* Bleu acier */
+.theme-card:nth-child(8n+2),
+#game-content[data-tone="2"] { /* Bleu acier */
   --halo-rgb: 79, 179, 217;  --halo-pos: 30% 15%;  --halo-alpha: 0.35;
   --bg-from: #123347;        --halo-delay: -0.6s;
 }
-.theme-card:nth-child(8n+3) { /* Or */
+.theme-card:nth-child(8n+3),
+#game-content[data-tone="3"] { /* Or */
   --halo-rgb: 217, 169, 79;  --halo-pos: 72% 12%;  --halo-alpha: 0.36;
   --bg-from: #573711;        --halo-delay: -1.2s;
 }
-.theme-card:nth-child(8n+4) { /* Platine */
+.theme-card:nth-child(8n+4),
+#game-content[data-tone="4"] { /* Platine */
   --halo-rgb: 229, 228, 226; --halo-pos: 28% 16%;  --halo-alpha: 0.30;
   --bg-from: #403e47;        --halo-delay: -1.8s;
 }
-.theme-card:nth-child(8n+5) { /* Violet améthyste */
+.theme-card:nth-child(8n+5),
+#game-content[data-tone="5"] { /* Violet améthyste */
   --halo-rgb: 168, 99, 235;  --halo-pos: 50% 10%;  --halo-alpha: 0.38;  --halo-size: 40%;
   --bg-from: #2f1450;        --halo-delay: -2.4s;
 }
-.theme-card:nth-child(8n+6) { /* Vert émeraude */
+.theme-card:nth-child(8n+6),
+#game-content[data-tone="6"] { /* Vert émeraude */
   --halo-rgb: 62, 201, 140;  --halo-pos: 20% 14%;  --halo-alpha: 0.34;
   --bg-from: #0f3d2e;        --halo-delay: -3s;
 }
-.theme-card:nth-child(8n+7) { /* Rouge rubis */
+.theme-card:nth-child(8n+7),
+#game-content[data-tone="7"] { /* Rouge rubis */
   --halo-rgb: 230, 40, 56;   --halo-pos: 76% 18%;  --halo-alpha: 0.36;
   --bg-from: #4d0f18;        --halo-delay: -3.6s;
 }
-.theme-card:nth-child(8n+8) { /* Rose cuivré */
+.theme-card:nth-child(8n+8),
+#game-content[data-tone="8"] { /* Rose cuivré */
   --halo-rgb: 240, 160, 130; --halo-pos: 45% 12%;  --halo-alpha: 0.34;  --halo-size: 40%;
   --bg-from: #5c2a26;        --halo-delay: -4.2s;
 }
 
 /* Accessibilité : pas de pulsation si l'utilisateur réduit les animations */
 @media (prefers-reduced-motion: reduce) {
-  .theme-card { animation: none; }
+  .theme-card,
+  .seal { animation: none; }
 }
 
 /*.theme-card:nth-child(4n+5) {
@@ -893,7 +911,12 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--color-accent-gold-soft), var(--color-accent-gold-primary) 45%, var(--color-accent-velvet) 100%);
+  /* Mêmes couleurs que la carte de thème (variables --halo-* / --bg-from de data-tone) */
+  background:
+    radial-gradient(circle at 35% 30%, rgba(var(--halo-rgb), calc(var(--halo-alpha) * 2.4 * var(--pulse))), transparent 72%),
+    linear-gradient(145deg, var(--bg-from), var(--color-bg-panel-primary) 85%);
+  animation: halo-pulse 5s ease-in-out infinite;
+  animation-delay: var(--halo-delay);
   display: flex;
   align-items: center;
   justify-content: center;
