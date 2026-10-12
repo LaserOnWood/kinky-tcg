@@ -914,11 +914,11 @@ body {
 }
 
 .back .hint {
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.4;
   color: var(--color-text-muted);
   padding-top: 2px;
-  max-width: 14ch;
+  max-width: 24ch;
 }
 
 .back .hint::before {
