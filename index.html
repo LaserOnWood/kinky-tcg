@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   
   <!-- Style  du jeu. -->
-  <link rel="stylesheet" href="css/main.css?v=20261013-1">
+  <link rel="stylesheet" href="css/main.css?v=20261013-2">
   <link rel="stylesheet" href="css/feedback.css">
   
 </head>
@@ -184,6 +184,14 @@
         <button id="overlay-close" type="button">Fermer</button>
       </div>
     </div>
+  </div>
+
+  <!-- Voile « portrait obligatoire » : affiché uniquement par le CSS (voir ORIENTATION dans main.css)
+       quand un téléphone est tenu en paysage. -->
+  <div id="orientation-lock" class="orientation-lock" role="alert">
+    <i class="fa-solid fa-mobile-screen-button orientation-lock-icon" aria-hidden="true"></i>
+    <p class="orientation-lock-title">Tournez votre téléphone</p>
+    <p class="orientation-lock-text">Kinky TCG se joue en mode portrait.</p>
   </div>
 
   <script src="js/feedback.js"></script>
