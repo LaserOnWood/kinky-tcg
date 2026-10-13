@@ -1,6 +1,23 @@
 /* ==========================================================================
-   Kinky TCG — Styles optimisés et maintenables 
-   (VERSION CORRIGÉE : garde les grandes cartes)
+   Kinky TCG — feuille de style principale
+
+   SOMMAIRE (chercher le titre en MAJUSCULES pour s'y rendre)
+     1. Variables (:root)            couleurs, rayons, polices, tailles
+     2. RÉINITIALISATION & GLOBAUX   anti-débordement horizontal
+     3. TYPOGRAPHIE
+     4. ÉCRAN DE SÉLECTION           carrousel des thèmes, cartes de thème,
+                                     variations de couleur (data-tone) + halo
+     5. ÉCRAN DE JEU (SHELL) / EN-TÊTE DU JEU
+     6. ZONE DES CARTES              dos, face, raretés, holographie, lightbox
+     7. BARRE DE SAISIE / OVERLAY DE COMPLÉTION
+     8. RESPONSIVE                   uniquement les écarts propres à chaque taille
+     9. AIDE CONTEXTUELLE            fenêtre d'informations du niveau
+    10. NIVEAU HASARD
+
+   Règles de maintenance :
+     - Les couleurs répétées passent par des variables de :root.
+     - Un composant = une seule règle par media query (pas de doublons).
+     - Éviter !important : l'ordre dans le fichier suffit presque toujours.
    ========================================================================== */
 
 :root {
@@ -25,6 +42,10 @@
   /* Bordures et ombres */
   --color-border-line: rgba(217, 169, 79, 0.18);
   --shadow-depth-heavy: 0 20px 50px rgba(0, 0, 0, 0.55);
+
+  /* Surfaces et lueurs réutilisées (évite de répéter les rgba en dur) */
+  --color-glass: rgba(26, 11, 20, 0.72);        /* fond translucide des boutons ronds / pastilles */
+  --color-magenta-glow: rgba(255, 47, 126, 0.5); /* liseré et halo magenta */
 
   /* Rayons de bordure */
   --radius-large: 20px;
@@ -248,7 +269,7 @@ body {
   right: 15px;
   z-index: 2;
   padding: 4px 7px;
-  border: 1px solid rgba(255, 47, 126, 0.5);
+  border: 1px solid var(--color-magenta-glow);
   border-radius: 99px;
   color: var(--color-text-primary);
   background: rgba(92, 18, 40, 0.86);
@@ -396,7 +417,8 @@ body {
 }
 
 /* Variation 1 (rose magenta) : valeurs par défaut, aussi héritées par .seal dans l'écran de jeu */
-#game-content {
+#game-content,
+.theme-card {
   --halo-rgb: 255, 47, 126;
   --halo-pos: 70% 12%;
   --halo-alpha: 0.33;
@@ -406,14 +428,6 @@ body {
 }
 
 .theme-card {
-  /* Valeurs par défaut = variation 1 (rose magenta) */
-  --halo-rgb: 255, 47, 126;
-  --halo-pos: 70% 12%;
-  --halo-alpha: 0.33;
-  --halo-size: 38%;
-  --bg-from: #421327;
-  --halo-delay: 0s;
-
   background:
     linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
     radial-gradient(
@@ -421,7 +435,7 @@ body {
       rgba(var(--halo-rgb), calc(var(--halo-alpha) * var(--pulse))),
       transparent calc(var(--halo-size) * var(--pulse))
     ),
-    linear-gradient(145deg, var(--bg-from), #1a0b14 68%);
+    linear-gradient(145deg, var(--bg-from), var(--color-bg-panel-primary) 68%);
 
   animation: halo-pulse 5s ease-in-out infinite;
   animation-delay: var(--halo-delay);
@@ -468,13 +482,6 @@ body {
   .theme-card,
   .seal { animation: none; }
 }
-
-/*.theme-card:nth-child(4n+5) {
-  background:
-    linear-gradient(180deg, rgba(13, 5, 9, 0.05) 15%, rgba(13, 5, 9, 0.94) 86%),
-    radial-gradient(circle at 70% 12%, rgba(175, 255, 47, 0.33), transparent 38%),
-    linear-gradient(145deg, #42133a, #1a0b14 68%);
-}*/
 
 .theme-card:focus-visible,
 .theme-card:hover {
@@ -654,7 +661,7 @@ body {
   border: 1px solid var(--color-border-line);
   border-radius: 999px;
   color: var(--color-text-muted);
-  background: rgba(26, 11, 20, 0.72);
+  background: var(--color-glass);
   font-family: var(--font-family-body);
   font-size: clamp(10px, 2.7vw, 12px);
   line-height: 1;
@@ -708,7 +715,7 @@ body {
   border: 1px solid var(--color-border-line);
   border-radius: 999px;
   color: var(--color-text-muted);
-  background: rgba(26, 11, 20, 0.72);
+  background: var(--color-glass);
   font-family: var(--font-family-body);
   font-size: 12px;
   line-height: 1;
@@ -972,11 +979,11 @@ body {
 
 .hint-btn:active {
   transform: scale(0.95);
-  box-shadow: 0 2px 6px rgba(255, 47, 126, 0.5);
+  box-shadow: 0 2px 6px var(--color-magenta-glow);
 }
 
 .hint-btn:hover {
-  box-shadow: 0 6px 16px rgba(255, 47, 126, 0.5);
+  box-shadow: 0 6px 16px var(--color-magenta-glow);
 }
 
 /* Face de la carte */
@@ -1149,7 +1156,7 @@ body {
   max-width: 100vw;
   margin: 0;
   padding: 5px 14px max(10px, env(safe-area-inset-bottom));
-  background: linear-gradient(0deg, #0d0509 76%, rgba(13, 5, 9, 0.9));
+  background: linear-gradient(0deg, var(--color-bg-main) 76%, rgba(13, 5, 9, 0.9));
   border-top: 1px solid var(--color-border-line);
   overflow-x: hidden;
 }
@@ -1292,57 +1299,24 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE — SEULEMENT LES CORRECTIONS ANTI-DÉBORDEMENT
+   RESPONSIVE
+   Déjà définis dans les règles de base (donc pas répétés ici) :
+     - la largeur des cartes de thème (flex / width / max-width),
+     - le blocage du débordement horizontal (body, écrans, zones, barre).
+   Ne restent ici que les écarts propres à chaque taille d'écran.
    ========================================================================== */
 
-/* ===== SUR TOUS LES TÉLÉPHONES : CARTES À 340 PX, ADAPTÉES AUX ÉCRANS PLUS ÉTROITS ===== */
-@media screen and (max-width: 768px) {
-  body,
-  .selection-screen,
-  .game-shell,
-  .themes-stage,
-  .cards-zone,
-  .entry-bar {
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-  }
-  
-  .theme-card {
-    flex: 0 0 var(--theme-card-width) !important;
-    width: var(--theme-card-width) !important;
-    max-width: min(var(--theme-card-width), 100%) !important;
-    min-width: 0 !important;
-  }
-  
-  .themes-container, .themes-list {
-    padding-inline: max(4px, calc((100% - min(var(--theme-card-width), 100%)) / 2)) !important;
-  }
-}
-
-/* ===== GRANDS ÉCRANS : comportement inchangé ===== */
-@media (min-width: 901px) {
-  .themes-container, .themes-list {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-inline: max(16px, calc((100% - var(--theme-card-width)) / 2));
-  }
-  .theme-card {
-    flex: 0 0 var(--theme-card-width);
-    width: var(--theme-card-width);
-    max-width: min(var(--theme-card-width), 100%);
-  }
-}
-
-/* ===== LE RESTE DU RESPONSIVE EXISTANT (inchangé) ===== */
+/* Carrousel des thèmes : marges latérales qui centrent la carte courante */
 @media (max-width: 899px) {
   .themes-container, .themes-list {
     margin-inline: 0;
     padding-inline: max(4px, calc((100% - min(var(--theme-card-width), 100%)) / 2));
   }
-  .theme-card {
-    flex: 0 0 var(--theme-card-width);
-    width: var(--theme-card-width);
-    max-width: min(var(--theme-card-width), 100%);
+}
+
+@media (min-width: 900px) {
+  .themes-container, .themes-list {
+    padding-inline: max(16px, calc((100% - var(--theme-card-width)) / 2));
   }
 }
 
@@ -1408,7 +1382,8 @@ body {
     padding-left: max(14px, env(safe-area-inset-left));
     padding-right: max(14px, env(safe-area-inset-right));
   }
-  
+
+  /* Boutons ronds de l'en-tête : Retour (gauche) et niveau (droite), 40 px */
   .back-button {
     width: 40px;
     height: 40px;
@@ -1421,38 +1396,20 @@ body {
     font-size: 13px;
     line-height: 1;
   }
-  
-  .level-indicator {
-    padding: 6px 10px;
-    font-size: 11px;
-  }
-  
-  .header-left {
-    grid-area: back;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .header-right {
-    grid-area: level;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .level-indicator {
-    margin-right: 0;
-  }
-  
+
   .back-button span {
     display: none;
   }
+
   .level-indicator {
     width: 40px;
     height: 40px;
+    margin-right: 0;
     padding: 0;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    font-size: 11px;
   }
 
   .level-indicator i {
@@ -1471,6 +1428,18 @@ body {
     color: var(--color-accent-gold-soft);
   }
 
+  .header-left {
+    grid-area: back;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .header-right {
+    grid-area: level;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .entry-inner .sound-toggle {
     width: 40px;
     height: 40px;
@@ -1481,16 +1450,16 @@ body {
   .entry-inner .sound-toggle-label {
     display: none;
   }
-  
+
   .title-block {
     grid-area: title;
     width: 100%;
   }
-  
+
   .game-header .eyebrow-text {
     margin-bottom: 1px;
   }
-  
+
   .game-header h1 {
     margin-bottom: 5px;
     font-size: clamp(18px, 5.5vw, 24px);
@@ -1556,7 +1525,9 @@ body {
 }
 
 
-/* ==========================================================================\n   AIDE CONTEXTUELLE — prototype-level-help\n   ========================================================================== */
+/* ==========================================================================
+   AIDE CONTEXTUELLE — prototype-level-help
+   ========================================================================== */
 .selection-title-row {
   display: flex;
   align-items: center;
@@ -1576,7 +1547,7 @@ body {
   border: 1px solid var(--color-border-line);
   border-radius: 50%;
   color: var(--color-accent-gold-soft);
-  background: rgba(26, 11, 20, 0.72);
+  background: var(--color-glass);
   font-size: 14px;
   cursor: pointer;
   transition: color .2s ease, border-color .2s ease, background .2s ease, transform .15s ease;
