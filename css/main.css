@@ -14,6 +14,13 @@
      9. AIDE CONTEXTUELLE            fenêtre d'informations du niveau
     10. NIVEAU HASARD
 
+   BREAKPOINTS DU PROJET (les variables CSS ne marchent pas dans @media :
+   on les garde donc ici, à respecter pour toute nouvelle règle)
+     - Largeur : 560 px (petit téléphone) et 700 px (structure : en-tête, cartes).
+       700 px s'écrit max-width: 699px / min-width: 700px.
+     - Hauteur : 620 px (écrans très courts) et 760 px (téléphones bas, pliables).
+     - Pas de breakpoint de plus : préférer clamp(), min(), max() ou les unités fluides.
+
    Règles de maintenance :
      - Les couleurs répétées passent par des variables de :root.
      - Un composant = une seule règle par media query (pas de doublons).
@@ -326,6 +333,9 @@ body {
   min-height: 0;
   max-width: none;
   padding: 14px 4px 26px;
+  /* Marges latérales qui centrent la carte courante (4 px minimum, utile seulement
+     sur les écrans très étroits : au-delà, le centrage domine tout seul). */
+  padding-inline: max(4px, calc((100% - min(var(--theme-card-width), 100%)) / 2));
   overflow-x: auto;
   overflow-y: hidden;
   align-items: center;
@@ -1306,20 +1316,6 @@ body {
    Ne restent ici que les écarts propres à chaque taille d'écran.
    ========================================================================== */
 
-/* Carrousel des thèmes : marges latérales qui centrent la carte courante */
-@media (max-width: 899px) {
-  .themes-container, .themes-list {
-    margin-inline: 0;
-    padding-inline: max(4px, calc((100% - min(var(--theme-card-width), 100%)) / 2));
-  }
-}
-
-@media (min-width: 900px) {
-  .themes-container, .themes-list {
-    padding-inline: max(16px, calc((100% - var(--theme-card-width)) / 2));
-  }
-}
-
 @media (max-width: 560px) {
   .selection-screen {
     justify-content: center;
@@ -1635,7 +1631,7 @@ body {
 
 @keyframes info-modal-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-@media (max-width: 520px) {
+@media (max-width: 560px) {
   .selection-title-row { align-items: flex-start; }
   .selection-title-row .info-button { margin-top: 2px; }
   .info-modal-panel { padding: 28px 20px 22px; }
@@ -1697,17 +1693,19 @@ body.info-modal-open { overflow: hidden; }
   z-index: 10;
   top: clamp(9px, 2cqw, 14px);
   right: clamp(9px, 2cqw, 14px);
-  min-height: 42px;
+  /* Entre 360 px et 375 px le bouton passe progressivement de petit à normal
+     (remplace l'ancien breakpoint 360 px). */
+  min-height: clamp(38px, calc(38px + (100vw - 360px) * 0.27), 42px);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  padding: 8px 12px;
+  padding: 8px clamp(9px, calc(9px + (100vw - 360px) * 0.2), 12px);
   border: 1px solid rgba(255, 79, 139, 0.5);
   border-radius: 999px;
   background: rgba(13, 5, 9, 0.88);
   color: var(--color-text-primary);
-  font: 600 11px/1 var(--font-family-body);
+  font: 600 clamp(10px, calc(10px + (100vw - 360px) * 0.07), 11px)/1 var(--font-family-body);
   cursor: pointer;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(8px);
@@ -1728,14 +1726,6 @@ body.info-modal-open { overflow: hidden; }
 .hasard-art-open:focus-visible {
   outline: 2px solid var(--color-accent-gold-soft);
   outline-offset: 3px;
-}
-
-@media (max-width: 360px) {
-  .hasard-shuffle {
-    min-height: 38px;
-    padding-inline: 9px;
-    font-size: 10px;
-  }
 }
 
 @media (min-width: 700px) {
