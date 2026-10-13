@@ -57,7 +57,7 @@
         {
           "id": 201,
           "type": "Boisson",
-          "passwordHash": "87d6ad049783f68f509a18094d29b7e994d86983fa39a2620cfb0f86ec8dfcb0",
+          "passwordHash": "c5f12a310b5628696ac785ad08318dbae71d3cf5c9c1fb5e1c5bcf4512b10df8",
           "hints": ["Un objet pour infuser des plantes.", "Il siffle quand l'eau est chaude."],
           "title": "L'Infusion",
           "image": "https://picsum.photos/seed/zen1/500/700",
