@@ -33,11 +33,13 @@ const THEME_STORAGE_BASE = "kinky_tcg_progress_v0.2";
 const THEME_HINTS_BASE = "kinky_tcg_hints_revealed";
 const IMPORTED_THEMES_KEY = "kinky_tcg_imported_themes_v1";
 
-// Mot de passe organisateur : « toutleniveau » révèle toutes les cartes du
-// thème actuellement ouvert. Seul le hash SHA-256 est conservé dans le code.
+// Mot de passe organisateur : il révèle toutes les cartes du thème actuellement
+// ouvert. Seul son hash SHA-256 est conservé dans le code.
+// NE JAMAIS écrire le mot lui-même ici ni ailleurs dans le dépôt : il est public.
 // Pour le remplacer, calculez le hash du nouveau mot avec hasheur.js ou la
-// console du navigateur, puis remplacez la valeur ci-dessous.
-const MASTER_PASSWORD_HASH = "3e72c11089eb7a46190fde584e7cac86b8b3b9b573d6d681c7720a633bdd9076";
+// console du navigateur (await genererHash("nouveau-mot")), puis remplacez la
+// valeur ci-dessous. Choisissez un mot long et aléatoire : le hash est visible.
+const MASTER_PASSWORD_HASH = "c22f573da61aae95711742f88222f2060ae65e8b103d71c4b39023f25d32c1c0";
 
 const RARETES_AUTORISEES = new Set([
   "Coquine",
@@ -69,6 +71,10 @@ function $(id){
 
 // Calcule le hash SHA-256 (hexadécimal) d'une chaîne, via l'API native du navigateur.
 async function sha256(message){
+  // crypto.subtle n'existe qu'en HTTPS (ou sur localhost) : on le signale clairement.
+  if(!globalThis.crypto?.subtle){
+    throw new Error("CRYPTO_INDISPONIBLE");
+  }
   const data = new TextEncoder().encode(message);
   const hashBuffer = await crypto.subtle.digest("SHA-256", data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
@@ -723,7 +729,27 @@ const btn = $("submit-btn");
 const entryInner = $("entry-inner");
 const feedback = $("feedback");
 
+// Verrou : un second appui sur « Valider » pendant le calcul du hash est ignoré
+// (sinon la carte déjà débloquée par le premier appui affichait une erreur).
+let saisieEnCours = false;
+
 async function tenterDeverrouillage(){
+  if(saisieEnCours){ return; }
+  saisieEnCours = true;
+  try{
+    await traiterSaisie();
+  }catch(erreur){
+    console.error("Validation du mot de passe impossible :", erreur);
+    feedback.textContent = erreur?.message === "CRYPTO_INDISPONIBLE"
+      ? "Ce navigateur bloque le chiffrement hors HTTPS : ouvrez le jeu en https:// (ou via localhost)."
+      : "Une erreur est survenue, réessayez.";
+    feedback.className = "feedback err";
+  }finally{
+    saisieEnCours = false;
+  }
+}
+
+async function traiterSaisie(){
   if(!CARTES.length){ return; }
 
   const saisie = normaliser(input.value);
