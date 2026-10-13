@@ -13,6 +13,7 @@
      8. RESPONSIVE                   uniquement les écarts propres à chaque taille
      9. AIDE CONTEXTUELLE            fenêtre d'informations du niveau
     10. NIVEAU HASARD
+    11. ORIENTATION                 voile « portrait obligatoire » sur téléphone
 
    BREAKPOINTS DU PROJET (les variables CSS ne marchent pas dans @media :
    on les garde donc ici, à respecter pour toute nouvelle règle)
@@ -1738,4 +1739,66 @@ body.info-modal-open { overflow: hidden; }
     flex-basis: min(44cqw, 340px, 64.38cqh);
     width: min(44cqw, 340px, 64.38cqh);
   }
+}
+
+/* ==========================================================================
+   ORIENTATION — PORTRAIT OBLIGATOIRE (téléphones)
+   Le jeu n'est pas conçu pour le paysage. Le manifest bloque déjà la rotation
+   dans l'app installée sur Android ; ce voile couvre le reste (iPhone, onglet
+   du navigateur). Il est purement visuel : rien n'est rechargé, la partie en
+   cours est conservée. Écrans tactiles bas uniquement : ordinateurs et grandes
+   tablettes ne sont pas concernés. Le bloc HTML est à la fin de index.html.
+   ========================================================================== */
+.orientation-lock {
+  display: none;
+}
+
+@media (orientation: landscape) and (max-height: 620px) and (pointer: coarse) {
+  .orientation-lock {
+    position: fixed;
+    inset: 0;
+    z-index: 9000; /* au-dessus de tout : sélection (2000), modales (3100) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px max(24px, env(safe-area-inset-right)) 16px max(24px, env(safe-area-inset-left));
+    text-align: center;
+    background:
+      radial-gradient(circle at 50% 0, rgba(255, 47, 126, 0.14), transparent 55%),
+      var(--color-bg-main);
+  }
+
+  .orientation-lock-icon {
+    font-size: 44px;
+    color: var(--color-accent-gold-soft);
+    animation: orientation-turn 2.4s ease-in-out infinite;
+  }
+
+  .orientation-lock-title {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-display);
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .orientation-lock-text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 13px;
+  }
+}
+
+/* Le téléphone passe de couché à debout, puis marque une pause */
+@keyframes orientation-turn {
+  0%, 20% { transform: rotate(-90deg); }
+  60%, 100% { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orientation-lock-icon { animation: none; }
 }
