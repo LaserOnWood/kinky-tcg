@@ -25,7 +25,7 @@
 const CARTES_URL = "json/cartes.json";
 
 // Mode "plat" : mêmes clés que l'ancien tcg/js/passemot.js (progression conservée).
-const FLAT_STORAGE_KEY = "kinky_tcg_progress_v0.4.a.hints";
+const FLAT_STORAGE_KEY = "kinky_tcg_progress_v0.5";
 const FLAT_HINTS_KEY = "kinky_tcg_hints_revealed";
 
 // Mode "thèmes" : mêmes préfixes que l'ancien tcgproto/js/passemot.js.
@@ -39,7 +39,7 @@ const IMPORTED_THEMES_KEY = "kinky_tcg_imported_themes_v1";
 // Pour le remplacer, calculez le hash du nouveau mot avec hasheur.js ou la
 // console du navigateur (await genererHash("nouveau-mot")), puis remplacez la
 // valeur ci-dessous. Choisissez un mot long et aléatoire : le hash est visible.
-const MASTER_PASSWORD_HASH = "c22f573da61aae95711742f88222f2060ae65e8b103d71c4b39023f25d32c1c0";
+const MASTER_PASSWORD_HASH = "ed1ad9078abfda284e4fc26ba542410df0d705ca9e7cf63120306dcfdde11abf";
 
 const RARETES_AUTORISEES = new Set([
   "Coquine",
@@ -359,6 +359,20 @@ function afficherSelectionThemes(){
   `).join("");
 }
 
+// Demande au service worker de mettre en cache les illustrations du thème choisi, pour
+// jouer hors ligne ou avec un réseau capricieux. Rien n'est téléchargé pour les thèmes
+// qu'on n'ouvre pas, ni si l'économiseur de données du téléphone est activé.
+function precacherImagesTheme(theme){
+  if(navigator.connection?.saveData || !navigator.serviceWorker?.ready){ return; }
+
+  const urls = theme.cards.map(carte => carte.image).filter(Boolean);
+  if(!urls.length){ return; } // thème Hasard : ses images se mettent en cache à l'affichage
+
+  navigator.serviceWorker.ready
+    .then(registration => registration.active?.postMessage({ type: "PRECACHE_IMAGES", urls }))
+    .catch(() => {});
+}
+
 async function choisirTheme(themeId){
   const theme = THEMES.find(t => t.id === themeId);
   if(!theme){ return; }
@@ -440,6 +454,7 @@ async function choisirTheme(themeId){
   }
   rendreGrille();
   rendreProgression();
+  precacherImagesTheme(theme);
 
   input.disabled = modeHasardActif;
   btn.disabled = modeHasardActif;
@@ -582,12 +597,12 @@ function creerCarteHTML(carte){
         <div class="face front holo" data-rarity="${echapperHTML(carte.rarity)}">
           <div class="rarity-tag" data-r="${echapperHTML(carte.rarity)}">${echapperHTML(carte.rarity)}</div>
           ${estDebloquee ? creerImageHTML(carte) : ""}
-          </div>
-      </div>
+        </div>
       </div>
     </div>
   `;
 }
+
 function rendreGrille(){
   const grid = $("grid");
   if(window.HasardMode.estActif()){
@@ -598,18 +613,19 @@ function rendreGrille(){
 
   grid.classList.remove("hasard-grid");
   grid.innerHTML = CARTES.map(creerCarteHTML).join("");
-
-  grid.querySelectorAll(".hint-btn").forEach(bouton => {
-    bouton.addEventListener("click", evenement => {
-      evenement.stopPropagation();
-      afficherIndiceSupplementaire(Number(bouton.dataset.cardId));
-    });
-  });
 }
 
 // Clic sur l'illustration d'une carte débloquée : ouvre l'aperçu en grand.
 // Délégation d'événements : fonctionne aussi pour les images ajoutées lors d'un déblocage.
 $("grid")?.addEventListener("click", evenement => {
+  // Bouton « ? Aide » : un seul écouteur pour toute la grille (pas un par bouton).
+  const boutonAide = evenement.target.closest(".hint-btn");
+  if(boutonAide){
+    evenement.stopPropagation();
+    afficherIndiceSupplementaire(Number(boutonAide.dataset.cardId));
+    return;
+  }
+
   if(window.HasardMode.gererClicGrille(evenement, {
     grille: $("grid"),
     rendre: rendreGrille,
@@ -689,7 +705,15 @@ function afficherIndiceSupplementaire(carteId){
   // Boucle sur les indices : passe au suivant ou revient au premier.
   indicesReveles[carteId] = (indiceActuel + 1) % carte.hints.length;
   sauverIndicesReveles(indicesReveles);
-  rendreGrille();
+
+  // On ne change que le texte de l'indice de cette carte. Reconstruire toute la
+  // grille rechargeait les images et pouvait ramener le carrousel à la première carte.
+  const zoneIndice = $("grid").querySelector(`.card[data-id="${carteId}"] .hint`);
+  if(zoneIndice){
+    zoneIndice.textContent = carte.hints[indicesReveles[carteId]];
+  }else{
+    rendreGrille();
+  }
 }
 
 // « revelation » (optionnel) : promesse de revelerCarte(). L'écran de fin
