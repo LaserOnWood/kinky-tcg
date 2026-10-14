@@ -18,7 +18,6 @@
   const state = { inventory: { images: [] }, search: "", category: "Toutes" };
 
   const dateLabel = (value) => value ? new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value)) : "indisponible";
-  const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "'":"&#39;", "\"":"&quot;" })[character]);
 
   function visibleImages() {
     const needle = state.search.trim().toLocaleLowerCase("fr-FR");
@@ -31,19 +30,19 @@
 
   function renderFilters() {
     const categories = ["Toutes", ...new Set(state.inventory.images.map((image) => image.category))];
-    elements.filters.innerHTML = categories.map((category) => `<button class="filter-button ${category === state.category ? "is-active" : ""}" type="button" data-category="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join("");
+    elements.filters.innerHTML = categories.map((category) => `<button class="filter-button ${category === state.category ? "is-active" : ""}" type="button" data-category="${echapperHTML(category)}">${echapperHTML(category)}</button>`).join("");
     elements.filters.querySelectorAll("button").forEach((button) => button.addEventListener("click", () => { state.category = button.dataset.category; render(); }));
   }
 
   function renderGrid(images) {
     elements.grid.innerHTML = images.map((image, index) => `
       <article class="gallery-card">
-        <button type="button" class="gallery-card-button" data-id="${escapeHtml(image.id)}" aria-label="Ouvrir ${escapeHtml(image.name)}">
-          <img src="${escapeHtml(image.src)}" alt="${escapeHtml(image.name)}" loading="${index < 8 ? "eager" : "lazy"}">
+        <button type="button" class="gallery-card-button" data-id="${echapperHTML(image.id)}" aria-label="Ouvrir ${echapperHTML(image.name)}">
+          <img src="${echapperHTML(image.src)}" alt="${echapperHTML(image.name)}" loading="${index < 8 ? "eager" : "lazy"}">
           <span class="gallery-card-index">${String(index + 1).padStart(2, "0")}</span>
           <span class="gallery-card-open"><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
         </button>
-        <div class="gallery-card-info"><h3 title="${escapeHtml(image.name)}">${escapeHtml(image.name)}</h3><span class="gallery-card-format">${escapeHtml(image.extension)}</span></div>
+        <div class="gallery-card-info"><h3 title="${echapperHTML(image.name)}">${echapperHTML(image.name)}</h3><span class="gallery-card-format">${echapperHTML(image.extension)}</span></div>
       </article>`).join("");
     elements.grid.querySelectorAll(".gallery-card-button").forEach((button) => button.addEventListener("click", () => openLightbox(state.inventory.images.find((image) => image.id === button.dataset.id))));
   }
