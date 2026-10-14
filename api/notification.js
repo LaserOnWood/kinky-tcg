@@ -6,10 +6,13 @@ import path from "node:path";
  * Notification Discord d'un déblocage de carte.
  *
  * Sécurité : cette URL est publique. Le serveur ne fait donc pas confiance au
- * navigateur : il recalcule le hash du mot de passe reçu, le compare à
- * json/cartes.json, puis construit la notification à partir des données de ce
- * fichier (titre, rareté, gage, image). Une requête forgée est ignorée.
- * Les niveaux importés par un joueur (absents de cartes.json) ne notifient pas.
+ * navigateur : il recalcule le hash du mot de passe reçu et le compare à
+ * json/cartes.json.
+ *  - Carte officielle (trouvée) : la notification est construite à partir des
+ *    données de ce fichier (titre, rareté, gage, image), jamais de celles du client.
+ *  - Carte absente de cartes.json (niveau importé par un joueur) : la notification
+ *    est envoyée avec les données du navigateur, mais clairement marquée « non
+ *    vérifiée » (couleur grise) et soumise à des limites plus strictes.
  */
 
 const RARITY_COLORS = Object.freeze({
@@ -22,6 +25,7 @@ const RARITY_COLORS = Object.freeze({
 });
 
 const DEFAULT_COLOR = 0xff2f7e;
+const IMPORT_COLOR = 0x9aa0a6; // gris : niveau importé, données non vérifiées
 const DISCORD_FIELD_LIMIT = 1024;
 const DISCORD_TITLE_LIMIT = 256;
 const MAX_PASSWORD_LENGTH = 200;
@@ -32,7 +36,13 @@ const DISCORD_TIMEOUT_MS = 8000;
 const FENETRE_DEBIT_MS = 60_000;
 const MAX_REQUETES_PAR_FENETRE = 20;
 const DELAI_DOUBLON_MS = 30_000;
+// Niveaux importés (non vérifiables) : limites plus strictes, par adresse et globales.
+const MAX_IMPORTEES_PAR_FENETRE = 8;
+const FENETRE_GLOBALE_MS = 600_000;
+const MAX_IMPORTEES_GLOBAL = 40;
 const requetesParIp = new Map();   // ip -> horodatages récents
+const importeesParIp = new Map();
+const importeesGlobal = new Map();
 const dernieresNotifications = new Map(); // ip|carte -> horodatage
 
 let cartesOfficielles = null;
@@ -58,6 +68,11 @@ function limiterTexte(valeur, longueur = DISCORD_FIELD_LIMIT) {
   const texte = String(valeur ?? "").trim();
   if (!texte) return "—";
   return texte.length > longueur ? `${texte.slice(0, longueur - 1)}…` : texte;
+}
+
+// Données venant du navigateur : on ne garde que du texte (jamais d'objet).
+function texteSimple(valeur) {
+  return typeof valeur === "string" || typeof valeur === "number" ? String(valeur) : "";
 }
 
 function echapperMarkdown(valeur) {
@@ -122,19 +137,19 @@ function adresseIp(request) {
   return String(direct || transmise || "inconnue");
 }
 
-// true si cette adresse dépasse le nombre de requêtes autorisé par minute.
-function debitDepasse(ip) {
+// Enregistre une requête et renvoie true si la clé dépasse « maximum » requêtes dans la fenêtre.
+function limiteDepassee(table, cle, maximum, fenetreMs) {
   const maintenant = Date.now();
-  const recentes = (requetesParIp.get(ip) ?? []).filter((t) => maintenant - t < FENETRE_DEBIT_MS);
+  const recentes = (table.get(cle) ?? []).filter((t) => maintenant - t < fenetreMs);
   recentes.push(maintenant);
-  requetesParIp.set(ip, recentes);
+  table.set(cle, recentes);
 
-  if (requetesParIp.size > 500) { // évite que la table grossisse indéfiniment
-    for (const [cle, valeurs] of requetesParIp) {
-      if (!valeurs.some((t) => maintenant - t < FENETRE_DEBIT_MS)) requetesParIp.delete(cle);
+  if (table.size > 500) { // évite que la table grossisse indéfiniment
+    for (const [autre, valeurs] of table) {
+      if (!valeurs.some((t) => maintenant - t < fenetreMs)) table.delete(autre);
     }
   }
-  return recentes.length > MAX_REQUETES_PAR_FENETRE;
+  return recentes.length > maximum;
 }
 
 // true si la même notification vient d'être envoyée par cette adresse.
@@ -185,7 +200,7 @@ export default async function handler(request, response) {
   }
 
   const ip = adresseIp(request);
-  if (debitDepasse(ip)) {
+  if (limiteDepassee(requetesParIp, ip, MAX_REQUETES_PAR_FENETRE, FENETRE_DEBIT_MS)) {
     response.setHeader("Retry-After", "60");
     return sendJson(response, 429, { error: "Trop de requêtes, réessayez dans une minute." });
   }
@@ -199,23 +214,52 @@ export default async function handler(request, response) {
     return sendJson(response, 500, { error: "Les données du jeu sont indisponibles." });
   }
 
-  // Carte inconnue (requête forgée, niveau importé…) : rien n'est envoyé à Discord.
-  if (!trouvee) {
-    return sendJson(response, 202, { ok: true, sent: 0, ignored: true });
+  // Données de la notification : serveur (carte officielle) ou navigateur (niveau importé).
+  let note;
+  if (trouvee) {
+    const { theme, carte } = trouvee;
+    note = {
+      verifiee: true,
+      cleDoublon: `${theme.id}|${carte.id}`,
+      id: carte.id,
+      titre: texteSimple(carte.title),
+      rarete: texteSimple(carte.rarity),
+      niveau: texteSimple(theme.difficulty ?? theme.name),
+      description: texteSimple(carte.description),
+      actions: texteSimple(carte.actions), // champ facultatif dans cartes.json
+      image: texteSimple(carte.image)
+    };
+  } else {
+    // Niveau importé : impossible à vérifier, donc limites plus strictes et marquage « non vérifié ».
+    if (
+      limiteDepassee(importeesParIp, ip, MAX_IMPORTEES_PAR_FENETRE, FENETRE_DEBIT_MS) ||
+      limiteDepassee(importeesGlobal, "global", MAX_IMPORTEES_GLOBAL, FENETRE_GLOBALE_MS)
+    ) {
+      response.setHeader("Retry-After", "60");
+      return sendJson(response, 429, { error: "Trop de notifications de niveaux importés, réessayez plus tard." });
+    }
+    note = {
+      verifiee: false,
+      cleDoublon: `import|${texteSimple(payload.niveau)}|${texteSimple(demande.id)}|${motDePasseSaisi}`,
+      id: Number.isFinite(Number(demande.id)) ? Number(demande.id) : "?",
+      titre: texteSimple(demande.title),
+      rarete: texteSimple(demande.rarity),
+      niveau: texteSimple(payload.niveau),
+      description: texteSimple(demande.description),
+      actions: texteSimple(demande.actions),
+      image: texteSimple(demande.image)
+    };
   }
-  if (estDoublon(ip, `${trouvee.theme.id}|${trouvee.carte.id}`)) {
+
+  if (estDoublon(ip, note.cleDoublon)) {
     return sendJson(response, 202, { ok: true, sent: 0, duplicate: true });
   }
 
-  // À partir d'ici, seules les données du serveur (cartes.json) sont utilisées.
-  const { theme, carte } = trouvee;
-  const titreCarte = limiterTexte(carte.title, DISCORD_TITLE_LIMIT);
-  const rarete = limiterTexte(carte.rarity);
-  const niveau = limiterTexte(theme.difficulty ?? theme.name, 256);
+  const titreCarte = limiterTexte(note.titre, DISCORD_TITLE_LIMIT);
   const fields = [
     {
       name: "Carte",
-      value: limiterTexte(`**${echapperMarkdown(titreCarte)}** (n°${carte.id})`),
+      value: limiterTexte(`**${echapperMarkdown(titreCarte)}** (n°${note.id})`),
       inline: true
     },
     {
@@ -225,37 +269,46 @@ export default async function handler(request, response) {
     },
     {
       name: "Rareté",
-      value: rarete,
+      value: limiterTexte(note.rarete),
       inline: true
     },
     {
-      name: "Niveau choisi",
-      value: niveau,
+      name: note.verifiee ? "Niveau choisi" : "Niveau importé",
+      value: limiterTexte(note.niveau, 256),
       inline: true
     },
     {
       name: "Contenu / Gage",
-      value: limiterTexte(carte.description)
+      value: limiterTexte(note.description)
     }
   ];
 
-  if (typeof carte.actions === "string" && carte.actions.trim()) {
+  if (note.actions.trim()) {
     fields.push({
       name: "Action à réaliser",
-      value: limiterTexte(carte.actions)
+      value: limiterTexte(note.actions)
     });
   }
 
   const embed = {
-    title: limiterTexte(`Carte révélée — ${titreCarte}`, DISCORD_TITLE_LIMIT),
-    description: "Votre partenaire vient de débloquer une nouvelle carte dans **Kinky TCG**.",
-    color: RARITY_COLORS[carte.rarity] ?? DEFAULT_COLOR,
+    title: limiterTexte(
+      `${note.verifiee ? "Carte révélée" : "Carte révélée (niveau importé)"} — ${titreCarte}`,
+      DISCORD_TITLE_LIMIT
+    ),
+    description: note.verifiee
+      ? "Votre partenaire vient de débloquer une nouvelle carte dans **Kinky TCG**."
+      : "Votre partenaire vient de débloquer une carte d'un **niveau importé** dans **Kinky TCG**.\n⚠️ Contenu envoyé par le navigateur : non vérifié.",
+    color: note.verifiee ? (RARITY_COLORS[note.rarete] ?? DEFAULT_COLOR) : IMPORT_COLOR,
     fields,
     timestamp: new Date().toISOString(),
-    footer: { text: "Kinky TCG System • Notification temps réel" }
+    footer: {
+      text: note.verifiee
+        ? "Kinky TCG System • Notification temps réel"
+        : "Kinky TCG System • Niveau importé (non vérifié)"
+    }
   };
 
-  const imageURL = obtenirURLImage(carte.image, request);
+  const imageURL = obtenirURLImage(note.image, request);
   if (imageURL) embed.image = { url: imageURL };
 
   const resultats = await Promise.allSettled(
