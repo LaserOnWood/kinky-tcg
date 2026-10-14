@@ -7,25 +7,29 @@
 
 const AUDIO_MUTED_STORAGE_KEY = "kinky_tcg_audio_muted";
 
-const sons = {
-  bonneReponse: new Audio("assets/audio/bonne-reponse.mp3"),
-  erreur: new Audio("assets/audio/erreur.mp3"),
-  surprise: new Audio("assets/audio/surprise-mother-fucker.mp3"),
-  felicitation: new Audio("assets/audio/felicitation.mp3"),
-  yamete: new Audio("assets/audio/yamete.mp3"),
-  salope: new Audio("assets/audio/salope_ahh.mp3"),
-  ara_ara: new Audio("assets/audio/ara-ara.mp3"),
-  yandere_laugh: new Audio("assets/audio/yandere_laugh.mp3")
-};
+// Crée un son. Avec precharger = false (preload="none"), le fichier n'est téléchargé
+// qu'à la première lecture : inutile de charger au démarrage des sons rarement utilisés.
+function creerSon(url, volume, precharger = true) {
+  const audio = new Audio();
+  audio.preload = precharger ? "auto" : "none";
+  audio.src = url;
+  audio.volume = volume;
+  return audio;
+}
 
-sons.bonneReponse.volume = 0.45;
-sons.erreur.volume = 0.45;
-sons.surprise.volume = 0.45;
-sons.felicitation.volume = 0.6;
-sons.yamete.volume = 0.45;
-sons.salope.volume = 0.45;
-sons.ara_ara.volume = 0.45;
-sons.yandere_laugh.volume = 0.45
+const sons = {
+  // Sons du jeu : préchargés pour répondre sans délai.
+  bonneReponse: creerSon("assets/audio/bonne-reponse.mp3", 0.45),
+  erreur: creerSon("assets/audio/erreur.mp3", 0.45),
+  felicitation: creerSon("assets/audio/felicitation.mp3", 0.6),
+
+  // Easter eggs : chargés à la demande.
+  surprise: creerSon("assets/audio/surprise-mother-fucker.mp3", 0.45, false),
+  yamete: creerSon("assets/audio/yamete.mp3", 0.45, false),
+  salope: creerSon("assets/audio/salope_ahh.mp3", 0.45, false),
+  ara_ara: creerSon("assets/audio/ara-ara.mp3", 0.45, false),
+  yandere_laugh: creerSon("assets/audio/yandere_laugh.mp3", 0.45, false)
+};
 
 /*
    Table des mots secrets.
