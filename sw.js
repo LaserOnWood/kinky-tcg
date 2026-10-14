@@ -16,7 +16,7 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.2.5"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.2.6"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
@@ -41,11 +41,12 @@ const FICHIERS_APP = [
   "css/main.css?v=20261013-2",
   "css/feedback.css",
   "css/feedback-page.css",
+  "js/utils.js",
   "js/feedback.js",
   "js/notification.js",
   "js/audio.js",
-  "js/hasard.js?v=20261011-1914",
-  "js/passemot.js?v=20261011-1914",
+  "js/hasard.js?v=20261014-1",
+  "js/passemot.js?v=20261014-1",
   "js/hasheur.js",
   "js/carousel.js",
   "json/gallery.json",
