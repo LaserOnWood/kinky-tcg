@@ -12,6 +12,7 @@ window.HasardMode = (() => {
   let actif = false;
   let categories = [];
   let tirages = new Map();
+  let catalogueEnMemoire = null; // inventaire déjà téléchargé : évite de le recharger à chaque sélection
 
   function echapperHTML(valeur){
     return String(valeur ?? "").replace(/[&<>"']/g, caractere => ({
@@ -24,6 +25,8 @@ window.HasardMode = (() => {
   }
 
   async function chargerCatalogue(){
+    if(catalogueEnMemoire){ return catalogueEnMemoire; }
+
     const reponse = await fetch(URL_CATALOGUE, { cache: "no-store" });
     if(!reponse.ok){
       throw new Error(`Impossible de charger ${URL_CATALOGUE} (${reponse.status}).`);
@@ -34,7 +37,7 @@ window.HasardMode = (() => {
       throw new Error("L'inventaire des images doit être une liste.");
     }
 
-    return donnees
+    const catalogue = donnees
       .filter(image => {
         if(!image || typeof image !== "object"){ return false; }
         const category = String(image.category ?? "").trim();
@@ -53,6 +56,9 @@ window.HasardMode = (() => {
           : String(image.path).split("/").pop(),
         path: String(image.path).trim()
       }));
+
+    catalogueEnMemoire = catalogue; // mémorisé seulement si le chargement a réussi
+    return catalogue;
   }
 
   function regrouperImages(images){
@@ -126,6 +132,10 @@ window.HasardMode = (() => {
     return actif;
   }
 
+  function texteAlternatif(groupe, tirage){
+    return `${nomCategorie(groupe.name)} : ${tirage.name}`;
+  }
+
   function creerCarteHTML(groupe){
     const tirage = tirages.get(groupe.name) || tirerCarte(groupe.cards);
     const libelle = nomCategorie(groupe.name);
@@ -134,7 +144,7 @@ window.HasardMode = (() => {
       <div class="card-slot hasard-slot" role="group" aria-label="Carte ${echapperHTML(libelle)}">
         <div class="card unlocked hasard-card">
           <div class="face front">
-            <img class="art hasard-art" src="${echapperHTML(tirage.path)}" alt="${echapperHTML(libelle)} : ${echapperHTML(tirage.name)}" loading="lazy">
+            <img class="art hasard-art" src="${echapperHTML(tirage.path)}" alt="${echapperHTML(texteAlternatif(groupe, tirage))}" loading="lazy">
           </div>
         </div>
         <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(libelle)}">
@@ -160,9 +170,21 @@ window.HasardMode = (() => {
       const groupe = categories.find(categorie => categorie.name === nom);
       if(!groupe){ return true; }
 
-      const positionCarrousel = grille?.scrollLeft ?? 0;
       const tirageActuel = tirages.get(nom);
-      tirages.set(nom, tirerCarte(groupe.cards, tirageActuel?.path));
+      const nouveauTirage = tirerCarte(groupe.cards, tirageActuel?.path);
+      tirages.set(nom, nouveauTirage);
+
+      // On remplace seulement l'image de cette carte : pas de reconstruction de la
+      // grille, donc pas de scintillement et le carrousel reste à sa place.
+      const image = boutonMelanger.closest(".hasard-slot")?.querySelector(".hasard-art");
+      if(image){
+        image.src = nouveauTirage.path;
+        image.alt = texteAlternatif(groupe, nouveauTirage);
+        return true;
+      }
+
+      // Sécurité : si l'image est introuvable, on reconstruit en conservant la position.
+      const positionCarrousel = grille?.scrollLeft ?? 0;
       rendre?.();
       if(grille){ grille.scrollLeft = positionCarrousel; }
       return true;
