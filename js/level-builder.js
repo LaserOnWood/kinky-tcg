@@ -23,18 +23,6 @@ const cardTypes = [
   "Rituel",
   "Tenue",
 ];
-const esc = (v) =>
-  String(v ?? "").replace(
-    /[&<>"']/g,
-    (c) =>
-      ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#039;",
-      })[c],
-  );
 const slug = (v) =>
   String(v || "")
     .normalize("NFD")
@@ -95,7 +83,7 @@ function renderAssets() {
     list
       .map(
         (a) =>
-          `<button class="asset-tile" data-asset="${esc(a.path)}" title="${esc(a.path)}"><img src="${esc(a.path)}" alt=""><span>${esc(a.name)}</span></button>`,
+          `<button class="asset-tile" data-asset="${echapperHTML(a.path)}" title="${echapperHTML(a.path)}"><img src="${echapperHTML(a.path)}" alt=""><span>${echapperHTML(a.name)}</span></button>`,
       )
       .join("") || '<p class="builder-note">Aucune image.</p>';
 }
@@ -106,7 +94,7 @@ function renderCards() {
   $("stepsList").innerHTML = state.cards
     .map(
       (c, i) =>
-        `<article class="step-card${state.openCard === i ? "" : " collapsed"}" data-index="${i}"><header class="step-head" aria-expanded="${state.openCard === i}"><span class="step-index">${String(i + 1).padStart(2, "0")}</span><img class="step-thumb" src="${esc(c.image || "assets/ico/trading-card.png")}" alt=""><strong>${esc(c.title)}</strong><button class="btn btn-sm btn-builder-outline" data-action="up">↑</button><button class="btn btn-sm btn-builder-outline" data-action="down">↓</button><button class="btn btn-sm btn-builder-outline" data-action="remove">×</button></header><div class="step-body"><div class="builder-grid"><div class="builder-field"><label>Titre *</label><input data-field="title" value="${esc(c.title)}"></div><div class="builder-field"><label>Type</label><select data-field="type">${cardTypes.map((type) => `<option value="${esc(type)}"${type === c.type ? " selected" : ""}>${esc(type)}</option>`).join("")}</select></div><div class="builder-field"><label>Mot de passe / réponse *</label><input data-field="password" value="${esc(c.password)}" placeholder="Réponse"></div><div class="builder-field"><label>Rareté</label><select data-field="rarity">${rarities.map((r) => `<option value="${esc(r)}"${r === c.rarity ? " selected" : ""}>${esc(r)}</option>`).join("")}</select></div><div class="builder-field builder-full"><label>Énigmes / indices (une ligne par indice)</label><textarea data-field="hints">${esc(c.hints.join("\n"))}</textarea></div><div class="builder-field builder-full"><label>Image</label><input data-field="image" value="${esc(c.image)}" placeholder="assets/cartes/Actions/…"></div><div class="builder-field builder-full"><label>Description</label><textarea data-field="description">${esc(c.description)}</textarea></div><div class="builder-field builder-full"><label>Action / réponse révélée</label><textarea data-field="actions">${esc(c.actions)}</textarea></div></div></div></article>`,
+        `<article class="step-card${state.openCard === i ? "" : " collapsed"}" data-index="${i}"><header class="step-head" aria-expanded="${state.openCard === i}"><span class="step-index">${String(i + 1).padStart(2, "0")}</span><img class="step-thumb" src="${echapperHTML(c.image || "assets/ico/trading-card.png")}" alt=""><strong>${echapperHTML(c.title)}</strong><button class="btn btn-sm btn-builder-outline" data-action="up">↑</button><button class="btn btn-sm btn-builder-outline" data-action="down">↓</button><button class="btn btn-sm btn-builder-outline" data-action="remove">×</button></header><div class="step-body"><div class="builder-grid"><div class="builder-field"><label>Titre *</label><input data-field="title" value="${echapperHTML(c.title)}"></div><div class="builder-field"><label>Type</label><select data-field="type">${cardTypes.map((type) => `<option value="${echapperHTML(type)}"${type === c.type ? " selected" : ""}>${echapperHTML(type)}</option>`).join("")}</select></div><div class="builder-field"><label>Mot de passe / réponse *</label><input data-field="password" value="${echapperHTML(c.password)}" placeholder="Réponse"></div><div class="builder-field"><label>Rareté</label><select data-field="rarity">${rarities.map((r) => `<option value="${echapperHTML(r)}"${r === c.rarity ? " selected" : ""}>${echapperHTML(r)}</option>`).join("")}</select></div><div class="builder-field builder-full"><label>Énigmes / indices (une ligne par indice)</label><textarea data-field="hints">${echapperHTML(c.hints.join("\n"))}</textarea></div><div class="builder-field builder-full"><label>Image</label><input data-field="image" value="${echapperHTML(c.image)}" placeholder="assets/cartes/Actions/…"></div><div class="builder-field builder-full"><label>Description</label><textarea data-field="description">${echapperHTML(c.description)}</textarea></div><div class="builder-field builder-full"><label>Action / réponse révélée</label><textarea data-field="actions">${echapperHTML(c.actions)}</textarea></div></div></div></article>`,
     )
     .join("");
   update();
@@ -132,18 +120,6 @@ function sync(el, field, value) {
   refreshCardRow(i);
   update();
 }
-async function sha(v) {
-  const normalized = v
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-  const data = new TextEncoder().encode(normalized);
-  const hash = await crypto.subtle.digest("SHA-256", data);
-  return [...new Uint8Array(hash)]
-    .map((x) => x.toString(16).padStart(2, "0"))
-    .join("");
-}
 async function exportData() {
   const m = readMeta();
   return {
@@ -160,7 +136,7 @@ async function exportData() {
             return {
               id: Number(c.id) || c.id,
               type: c.type,
-              passwordHash: answer ? await sha(answer) : c.passwordHash,
+              passwordHash: answer ? await hasherMotDePasse(answer) : c.passwordHash,
               hints: c.hints,
               title: c.title,
               image: c.image,
@@ -278,7 +254,7 @@ $("importFile").onchange = async (e) => {
     state.cards = (t.cards || []).map((c) => blank(c));
     renderCards();
     toast("Thème importé.");
-  } catch (err) {
+  } catch {
     toast("JSON invalide : le fichier doit contenir themes[].");
   }
   e.target.value = "";
