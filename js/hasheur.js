@@ -1,21 +1,13 @@
 /* ==========================================================================
-   6. OUTIL — Générateur de hash SHA-256 (pour l'organisateur)
+   OUTIL — Générateur de hash SHA-256 (pour l'organisateur)
    --------------------------------------------------------------------------
    Pour générer le hash d'un nouveau mot de passe :
    1. Ouvrez la console du navigateur (F12) sur cette page.
    2. Tapez : await genererHash("mon-mot-de-passe")
    3. Copiez le résultat dans le champ "passwordHash" de la carte voulue.
    ========================================================================== */
-function normaliserCode(motDePasse){
-  return String(motDePasse ?? "")
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-}
-
 async function genererHash(motDePasse){
-  const h = await sha256(normaliserCode(motDePasse));
+  const h = await hasherMotDePasse(motDePasse); // js/utils.js : normalise puis calcule le SHA-256
   console.log(`"${motDePasse}" → ${h}`);
   return h;
 }

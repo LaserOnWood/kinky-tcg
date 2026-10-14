@@ -14,16 +14,6 @@ window.HasardMode = (() => {
   let tirages = new Map();
   let catalogueEnMemoire = null; // inventaire déjà téléchargé : évite de le recharger à chaque sélection
 
-  function echapperHTML(valeur){
-    return String(valeur ?? "").replace(/[&<>"']/g, caractere => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      "\"": "&quot;",
-      "'": "&#039;"
-    })[caractere]);
-  }
-
   async function chargerCatalogue(){
     if(catalogueEnMemoire){ return catalogueEnMemoire; }
 

@@ -69,26 +69,7 @@ function $(id){
   return document.getElementById(id);
 }
 
-// Calcule le hash SHA-256 (hexadécimal) d'une chaîne, via l'API native du navigateur.
-async function sha256(message){
-  // crypto.subtle n'existe qu'en HTTPS (ou sur localhost) : on le signale clairement.
-  if(!globalThis.crypto?.subtle){
-    throw new Error("CRYPTO_INDISPONIBLE");
-  }
-  const data = new TextEncoder().encode(message);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-}
-
-// Normalise la saisie : espaces, casse et accents sont ignorés.
-function normaliser(texte){
-  return texte
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-}
+// sha256(), normaliserMotDePasse() et echapperHTML() viennent de js/utils.js.
 
 function getStorageKey(){
   return selectedThemeId ? `${THEME_STORAGE_BASE}_${selectedThemeId}` : FLAT_STORAGE_KEY;
@@ -102,7 +83,7 @@ function chargerProgression(){
   try{
     const brut = localStorage.getItem(getStorageKey());
     return brut ? new Set(JSON.parse(brut)) : new Set();
-  }catch(e){
+  }catch{
     return new Set();
   }
 }
@@ -120,7 +101,7 @@ function chargerIndicesReveles(){
     const brut = localStorage.getItem(getHintsKey());
     const donnees = brut ? JSON.parse(brut) : {};
     return donnees && typeof donnees === "object" && !Array.isArray(donnees) ? donnees : {};
-  }catch(e){
+  }catch{
     return {};
   }
 }
@@ -133,21 +114,11 @@ function sauverIndicesReveles(indicesObj){
   }
 }
 
-function echapperHTML(valeur){
-  return String(valeur ?? "").replace(/[&<>"']/g, caractere => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "\"": "&quot;",
-    "'": "&#039;"
-  })[caractere]);
-}
-
 function chargerThemesImportes(){
   try{
     const brut = localStorage.getItem(IMPORTED_THEMES_KEY);
     if(!brut){ return []; }
-    const themes = validerThemes(JSON.parse(brut), "Niveaux importés");
+    const themes = validerThemes(JSON.parse(brut));
     return themes.map(theme => ({ ...theme, __importe: true }));
   }catch(erreur){
     console.warn("Niveaux importés ignorés :", erreur);
@@ -256,7 +227,7 @@ function validerThemes(themesData){
       difficulty: (typeof theme.difficulty === "string" && theme.difficulty.trim()) ? theme.difficulty.trim() : "—",
       mode,
       // Symbole affiché au dos des cartes (dans .seal). Optionnel dans le JSON,
-      // par défaut "✦" si absent ou vide. Peut être un emoji ou un court symbole.
+      // par défaut "♥️" si absent ou vide. Peut être un emoji ou un court symbole.
       seal: (typeof theme.seal === "string" && theme.seal.trim()) ? theme.seal.trim() : "♥️",
       cards: mode === "hasard" ? [] : validerCartes(theme.cards, `Le thème « ${name} »`)
     };
@@ -521,7 +492,7 @@ $("import-level-file")?.addEventListener("change", async evenement => {
       throw new Error("Le fichier doit contenir un objet { themes: [...] }.");
     }
 
-    const themesValides = validerThemes(themesAImporter, "Fichier importé").map(theme => ({
+    const themesValides = validerThemes(themesAImporter).map(theme => ({
       ...theme,
       id: `imported-${theme.id}`,
       __importe: true
@@ -776,7 +747,7 @@ async function tenterDeverrouillage(){
 async function traiterSaisie(){
   if(!CARTES.length){ return; }
 
-  const saisie = normaliser(input.value);
+  const saisie = normaliserMotDePasse(input.value);
   if(!saisie){ return; }
 
   // Les mots secrets déclenchent leur son sans bloquer la validation normale.
