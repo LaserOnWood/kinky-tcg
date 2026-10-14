@@ -44,7 +44,7 @@
         </button>
         <div class="gallery-card-info"><h3 title="${echapperHTML(image.name)}">${echapperHTML(image.name)}</h3><span class="gallery-card-format">${echapperHTML(image.extension)}</span></div>
       </article>`).join("");
-    elements.grid.querySelectorAll(".gallery-card-button").forEach((button) => button.addEventListener("click", () => openLightbox(state.inventory.images.find((image) => image.id === button.dataset.id))));
+    elements.grid.querySelectorAll(".gallery-card-button").forEach((button) => button.addEventListener("click", () => openLightbox(state.inventory.images.find((image) => image.id === button.dataset.id), button)));
   }
 
   function render() {
@@ -56,17 +56,22 @@
     elements.grid.hidden = images.length === 0;
   }
 
-  function openLightbox(image) {
+  // Comportement commun des modales (Échap, focus, arrière-plan inactif) : voir utils.js.
+  const lightbox = creerModale(elements.lightbox, {
+    focusInitial: elements.close,
+    apresFermeture: () => { elements.lightboxImage.src = ""; }
+  });
+
+  function openLightbox(image, trigger) {
     if (!image) return;
     elements.lightboxImage.src = image.src;
     elements.lightboxImage.alt = image.name;
     elements.lightboxTitle.textContent = image.name;
     elements.lightboxMeta.textContent = image.extension;
-    elements.lightbox.hidden = false;
-    elements.close.focus();
+    lightbox.ouvrir(trigger);
   }
 
-  function closeLightbox() { elements.lightbox.hidden = true; elements.lightboxImage.src = ""; }
+  function closeLightbox() { lightbox.fermer(); }
 
   async function loadGallery() {
     try {
@@ -90,6 +95,5 @@
   elements.search.addEventListener("input", (event) => { state.search = event.target.value; render(); });
   elements.close.addEventListener("click", closeLightbox);
   elements.lightbox.addEventListener("click", (event) => { if (event.target === elements.lightbox) closeLightbox(); });
-  document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeLightbox(); });
   void loadGallery();
 })();

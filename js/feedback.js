@@ -21,7 +21,8 @@
   const fileStatus = document.getElementById("feedback-file-status");
   if (!form || !type || !message || !status) return;
 
-  let lastTrigger = null;
+  // Comportement commun des modales (Échap, focus, arrière-plan inactif) : voir utils.js.
+  const feedbackModal = modal ? creerModale(modal, { focusInitial: message }) : null;
 
   function setStatus(text, kind = "") {
     status.textContent = text;
@@ -49,18 +50,11 @@
   }
 
   function open() {
-    if (!modal) return;
-    lastTrigger = opener;
-    modal.hidden = false;
-    document.body.classList.add("info-modal-open");
-    message.focus();
+    feedbackModal?.ouvrir(opener);
   }
 
   function close() {
-    if (!modal) return;
-    modal.hidden = true;
-    document.body.classList.remove("info-modal-open");
-    lastTrigger?.focus();
+    feedbackModal?.fermer();
   }
 
   function formatFileSize(bytes) {
@@ -187,11 +181,5 @@
     setFileStatus("Le contenu JSON sera vérifié avant l’envoi.");
   });
   form.addEventListener("submit", submit);
-  if (modal) {
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !modal.hidden) close();
-    });
-  }
-
   syncFileField();
 })();

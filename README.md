@@ -239,7 +239,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   ├── carousel.js       # Carrousel de thèmes
 │   ├── feedback.js       # Traitement partagé du formulaire de retours
 │   ├── notification.js   # Envoi des notifications
-│   ├── utils.js          # Outils partagés (échappement HTML, SHA-256, normalisation)
+│   ├── utils.js          # Outils partagés (échappement HTML, SHA-256, normalisation, fenêtres modales)
 │   ├── hasheur.js        # Générateur de hash (console)
 │   ├── gallery.js        # Catalogue
 │   └── level-builder.js  # Atelier de niveaux

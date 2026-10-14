@@ -263,12 +263,17 @@ async function chargerDonnees(){
    Échap. Créée dynamiquement (aucun ajout requis dans index.html).
    =========================================================================== */
 
+let modaleLightbox = null; // comportement commun des modales : voir creerModale() dans utils.js
+
 function creerLightbox(){
   if($("art-lightbox")){ return; } // déjà créée (ex: rendu répété)
 
   const overlay = document.createElement("div");
   overlay.id = "art-lightbox";
   overlay.className = "art-lightbox";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-label", "Aperçu de l'illustration");
   overlay.innerHTML = `
     <button type="button" class="art-lightbox-close" aria-label="Fermer l'aperçu">✕</button>
     <img class="art-lightbox-img" alt="">
@@ -282,23 +287,23 @@ function creerLightbox(){
     }
   });
 
-  document.addEventListener("keydown", evenement => {
-    if(evenement.key === "Escape"){
-      fermerLightbox();
-    }
+  modaleLightbox = creerModale(overlay, {
+    afficher: () => overlay.classList.add("show"),
+    masquer: () => overlay.classList.remove("show"),
+    focusInitial: () => overlay.querySelector(".art-lightbox-close")
   });
 }
 
 function ouvrirLightbox(src, alt){
   const overlay = $("art-lightbox");
-  if(!overlay){ return; }
+  if(!overlay || !modaleLightbox){ return; }
   overlay.querySelector(".art-lightbox-img").src = src;
   overlay.querySelector(".art-lightbox-img").alt = alt || "";
-  overlay.classList.add("show");
+  modaleLightbox.ouvrir(null); // null : pas de focus rendu (évite d'ouvrir le clavier sur téléphone)
 }
 
 function fermerLightbox(){
-  $("art-lightbox")?.classList.remove("show");
+  modaleLightbox?.fermer();
 }
 
 /* ===========================================================================
@@ -412,7 +417,7 @@ async function choisirTheme(themeId){
       : '<i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes';
   }
   document.querySelector(".progress-wrap")?.classList.toggle("d-none", modeHasardActif);
-  $("overlay")?.classList.remove("show");
+  modaleFin?.fermer({ restaurerFocus: false });
 
   if(ecranSelectionDisponible()){
     $("selection-screen").classList.add("hidden");
@@ -697,7 +702,11 @@ function rendreProgression(revelation = null){
   $("progress-fill").style.width = `${total ? (n / total) * 100 : 0}%`;
 
   if(total > 0 && n === total){
-    const afficherFin = () => $("overlay").classList.add("show");
+    const afficherFin = () => {
+      // On ne l'ouvre que si l'écran de jeu est encore affiché (on a pu le quitter entre-temps).
+      if($("game-content")?.classList.contains("hidden")){ return; }
+      modaleFin?.ouvrir(null); // null : pas de focus rendu (évite d'ouvrir le clavier)
+    };
     if(revelation){
       revelation.then(() => setTimeout(afficherFin, 500));
     }else{
@@ -796,7 +805,8 @@ async function traiterSaisie(){
     // La notification est optionnelle et ne bloque jamais le déverrouillage.
     if (window.notifierDiscord) {
       const niveauChoisi = $("game-level-text")?.textContent?.trim() || "Niveau";
-      window.notifierDiscord(carteTrouvee, saisie, niveauChoisi);
+      const themeChoisi = $("game-title")?.textContent?.trim() || "Thème";
+      window.notifierDiscord(carteTrouvee, saisie, niveauChoisi, themeChoisi);
     }
 
   } else {
@@ -819,9 +829,15 @@ input.addEventListener("keydown", evenement => {
     tenterDeverrouillage();
   }
 });
-$("overlay-close")?.addEventListener("click", () => {
-  $("overlay").classList.remove("show");
-});
+// Fenêtre « Collection complète » : même comportement que les autres modales (Échap, focus, arrière-plan inactif).
+const modaleFin = $("overlay")
+  ? creerModale($("overlay"), {
+      afficher: () => $("overlay").classList.add("show"),
+      masquer: () => $("overlay").classList.remove("show"),
+      focusInitial: $("overlay-close")
+    })
+  : null;
+$("overlay-close")?.addEventListener("click", () => modaleFin?.fermer({ restaurerFocus: false }));
 
 /* ===========================================================================
    INITIALISATION
@@ -927,22 +943,17 @@ initialiserJeu();
     }
   };
 
-  let lastTrigger = null;
+  const fenetre = creerModale(modal, { focusInitial: close }); // utils.js : Échap, focus, arrière-plan inactif
 
   function open(type, trigger) {
     const selected = help[type] || help.difficulty;
-    lastTrigger = trigger;
     title.textContent = selected.title;
     content.innerHTML = selected.html;
-    modal.hidden = false;
-    document.body.classList.add("info-modal-open");
-    close.focus();
+    fenetre.ouvrir(trigger);
   }
 
   function hide() {
-    modal.hidden = true;
-    document.body.classList.remove("info-modal-open");
-    lastTrigger?.focus();
+    fenetre.fermer();
   }
 
   document.querySelectorAll("[data-info-type]").forEach((button) => {
@@ -950,7 +961,4 @@ initialiserJeu();
   });
   close.addEventListener("click", hide);
   modal.querySelector("[data-info-close]")?.addEventListener("click", hide);
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.hidden) hide();
-  });
 })();

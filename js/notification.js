@@ -1,9 +1,8 @@
-/**
- * ============================================================================
- * NOTIFICATION DISCORD
- * ============================================================================
- * L'envoi est réalisé par /api/notification afin que le webhook Discord reste
- * confidentiel dans la variable Vercel DISCORD_NOTIFICATION_WEBHOOK_URL.
+/** ============================================================================
+  NOTIFICATION DISCORD
+  ============================================================================
+  L'envoi est réalisé par /api/notification afin que le webhook Discord reste
+  confidentiel dans la variable Vercel DISCORD_NOTIFICATION_WEBHOOK_URL.
  */
 
 function obtenirURLImage(image) {
@@ -22,10 +21,11 @@ function obtenirURLImage(image) {
  * Demande au relais serveur d'envoyer un embed Discord.
  * @param {Object} carte - Carte venant d'être déverrouillée.
  * @param {string} motDePasseSaisi - Texte saisi par l'utilisateur.
- * @param {string} niveauChoisi - Niveau sélectionné dans le jeu.
+ * @param {string} niveauChoisi - Difficulté sélectionnée dans le jeu.
+ * @param {string} themeChoisi - Thème sélectionné dans le jeu.
  * @returns {Promise<boolean>} true si le relais a accepté la requête.
  */
-async function notifierDiscord(carte, motDePasseSaisi, niveauChoisi) {
+async function notifierDiscord(carte, motDePasseSaisi, niveauChoisi, themeChoisi) {
   if (!carte || typeof carte !== "object") {
     console.warn("Notification Discord ignorée : carte invalide.");
     return false;
@@ -45,7 +45,8 @@ async function notifierDiscord(carte, motDePasseSaisi, niveauChoisi) {
           image: obtenirURLImage(carte.image)
         },
         motDePasseSaisi,
-        niveau: niveauChoisi
+        niveau: niveauChoisi,
+        theme: themeChoisi
       })
     });
 

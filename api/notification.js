@@ -225,6 +225,7 @@ export default async function handler(request, response) {
       titre: texteSimple(carte.title),
       rarete: texteSimple(carte.rarity),
       niveau: texteSimple(theme.difficulty ?? theme.name),
+      theme: texteSimple(theme.name),
       description: texteSimple(carte.description),
       actions: texteSimple(carte.actions), // champ facultatif dans cartes.json
       image: texteSimple(carte.image)
@@ -275,6 +276,11 @@ export default async function handler(request, response) {
     {
       name: note.verifiee ? "Niveau choisi" : "Niveau importé",
       value: limiterTexte(note.niveau, 256),
+      inline: true
+    },
+    {
+      name: "Thème",
+      value: limiterTexte(note.theme, 256),
       inline: true
     },
     {
