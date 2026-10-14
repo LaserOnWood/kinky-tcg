@@ -145,6 +145,7 @@ function activerMolette({ zone, conteneur, selecteur }) {
   if (!container || !dots) return;
 
   let activeIndex = 0;
+  let dotButtons = [];
   const getCards = () => [...container.querySelectorAll(".theme-card")];
 
   function updateDots() {
@@ -152,11 +153,20 @@ function activerMolette({ zone, conteneur, selecteur }) {
     dots.innerHTML = cards
       .map((_, index) => `<button class="carousel-dot${index === activeIndex ? " active" : ""}" type="button" aria-label="Afficher le thème ${index + 1}"></button>`)
       .join("");
+    dotButtons = [...dots.querySelectorAll(".carousel-dot")];
+  }
 
-    dots.querySelectorAll(".carousel-dot").forEach((dot, index) => {
-      dot.addEventListener("click", () => scrollToCard(index));
+  function markActiveDot() {
+    dotButtons.forEach((dot, dotIndex) => {
+      dot.classList.toggle("active", dotIndex === activeIndex);
     });
   }
+
+  // Un seul écouteur pour tous les points (ils sont reconstruits à chaque changement de liste).
+  dots.addEventListener("click", event => {
+    const dot = event.target.closest(".carousel-dot");
+    if (dot) scrollToCard(dotButtons.indexOf(dot));
+  });
 
   function scrollToCard(index) {
     const cards = getCards();
@@ -169,9 +179,7 @@ function activerMolette({ zone, conteneur, selecteur }) {
       inline: "center"
     });
 
-    dots.querySelectorAll(".carousel-dot").forEach((dot, dotIndex) => {
-      dot.classList.toggle("active", dotIndex === activeIndex);
-    });
+    markActiveDot();
   }
 
   previous?.addEventListener("click", () => scrollToCard(activeIndex - 1));
@@ -249,19 +257,28 @@ function activerMolette({ zone, conteneur, selecteur }) {
     container.scrollTo({ left: Math.max(0, targetScrollLeft), behavior: "smooth" });
   });
 
+  // Le calcul de la carte centrale (qui lit la mise en page) est fait au plus une fois
+  // par image affichée, et les points ne sont touchés que si la carte active change.
+  let calculPlanifie = false;
   container.addEventListener("scroll", () => {
-    const cards = getCards();
-    if (!cards.length) return;
+    if (calculPlanifie) return;
+    calculPlanifie = true;
 
-    const center = container.scrollLeft + container.clientWidth / 2;
-    activeIndex = cards.reduce((best, card, index) => {
-      const currentDistance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
-      const bestDistance = Math.abs(cards[best].offsetLeft + cards[best].offsetWidth / 2 - center);
-      return currentDistance < bestDistance ? index : best;
-    }, 0);
+    requestAnimationFrame(() => {
+      calculPlanifie = false;
+      const cards = getCards();
+      if (!cards.length) return;
 
-    dots.querySelectorAll(".carousel-dot").forEach((dot, dotIndex) => {
-      dot.classList.toggle("active", dotIndex === activeIndex);
+      const center = container.scrollLeft + container.clientWidth / 2;
+      const newIndex = cards.reduce((best, card, index) => {
+        const currentDistance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - center);
+        const bestDistance = Math.abs(cards[best].offsetLeft + cards[best].offsetWidth / 2 - center);
+        return currentDistance < bestDistance ? index : best;
+      }, 0);
+
+      if (newIndex === activeIndex) return;
+      activeIndex = newIndex;
+      markActiveDot();
     });
   }, { passive: true });
 
