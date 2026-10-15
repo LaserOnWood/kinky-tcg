@@ -16,7 +16,7 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.2.8"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.2.9"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
@@ -25,6 +25,7 @@ const URL_CATALOGUE_HASARD = "assets/cartes/index.json";
 const DELAI_RESEAU_MS = 4000;     // au-delà, on sert la copie en cache (si elle existe)
 const MAX_IMAGES_PAR_MESSAGE = 200;
 const IMAGES_EN_PARALLELE = 3;    // téléchargements simultanés (ménage la connexion mobile)
+const MAX_ENTREES_CACHE_MEDIA = 300; // borne le stockage des images, polices et ressources externes
 const DELAI_ECOULE = Symbol("delai");
 
 // Fichiers copiés dès la 1re visite.
@@ -80,6 +81,20 @@ function nettoyerUrlsImages(urlsBrutes) {
   return [...urls];
 }
 
+// Évite une croissance sans limite du cache média. Les entrées les plus anciennes
+// sont supprimées ; on relance aussi ce ménage après chaque mise en cache.
+async function limiterCacheMedia(cache) {
+  try {
+    const entrees = await cache.keys();
+    const excedent = entrees.length - MAX_ENTREES_CACHE_MEDIA;
+    if (excedent > 0) {
+      await Promise.all(entrees.slice(0, excedent).map(requete => cache.delete(requete)));
+    }
+  } catch (erreur) {
+    console.warn("[sw] Nettoyage du cache média ignoré :", erreur);
+  }
+}
+
 /**
  * Met en cache les images pas encore stockées, 3 à la fois.
  * Ne lève jamais d'erreur : une image manquante ne bloque rien.
@@ -104,6 +119,7 @@ async function precacherImages(urlsBrutes) {
       }
     };
     await Promise.all(Array.from({ length: IMAGES_EN_PARALLELE }, travailleur));
+    await limiterCacheMedia(cache);
   } catch (erreur) {
     console.warn("[sw] Préchargement des images ignoré :", erreur);
   }
@@ -122,6 +138,8 @@ self.addEventListener("activate", (e) => {
         noms.filter((n) => n.startsWith("kinky-app-") && n !== CACHE_APP)
             .map((n) => caches.delete(n))
       ))
+      .then(() => caches.open(CACHE_MEDIA))
+      .then((cache) => limiterCacheMedia(cache))
       .then(() => self.clients.claim())
   );
 });
@@ -178,7 +196,9 @@ async function cachePuisReseau(req) {
   if (enCache) return enCache;
   const rep = await fetch(req);
   if (rep.status === 200 || rep.type === "opaque") {
-    (await caches.open(CACHE_MEDIA)).put(req, rep.clone());
+    const cache = await caches.open(CACHE_MEDIA);
+    await cache.put(req, rep.clone());
+    await limiterCacheMedia(cache);
   }
   return rep;
 }

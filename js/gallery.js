@@ -75,7 +75,8 @@
 
   async function loadGallery() {
     try {
-      const response = await fetch(`json/gallery.json?updated=${Date.now()}`, { cache: "no-store" });
+      // URL stable : le service worker conserve une seule entrée de cache pour l'inventaire.
+      const response = await fetch("json/gallery.json", { cache: "no-store" });
       if (!response.ok) throw new Error("Inventaire indisponible");
       state.inventory = await response.json();
       elements.heroCount.textContent = String(state.inventory.count || 0).padStart(2, "0");
