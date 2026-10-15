@@ -804,9 +804,9 @@ async function traiterSaisie(){
 
     // La notification est optionnelle et ne bloque jamais le déverrouillage.
     if (window.notifierDiscord) {
-      const niveauChoisi = $("game-level-text")?.textContent?.trim() || "Niveau";
+      const difficulte = $("game-level-text")?.textContent?.trim() || "Niveau";
       const themeChoisi = $("game-title")?.textContent?.trim() || "Thème";
-      window.notifierDiscord(carteTrouvee, saisie, niveauChoisi, themeChoisi);
+      window.notifierDiscord(carteTrouvee, saisie, difficulte, themeChoisi);
     }
 
   } else {

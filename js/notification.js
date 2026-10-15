@@ -21,11 +21,11 @@ function obtenirURLImage(image) {
  * Demande au relais serveur d'envoyer un embed Discord.
  * @param {Object} carte - Carte venant d'être déverrouillée.
  * @param {string} motDePasseSaisi - Texte saisi par l'utilisateur.
- * @param {string} niveauChoisi - Difficulté sélectionnée dans le jeu.
- * @param {string} themeChoisi - Thème sélectionné dans le jeu.
+ * @param {string} difficulte - Difficulté du niveau sélectionné dans le jeu.
+ * @param {string} themeChoisi - Nom du niveau / thème sélectionné dans le jeu.
  * @returns {Promise<boolean>} true si le relais a accepté la requête.
  */
-async function notifierDiscord(carte, motDePasseSaisi, niveauChoisi, themeChoisi) {
+async function notifierDiscord(carte, motDePasseSaisi, difficulte, themeChoisi) {
   if (!carte || typeof carte !== "object") {
     console.warn("Notification Discord ignorée : carte invalide.");
     return false;
@@ -45,7 +45,7 @@ async function notifierDiscord(carte, motDePasseSaisi, niveauChoisi, themeChoisi
           image: obtenirURLImage(carte.image)
         },
         motDePasseSaisi,
-        niveau: niveauChoisi,
+        difficulte,
         theme: themeChoisi
       })
     });

@@ -123,12 +123,12 @@ async function chargerCartesOfficielles() {
   return cartesOfficielles;
 }
 
-// Retrouve la carte débloquée par ce mot de passe (le niveau départage les doublons éventuels).
-function trouverCarte(cartes, hash, id, niveau) {
+// Retrouve la carte débloquée par ce mot de passe (le nom du thème départage les doublons éventuels).
+function trouverCarte(cartes, hash, id, nomTheme) {
   const candidates = cartes.filter(({ carte }) =>
     String(carte.passwordHash).toLowerCase() === hash && Number(carte.id) === Number(id)
   );
-  return candidates.find(({ theme }) => theme.difficulty === niveau) ?? candidates[0] ?? null;
+  return candidates.find(({ theme }) => theme.name === nomTheme) ?? candidates[0] ?? null;
 }
 
 function adresseIp(request) {
@@ -205,10 +205,14 @@ export default async function handler(request, response) {
     return sendJson(response, 429, { error: "Trop de requêtes, réessayez dans une minute." });
   }
 
+  // « difficulte » est la clé actuelle ; « niveau » reste lu pour les pages encore en cache.
+  const difficultePayload = texteSimple(payload.difficulte ?? payload.niveau);
+  const themePayload = texteSimple(payload.theme);
+
   let trouvee;
   try {
     const cartes = await chargerCartesOfficielles();
-    trouvee = trouverCarte(cartes, hasherMotDePasse(motDePasseSaisi), demande.id, payload.niveau);
+    trouvee = trouverCarte(cartes, hasherMotDePasse(motDePasseSaisi), demande.id, themePayload);
   } catch (erreur) {
     console.error("Lecture de json/cartes.json impossible :", erreur);
     return sendJson(response, 500, { error: "Les données du jeu sont indisponibles." });
@@ -224,7 +228,7 @@ export default async function handler(request, response) {
       id: carte.id,
       titre: texteSimple(carte.title),
       rarete: texteSimple(carte.rarity),
-      niveau: texteSimple(theme.difficulty ?? theme.name),
+      difficulte: texteSimple(theme.difficulty),
       theme: texteSimple(theme.name),
       description: texteSimple(carte.description),
       actions: texteSimple(carte.actions), // champ facultatif dans cartes.json
@@ -241,11 +245,12 @@ export default async function handler(request, response) {
     }
     note = {
       verifiee: false,
-      cleDoublon: `import|${texteSimple(payload.niveau)}|${texteSimple(demande.id)}|${motDePasseSaisi}`,
+      cleDoublon: `import|${themePayload}|${texteSimple(demande.id)}|${motDePasseSaisi}`,
       id: Number.isFinite(Number(demande.id)) ? Number(demande.id) : "?",
       titre: texteSimple(demande.title),
       rarete: texteSimple(demande.rarity),
-      niveau: texteSimple(payload.niveau),
+      difficulte: difficultePayload,
+      theme: themePayload,
       description: texteSimple(demande.description),
       actions: texteSimple(demande.actions),
       image: texteSimple(demande.image)
@@ -274,13 +279,13 @@ export default async function handler(request, response) {
       inline: true
     },
     {
-      name: note.verifiee ? "Niveau choisi" : "Niveau importé",
-      value: limiterTexte(note.niveau, 256),
+      name: note.verifiee ? "Niveau / Thème" : "Niveau importé",
+      value: limiterTexte(note.theme, 256),
       inline: true
     },
     {
-      name: "Thème",
-      value: limiterTexte(note.theme, 256),
+      name: "Difficulté",
+      value: limiterTexte(note.difficulte, 256),
       inline: true
     },
     {
