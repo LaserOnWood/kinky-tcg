@@ -262,6 +262,10 @@ export default async function handler(request, response) {
   }
 
   const titreCarte = limiterTexte(note.titre, DISCORD_TITLE_LIMIT);
+
+  // Dernier champ : l'action à réaliser (champ « actions » s'il existe, sinon le gage de la carte).
+  const actionARealiser = note.actions.trim() || note.description;
+
   const fields = [
     {
       name: "Carte",
@@ -269,7 +273,7 @@ export default async function handler(request, response) {
       inline: true
     },
     {
-      name: "Code utilisé",
+      name: "Code Utilisé",
       value: limiterTexte(`\`${echapperMarkdown(motDePasseSaisi)}\``),
       inline: true
     },
@@ -289,38 +293,32 @@ export default async function handler(request, response) {
       inline: true
     },
     {
-      name: "Contenu / Gage",
-      value: limiterTexte(note.description)
+      name: "Action à réaliser",
+      value: limiterTexte(actionARealiser)
     }
   ];
 
-  if (note.actions.trim()) {
-    fields.push({
-      name: "Action à réaliser",
-      value: limiterTexte(note.actions)
-    });
-  }
-
+  // Embed au format voulu : titre, description, image, champs (+ couleur selon la rareté).
   const embed = {
-    title: limiterTexte(
-      `${note.verifiee ? "Carte révélée" : "Carte révélée (niveau importé)"} — ${titreCarte}`,
-      DISCORD_TITLE_LIMIT
-    ),
+    title: note.verifiee ? "Nouvelle carte révélée" : "Nouvelle carte révélée (niveau importé)",
     description: note.verifiee
-      ? "Votre partenaire vient de débloquer une nouvelle carte dans **Kinky TCG**."
-      : "Votre partenaire vient de débloquer une carte d'un **niveau importé** dans **Kinky TCG**.\n⚠️ Contenu envoyé par le navigateur : non vérifié.",
-    color: note.verifiee ? (RARITY_COLORS[note.rarete] ?? DEFAULT_COLOR) : IMPORT_COLOR,
-    fields,
-    timestamp: new Date().toISOString(),
-    footer: {
-      text: note.verifiee
-        ? "Kinky TCG System • Notification temps réel"
-        : "Kinky TCG System • Niveau importé (non vérifié)"
-    }
+      ? "Votre partenaire vient de débloquer une nouvelle carte dans **Kinky TCG** 👍"
+      : "Votre partenaire vient de débloquer une carte d'un **niveau importé** dans **Kinky TCG** 👍\n⚠️ Contenu envoyé par le navigateur : non vérifié."
   };
 
   const imageURL = obtenirURLImage(note.image, request);
   if (imageURL) embed.image = { url: imageURL };
+
+  embed.fields = fields;
+
+  // Carte officielle : couleur selon la rareté.
+  // Niveau importé : données non vérifiées, donc embed gris et pied de page d'avertissement.
+  if (note.verifiee) {
+    embed.color = RARITY_COLORS[note.rarete] ?? DEFAULT_COLOR;
+  } else {
+    embed.color = IMPORT_COLOR;
+    embed.footer = { text: "Kinky TCG System • Niveau importé (non vérifié)" };
+  }
 
   const resultats = await Promise.allSettled(
     webhookUrls.map(async (webhookUrl) => {
