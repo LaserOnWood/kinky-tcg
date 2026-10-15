@@ -2,14 +2,19 @@
 import { createServer } from "node:http";
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
 const port = Number(process.env.PORT || 8000);
 const host = process.env.HOST || "127.0.0.1";
 const webhookFile = path.join(projectRoot, ".discord-webhook.txt");
+const notificationFile = path.join(projectRoot, "api", "notification.js");
+const cardsFile = path.join(projectRoot, "json", "cartes.json");
 const maxBodySize = 256 * 1024;
+
+// api/notification.js lit json/cartes.json depuis le dossier de travail : on se place à la racine du projet.
+process.chdir(projectRoot);
 
 function json(response, status, body) {
   response.writeHead(status, {
@@ -70,55 +75,19 @@ async function readWebhookUrl() {
   return parsed.href;
 }
 
-function limitText(value, length = 1024) {
-  const textValue = String(value ?? "").trim();
-  if (!textValue) return "—";
-  return textValue.length > length ? `${textValue.slice(0, length - 1)}…` : textValue;
-}
+// Charge le VRAI code de notification (api/notification.js, celui de Vercel). Il est rechargé
+// automatiquement quand ce fichier ou json/cartes.json change : pas besoin de redémarrer
+// le serveur après avoir modifié une carte ou le code de l'API.
+let notificationCache = { cle: "", handler: null };
 
-function escapeMarkdown(value) {
-  return String(value ?? "").replace(/\\/g, "\\\\").replace(/`/g, "\\`");
-}
-
-const rarityColors = Object.freeze({
-  Coquine: 0xeab0c2,
-  Provocante: 0xff4f8b,
-  Audacieuse: 0xb46cff,
-  Envoûtante: 0x8274e8,
-  Sulfureuse: 0xe23e57,
-  Mythique: 0xf6f0da
-});
-
-function buildEmbed(payload) {
-  const card = payload?.carte;
-  if (!card || typeof card !== "object") throw new Error("Carte invalide.");
-
-  const title = limitText(card.title, 256);
-  const password = typeof payload.motDePasseSaisi === "string"
-    ? payload.motDePasseSaisi.trim().slice(0, 200)
-    : "";
-  const embed = {
-    title: limitText(`Carte révélée — ${title}`, 256),
-    description: "Votre partenaire vient de débloquer une nouvelle carte dans **Kinky TCG**.",
-    color: rarityColors[card.rarity] ?? 0xff2f7e,
-    fields: [
-      { name: "Carte", value: limitText(`**${escapeMarkdown(title)}** (n°${card.id})`), inline: true },
-      { name: "Code utilisé", value: limitText(`\`${escapeMarkdown(password)}\``), inline: true },
-      { name: "Rareté", value: limitText(card.rarity), inline: true },
-      { name: "Niveau choisi", value: limitText(payload.niveau, 256), inline: true },
-      { name: "Contenu / Gage", value: limitText(card.description) }
-    ],
-    timestamp: new Date().toISOString(),
-    footer: { text: "Kinky TCG System • Notification temps réel" }
-  };
-
-  if (typeof card.actions === "string" && card.actions.trim()) {
-    embed.fields.push({ name: "Action à réaliser", value: limitText(card.actions) });
+async function loadNotificationHandler() {
+  const [apiStats, cardsStats] = await Promise.all([fs.stat(notificationFile), fs.stat(cardsFile)]);
+  const cle = `${apiStats.mtimeMs}-${cardsStats.mtimeMs}`;
+  if (notificationCache.cle !== cle) {
+    const module = await import(`${pathToFileURL(notificationFile).href}?v=${cle}`);
+    notificationCache = { cle, handler: module.default };
   }
-  if (typeof card.image === "string" && /^https:\/\/discord\.com\//.test(card.image)) {
-    embed.image = { url: card.image };
-  }
-  return embed;
+  return notificationCache.handler;
 }
 
 async function sendNotification(request, response) {
@@ -137,27 +106,32 @@ async function sendNotification(request, response) {
     return json(response, 500, { error: `${error.message}. Créez ce fichier pour activer les notifications locales.` });
   }
 
-  let embed;
-  try {
-    embed = buildEmbed(payload);
-  } catch (error) {
-    return json(response, 400, { error: error.message });
+  // Seul le webhook du fichier local reçoit les notifications de test : on retire les éventuels
+  // webhooks de production présents dans l'environnement de cette machine.
+  for (const nom of Object.keys(process.env)) {
+    if (nom.startsWith("DISCORD_NOTIFICATION_WEBHOOK_URL_")) delete process.env[nom];
   }
+  process.env.DISCORD_NOTIFICATION_WEBHOOK_URL_1 = webhookUrl;
+
+  // Adapte la réponse Node à l'interface attendue par les fonctions Vercel (response.status()),
+  // et affiche dans la console ce que l'API a répondu (utile pour comprendre un 202 ou un 429).
+  response.status = (code) => {
+    response.statusCode = code;
+    return response;
+  };
+  const end = response.end.bind(response);
+  response.end = (body, ...args) => {
+    console.log(`[local] /api/notification → HTTP ${response.statusCode} ${body ?? ""}`);
+    return end(body, ...args);
+  };
 
   try {
-    const discordResponse = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ embeds: [embed], allowed_mentions: { parse: [] } })
-    });
-    if (!discordResponse.ok) {
-      console.error(`[local] Discord a répondu HTTP ${discordResponse.status}.`);
-      return json(response, 502, { error: `Discord a répondu HTTP ${discordResponse.status}.` });
-    }
-    return json(response, 200, { ok: true, sent: 1, total: 1 });
+    const handler = await loadNotificationHandler();
+    request.body = payload;
+    await handler(request, response);
   } catch (error) {
-    console.error("[local] Envoi Discord impossible :", error);
-    return json(response, 502, { error: "Discord est momentanément indisponible." });
+    console.error("[local] Notification impossible :", error);
+    if (!response.headersSent) json(response, 500, { error: "Erreur interne du serveur local." });
   }
 }
 
@@ -211,5 +185,6 @@ const server = createServer(async (request, response) => {
 server.listen(port, host, () => {
   console.log(`Kinky TCG local : http://${host}:${port}`);
   console.log(`Webhook local : ${path.basename(webhookFile)} (non versionné)`);
+  console.log("Notifications : même code que la production (api/notification.js), rechargé automatiquement.");
   console.log("Vercel reste disponible avec : vercel dev");
 });
