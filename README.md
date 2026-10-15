@@ -198,6 +198,8 @@ npm run dev:local
 
 Ouvrez ensuite <http://127.0.0.1:8000>. Le fichier `.discord-webhook.txt` doit contenir une URL `https://discord.com/api/webhooks/...`, une seule URL active par ligne ; les lignes commençant par `#` sont ignorées. **Ne commitez jamais ce fichier et ne partagez jamais son contenu.**
 
+Les notifications passent par **le même code que la production** (`api/notification.js`) : les mots de passe sont vérifiés d'après `json/cartes.json`, une même carte n'est notifiée qu'une fois par 30 secondes et par adresse, et les cartes d'un niveau importé arrivent en gris, marquées « non vérifiées ». Le serveur local recharge ce code et `json/cartes.json` automatiquement quand ils changent, et affiche dans la console la réponse de l'API à chaque notification (par exemple `HTTP 202` pour un doublon).
+
 Le serveur local ne remplace pas Vercel : il sert uniquement aux tests locaux. Pour tester le déploiement Vercel et les deux fonctions serveur avec les variables d’environnement, utilisez toujours :
 
 ```bash
@@ -248,7 +250,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   └── gallery.json      # Inventaire des images (généré)
 ├── docs/screenshots/     # Captures d'écran du README
 ├── scripts/              # Outils de maintenance (Node.js)
-│   ├── local-server.mjs  # Serveur local avec webhook depuis .discord-webhook.txt
+│   ├── local-server.mjs  # Serveur local (même API de notification que Vercel, webhook depuis .discord-webhook.txt)
 └── .github/workflows/    # Publication et optimisation
 ```
 
