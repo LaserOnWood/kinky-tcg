@@ -16,7 +16,7 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.2.7"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.2.8"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
