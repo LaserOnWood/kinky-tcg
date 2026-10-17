@@ -233,7 +233,8 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   └── ico/              # Icône
 ├── css/                  # Feuilles de style
 │   ├── feedback.css      # Styles partagés du formulaire de retours
-│   └── feedback-page.css # Mise en page dédiée au feedback
+│   ├── feedback-page.css # Mise en page dédiée au feedback
+│   └── vendor/           # Bootstrap hébergé dans le projet (licence MIT, voir LISEZMOI.txt)
 ├── js/
 │   ├── passemot.js       # Logique principale du jeu
 │   ├── hasard.js         # Mode Hasard : catalogue, tirages, cartes et interactions
