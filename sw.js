@@ -6,7 +6,8 @@
  *   secours hors ligne, mais aussi quand le réseau met plus de DELAI_RESEAU_MS à
  *   répondre (réseau capricieux en extérieur) ou renvoie une erreur serveur.
  *   Tes mises à jour s'affichent dès que le réseau répond.
- * - Images, polices, Bootstrap… : « cache d'abord » (lourds, ne changent pas).
+ * - Images, polices, fichiers tiers de css/vendor (Bootstrap, versionné par ?v=) :
+ *   « cache d'abord » (lourds, ne changent pas).
  * - Illustrations des cartes : mises en cache au fil des affichages, et à l'avance
  *   pour le thème choisi (le jeu envoie un message PRECACHE_IMAGES quand on ouvre
  *   un thème). Aucune image n'est téléchargée pour un thème qu'on n'ouvre jamais.
@@ -16,7 +17,7 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.2.9"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.2.10"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
@@ -40,6 +41,7 @@ const FICHIERS_APP = [
   "level-builder.html",
   "manifest.webmanifest",
   "css/main.css?v=20261013-2",
+  "css/vendor/bootstrap.min.css?v=5.3.8",
   "css/feedback.css",
   "css/feedback-page.css",
   "js/utils.js",
@@ -210,7 +212,10 @@ self.addEventListener("fetch", (e) => {
   // les sons demandent donc le réseau (ils ne sont pas disponibles hors ligne).
   if (req.method !== "GET" || req.url.endsWith(".mp3")) return;
   const url = new URL(req.url);
+  // css/vendor : fichiers tiers versionnés (?v=), donc servis par le cache d'abord, comme les images.
+  const estVendor = url.pathname.includes("/css/vendor/");
   const estApp = url.origin === self.location.origin
+    && !estVendor
     && (req.mode === "navigate" || /\.(html|css|js|json|webmanifest)$/.test(url.pathname));
   e.respondWith(estApp ? reseauPuisCache(req, e) : cachePuisReseau(req));
 });
