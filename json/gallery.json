@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-09T06:01:08.581Z",
-  "count": 100,
+  "generatedAt": "2026-10-18T20:40:38.377Z",
+  "count": 102,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -47,6 +47,17 @@
       "checksum": "2662900a8e640db655e471453196943705019ce8b1851d5acaa7cfa3ebb35404"
     },
     {
+      "id": "assets-cartes-accessoires-chaines-webp",
+      "name": "Chaines",
+      "path": "assets/cartes/Accessoires/Chaines.webp",
+      "src": "assets/cartes/Accessoires/Chaines.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 94984,
+      "sizeLabel": "92.8 Ko",
+      "checksum": "5d8ec22d056c5a4b5d9efbc58b0613a0d2f6d0cb3927386c2748316c4a08fc37"
+    },
+    {
       "id": "assets-cartes-accessoires-couteau-webp",
       "name": "Couteau",
       "path": "assets/cartes/Accessoires/Couteau.webp",
@@ -89,6 +100,17 @@
       "size": 109470,
       "sizeLabel": "106.9 Ko",
       "checksum": "f2cfa03087aace0da55726a62d49eb300881d8a9bde556286730be521d017018"
+    },
+    {
+      "id": "assets-cartes-accessoires-gla-on-webp",
+      "name": "Glaçon",
+      "path": "assets/cartes/Accessoires/Glaçon.webp",
+      "src": "assets/cartes/Accessoires/Gla%C3%A7on.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 104462,
+      "sizeLabel": "102.0 Ko",
+      "checksum": "ff9b286685ea8d87fefbfa52d429d3d3195067d229527b07aa4984d32ed28bd8"
     },
     {
       "id": "assets-cartes-accessoires-gode-ceinture-webp",
@@ -185,9 +207,9 @@
       "src": "assets/cartes/Accessoires/Talons.webp",
       "category": "Accessoires",
       "extension": "WEBP",
-      "size": 52084,
-      "sizeLabel": "50.9 Ko",
-      "checksum": "09d0e6d5da6b54c44e4d3a61b80f32b6d4234838137e5f9257c84102a6cfdba4"
+      "size": 53356,
+      "sizeLabel": "52.1 Ko",
+      "checksum": "324b046bb5c80b752f71720a03a74fa2dee9b5932a60485e52aa3ea69692c9d0"
     },
     {
       "id": "assets-cartes-actions-adultere-webp",
