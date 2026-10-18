@@ -40,19 +40,19 @@
       "name": "Voir la galerie",
       "description": "Permet d'accéder directement à la galerie de cartes.",
       "url": "./gallery.html",
-      "icons": [{"src": "assets/icons/filter_96.png","sizes": "96x96","type": "image/png"}]
+      "icons": [{"src": "assets/icons/images.svg","sizes": "192x192","type": "image/svg"}]
     },
     {
       "name": "Créer un niveau",
       "description": "Permet de créer et de personnaliser ses propres niveaux de jeu.",
       "url": "./level-builder.html",
-      "icons": [{"src": "assets/icons/construction_96.png","sizes": "96x96","type": "image/png"}]
+      "icons": [{"src": "assets/icons/tools.svg","sizes": "192x192","type": "image/svg"}]
     },
     {
       "name": "Faire un feedback",
       "description": "Permet de donner son avis sur le jeu.",
       "url": "./feedback.html",
-      "icons": [{"src": "assets/icons/feedback_96.png","sizes": "96x96","type": "image/png"}]
+      "icons": [{"src": "assets/icons/chat-dots.svg","sizes": "192x192","type": "image/svg"}]
     }
   ],
   "screenshots": [
