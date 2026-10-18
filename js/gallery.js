@@ -40,7 +40,7 @@
         <button type="button" class="gallery-card-button" data-id="${echapperHTML(image.id)}" aria-label="Ouvrir ${echapperHTML(image.name)}">
           <img src="${echapperHTML(image.src)}" alt="${echapperHTML(image.name)}" loading="${index < 8 ? "eager" : "lazy"}">
           <span class="gallery-card-index">${String(index + 1).padStart(2, "0")}</span>
-          <span class="gallery-card-open"><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
+          <span class="gallery-card-open"><i class="ic ic-expand" aria-hidden="true"></i></span>
         </button>
         <div class="gallery-card-info"><h3 title="${echapperHTML(image.name)}">${echapperHTML(image.name)}</h3><span class="gallery-card-format">${echapperHTML(image.extension)}</span></div>
       </article>`).join("");

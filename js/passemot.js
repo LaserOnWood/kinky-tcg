@@ -413,8 +413,8 @@ async function choisirTheme(themeId){
   const swipeHint = document.querySelector("#game-content .cards-swipe-hint");
   if(swipeHint){
     swipeHint.innerHTML = modeHasardActif
-      ? '<i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les catégories'
-      : '<i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes';
+      ? '<i class="ic ic-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les catégories'
+      : '<i class="ic ic-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes';
   }
   document.querySelector(".progress-wrap")?.classList.toggle("d-none", modeHasardActif);
   modaleFin?.fermer({ restaurerFocus: false });

@@ -83,8 +83,8 @@ function mettreAJourBoutonAudio() {
 
   if (icone) {
     icone.className = audioActive
-      ? "fa-solid fa-volume-high"
-      : "fa-solid fa-volume-xmark";
+      ? "ic ic-volume-high"
+      : "ic ic-volume-xmark";
   }
 
   if (libelle) {

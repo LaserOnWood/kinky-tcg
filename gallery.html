@@ -7,7 +7,7 @@
   <meta name="description" content="Catalogue visuel des ressources de Kinky TCG.">
   <title>Kinky TCG • Catalogue visuel</title>
   <link href="css/vendor/bootstrap.min.css?v=5.3.8" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/icons.css?v=20261018-1">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="assets/ico/trading-card.png">
   <link rel="stylesheet" href="css/main.css">
@@ -15,9 +15,9 @@
 </head>
 <body>
   <header class="catalog-header">
-    <a class="catalog-back" href="index.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Retour au jeu</span></a>
+    <a class="catalog-back" href="index.html"><i class="ic ic-arrow-left" aria-hidden="true"></i><span>Retour au jeu</span></a>
     <p class="catalog-brand">Kinky TCG <span>/ catalogue</span></p>
-    <p class="catalog-status"><i class="fa-solid fa-circle" aria-hidden="true"></i> INDEX ACTIF</p>
+    <p class="catalog-status"><i class="ic ic-circle" aria-hidden="true"></i> INDEX ACTIF</p>
   </header>
 
   <main>
@@ -43,19 +43,19 @@
       </div>
 
       <div class="catalog-tools">
-        <label class="catalog-search" for="catalog-search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span class="visually-hidden">Rechercher une image</span><input id="catalog-search" type="search" placeholder="Rechercher par nom ou format" autocomplete="off"></label>
+        <label class="catalog-search" for="catalog-search"><i class="ic ic-magnifying-glass" aria-hidden="true"></i><span class="visually-hidden">Rechercher une image</span><input id="catalog-search" type="search" placeholder="Rechercher par nom ou format" autocomplete="off"></label>
         <div id="catalog-filters" class="catalog-filters" aria-label="Filtrer les images par catégorie"></div>
       </div>
 
-      <p class="adult-notice"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Le contenu de cette collection est réservé à un public majeur.</p>
-      <div id="gallery-loading" class="gallery-loading"><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i><span>Lecture de l’inventaire…</span></div>
+      <p class="adult-notice"><i class="ic ic-circle-info" aria-hidden="true"></i> Le contenu de cette collection est réservé à un public majeur.</p>
+      <div id="gallery-loading" class="gallery-loading"><i class="ic ic-spinner ic-spin" aria-hidden="true"></i><span>Lecture de l’inventaire…</span></div>
       <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
       <div id="gallery-empty" class="gallery-empty" hidden><span>00</span><h2>Aucune image à afficher.</h2><p>Ajoutez un fichier dans <code>assets/cartes/</code>, puis lancez l’indexation pour actualiser le catalogue.</p></div>
     </section>
   </main>
 
   <div id="gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" hidden>
-    <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Fermer l’aperçu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Fermer l’aperçu"><i class="ic ic-xmark" aria-hidden="true"></i></button>
     <div class="lightbox-panel">
       <img id="lightbox-image" src="" alt="">
       <div><p id="lightbox-meta"></p><h2 id="lightbox-title"></h2></div>

@@ -16,7 +16,7 @@
 
   <!-- Bibliothèques communes du projet : Bootstrap 5.3.8 , Font Awesome et Google Fonts. -->
   <link href="css/vendor/bootstrap.min.css?v=5.3.8" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="css/icons.css?v=20261018-1">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   
   <!-- Style  du jeu. -->
@@ -32,14 +32,14 @@
       <div class="selection-title-row">
         <h1 id="selection-title">Choisissez votre thème</h1>
         <button class="info-button" type="button" data-info-type="difficulty" aria-label="Comprendre les niveaux de difficulté" title="Comprendre les niveaux de difficulté">
-          <i class="fa-solid fa-info" aria-hidden="true"></i>
+          <i class="ic ic-info" aria-hidden="true"></i>
         </button>
       </div>
       <p class="selection-subtitle">Chaque univers propose une ambiance différente.<br>Choisissez le thème qui vous inspire pour commencer votre collection.</p>
       <div class="selection-actions d-flex flex-wrap justify-content-center gap-3">
-        <a class="catalog-entry" href="gallery.html"><i class="fa-solid fa-images" aria-hidden="true"></i> Consulter le catalogue visuel</a>
-        <a class="catalog-entry" href="level-builder.html"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Créer un niveau</a>
-        <a class="catalog-entry" href="feedback.html"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Donner un avis</a>
+        <a class="catalog-entry" href="gallery.html"><i class="ic ic-images" aria-hidden="true"></i> Consulter le catalogue visuel</a>
+        <a class="catalog-entry" href="level-builder.html"><i class="ic ic-wand-magic-sparkles" aria-hidden="true"></i> Créer un niveau</a>
+        <a class="catalog-entry" href="feedback.html"><i class="ic ic-comment-dots" aria-hidden="true"></i> Donner un avis</a>
       </div>
     </div>
 
@@ -48,14 +48,14 @@
         <div class="text-center" style="width:100%; color:var(--ink-muted);">Chargement des thèmes…</div>
       </div>
       <div class="carousel-controls" aria-label="Navigation des thèmes">
-        <button class="carousel-button" id="theme-prev" type="button" aria-label="Thème précédent"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button class="carousel-button" id="theme-prev" type="button" aria-label="Thème précédent"><i class="ic ic-chevron-left" aria-hidden="true"></i></button>
         <div class="carousel-dots" id="theme-dots" aria-hidden="true"></div>
-        <button class="carousel-button" id="theme-next" type="button" aria-label="Thème suivant"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="carousel-button" id="theme-next" type="button" aria-label="Thème suivant"><i class="ic ic-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <p class="swipe-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> / <i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> Faites glisser pour découvrir les thèmes</p>
+      <p class="swipe-hint"><i class="ic ic-hand-pointer" aria-hidden="true"></i> / <i class="ic ic-arrows-left-right" aria-hidden="true"></i> Faites glisser pour découvrir les thèmes</p>
       <div class="level-import-box" id="level-import-box">
         <button class="catalog-entry level-import-button" id="import-level-button" type="button">
-          <i class="fa-solid fa-file-import" aria-hidden="true"></i> Ajouter un niveau JSON
+          <i class="ic ic-file-import" aria-hidden="true"></i> Ajouter un niveau JSON
         </button>
         <input id="import-level-file" type="file" accept="application/json,.json" hidden>
         <p id="level-import-status" class="level-import-status" aria-live="polite"></p>
@@ -69,12 +69,12 @@
       <div class="feedback-modal-backdrop" data-feedback-close></div>
       <section class="feedback-modal-panel" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
         <button id="feedback-close" class="feedback-modal-close" type="button" aria-label="Fermer le formulaire de feedback">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          <i class="ic ic-xmark" aria-hidden="true"></i>
         </button>
         <p class="eyebrow-text">Votre avis compte</p>
         <h2 id="feedback-modal-title">Feedback anonyme</h2>
         <p class="feedback-intro">Aucun compte ni adresse e-mail ne sont nécessaires. Votre message sera transmis au salon Discord de test.</p>
-        <p class="feedback-page-link-wrap"><a class="feedback-page-link" href="feedback.html"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Ouvrir dans une page dédiée</a></p>
+        <p class="feedback-page-link-wrap"><a class="feedback-page-link" href="feedback.html"><i class="ic ic-arrow-up-right-from-square" aria-hidden="true"></i> Ouvrir dans une page dédiée</a></p>
         <form id="feedback-form">
           <label for="feedback-type">Type de retour</label>
           <select id="feedback-type" name="type">
@@ -103,7 +103,7 @@
       <div class="info-modal-backdrop" data-info-close></div>
       <section class="info-modal-panel" role="dialog" aria-modal="true" aria-labelledby="info-modal-title">
         <button id="info-modal-close" class="info-modal-close" type="button" aria-label="Fermer les informations">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          <i class="ic ic-xmark" aria-hidden="true"></i>
         </button>
         <p class="eyebrow-text">Guide du jeu</p>
         <h2 id="info-modal-title"></h2>
@@ -114,7 +114,7 @@
     <header class="game-header" aria-label="En-tête du jeu">
       <div class="header-left">
         <button id="back-to-selection" class="back-button" type="button" aria-label="Retour au choix du thème">
-          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          <i class="ic ic-chevron-left" aria-hidden="true"></i>
           <span>Retour</span>
         </button>
         <button
@@ -124,7 +124,7 @@
           aria-label="Donner un feedback anonyme"
           title="Donner un feedback anonyme"
         >
-          <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+          <i class="ic ic-comment-dots" aria-hidden="true"></i>
           <span>Feedback</span>
         </button>
       </div>
@@ -144,7 +144,7 @@
           <span id="game-level-text" class="level-text">Niveau</span>
         </div>
         <button class="info-button" type="button" data-info-type="rarity" aria-label="Comprendre la rareté des cartes" title="Comprendre la rareté des cartes">
-          <i class="fa-solid fa-info" aria-hidden="true"></i>
+          <i class="ic ic-info" aria-hidden="true"></i>
         </button>
       </div>
     </header>
@@ -153,7 +153,7 @@
       <div class="cards-frame">
         <div class="cards-grid" id="grid" aria-label="Cartes du niveau"></div>
       </div>
-      <p class="cards-swipe-hint"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes</p>
+      <p class="cards-swipe-hint"><i class="ic ic-hand-pointer" aria-hidden="true"></i> Glissez horizontalement pour parcourir les cartes</p>
     </main>
 
     <footer class="entry-bar" aria-label="Saisie de code">
@@ -167,7 +167,7 @@
           aria-label="Désactiver les sons"
           title="Désactiver les sons"
         >
-          <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+          <i class="ic ic-volume-high" aria-hidden="true"></i>
           <span class="sound-toggle-label">Son activé</span>
         </button>
         <label class="visually-hidden" for="pwd-input">Code de la carte</label>
@@ -189,7 +189,7 @@
   <!-- Voile « portrait obligatoire » : affiché uniquement par le CSS (voir ORIENTATION dans main.css)
        quand un téléphone est tenu en paysage. -->
   <div id="orientation-lock" class="orientation-lock" role="alert">
-    <i class="fa-solid fa-mobile-screen-button orientation-lock-icon" aria-hidden="true"></i>
+    <i class="ic ic-mobile-screen-button orientation-lock-icon" aria-hidden="true"></i>
     <p class="orientation-lock-title">Tournez votre téléphone</p>
     <p class="orientation-lock-text">Kinky TCG se joue en mode portrait.</p>
   </div>

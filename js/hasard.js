@@ -138,7 +138,7 @@ window.HasardMode = (() => {
           </div>
         </div>
         <button class="hasard-shuffle" type="button" data-hasard-category="${echapperHTML(groupe.name)}" aria-label="Tirer une autre carte dans la catégorie ${echapperHTML(libelle)}">
-          <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+          <i class="ic ic-shuffle" aria-hidden="true"></i>
           <span>· ${echapperHTML(libelle)}</span>
         </button>
       </div>
