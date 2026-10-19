@@ -234,7 +234,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 ├── css/                  # Feuilles de style
 │   ├── feedback.css      # Styles partagés du formulaire de retours
 │   ├── feedback-page.css # Mise en page dédiée au feedback
-│   └── vendor/           # Bootstrap hébergé dans le projet (licence MIT, voir LISEZMOI.txt)
+│   └── vendor/           # Fichiers tiers hébergés : Bootstrap, polices (voir LISEZMOI.txt)
 ├── js/
 │   ├── passemot.js       # Logique principale du jeu
 │   ├── hasard.js         # Mode Hasard : catalogue, tirages, cartes et interactions
@@ -282,7 +282,7 @@ Les chemins du jeu doivent rester **relatifs** (`css/main.css`, `js/passemot.js`
 
 ## 🧱 Technologies
 
-HTML, CSS et JavaScript natifs, sans étape de compilation, avec [Bootstrap](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/) et Google Fonts ([Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) et [Poppins](https://fonts.google.com/specimen/Poppins)) chargés depuis des CDN. L'API Web Crypto calcule les empreintes SHA-256. Node.js n'intervient que pour les outils de maintenance.
+HTML, CSS et JavaScript natifs, sans étape de compilation, avec [Bootstrap](https://getbootstrap.com/), des icônes [Bootstrap Icons](https://icons.getbootstrap.com/) intégrées en SVG (`css/icons.css`) et Google Fonts ([Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) et [Poppins](https://fonts.google.com/specimen/Poppins)), le tout hébergé dans le projet (aucune dépendance externe, voir `css/vendor/LISEZMOI.txt`). L'API Web Crypto calcule les empreintes SHA-256. Node.js n'intervient que pour les outils de maintenance.
 
 ## 🗺️ Prochaines étapes
 
@@ -319,7 +319,7 @@ Les illustrations proposées doivent être des créations fictives : **aucune im
 | 👤 **Concept, prompts et développement** | AzaSwitch |
 | 🖼️ **Illustrations** | Générées avec **Stable Diffusion** à partir des prompts d'AzaSwitch, puis mises en forme avec le générateur de cartes [YGO Carder](https://lauqerm.github.io/ygocarder/) de Lauqerm. |
 | 🔊 **Sons** | Récupérés sur [MyInstants](https://www.myinstants.com/fr/index/fr/). Les droits appartiennent à leurs ayants droit respectifs. |
-| 🧩 **Bibliothèques et polices** | Bootstrap, Font Awesome, Cormorant Garamond, Poppins. |
+| 🧩 **Bibliothèques et polices** | Bootstrap, Bootstrap Icons, Cormorant Garamond, Poppins. |
 
 > ℹ️ Kinky TCG est un projet indépendant, **non affilié à Konami**. *Yu-Gi-Oh!* est une marque de Konami Digital Entertainment.
 
