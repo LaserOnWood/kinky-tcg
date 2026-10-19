@@ -6,7 +6,7 @@
  *   secours hors ligne, mais aussi quand le réseau met plus de DELAI_RESEAU_MS à
  *   répondre (réseau capricieux en extérieur) ou renvoie une erreur serveur.
  *   Tes mises à jour s'affichent dès que le réseau répond.
- * - Images, polices, fichiers tiers de css/vendor (Bootstrap, versionné par ?v=) :
+ * - Images et fichiers tiers de css/vendor (Bootstrap, polices, versionnés par ?v=) :
  *   « cache d'abord » (lourds, ne changent pas).
  * - Illustrations des cartes : mises en cache au fil des affichages, et à l'avance
  *   pour le thème choisi (le jeu envoie un message PRECACHE_IMAGES quand on ouvre
@@ -17,7 +17,7 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.2.11"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.2.12"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
 const URL_CARTES = "json/cartes.json";
@@ -42,6 +42,15 @@ const FICHIERS_APP = [
   "manifest.webmanifest",
   "css/main.css?v=20261013-2",
   "css/vendor/bootstrap.min.css?v=5.3.8",
+  "css/vendor/fonts/fonts.css?v=1",
+  "css/vendor/fonts/fonts-poppins-500.css?v=1",
+  "css/vendor/fonts/fonts-poppins-700.css?v=1",
+  "css/vendor/fonts/files/poppins-latin-400-normal.woff2",
+  "css/vendor/fonts/files/poppins-latin-500-normal.woff2",
+  "css/vendor/fonts/files/poppins-latin-600-normal.woff2",
+  "css/vendor/fonts/files/poppins-latin-700-normal.woff2",
+  "css/vendor/fonts/files/cormorant-garamond-latin-600-normal.woff2",
+  "css/vendor/fonts/files/cormorant-garamond-latin-600-italic.woff2",
   "css/icons.css?v=20261018-1",
   "css/feedback.css",
   "css/feedback-page.css",
