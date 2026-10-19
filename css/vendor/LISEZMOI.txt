@@ -1,0 +1,28 @@
+Fichiers tiers hébergés dans le projet
+=======================================
+
+Pourquoi ici et pas sur un CDN ? Le jeu fonctionne hors ligne dès la première visite,
+ne dépend d'aucun service externe, et le service worker met ces fichiers en cache.
+
+bootstrap.min.css
+    Bootstrap 5.3.8 (https://getbootstrap.com/), licence MIT : BOOTSTRAP-LICENSE.txt
+
+bootstrap-icons-LICENSE.txt
+    Licence MIT des icônes Bootstrap Icons, intégrées en SVG dans css/icons.css
+    (la marche à suivre pour ajouter une icône est expliquée en tête de ce fichier).
+
+fonts/
+    Polices Poppins et Cormorant Garamond (Google Fonts, licence SIL OFL 1.1 :
+    LICENSE-poppins.txt, LICENSE-cormorant-garamond.txt), sous-ensemble « latin »,
+    fichiers woff2 issus du paquet npm Fontsource. Chaque page charge les graisses
+    qu'elle demandait à Google Fonts (voir l'en-tête de fonts/fonts.css).
+
+Mettre à jour Bootstrap ou les polices :
+  1. Récupérer la nouvelle version (par exemple « npm pack bootstrap@X.Y.Z » ou
+     « npm pack @fontsource/poppins ») et remplacer les fichiers correspondants.
+  2. Bootstrap : supprimer la dernière ligne du CSS (« sourceMappingURL »), pour ne pas
+     demander un fichier .map absent.
+  3. Changer le numéro après « ?v= » dans les 4 pages HTML (index, gallery, level-builder,
+     feedback) ET dans la liste FICHIERS_APP de sw.js, puis incrémenter VERSION dans sw.js.
+  4. Besoin d'une graisse ou d'un caractère hors « latin » ? Il faut copier le fichier
+     correspondant du paquet Fontsource et le déclarer dans un fichier fonts*.css.
