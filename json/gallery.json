@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-18T20:40:38.377Z",
-  "count": 102,
+  "generatedAt": "2026-10-21T16:11:14.401Z",
+  "count": 107,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -122,6 +122,17 @@
       "size": 52496,
       "sizeLabel": "51.3 Ko",
       "checksum": "6b8ebc0b04522cc3d6ab0d4920614eaed85727abe72bf968052eb2a3a8e60422"
+    },
+    {
+      "id": "assets-cartes-accessoires-gode-ovipositeur-webp",
+      "name": "Gode ovipositeur",
+      "path": "assets/cartes/Accessoires/Gode_ovipositeur.webp",
+      "src": "assets/cartes/Accessoires/Gode_ovipositeur.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 164232,
+      "sizeLabel": "160.4 Ko",
+      "checksum": "ab5625e69d0bcc30b39ec4c483de014da067a9bfb4efd9c52566c33764c232cf"
     },
     {
       "id": "assets-cartes-accessoires-harnais-webp",
@@ -630,6 +641,17 @@
       "checksum": "0e71db63dc3f7caa9880f16301050f49ef3b990cdef78122554a1b411d49d2d9"
     },
     {
+      "id": "assets-cartes-actions-massage-huile-webp",
+      "name": "Massage huile",
+      "path": "assets/cartes/Actions/Massage_huile.webp",
+      "src": "assets/cartes/Actions/Massage_huile.webp",
+      "category": "Actions",
+      "extension": "WEBP",
+      "size": 74406,
+      "sizeLabel": "72.7 Ko",
+      "checksum": "04770ba1b677fd7f83a0b29dc53b58fbc9df35ef0080ec0f2dee5a31a07323fe"
+    },
+    {
       "id": "assets-cartes-actions-milf-a-gode-ceinture-webp",
       "name": "MILF a gode ceinture",
       "path": "assets/cartes/Actions/MILF_a_gode_ceinture.webp",
@@ -993,6 +1015,17 @@
       "checksum": "9083f6bef3067abfa22a615ec246e313bd81ef3c6a8643bdff17e94cc8ea37e5"
     },
     {
+      "id": "assets-cartes-tenue-collants-resille-webp",
+      "name": "Collants resille",
+      "path": "assets/cartes/Tenue/Collants_resille.webp",
+      "src": "assets/cartes/Tenue/Collants_resille.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 91004,
+      "sizeLabel": "88.9 Ko",
+      "checksum": "8557d4f3fc860274cc5ed29eca421e218140c9712c4cc72674e98b7ba64b0e16"
+    },
+    {
       "id": "assets-cartes-tenue-ecoliere-webp",
       "name": "Ecoliere",
       "path": "assets/cartes/Tenue/Ecoliere.webp",
@@ -1026,6 +1059,17 @@
       "checksum": "8fa2ddf03cb49cbfdc4ccc057369aa999c52c8946f2c3989e6c9eec94cde222e"
     },
     {
+      "id": "assets-cartes-tenue-lingerie-rouge-webp",
+      "name": "Lingerie rouge",
+      "path": "assets/cartes/Tenue/Lingerie_rouge.webp",
+      "src": "assets/cartes/Tenue/Lingerie_rouge.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 86230,
+      "sizeLabel": "84.2 Ko",
+      "checksum": "ffc6546357c810d4642045917f7645de0de19731ee3b706205d295349270a2fd"
+    },
+    {
       "id": "assets-cartes-tenue-manteau-rouge-webp",
       "name": "Manteau Rouge",
       "path": "assets/cartes/Tenue/Manteau_Rouge.webp",
@@ -1057,6 +1101,17 @@
       "size": 64174,
       "sizeLabel": "62.7 Ko",
       "checksum": "7c28f8a03601d4c353b1cb9a42c1b5bcb8afe6eb52de376f284baba2e1280d58"
+    },
+    {
+      "id": "assets-cartes-tenue-peignoir-satine-webp",
+      "name": "Peignoir satine",
+      "path": "assets/cartes/Tenue/Peignoir_satine.webp",
+      "src": "assets/cartes/Tenue/Peignoir_satine.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 72288,
+      "sizeLabel": "70.6 Ko",
+      "checksum": "f8c068ae3daec453deb1f32d0748bca6d47b42b4f601d381410c9e7b78826548"
     },
     {
       "id": "assets-cartes-tenue-policiere-webp",
