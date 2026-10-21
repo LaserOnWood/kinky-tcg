@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-21T16:11:14.401Z",
-  "count": 107,
+  "generatedAt": "2026-10-21T19:19:36.371Z",
+  "count": 108,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -23,6 +23,17 @@
       "size": 181768,
       "sizeLabel": "177.5 Ko",
       "checksum": "a3b4ed10cab0207d5102db9aac80353fafd4bc5f11109e4ced59269674cb60b9"
+    },
+    {
+      "id": "assets-cartes-accessoires-bougie-1-png",
+      "name": "Bougie (1)",
+      "path": "assets/cartes/Accessoires/Bougie (1).png",
+      "src": "assets/cartes/Accessoires/Bougie%20(1).png",
+      "category": "Accessoires",
+      "extension": "PNG",
+      "size": 2336937,
+      "sizeLabel": "2.2 Mo",
+      "checksum": "8b3fad17adc3be553499ffaec317aae12699d319e995f57fc71e202d3fb26f88"
     },
     {
       "id": "assets-cartes-accessoires-cage-de-chastete-webp",
