@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T19:19:36.371Z",
+  "generatedAt": "2026-10-21T19:23:31.922Z",
   "count": 108,
   "images": [
     {
@@ -25,10 +25,10 @@
       "checksum": "a3b4ed10cab0207d5102db9aac80353fafd4bc5f11109e4ced59269674cb60b9"
     },
     {
-      "id": "assets-cartes-accessoires-bougie-1-png",
-      "name": "Bougie (1)",
-      "path": "assets/cartes/Accessoires/Bougie (1).png",
-      "src": "assets/cartes/Accessoires/Bougie%20(1).png",
+      "id": "assets-cartes-accessoires-bougie-png",
+      "name": "Bougie",
+      "path": "assets/cartes/Accessoires/Bougie.png",
+      "src": "assets/cartes/Accessoires/Bougie.png",
       "category": "Accessoires",
       "extension": "PNG",
       "size": 2336937,
