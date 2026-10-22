@@ -265,5 +265,8 @@ fetch("assets/cartes/index.json", { cache: "no-store" })
     state.assets = assets;
     renderAssets();
   })
-  .catch(() => toast("Impossible de charger les images locales."));
+  .catch(() => {
+    $("assetGrid").innerHTML = '<p class="builder-note">Impossible de charger les images locales. Vérifiez assets/cartes/index.json.</p>';
+    toast("Impossible de charger les images locales.");
+  });
 renderCards();
