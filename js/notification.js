@@ -20,12 +20,12 @@ function obtenirURLImage(image) {
 /**
  * Demande au relais serveur d'envoyer un embed Discord.
  * @param {Object} carte - Carte venant d'être déverrouillée.
- * @param {string} motDePasseSaisi - Texte saisi par l'utilisateur.
+ * @param {string} validationMessage - Message de validation (ne contient JAMAIS le mot de passe).
  * @param {string} difficulte - Difficulté du niveau sélectionné dans le jeu.
  * @param {string} themeChoisi - Nom du niveau / thème sélectionné dans le jeu.
  * @returns {Promise<boolean>} true si le relais a accepté la requête.
  */
-async function notifierDiscord(carte, motDePasseSaisi, difficulte, themeChoisi) {
+async function notifierDiscord(carte, validationMessage, difficulte, themeChoisi) {
   if (!carte || typeof carte !== "object") {
     console.warn("Notification Discord ignorée : carte invalide.");
     return false;
@@ -44,7 +44,7 @@ async function notifierDiscord(carte, motDePasseSaisi, difficulte, themeChoisi) 
           actions: carte.actions,
           image: obtenirURLImage(carte.image)
         },
-        motDePasseSaisi,
+        validationMessage: "✅ Mot de passe validé",
         difficulte,
         theme: themeChoisi
       })
@@ -65,3 +65,5 @@ async function notifierDiscord(carte, motDePasseSaisi, difficulte, themeChoisi) 
 
 // API globale utilisée par passemot.js.
 window.notifierDiscord = notifierDiscord;
+
+export { notifierDiscord };

@@ -176,7 +176,7 @@ export default async function handler(request, response) {
 
   const webhookUrls = obtenirWebhooks();
   if (!webhookUrls.length) {
-    console.error(`Aucune variable ${WEBHOOK_VARIABLE_PREFIX}N n'est configurée.`);
+    console.error(`[SECURITY] Aucune variable ${WEBHOOK_VARIABLE_PREFIX}N n'est configurée.`);
     return sendJson(response, 500, { error: "Les notifications ne sont pas configurées." });
   }
 
@@ -274,7 +274,7 @@ export default async function handler(request, response) {
     },
     {
       name: "Code Utilisé",
-      value: limiterTexte(`\`${echapperMarkdown(motDePasseSaisi)}\``),
+      value: limiterTexte("✅ Mot de passe validé"),
       inline: true
     },
     {

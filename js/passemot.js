@@ -906,7 +906,7 @@ async function traiterSaisie(){
     if (window.notifierDiscord) {
       const difficulte = $("game-level-text")?.textContent?.trim() || "Niveau";
       const themeChoisi = $("game-title")?.textContent?.trim() || "Thème";
-      window.notifierDiscord(carteTrouvee, saisie, difficulte, themeChoisi);
+      window.notifierDiscord(carteTrouvee, "✅ Mot de passe validé", difficulte, themeChoisi);
     }
 
   } else {
