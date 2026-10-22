@@ -984,12 +984,12 @@ async function initialiserJeu(){
     feedback.textContent = "";
   }catch(erreur){
     console.error("Erreur d'initialisation du jeu :", erreur);
-    feedback.textContent = "Impossible de charger les cartes. Vérifie le fichier json/cartes.json.";
+    feedback.textContent = "Impossible de charger les cartes. Vérifie les fichiers json/themes.json et json/themes/.";
     feedback.className = "feedback err";
 
     const container = $("themes-container");
     if(container){
-      container.innerHTML = `<div class="alert alert-danger">Impossible de charger les données du jeu. Vérifiez le fichier json/cartes.json.</div>`;
+      container.innerHTML = `<div class="alert alert-danger">Impossible de charger les données du jeu. Vérifiez les fichiers json/themes.json et json/themes/.</div>`;
     }
   }
 }
