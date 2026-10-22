@@ -22,7 +22,8 @@
        chargé automatiquement pour que le jeu reste jouable.
    =========================================================================== */
 
-const CARTES_URL = "json/cartes.json";
+const CARTES_URL = "json/cartes.json";        // ancien format (repli)
+const INDEX_URL  = "json/themes.json";        // nouveau format (index)
 
 // Mode "plat" : mêmes clés que l'ancien tcg/js/passemot.js (progression conservée).
 const FLAT_STORAGE_KEY = "kinky_tcg_progress_v0.5";
@@ -234,7 +235,85 @@ function validerThemes(themesData){
   });
 }
 
+function validerIndexThemes(themesData){
+  if(!Array.isArray(themesData) || themesData.length === 0){
+    throw new Error("« themes » doit contenir au moins un thème.");
+  }
+
+  const idsThemes = new Set();
+
+  return themesData.map((theme, index) => {
+    const position = index + 1;
+
+    if(!theme || typeof theme !== "object" || Array.isArray(theme)){
+      throw new Error(`Le thème n°${position} est invalide.`);
+    }
+
+    const id = String(theme.id ?? "").trim();
+    if(!id || idsThemes.has(id)){
+      throw new Error(`Le thème n°${position} doit avoir un « id » unique et non vide.`);
+    }
+    idsThemes.add(id);
+
+    const mode = theme.mode === "hasard" ? "hasard" : "classique";
+    const file = String(theme.file ?? "").trim();
+    if(mode === "classique" && !file){
+      throw new Error(`Le thème « ${id} » doit référencer un « file » (ex: themes/${id}.json).`);
+    }
+
+    return {
+      id,
+      name: (typeof theme.name === "string" && theme.name.trim()) ? theme.name.trim() : id,
+      description: (typeof theme.description === "string") ? theme.description.trim() : "",
+      difficulty: (typeof theme.difficulty === "string" && theme.difficulty.trim()) ? theme.difficulty.trim() : "—",
+      mode,
+      seal: (typeof theme.seal === "string" && theme.seal.trim()) ? theme.seal.trim() : "♥️",
+      file,
+      cardCount: Number.isInteger(theme.cardCount) ? theme.cardCount : 0,
+      cards: null
+    };
+  });
+}
+
+async function chargerThemeComplet(meta){
+  if(meta.mode === "hasard"){
+    return { ...meta, cards: [] };
+  }
+  const url = `json/${meta.file}`;
+  const reponse = await fetch(url, { cache: "no-store" });
+  if(!reponse.ok){
+    throw new Error(`Impossible de charger ${url} (${reponse.status}).`);
+  }
+  const donnees = await reponse.json();
+  if(String(donnees?.id) !== meta.id){
+    throw new Error(`Le fichier ${url} ne correspond pas au thème « ${meta.id} ».`);
+  }
+  const cartes = validerCartes(donnees.cards, `Le thème « ${meta.name} »`);
+  return { ...meta, cards: cartes };
+}
+
 async function chargerDonnees(){
+  // 1) Nouveau format : index + fichiers de thème séparés.
+  try{
+    const reponseIndex = await fetch(INDEX_URL, { cache: "no-store" });
+    if(reponseIndex.ok){
+      const index = await reponseIndex.json();
+      MODE = "themes";
+      THEMES_OFFICIELS = validerIndexThemes(index.themes);
+      THEMES = [...THEMES_OFFICIELS, ...chargerThemesImportes()];
+      return;
+    }
+    if(reponseIndex.status !== 404){
+      throw new Error(`Impossible de charger ${INDEX_URL} (${reponseIndex.status}).`);
+    }
+  }catch(erreurIndex){
+    if(erreurIndex?.name !== "TypeError"){
+      throw erreurIndex;
+    }
+    console.warn("json/themes.json inaccessible, repli sur json/cartes.json :", erreurIndex.message);
+  }
+
+  // 2) Ancien format : un seul fichier json/cartes.json.
   const reponse = await fetch(CARTES_URL, { cache: "no-store" });
 
   if(!reponse.ok){
@@ -329,7 +408,7 @@ function afficherSelectionThemes(){
       <p>${echapperHTML(theme.description)}</p>
       <div class="theme-info">
         <span class="difficulty-badge">${echapperHTML(theme.difficulty)}</span>
-        <span class="card-count">${theme.mode === "hasard" ? "Tirages par catégorie" : `${theme.cards.length} cartes`}</span>
+        <span class="card-count">${theme.mode === "hasard" ? "Tirages par catégorie" : `${theme.cardCount ?? theme.cards?.length ?? 0} cartes`}</span>
       </div>
     </div>
   `).join("");
@@ -342,6 +421,9 @@ function precacherImagesTheme(theme){
   if(navigator.connection?.saveData || !navigator.serviceWorker?.ready){ return; }
 
   const urls = theme.cards.map(carte => carte.image).filter(Boolean);
+  // Le JSON du thème est mis en cache en même temps que ses images, pour que
+  // le thème reste jouable hors ligne après une première ouverture.
+  if(theme.file){ urls.push(`json/${theme.file}`); }
   if(!urls.length){ return; } // thème Hasard : ses images se mettent en cache à l'affichage
 
   navigator.serviceWorker.ready
@@ -350,10 +432,28 @@ function precacherImagesTheme(theme){
 }
 
 async function choisirTheme(themeId){
-  const theme = THEMES.find(t => t.id === themeId);
-  if(!theme){ return; }
+  const meta = THEMES.find(t => t.id === themeId);
+  if(!meta){ return; }
 
   const requestId = ++themeSelectionRequestId;
+
+  // Charge les cartes du thème (ou réutilise celles déjà en mémoire).
+  let theme;
+  try{
+    theme = meta.cards ? meta : await chargerThemeComplet(meta);
+    if(requestId !== themeSelectionRequestId){ return; }
+    meta.cards = theme.cards;
+  }catch(erreur){
+    if(requestId !== themeSelectionRequestId){ return; }
+    console.error("Chargement du thème impossible :", erreur);
+    const status = $("level-import-status");
+    if(status){
+      status.className = "level-import-status error";
+      status.textContent = `Impossible de charger le thème « ${meta.name} ».`;
+    }
+    return;
+  }
+
   const estHasard = theme.mode === "hasard";
   let preparationHasard = null;
 
@@ -884,12 +984,12 @@ async function initialiserJeu(){
     feedback.textContent = "";
   }catch(erreur){
     console.error("Erreur d'initialisation du jeu :", erreur);
-    feedback.textContent = "Impossible de charger les cartes. Vérifie le fichier json/cartes.json.";
+    feedback.textContent = "Impossible de charger les cartes. Vérifie les fichiers json/themes.json et json/themes/.";
     feedback.className = "feedback err";
 
     const container = $("themes-container");
     if(container){
-      container.innerHTML = `<div class="alert alert-danger">Impossible de charger les données du jeu. Vérifiez le fichier json/cartes.json.</div>`;
+      container.innerHTML = `<div class="alert alert-danger">Impossible de charger les données du jeu. Vérifiez les fichiers json/themes.json et json/themes/.</div>`;
     }
   }
 }

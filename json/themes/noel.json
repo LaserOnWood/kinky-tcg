@@ -1,0 +1,91 @@
+{
+  "id": "noel",
+  "version": 1,
+  "mode": "classique",
+  "cards": [
+    {
+      "id": 501,
+      "type": "Tenue",
+      "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'appercoit dans le ciel.",
+        "Elle nous tourne autour"
+      ],
+      "title": "La Lune",
+      "image": "assets/cartes/Tenue/Mere_Noel.webp",
+      "description": "La tenue est pose dans la salle de bain.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 502,
+      "type": "Accesoire",
+      "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'appercoit dans le ciel.",
+        "Elle nous tourne autour"
+      ],
+      "title": "La Lune",
+      "image": "assets/cartes/Accessoires/Bandeau.webp",
+      "description": "La tenue est pose dans la salle de bain.",
+      "rarity": "Audacieuse"
+    },
+    {
+      "id": 503,
+      "type": "Action",
+      "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'appercoit dans le ciel.",
+        "Elle nous tourne autour"
+      ],
+      "title": "La Lune",
+      "image": "assets/cartes/Actions/Fessee.webp",
+      "description": "La tenue est pose dans la salle de bain.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 504,
+      "type": "Position",
+      "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'appercoit dans le ciel.",
+        "Elle nous tourne autour"
+      ],
+      "title": "La Lune",
+      "image": "assets/cartes/Positions/Missionnaire.webp",
+      "description": "La tenue est pose dans la salle de bain.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 505,
+      "type": "Action",
+      "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'appercoit dans le ciel.",
+        "Elle nous tourne autour"
+      ],
+      "title": "La Lune",
+      "image": "assets/cartes/Actions/Creampie.webp",
+      "description": "La tenue est pose dans la salle de bain.",
+      "rarity": "Envoûtante"
+    },
+    {
+      "id": 506,
+      "type": "Action",
+      "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'appercoit dans le ciel.",
+        "Elle nous tourne autour"
+      ],
+      "title": "La Lune",
+      "image": "assets/cartes/Actions/Cum_Eating.webp",
+      "description": "La tenue est pose dans la salle de bain.",
+      "rarity": "Sulfureuse"
+    }
+  ]
+}

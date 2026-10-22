@@ -114,7 +114,7 @@ function jouerSon(type) {
 }
 
 function jouerEasterEgg(saisie) {
-  const mot = String(saisie ?? "").trim().toLowerCase();
+  const mot = normaliserMotDePasse(saisie);
   const sonAssocie = easterEggs[mot];
 
   if (!sonAssocie) return false;

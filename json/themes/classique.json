@@ -1,0 +1,59 @@
+{
+  "id": "classique",
+  "version": 1,
+  "mode": "classique",
+  "cards": [
+    {
+      "id": 101,
+      "type": "Objet",
+      "passwordHash": "87d6ad049783f68f509a18094d29b7e994d86983fa39a2620cfb0f86ec8dfcb0",
+      "hints": [
+        "Sous l'objet qui ouvre les portes.",
+        "C'est métallique et souvent près de l'entrée."
+      ],
+      "title": "Le Prélude",
+      "image": "https://picsum.photos/seed/carte1/500/700",
+      "description": "Un massage lent, à la lumière des bougies, pour ouvrir le jeu en douceur.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 102,
+      "type": "Reflet",
+      "passwordHash": "ee11fce9c63ebf368bca90f069806c881404f70708e6be19173d1467868462e0",
+      "hints": [
+        "Là où l'on se regarde avant de sortir.",
+        "Vous vous y regardez chaque matin."
+      ],
+      "title": "Le Reflet",
+      "image": "https://picsum.photos/seed/carte2/500/700",
+      "description": "Choisissez la tenue de votre partenaire pour le reste de la soirée.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 103,
+      "type": "Matière",
+      "passwordHash": "bd7cf4d0b57ebfdd5a030ae10bc49c4ec1e69dfacf1feeb45e4d0b21c3fcbadb",
+      "hints": [
+        "Doux au toucher, souvent sur un canapé.",
+        "C'est une matière luxueuse et douce."
+      ],
+      "title": "Le Velours",
+      "image": "https://picsum.photos/seed/carte3/500/700",
+      "description": "Un privilège d'une durée de dix minutes, à réclamer quand bon vous semble ce soir.",
+      "rarity": "Provocante"
+    },
+    {
+      "id": 108,
+      "type": "Événement",
+      "passwordHash": "80b1509ea37643250da601f2d24fe9b236b76fd3a3d7d18498d760cdd38813b2",
+      "hints": [
+        "Quand la lune cache le soleil.",
+        "Un phénomène astronomique rare."
+      ],
+      "title": "L'Éclipse",
+      "image": "https://picsum.photos/seed/carte8/500/700",
+      "description": "La carte finale : un souhait, sans limite ni condition, à exaucer ce soir.",
+      "rarity": "Envoûtante"
+    }
+  ]
+}
