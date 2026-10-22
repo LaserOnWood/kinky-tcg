@@ -23,6 +23,28 @@ function sendJson(response, status, body) {
 function isPlainObject(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
 }
+function validateCardTypesAndRarities(data) {
+  if (!isPlainObject(data) || !Array.isArray(data.themes) || data.themes.length !== 1) {
+    throw new Error("L'export doit contenir un seul niveau dans themes[].");
+  }
+  const theme = data.themes[0];
+  if (!isPlainObject(theme) || !Array.isArray(theme.cards)) {
+    throw new Error("Le niveau doit contenir un tableau de cartes.");
+  }
+  for (const [index, card] of theme.cards.entries()) {
+    const label = `La carte ${index + 1}`;
+    if (!isPlainObject(card)) throw new Error(`${label} est invalide.`);
+    if (typeof card.type !== "string" || !ALLOWED_CARD_TYPES.has(card.type)) {
+      throw new Error(`${label} contient un type de carte non autorisé.`);
+    }
+    if (typeof card.rarity !== "string" || !ALLOWED_RARITIES.has(card.rarity)) {
+      throw new Error(`${label} contient une rareté non autorisée.`);
+    }
+    if (!Array.isArray(card.hints) || card.hints.some(h => typeof h !== "string" || h.length > 1000)) {
+      throw new Error(`${label} contient des indices invalides (max 1000 caractères).`);
+    }
+  }
+}
 
 function validateLevelData(data) {
   if (!isPlainObject(data) || !Array.isArray(data.themes) || data.themes.length !== 1) {
@@ -36,6 +58,7 @@ function validateLevelData(data) {
   if (!Array.isArray(theme.cards) || theme.cards.length < 1 || theme.cards.length > MAX_CARDS) {
     throw new Error(`Le niveau doit contenir entre 1 et ${MAX_CARDS} cartes.`);
   }
+  validateCardTypesAndRarities(data);
 
   for (const [index, card] of theme.cards.entries()) {
     const label = `La carte ${index + 1}`;
