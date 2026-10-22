@@ -1,0 +1,33 @@
+{
+  "id": "zen",
+  "version": 1,
+  "mode": "classique",
+  "cards": [
+    {
+      "id": 201,
+      "type": "Boisson",
+      "passwordHash": "c5f12a310b5628696ac785ad08318dbae71d3cf5c9c1fb5e1c5bcf4512b10df8",
+      "hints": [
+        "Un objet pour infuser des plantes.",
+        "Il siffle quand l'eau est chaude."
+      ],
+      "title": "L'Infusion",
+      "image": "https://picsum.photos/seed/zen1/500/700",
+      "description": "Préparez une boisson chaude et profitez d'un moment de calme à deux.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 202,
+      "type": "Confort",
+      "passwordHash": "ee11fce9c63ebf368bca90f069806c881404f70708e6be19173d1467868462e0",
+      "hints": [
+        "On s'y allonge pour rêver.",
+        "Moelleux et rectangulaire."
+      ],
+      "title": "Le Nuage",
+      "image": "https://picsum.photos/seed/zen2/500/700",
+      "description": "Cinq minutes de compliments sincères les yeux dans les yeux.",
+      "rarity": "Provocante"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "anniversaire",
+  "version": 1,
+  "mode": "classique",
+  "cards": [
+    {
+      "id": 401,
+      "type": "Tenue",
+      "passwordHash": "5c7f259c35a05f39074787588eeae82c2a277ce7c8111a9d3de4f2b2b2db37d1",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'appercoit dans le ciel.",
+        "Elle nous tourne autour"
+      ],
+      "title": "La Lune",
+      "image": "assets/cartes/Tenue/Papier_cadeaux.webp",
+      "description": "Un gage à réaliser lumières éteintes uniquement.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 402,
+      "type": "Accesoires",
+      "passwordHash": "51bb0f998c8d9ac16f9ea044dba7d402d9b61b373ee69d7ba95b7643f437edf8",
+      "hints": [
+        "Je me porte sur les yeux ou le visage pour préserver le mystère.",
+        "Quand le visuel s'efface, tous les autres sens deviennent plus intenses.",
+        "L'accessoire idéal pour obéir à l'aveugle et etre guider",
+        "Il prive tes yeux de lumière pour que chaque effleurement te fasse frissonner."
+      ],
+      "title": "La vue",
+      "image": "assets/cartes/Actions/MILF_Masquee.webp",
+      "description": "La perte d'un sens permettra d'en savourer d'autre.",
+      "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
+      "rarity": "Provocante"
+    },
+    {
+      "id": 403,
+      "type": "Accesoires",
+      "passwordHash": "5943be120e49e99345f31b6b98708dfac9276978d29603c0398222670ecfdf8f",
+      "hints": [
+        "cage."
+      ],
+      "title": "La vue",
+      "image": "assets/cartes/Accessoires/Cage_de_chastete.webp",
+      "description": "La perte d'un sens permettra d'en savourer d'autre.",
+      "actions": "Deux possibilitées, soit tu prend la cagoule soit tu prend un bandeau pour les yeux et tu le porte pour te cacher la vue",
+      "rarity": "Provocante"
+    },
+    {
+      "id": 404,
+      "type": "Accesoires",
+      "passwordHash": "671a18d627c58564a1868b3ccdbc98799b43ae9e9933b8d762d5915889341028",
+      "hints": [
+        "Je me cache dans une trousse.",
+        "Je suis de toute les couleurs",
+        "Une pointe qui va transformer ton corps en toile"
+      ],
+      "title": "Toile",
+      "image": "assets/cartes/Actions/Ecritures_corporelles.webp",
+      "description": "Laisser une marque de passage",
+      "actions": "Prends des feutres et laisse les disponible.",
+      "rarity": "Sulfureuse"
+    },
+    {
+      "id": 405,
+      "type": "Action",
+      "passwordHash": "12a0fd5cb657f5b93ff38fbfe47b6e17ea51b5fc3b3d99c59b31d28d32c7d0fa",
+      "hints": [
+        "Je me pratique avec la bouche, mais mon but ultime est de faire perdre la tête à celui qui la reçoit.",
+        "Un tête-à-tête gourmand où tes mains s'accrochent à mes cheveux pendant que je m'occupe de toi.",
+        "Quand la salive ruisselle et que le bruit de la succion devient le seul son dans la pièce.",
+        "Les lèvres s'écartent, la langue s'active et la verge disparaît dans la chaleur de la bouche."
+      ],
+      "title": "L'Apné",
+      "image": "assets/cartes/Actions/Fellation_de_MILF.webp",
+      "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+      "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 406,
+      "type": "Action",
+      "passwordHash": "e1395a78ab32be3c4d539e45552b19a94549a8369f1b293ef3d3ccd2a68181a3",
+      "hints": [
+        "Tout le monde en fait un en vacances.",
+        "Tout le monde en poste sur les réseaux, mais celui-ci restera bien caché dans un dossier secret.",
+        "Un geste banal du quotidien qui devient le plus brûlant des secrets."
+      ],
+      "title": "Le Souvenir",
+      "image": "assets/cartes/Actions/Selfie_en_Action.webp",
+      "description": "La memoire c'est une chose mais enregistrer le moment c'est bien aussi.",
+      "actions": "Tu vas te saisir de ton téléphone sans interrompre le rythme et prends une des photos ou une video de ce que tu es en train de faire.",
+      "rarity": "Coquine"
+    },
+    {
+      "id": 407,
+      "type": "Action",
+      "passwordHash": "d8bbd72947b36d2ca6c6f95d96e27f9de1595820483ab973cd43977e4dc0e3e1",
+      "hints": [
+        "L'art de la pipe où l'on va jusqu'au bout, sans jamais utiliser les dents.",
+        "C'est la partie du corps que l'on sent se serrer quand on avale.",
+        "Entre la bouche et l'estomac, je suis le passage étroit que tout doit franchir."
+      ],
+      "title": "L'Apné",
+      "image": "assets/cartes/Actions/Gorge_profonde.webp",
+      "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+      "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
+      "rarity": "Sulfureuse"
+    },
+    {
+      "id": 409,
+      "type": "Position",
+      "passwordHash": "d8bbd72947b36d2ca6c6f95d96e27f9de1595820483ab973cd43977e4dc0e3e1",
+      "hints": [
+        "L'art de la pipe où l'on va jusqu'au bout, sans jamais utiliser les dents.",
+        "C'est la partie du corps que l'on sent se serrer quand on avale.",
+        "Entre la bouche et l'estomac, je suis le passage étroit que tout doit franchir."
+      ],
+      "title": "L'Apné",
+      "image": "assets/cartes/Positions/Missionnaire.webp",
+      "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+      "actions": "Tu vas le prendre en gorge profonde, sans t'arrêter avant d'avoir tout gobé. Il impose le rythme, pas de pause.",
+      "rarity": "Sulfureuse"
+    },
+    {
+      "id": 410,
+      "type": "Position",
+      "passwordHash": "e607a49330276359019fa20274b3273c83e31a3488e8ed30a4a852ce797dc801",
+      "hints": [
+        "Une posture de soumission parfaite pour offrir un accès direct et sans filtre à ton plaisir.",
+        "Peux ce faire en douceur mais aussi de maniere sauvage.",
+        "Parfait pour prendre des fessées en pleine action.",
+        "La position reine pour aller au plus profond de toi tout en gardant des mains sur tes hanches."
+      ],
+      "title": "Cambrure",
+      "image": "assets/cartes/Positions/Levrette.webp",
+      "description": "Goûter un bout, c'est une chose, mais il faut tout prendre en bouche.",
+      "actions": "Tu vas te mettre a quatre patte et te cambrer pour offrir ta chatte deja coulante. Il claquera ton cul autant qu'il le veux et baisera ta chatte en meme temps.",
+      "rarity": "Mythique"
+    },
+    {
+      "id": 411,
+      "type": "Action",
+      "passwordHash": "e25ce3f92744c1c7538bb613b350d5e7d3d5e6a5437541dab2d87192aeb94e3d",
+      "hints": [
+        "L'élégance laisse place aux cris, à la sueur et au lâcher-prise le plus total.",
+        "Pas de préliminaires à rallonge, pas de douceur : juste un désir brut qui explose sans retenue.",
+        "Plaquèe contre le mur ou jetée sur le lit, un rythme effréné où l'on oublie toute pudeur."
+      ],
+      "title": "La vue",
+      "image": "assets/cartes/Actions/Baise_sauvage&intense.webp",
+      "description": "Plaqué immédiatement contre le mur, sur le canape ou le bord du lit le plus proche, un rythme effréné et imposé jusqu'à l'épuisement complet sans chercher la douceur.",
+      "actions": "Pas de douceur ni de grands discours, juste deux corps qui se percutent avec fureur, guidés par l'instinct pur.",
+      "rarity": "Audacieuse"
+    }
+  ]
+}

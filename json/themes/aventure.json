@@ -1,0 +1,47 @@
+{
+  "id": "aventure",
+  "version": 1,
+  "mode": "classique",
+  "cards": [
+    {
+      "id": 301,
+      "type": "Lumière",
+      "passwordHash": "23df2ca41316489504d44f3adad8b2d9752bc0cd7e65045d51810c5c8c879c47",
+      "hints": [
+        "Elle éclaire dans l'obscurité.",
+        "On l'allume pour voir dans le noir."
+      ],
+      "title": "La Lueur",
+      "image": "https://picsum.photos/seed/adv1/500/700",
+      "description": "Un gage à réaliser lumières éteintes uniquement.",
+      "rarity": "Audacieuse"
+    },
+    {
+      "id": 302,
+      "type": "Temps",
+      "passwordHash": "e49ec5f68827a836467c4f3e3a54fa7b10a2acbd949d6aa79f85f629be684f23",
+      "hints": [
+        "Le temps s'écoule grain par grain.",
+        "C'est un objet qui mesure le temps."
+      ],
+      "title": "Le Sablier",
+      "image": "https://picsum.photos/seed/adv2/500/700",
+      "description": "Une action rapide à accomplir avant que le temps ne soit écoulé.",
+      "rarity": "Envoûtante"
+    },
+    {
+      "id": 303,
+      "type": "Lieu",
+      "passwordHash": "f4436d9688af5d6b7cb33e78fe4059fae546920a2018299799919fe8ecaa6328",
+      "hints": [
+        "p",
+        "p",
+        "p"
+      ],
+      "title": "Petit poucet",
+      "image": "assets/cartes/Lieu/Foret.webp",
+      "description": "p",
+      "rarity": "Coquine"
+    }
+  ]
+}

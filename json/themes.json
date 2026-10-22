@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "themes": [
+    {
+      "id": "classique",
+      "name": "Classique",
+      "description": "L'expérience originale avec des défis équilibrés.",
+      "difficulty": "Innocence",
+      "seal": "♥️",
+      "mode": "classique",
+      "file": "themes/classique.json",
+      "cardCount": 4
+    },
+    {
+      "id": "zen",
+      "name": "Zen & Douceur",
+      "description": "Un moment de détente absolue et de connexion.",
+      "difficulty": "Innocence",
+      "seal": "♥️",
+      "mode": "classique",
+      "file": "themes/zen.json",
+      "cardCount": 2
+    },
+    {
+      "id": "aventure",
+      "name": "Aventure Nocturne",
+      "description": "Pour ceux qui aiment le mystère et l'exploration.",
+      "difficulty": "Transgression",
+      "seal": "🌚",
+      "mode": "classique",
+      "file": "themes/aventure.json",
+      "cardCount": 3
+    },
+    {
+      "id": "anniversaire",
+      "name": "Anniversaire spécial",
+      "description": "Dans le but de fêter son anniversaire de façon exceptionnelle et de graver cet événement dans sa mémoire..",
+      "difficulty": "Perversion",
+      "seal": "🔞",
+      "mode": "classique",
+      "file": "themes/anniversaire.json",
+      "cardCount": 10
+    },
+    {
+      "id": "halloween",
+      "name": "Halloween",
+      "description": "Dans le but de faire la fete de façon exceptionnelle et de graver cet moment dans nos mémoires.",
+      "difficulty": "Perversion",
+      "seal": "🎃",
+      "mode": "classique",
+      "file": "themes/halloween.json",
+      "cardCount": 2
+    },
+    {
+      "id": "noel",
+      "name": "Noël",
+      "description": "Dans le but de faire la fete de façon exceptionnelle et de graver cet moment dans nos mémoires.",
+      "difficulty": "Perversion",
+      "seal": "🎁",
+      "mode": "classique",
+      "file": "themes/noel.json",
+      "cardCount": 6
+    },
+    {
+      "id": "parcnocturne",
+      "name": "Sorti Nocturne au Parc",
+      "description": "Une petit sortie nocturne au parc ?",
+      "difficulty": "Dépravation",
+      "seal": "💋",
+      "mode": "classique",
+      "file": "themes/parcnocturne.json",
+      "cardCount": 7
+    },
+    {
+      "id": "suprise-alex",
+      "name": "Sortie Surprise",
+      "description": "Une parenthèse impromptue qui sort de l'ordinaire, en conservant cette touche de perversité excitante qui nous va si bien.",
+      "difficulty": "Corruption",
+      "seal": "🥵",
+      "mode": "classique",
+      "file": "themes/suprise-alex.json",
+      "cardCount": 10
+    },
+    {
+      "id": "hasard",
+      "name": "Hasard",
+      "description": "Composez votre tirage : une carte par catégorie, et mélangez chacune séparément.",
+      "difficulty": "Tirage libre",
+      "seal": "🎲",
+      "mode": "hasard",
+      "file": "themes/hasard.json",
+      "cardCount": 0
+    }
+  ]
+}
