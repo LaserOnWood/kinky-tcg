@@ -85,7 +85,7 @@
     } catch (error) {
       elements.empty.hidden = false;
       elements.empty.querySelector("h2").textContent = "Inventaire indisponible.";
-      elements.empty.querySelector("p").textContent = "Lancez pnpm gallery:index pour générer json/gallery.json.";
+      elements.empty.querySelector("p").textContent = "Lancez npm gallery:index pour générer json/gallery.json.";
       elements.shownCount.textContent = "erreur";
       console.error(error);
     } finally {
@@ -93,7 +93,7 @@
     }
   }
 
-  elements.search.addEventListener("input", (event) => { state.search = event.target.value; render(); });
+  let debounce; elements.search.addEventListener("input", (event) => { clearTimeout(debounce); debounce = setTimeout(() => { state.search = event.target.value; render(); }, 120);});
   elements.close.addEventListener("click", closeLightbox);
   elements.lightbox.addEventListener("click", (event) => { if (event.target === elements.lightbox) closeLightbox(); });
   void loadGallery();
