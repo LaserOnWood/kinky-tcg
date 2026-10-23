@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-21T19:24:08.946Z",
-  "count": 108,
+  "generatedAt": "2026-10-23T14:34:00.815Z",
+  "count": 109,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -1189,6 +1189,17 @@
       "size": 60192,
       "sizeLabel": "58.8 Ko",
       "checksum": "3e72360fabdad045c00dc00c40bd054d6d5bebb7960700bd9ed477c4e3167bfc"
+    },
+    {
+      "id": "assets-cartes-tenue-tenue-en-cuir-webp",
+      "name": "Tenue en cuir",
+      "path": "assets/cartes/Tenue/Tenue_en_cuir.webp",
+      "src": "assets/cartes/Tenue/Tenue_en_cuir.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 67744,
+      "sizeLabel": "66.2 Ko",
+      "checksum": "4290c37f77403327daa68876915d50a4bf4d5d3a284ba631c7711f006da3cd4c"
     }
   ]
 }
