@@ -31,7 +31,6 @@ const EXTENSIONS = new Set([".webp", ".png", ".jpg", ".jpeg"]);
 const __filename = fileURLToPath(import.meta.url);
 const racine = path.resolve(path.dirname(__filename), "..");
 const dossierCartes = path.join(racine, "assets", "cartes");
-const fichierCartes = path.join(racine, "json", "cartes.json");
 const appliquer = process.argv.includes("--apply");
 
 const enKo = (octets) => `${Math.round(octets / 1024)} Ko`;
@@ -117,20 +116,6 @@ async function main() {
     }
   }
 
-  // Mise à jour des chemins .png / .jpg → .webp dans json/cartes.json.
-  if (renommages.size > 0) {
-    let texte = await fs.readFile(fichierCartes, "utf8");
-    let remplacements = 0;
-    for (const [ancien, nouveau] of renommages) {
-      const motif = `"${ancien}"`;
-      if (texte.includes(motif)) {
-        texte = texte.split(motif).join(`"${nouveau}"`);
-        remplacements++;
-        console.log(`  json/cartes.json : ${ancien} → ${nouveau}`);
-      }
-    }
-    if (appliquer && remplacements > 0) await fs.writeFile(fichierCartes, texte);
-  }
 
   console.log("\n============ RÉSUMÉ ============");
   console.log(`Images examinées : ${fichiers.length} (dossiers ignorés : ${[...DOSSIERS_IGNORES].join(", ")})`);
