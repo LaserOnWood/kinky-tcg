@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-23T14:34:00.815Z",
-  "count": 109,
+  "generatedAt": "2026-10-23T14:55:27.737Z",
+  "count": 110,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -1024,6 +1024,17 @@
       "size": 103890,
       "sizeLabel": "101.5 Ko",
       "checksum": "9083f6bef3067abfa22a615ec246e313bd81ef3c6a8643bdff17e94cc8ea37e5"
+    },
+    {
+      "id": "assets-cartes-tenue-catsuit-webp",
+      "name": "Catsuit",
+      "path": "assets/cartes/Tenue/Catsuit.webp",
+      "src": "assets/cartes/Tenue/Catsuit.webp",
+      "category": "Tenue",
+      "extension": "WEBP",
+      "size": 52624,
+      "sizeLabel": "51.4 Ko",
+      "checksum": "01232e3a3ddea615014c8b1643dc11fd3660c85f8a18441137bf82d7178585d9"
     },
     {
       "id": "assets-cartes-tenue-collants-resille-webp",

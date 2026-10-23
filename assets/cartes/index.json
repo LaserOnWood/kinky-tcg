@@ -465,6 +465,11 @@
     "category": "Tenue"
   },
   {
+    "path": "assets/cartes/Tenue/Catsuit.webp",
+    "name": "Catsuit",
+    "category": "Tenue"
+  },
+  {
     "path": "assets/cartes/Tenue/Collants_resille.webp",
     "name": "Collants resille",
     "category": "Tenue"
