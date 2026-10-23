@@ -538,5 +538,10 @@
     "path": "assets/cartes/Tenue/Tenue_de_soiree.webp",
     "name": "Tenue de soiree",
     "category": "Tenue"
+  },
+  {
+    "path": "assets/cartes/Tenue/Tenue_en_cuir.webp",
+    "name": "Tenue en cuir",
+    "category": "Tenue"
   }
 ]
