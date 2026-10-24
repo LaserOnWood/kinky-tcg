@@ -309,17 +309,18 @@ HTML, CSS et JavaScript natifs, sans étape de compilation, avec [Bootstrap](htt
 
 **Déjà en place** dans les dernières versions :
 
-- [x] 📴 Mode hors ligne et installation sur l'écran d'accueil
-- [x] 🪶 Illustrations allégées (environ 80 % de poids en moins)
-- [x] 🔄 Retournement 3D des cartes à chaque déblocage
-- [x] 🛠️ Atelier de niveaux et catalogue visuel
-- [x] 🔤 Réponses tolérantes : accents, majuscules et espaces ignorés
+- [x] 📴 Mode hors ligne et installation sur l'écran d'accueil.
+- [x] 🪶 Illustrations allégées (environ 80 % de poids en moins).
+- [x] 🔄 Retournement 3D des cartes à chaque déblocage.
+- [x] 🛠️ Atelier de niveaux et catalogue visuel.
+- [x] 🔤 Réponses tolérantes : accents, majuscules et espaces ignorés.
+
 **Idées à l'étude** :
 
-- [ ] 🔞 Écran d'avertissement 18+ à l'entrée du jeu 
-- [ ] 💾 Export et import de la progression, pour changer d'appareil
-- [ ] 🎨 Thèmes finalisés : illustrations et mots de passe définitifs pour chacun
-- [ ] 🔒 Protection renforcée des mots de passe et du contenu des cartes
+- [ ] 🔞 Écran d'avertissement 18+ à l'entrée du jeu.
+- [ ] 💾 Export et import de la progression, pour changer d'appareil.
+- [ ] 🎨 Thèmes finalisés : illustrations et mots de passe définitifs pour chacun.
+- [ ] 🔒 Protection renforcée des mots de passe et du contenu des cartes.
 
 ## 🤝 Contribuer
 
