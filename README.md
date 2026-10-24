@@ -10,11 +10,32 @@
 ![18+](https://img.shields.io/badge/contenu-18%2B-5c1228?style=for-the-badge)
 ![Licence du code](https://img.shields.io/badge/code-MIT-d9a94f?style=for-the-badge)
 
-[🎮 **Jouer**](https://laseronwood.github.io/game/tcgproto/) · [💻 **Voir le code**](https://github.com/LaserOnWood/kinky-tcg) · [🐛 **Signaler un problème**](https://github.com/LaserOnWood/kinky-tcg/issues)
+🎮 **[Jouer](https://kinky-tcg.vercel.app)** · 💻 **[Voir le code](https://github.com/LaserOnWood/kinky-tcg)** · 🐛 **[Signaler un problème](https://github.com/LaserOnWood/kinky-tcg/issues)**
 
 </div>
 
 > 🔞 **Contenu réservé aux adultes (18 ans et plus).** Kinky TCG est un jeu conçu pour les couples. Il aborde la sensualité et l'érotisme, et ses cartes proposent des gages et des mises en situation à caractère adulte. En continuant, vous confirmez être majeur·e et jouer avec un·e partenaire consentant·e.
+
+## 📚 Sommaire
+
+- [🎯 Le concept](#-le-concept)
+- [🕹️ Comment se déroule une partie](#️-comment-se-déroule-une-partie)
+- [✨ Fonctionnalités](#-fonctionnalités)
+- [🎭 Les thèmes](#-les-thèmes)
+- [🛠️ Créer son propre thème](#️-créer-son-propre-thème)
+- [🖼️ Le catalogue visuel](#️-le-catalogue-visuel)
+- [📴 Hors ligne et installation](#-hors-ligne-et-installation)
+- [🔔 Notifications Discord et retours](#-notifications-discord-et-retours)
+- [🚀 Lancer le jeu en local](#-lancer-le-jeu-en-local)
+- [🗂️ Structure du projet](#️-structure-du-projet)
+- [🧰 Outils de maintenance](#-outils-de-maintenance)
+- [☁️ Déploiement](#️-déploiement)
+- [🧱 Technologies](#-technologies)
+- [🗺️ Prochaines étapes](#️-prochaines-étapes)
+- [🤝 Contribuer](#-contribuer)
+- [🎨 Crédits](#-crédits)
+- [📜 Licence](#-licence)
+
 
 ## 📸 Aperçu
 <center>
@@ -173,14 +194,14 @@ Deux fonctions serveur (`api/notification.js` et `api/feedback.js`) relaient les
 
 | Variable | Rôle |
 |---|---|
-| `DISCORD_NOTIFICATION_WEBHOOK_URL_1`, `_2`, … | Une ou plusieurs adresses recevant une notification à chaque carte révélée. |
+| `DISCORD_NOTIFICATION_WEBHOOK_URL_1`, `_2`, … | Une ou plusieurs adresses recevant une notification à chaque carte révélée. **Aucun mot de passe n'y est inclus.** |
 | `FEEDBACK_DISCORD_WEBHOOK_URL` | Adresse recevant les retours anonymes. |
 
 Le fichier `.env.example` montre le format. Ne commitez jamais un vrai fichier `.env`.
 
 Sans configuration, le jeu fonctionne normalement : l'envoi échoue en silence et ne bloque jamais le déblocage d'une carte.
 
-> 👀 **À savoir pour les joueurs :** une notification contient le titre de la carte, sa rareté, sa description, l'action éventuelle, son illustration, le niveau choisi et **le mot saisi**.
+> 👀 **À savoir pour les joueurs :** une notification contient le titre de la carte, sa rareté, sa description, l'action éventuelle, son illustration et le niveau choisi. **Le mot de passe saisi n'est jamais transmis** : il est vérifié localement, côté navigateur, avant tout envoi.
 
 Sur Vercel, le fonctionnement reste inchangé : les fonctions `api/notification.js` et `api/feedback.js` utilisent les variables d'environnement ci-dessus. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
 
@@ -272,9 +293,9 @@ Le dépôt `LaserOnWood/kinky-tcg` est la source unique du projet. Chaque push s
 
 | Destination | Fonctionnement |
 |---|---|
-| ▲ **Vercel** | Hébergement avec fonctions serveur (notifications, retours). Se met à jour à chaque push. |
-| 🐙 **GitHub Pages** | Le workflow `sync-to-site.yml` copie le jeu dans `game/tcgproto` du dépôt `LaserOnWood.github.io`. Il demande le secret `SITE_REPO_TOKEN`. C'est le lien public « Jouer ». |
-| 📡 **Hébergement FTP** | Le workflow `lws.yml` envoie les fichiers par FTP. Il demande les secrets `FTP_SERVER`, `FTP_USERNAME` et `FTP_PASSWORD`. |
+| ▲ **Vercel** | Hébergement complet avec fonctions serveur (notifications, retours). **C'est la version recommandée pour jouer.** Se met à jour à chaque push. |
+| 🐙 **GitHub Pages** | Miroir statique du jeu dans `game/tcgproto` du dépôt `LaserOnWood.github.io`. **Sans notifications ni retours** : pratique pour consulter le code, pas pour une partie complète. |
+| 📡 **Hébergement FTP** | Envoi des fichiers par FTP. Sans fonctions serveur, donc sans notifications ni retours. |
 
 Un commit fait par un workflow ne déclenche pas les autres workflows : après « Optimiser les images », lancez « Synchroniser avec le site principal » à la main.
 
@@ -292,11 +313,10 @@ HTML, CSS et JavaScript natifs, sans étape de compilation, avec [Bootstrap](htt
 - [x] 🪶 Illustrations allégées (environ 80 % de poids en moins)
 - [x] 🔄 Retournement 3D des cartes à chaque déblocage
 - [x] 🛠️ Atelier de niveaux et catalogue visuel
-
+- [x] 🔤 Réponses tolérantes : accents, majuscules et espaces ignorés
 **Idées à l'étude** :
 
-- [ ] 🔞 Écran d'avertissement 18+ à l'entrée du jeu
-- [ ] 🔤 Réponses tolérantes : accents, majuscules et espaces ignorés
+- [ ] 🔞 Écran d'avertissement 18+ à l'entrée du jeu 
 - [ ] 💾 Export et import de la progression, pour changer d'appareil
 - [ ] 🎨 Thèmes finalisés : illustrations et mots de passe définitifs pour chacun
 - [ ] 🔒 Protection renforcée des mots de passe et du contenu des cartes
@@ -317,11 +337,10 @@ Les illustrations proposées doivent être des créations fictives : **aucune im
 | | |
 |---|---|
 | 👤 **Concept, prompts et développement** | AzaSwitch |
-| 🖼️ **Illustrations** | Générées avec **Stable Diffusion** à partir des prompts d'AzaSwitch, puis mises en forme avec le générateur de cartes [YGO Carder](https://lauqerm.github.io/ygocarder/) de Lauqerm. |
+| 🖼️ **Illustrations** | Générées avec **Stable Diffusion** à partir des prompts d'AzaSwitch, puis mises en forme avec un générateur de cartes. |
 | 🔊 **Sons** | Récupérés sur [MyInstants](https://www.myinstants.com/fr/index/fr/). Les droits appartiennent à leurs ayants droit respectifs. |
 | 🧩 **Bibliothèques et polices** | Bootstrap, Bootstrap Icons, Cormorant Garamond, Poppins. |
 
-> ℹ️ Kinky TCG est un projet indépendant, **non affilié à Konami**. *Yu-Gi-Oh!* est une marque de Konami Digital Entertainment.
 
 ## 📜 Licence
 
