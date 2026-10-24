@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T14:55:27.737Z",
+  "generatedAt": "2026-10-23T21:13:47.986Z",
   "count": 110,
   "images": [
     {
@@ -1032,9 +1032,9 @@
       "src": "assets/cartes/Tenue/Catsuit.webp",
       "category": "Tenue",
       "extension": "WEBP",
-      "size": 52624,
-      "sizeLabel": "51.4 Ko",
-      "checksum": "01232e3a3ddea615014c8b1643dc11fd3660c85f8a18441137bf82d7178585d9"
+      "size": 71786,
+      "sizeLabel": "70.1 Ko",
+      "checksum": "166557a5d4c214cc62972cdf91b7301bf18d1d6f0befd1837da7dcd280c84b3f"
     },
     {
       "id": "assets-cartes-tenue-collants-resille-webp",
