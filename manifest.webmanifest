@@ -33,6 +33,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "assets/ico/trading-card-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
@@ -40,19 +46,19 @@
       "name": "Voir la galerie",
       "description": "Permet d'accéder directement à la galerie de cartes.",
       "url": "./gallery.html",
-      "icons": [{"src": "assets/icons/images.svg","sizes": "192x192","type": "image/svg"}]
+      "icons": [{"src": "assets/icons/images.svg","sizes": "any","type": "image/svg+xml"}]
     },
     {
       "name": "Créer un niveau",
       "description": "Permet de créer et de personnaliser ses propres niveaux de jeu.",
       "url": "./level-builder.html",
-      "icons": [{"src": "assets/icons/tools.svg","sizes": "192x192","type": "image/svg"}]
+      "icons": [{"src": "assets/icons/tools.svg","sizes": "any","type": "image/svg+xml"}]
     },
     {
       "name": "Faire un feedback",
       "description": "Permet de donner son avis sur le jeu.",
       "url": "./feedback.html",
-      "icons": [{"src": "assets/icons/chat-dots.svg","sizes": "192x192","type": "image/svg"}]
+      "icons": [{"src": "assets/icons/chat-dots.svg","sizes": "any","type": "image/svg+xml"}]
     }
   ],
   "screenshots": [
