@@ -1,7 +1,18 @@
+import { adresseIp, limiteDepassee } from "../lib/limites.js";
+
 const MAX_MESSAGE_LENGTH = 1500;
 const MAX_LEVEL_FILE_BYTES = 512 * 1024;
 const MAX_CARDS = 80;
 const LEVEL_FEEDBACK_TYPE = "Proposition de niveau";
+
+// Limites d'envoi (le message part dans un salon Discord : on évite qu'il soit inondé).
+const FENETRE_PAR_IP_MS = 600_000;       // 10 minutes
+const MAX_PAR_IP = 6;
+const FENETRE_GLOBALE_MS = 3_600_000;    // 1 heure
+const MAX_GLOBAL = 60;
+const DISCORD_TIMEOUT_MS = 8000;         // une requête Discord qui ne répond pas est abandonnée
+const feedbackParIp = new Map();
+const feedbackGlobal = new Map();
 const ALLOWED_TYPES = new Set([
   "Suggestion",
   "Problème",
@@ -153,7 +164,8 @@ async function sendToDiscord(webhookUrl, { type, message, levelFile }) {
     return fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(DISCORD_TIMEOUT_MS)
     });
   }
 
@@ -161,7 +173,7 @@ async function sendToDiscord(webhookUrl, { type, message, levelFile }) {
   form.set("payload_json", JSON.stringify(payload));
   form.set("files[0]", new Blob([levelFile.bytes], { type: "application/json" }), levelFile.name);
   // Ne pas fixer Content-Type : fetch ajoute la frontière multipart correcte.
-  return fetch(webhookUrl, { method: "POST", body: form });
+  return fetch(webhookUrl, { method: "POST", body: form, signal: AbortSignal.timeout(DISCORD_TIMEOUT_MS) });
 }
 
 export default async function handler(request, response) {
@@ -205,6 +217,15 @@ export default async function handler(request, response) {
     }
   } catch (error) {
     return sendJson(response, 400, { error: error.message });
+  }
+
+  // Seuls les feedbacks valides comptent dans les limites (une erreur de saisie ne bloque personne).
+  if (
+    limiteDepassee(feedbackParIp, adresseIp(request), MAX_PAR_IP, FENETRE_PAR_IP_MS) ||
+    limiteDepassee(feedbackGlobal, "global", MAX_GLOBAL, FENETRE_GLOBALE_MS)
+  ) {
+    response.setHeader("Retry-After", "600");
+    return sendJson(response, 429, { error: "Trop de feedbacks envoyés, réessayez dans quelques minutes." });
   }
 
   try {
