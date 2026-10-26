@@ -430,6 +430,11 @@
     "category": "Positions"
   },
   {
+    "path": "assets/cartes/Rituel/Collar_Me.webp",
+    "name": "Collar Me",
+    "category": "Rituel"
+  },
+  {
     "path": "assets/cartes/Rituel/Dominatrice.webp",
     "name": "Dominatrice",
     "category": "Rituel"
