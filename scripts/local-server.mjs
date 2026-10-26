@@ -10,10 +10,12 @@ const port = Number(process.env.PORT || 8000);
 const host = process.env.HOST || "127.0.0.1";
 const webhookFile = path.join(projectRoot, ".discord-webhook.txt");
 const notificationFile = path.join(projectRoot, "api", "notification.js");
-const cardsFile = path.join(projectRoot, "json", "cartes.json");
+const cardsFile = path.join(projectRoot, "json", "cartes.json");   // ancien format (repli)
+const themesFile = path.join(projectRoot, "json", "themes.json");
+const themesDir = path.join(projectRoot, "json", "themes");
 const maxBodySize = 256 * 1024;
 
-// api/notification.js lit json/cartes.json depuis le dossier de travail : on se place à la racine du projet.
+// api/notification.js lit les thèmes (json/themes.json, json/themes/) depuis le dossier de travail : on se place à la racine du projet.
 process.chdir(projectRoot);
 
 function json(response, status, body) {
@@ -76,13 +78,19 @@ async function readWebhookUrl() {
 }
 
 // Charge le VRAI code de notification (api/notification.js, celui de Vercel). Il est rechargé
-// automatiquement quand ce fichier ou json/cartes.json change : pas besoin de redémarrer
+// automatiquement quand ce fichier ou les fichiers de thèmes (json/) changent : pas besoin de redémarrer
 // le serveur après avoir modifié une carte ou le code de l'API.
 let notificationCache = { cle: "", handler: null };
 
 async function loadNotificationHandler() {
-  const [apiStats, cardsStats] = await Promise.all([fs.stat(notificationFile), fs.stat(cardsFile)]);
-  const cle = `${apiStats.mtimeMs}-${cardsStats.mtimeMs}`;
+  const fichiers = [notificationFile, cardsFile, themesFile];
+  try {
+    for (const nom of await fs.readdir(themesDir)) fichiers.push(path.join(themesDir, nom));
+  } catch {
+    // dossier absent (ancien format) : rien à surveiller en plus
+  }
+  const dates = await Promise.all(fichiers.map((fichier) => fs.stat(fichier).then((s) => s.mtimeMs, () => 0)));
+  const cle = dates.join("-");
   if (notificationCache.cle !== cle) {
     const module = await import(`${pathToFileURL(notificationFile).href}?v=${cle}`);
     notificationCache = { cle, handler: module.default };
