@@ -203,7 +203,7 @@ Sans configuration, le jeu fonctionne normalement : l'envoi échoue en silence e
 
 > 👀 **À savoir pour les joueurs :** une notification contient le titre de la carte, sa rareté, sa description, l'action éventuelle, son illustration et le niveau choisi. **Le mot de passe saisi n'est jamais transmis** : il est vérifié localement, côté navigateur, avant tout envoi.
 
-Sur Vercel, le fonctionnement reste inchangé : les fonctions `api/notification.js` et `api/feedback.js` utilisent les variables d'environnement ci-dessus. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
+Sur Vercel, le fonctionnement reste inchangé : les fonctions `api/notification.js` et `api/feedback.js` utilisent les variables d'environnement ci-dessus. Les deux fonctions limitent le nombre d'envois par adresse (voir `lib/limites.js`) et abandonnent une requête Discord qui ne répond pas au bout de 8 secondes. Sur un hébergement statique (GitHub Pages, FTP), le jeu reste jouable, mais sans notifications ni retours. C'est le cas du lien public « Jouer » ci-dessus.
 
 Le bouton **Feedback** dans une partie conserve sa popup. La page `feedback.html` propose le même formulaire dans une vue dédiée, accessible depuis l'accueil, depuis la popup et depuis le raccourci de l'application installée. Pour le motif **Proposition de niveau**, le formulaire demande un export JSON du level-builder (512 Ko maximum). L’API vérifie le schéma et les cartes avant de joindre le fichier au message Discord ; elle ne l’importe pas automatiquement dans le jeu.
 
@@ -219,7 +219,7 @@ npm run dev:local
 
 Ouvrez ensuite <http://127.0.0.1:8000>. Le fichier `.discord-webhook.txt` doit contenir une URL `https://discord.com/api/webhooks/...`, une seule URL active par ligne ; les lignes commençant par `#` sont ignorées. **Ne commitez jamais ce fichier et ne partagez jamais son contenu.**
 
-Les notifications passent par **le même code que la production** (`api/notification.js`) : les mots de passe sont vérifiés d'après `json/cartes.json`, une même carte n'est notifiée qu'une fois par 30 secondes et par adresse, et les cartes d'un niveau importé arrivent en gris, marquées « non vérifiées ». Le serveur local recharge ce code et `json/cartes.json` automatiquement quand ils changent, et affiche dans la console la réponse de l'API à chaque notification (par exemple `HTTP 202` pour un doublon).
+Les notifications passent par **le même code que la production** (`api/notification.js`) : les mots de passe sont vérifiés d'après les thèmes officiels (`json/themes.json` et `json/themes/`), une même carte n'est notifiée qu'une fois par 30 secondes et par adresse, et les cartes d'un niveau importé arrivent en gris, marquées « non vérifiées ». Le serveur local recharge ce code et `json/cartes.json` automatiquement quand ils changent, et affiche dans la console la réponse de l'API à chaque notification (par exemple `HTTP 202` pour un doublon).
 
 Le serveur local ne remplace pas Vercel : il sert uniquement aux tests locaux. Pour tester le déploiement Vercel et les deux fonctions serveur avec les variables d’environnement, utilisez toujours :
 
@@ -253,9 +253,10 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   ├── audio/            # Effets sonores
 │   └── ico/              # Icône
 ├── css/                  # Feuilles de style
+│   ├── base.css          # Socle minimal (remise à zéro, .btn, .alert, utilitaires)
 │   ├── feedback.css      # Styles partagés du formulaire de retours
 │   ├── feedback-page.css # Mise en page dédiée au feedback
-│   └── vendor/           # Fichiers tiers hébergés : Bootstrap, polices (voir LISEZMOI.txt)
+│   └── vendor/           # Fichiers tiers hébergés : polices, licences (voir LISEZMOI.txt)
 ├── js/
 │   ├── passemot.js       # Logique principale du jeu
 │   ├── hasard.js         # Mode Hasard : catalogue, tirages, cartes et interactions
@@ -267,6 +268,7 @@ Ouvrez ensuite <http://localhost:8000>. Pour tester aussi les notifications et l
 │   ├── hasheur.js        # Générateur de hash (console)
 │   ├── gallery.js        # Catalogue
 │   └── level-builder.js  # Atelier de niveaux
+├── lib/                  # Outils partagés des fonctions serveur (limitation de débit)
 ├── json/
 │   ├── cartes.json       # Thèmes et cartes du jeu
 │   └── gallery.json      # Inventaire des images (généré)
@@ -303,7 +305,7 @@ Les chemins du jeu doivent rester **relatifs** (`css/main.css`, `js/passemot.js`
 
 ## 🧱 Technologies
 
-HTML, CSS et JavaScript natifs, sans étape de compilation, avec [Bootstrap](https://getbootstrap.com/), des icônes [Bootstrap Icons](https://icons.getbootstrap.com/) intégrées en SVG (`css/icons.css`) et Google Fonts ([Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) et [Poppins](https://fonts.google.com/specimen/Poppins)), le tout hébergé dans le projet (aucune dépendance externe, voir `css/vendor/LISEZMOI.txt`). L'API Web Crypto calcule les empreintes SHA-256. Node.js n'intervient que pour les outils de maintenance.
+HTML, CSS et JavaScript natifs, sans étape de compilation : un petit socle CSS maison (`css/base.css`, dont les valeurs viennent de Bootstrap), des icônes [Bootstrap Icons](https://icons.getbootstrap.com/) intégrées en SVG (`css/icons.css`) et des polices Google Fonts ([Cormorant Garamond](https://fonts.google.com/specimen/Cormorant+Garamond) et [Poppins](https://fonts.google.com/specimen/Poppins)), le tout hébergé dans le projet (aucune dépendance externe, voir `css/vendor/LISEZMOI.txt`). L'API Web Crypto calcule les empreintes SHA-256. Node.js n'intervient que pour les outils de maintenance.
 
 ## 🗺️ Prochaines étapes
 
@@ -340,7 +342,7 @@ Les illustrations proposées doivent être des créations fictives : **aucune im
 | 👤 **Concept, prompts et développement** | AzaSwitch |
 | 🖼️ **Illustrations** | Générées avec **Stable Diffusion** à partir des prompts d'AzaSwitch, puis mises en forme avec un générateur de cartes. |
 | 🔊 **Sons** | Récupérés sur [MyInstants](https://www.myinstants.com/fr/index/fr/). Les droits appartiennent à leurs ayants droit respectifs. |
-| 🧩 **Bibliothèques et polices** | Bootstrap, Bootstrap Icons, Cormorant Garamond, Poppins. |
+| 🧩 **Socle, icônes et polices** | `css/base.css` (valeurs issues de Bootstrap), Bootstrap Icons, Cormorant Garamond, Poppins. |
 
 
 ## 📜 Licence
