@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/notification.js": {
-      "includeFiles": "json/cartes.json"
+      "includeFiles": "json/**"
     }
   }
 }
