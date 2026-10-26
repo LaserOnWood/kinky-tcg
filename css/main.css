@@ -63,15 +63,8 @@
   --font-family-display: "Cormorant Garamond", Georgia, serif;
   --font-family-body: "Poppins", system-ui, sans-serif;
 
-  /* Intégration Bootstrap (Mode sombre) */
+  /* Mode sombre (champs de formulaire, barres de défilement) */
   color-scheme: dark;
-  --bs-body-bg: var(--color-bg-main);
-  --bs-body-color: var(--color-text-primary);
-  --bs-emphasis-color: var(--color-text-primary);
-  --bs-secondary-color: var(--color-text-muted);
-  --bs-secondary-bg: var(--color-bg-panel-primary);
-  --bs-tertiary-bg: var(--color-bg-panel-secondary);
-  --bs-border-color: var(--color-border-line);
 
   /* Variables structurelles */
   --selection-max-width: 1180px;
