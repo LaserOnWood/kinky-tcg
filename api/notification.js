@@ -1,16 +1,17 @@
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { adresseIp, limiteDepassee } from "../lib/limites.js";
 
 /*
  * Notification Discord d'un déblocage de carte.
  *
  * Sécurité : cette URL est publique. Le serveur ne fait donc pas confiance au
  * navigateur : il recalcule le hash du mot de passe reçu et le compare à
- * json/cartes.json.
+ * les thèmes officiels (json/themes.json et json/themes/*.json).
  *  - Carte officielle (trouvée) : la notification est construite à partir des
  *    données de ce fichier (titre, rareté, gage, image), jamais de celles du client.
- *  - Carte absente de cartes.json (niveau importé par un joueur) : la notification
+ *  - Carte absente des thèmes officiels (niveau importé par un joueur) : la notification
  *    est envoyée avec les données du navigateur, mais clairement marquée « non
  *    vérifiée » (couleur grise) et soumise à des limites plus strictes.
  */
@@ -81,7 +82,7 @@ function echapperMarkdown(valeur) {
     .replace(/`/g, "\\`");
 }
 
-// L'image vient de cartes.json (chemin relatif ou URL) : on la rend absolue pour Discord.
+// L'image vient des thèmes officiels (chemin relatif ou URL) : on la rend absolue pour Discord.
 function obtenirURLImage(image, request) {
   const valeur = String(image ?? "").trim();
   if (!valeur) return null;
@@ -110,12 +111,35 @@ function hasherMotDePasse(texte) {
   return createHash("sha256").update(normaliserMotDePasse(texte)).digest("hex");
 }
 
-// Lit json/cartes.json une fois par instance (fichier inclus dans la fonction via vercel.json).
+async function lireJson(...segments) {
+  return JSON.parse(await readFile(path.join(process.cwd(), ...segments), "utf8"));
+}
+
+// Lit les thèmes officiels une fois par instance (fichiers inclus dans la fonction via vercel.json) :
+//  - format actuel : json/themes.json (index) + un fichier par thème (json/themes/<id>.json) ;
+//  - ancien format, en repli : un seul fichier json/cartes.json (comme le fait le jeu lui-même).
 async function chargerCartesOfficielles() {
   if (!cartesOfficielles) {
-    const brut = await readFile(path.join(process.cwd(), "json", "cartes.json"), "utf8");
-    const donnees = JSON.parse(brut);
-    const themes = Array.isArray(donnees) ? [{ difficulty: "—", cards: donnees }] : (donnees.themes || []);
+    let index = null;
+    try {
+      index = await lireJson("json", "themes.json");
+    } catch (erreur) {
+      if (erreur?.code !== "ENOENT") throw erreur;
+    }
+
+    let themes;
+    if (index) {
+      themes = await Promise.all(
+        (index.themes || [])
+          // Le thème Hasard n'a pas de cartes ; le nom du fichier doit rester dans json/themes/.
+          .filter((meta) => meta.mode !== "hasard" && /^themes\/[\w.-]+\.json$/.test(String(meta.file)))
+          .map(async (meta) => ({ ...meta, cards: (await lireJson("json", meta.file)).cards || [] }))
+      );
+    } else {
+      const donnees = await lireJson("json", "cartes.json");
+      themes = Array.isArray(donnees) ? [{ difficulty: "—", cards: donnees }] : (donnees.themes || []);
+    }
+
     cartesOfficielles = themes.flatMap((theme) =>
       (theme.cards || []).map((carte) => ({ theme, carte }))
     );
@@ -131,26 +155,7 @@ function trouverCarte(cartes, hash, id, nomTheme) {
   return candidates.find(({ theme }) => theme.name === nomTheme) ?? candidates[0] ?? null;
 }
 
-function adresseIp(request) {
-  const direct = request.headers["x-real-ip"];
-  const transmise = String(request.headers["x-forwarded-for"] ?? "").split(",")[0].trim();
-  return String(direct || transmise || "inconnue");
-}
 
-// Enregistre une requête et renvoie true si la clé dépasse « maximum » requêtes dans la fenêtre.
-function limiteDepassee(table, cle, maximum, fenetreMs) {
-  const maintenant = Date.now();
-  const recentes = (table.get(cle) ?? []).filter((t) => maintenant - t < fenetreMs);
-  recentes.push(maintenant);
-  table.set(cle, recentes);
-
-  if (table.size > 500) { // évite que la table grossisse indéfiniment
-    for (const [autre, valeurs] of table) {
-      if (!valeurs.some((t) => maintenant - t < fenetreMs)) table.delete(autre);
-    }
-  }
-  return recentes.length > maximum;
-}
 
 // true si la même notification vient d'être envoyée par cette adresse.
 function estDoublon(ip, cleCarte) {
@@ -214,7 +219,7 @@ export default async function handler(request, response) {
     const cartes = await chargerCartesOfficielles();
     trouvee = trouverCarte(cartes, hasherMotDePasse(motDePasseSaisi), demande.id, themePayload);
   } catch (erreur) {
-    console.error("Lecture de json/cartes.json impossible :", erreur);
+    console.error("Lecture des thèmes officiels impossible :", erreur);
     return sendJson(response, 500, { error: "Les données du jeu sont indisponibles." });
   }
 
@@ -231,7 +236,7 @@ export default async function handler(request, response) {
       difficulte: texteSimple(theme.difficulty),
       theme: texteSimple(theme.name),
       description: texteSimple(carte.description),
-      actions: texteSimple(carte.actions), // champ facultatif dans cartes.json
+      actions: texteSimple(carte.actions), // champ facultatif dans les fichiers de thèmes
       image: texteSimple(carte.image)
     };
   } else {
