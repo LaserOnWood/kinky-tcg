@@ -1,0 +1,285 @@
+/* ==========================================================================
+   SOCLE CSS DU SITE — remplace Bootstrap
+
+   Ce fichier regroupe le strict nécessaire que Bootstrap 5.3.8 apportait au site
+   (232 Ko, dont moins de 2 % étaient utilisés) :
+     1. la remise à zéro des balises (« reboot ») : seulement les balises du site ;
+     2. les quelques composants utilisés : .btn, .btn-sm, .alert, .alert-danger, .container ;
+     3. les classes utilitaires utilisées : d-flex, d-none, gap-*, mt-*, text-center…
+
+   Les valeurs viennent de Bootstrap 5.3.8 (licence MIT, © 2011-2025 The Bootstrap
+   Authors : voir css/vendor/BOOTSTRAP-LICENSE.txt). Les variables --bs-* ont été
+   remplacées par leurs valeurs, pour que le fichier se lise sans connaître Bootstrap.
+
+   Règle de maintenance : ajouter ici seulement ce qui est réellement utilisé par une page,
+   et laisser les styles propres au jeu dans main.css.
+   ========================================================================== */
+
+/* ----- 1. Remise à zéro des balises ----- */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-main);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1 { font-size: calc(1.375rem + 1.5vw); }
+h2 { font-size: calc(1.325rem + 0.9vw); }
+h3 { font-size: calc(1.3rem + 0.6vw); }
+
+@media (min-width: 1200px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+b, strong { font-weight: bolder; }
+small { font-size: 0.875em; }
+
+/* La couleur du lien passe par une variable : au survol, seule la variable change, si bien
+   qu'une couleur définie par la classe d'un lien (ex. .menu-lien) reste prioritaire. */
+a {
+  --lien-rgb: 13, 110, 253;
+  color: rgb(var(--lien-rgb));
+  text-decoration: underline;
+}
+
+a:hover { --lien-rgb: 10, 88, 202; }
+
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875em;
+  color: #d63384;
+  word-wrap: break-word;
+}
+
+a > code { color: inherit; }
+
+img, svg { vertical-align: middle; }
+
+label { display: inline-block; }
+
+button { border-radius: 0; }
+
+button:focus:not(:focus-visible) { outline: 0; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button, select { text-transform: none; }
+
+[role="button"] { cursor: pointer; }
+
+select { word-wrap: normal; }
+
+select:disabled { opacity: 1; }
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+}
+
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+textarea { resize: vertical; }
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration { -webkit-appearance: none; }
+
+::file-selector-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+[hidden] { display: none !important; }
+
+/* ----- 2. Composants ----- */
+
+/* Bouton de base (la couleur et le fond viennent des styles propres à chaque page) */
+.btn {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
+
+.btn:hover {
+  color: inherit;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn:focus-visible {
+  color: inherit;
+  background-color: transparent;
+  border-color: transparent;
+  outline: 0;
+  box-shadow: none;
+}
+
+:not(.btn-check) + .btn:active,
+.btn.active,
+.btn.show,
+.btn:first-child:active {
+  color: inherit;
+  background-color: transparent;
+  border-color: currentcolor;
+}
+
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+  color: inherit;
+  pointer-events: none;
+  background-color: transparent;
+  border-color: currentcolor;
+  opacity: 0.65;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+}
+
+/* Message d'erreur */
+.alert {
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+}
+
+.alert-danger {
+  color: #58151c;
+  background-color: #f8d7da;
+  border-color: #f1aeb5;
+}
+
+/* Colonne centrée à largeur maximale (page de feedback) */
+.container {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+/* Les cartes du jeu portent la classe « card », comme le composant Bootstrap du même nom :
+   elles recevaient donc ces styles par hasard. On les garde pour que l'affichage reste identique. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--color-text-primary);
+  word-wrap: break-word;
+  background-color: var(--color-bg-main);
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: 0.375rem;
+}
+
+/* ----- 3. Classes utilitaires ----- */
+
+.d-flex { display: flex !important; }
+.d-none { display: none !important; }
+.w-100 { width: 100% !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.justify-content-center { justify-content: center !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+.text-center { text-align: center !important; }
+
+.visually-hidden:not(caption) { position: absolute !important; }
+
+.visually-hidden {
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.visually-hidden * { overflow: hidden !important; }
