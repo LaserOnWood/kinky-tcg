@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T16:02:55.492Z",
+  "generatedAt": "2026-10-26T16:03:20.926Z",
   "count": 112,
   "images": [
     {
@@ -334,9 +334,9 @@
     },
     {
       "id": "assets-cartes-actions-branlette-espagnole-webp",
-      "name": "Branlette espagnole",
-      "path": "assets/cartes/Actions/Branlette_espagnole.webp",
-      "src": "assets/cartes/Actions/Branlette_espagnole.webp",
+      "name": "Branlette Espagnole",
+      "path": "assets/cartes/Actions/Branlette_Espagnole.webp",
+      "src": "assets/cartes/Actions/Branlette_Espagnole.webp",
       "category": "Actions",
       "extension": "WEBP",
       "size": 72608,
