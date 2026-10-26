@@ -6,7 +6,7 @@
  *   secours hors ligne, mais aussi quand le réseau met plus de DELAI_RESEAU_MS à
  *   répondre (réseau capricieux en extérieur) ou renvoie une erreur serveur.
  *   Tes mises à jour s'affichent dès que le réseau répond.
- * - Images et fichiers tiers de css/vendor (Bootstrap, polices, versionnés par ?v=) :
+ * - Images et fichiers tiers de css/vendor (polices, versionnées par ?v=) :
  *   « cache d'abord » (lourds, ne changent pas).
  * - Illustrations des cartes : mises en cache au fil des affichages, et à l'avance
  *   pour le thème choisi (le jeu envoie un message PRECACHE_IMAGES quand on ouvre
@@ -17,10 +17,11 @@
  * ============================================================================
  */
 
-const VERSION = "v2.0.2.12"; // change à chaque mise à jour du jeu
+const VERSION = "v2.0.2.14"; // change à chaque mise à jour du jeu
 const CACHE_APP = "kinky-app-" + VERSION;
 const CACHE_MEDIA = "kinky-media";
-const URL_CARTES = "json/cartes.json";
+const URL_THEMES = "json/themes.json";        // index des thèmes ; chaque thème a son fichier json/themes/<id>.json
+const URL_CARTES_ANCIEN = "json/cartes.json"; // ancien format (un seul fichier), copié seulement s'il existe encore
 const URL_CATALOGUE_HASARD = "assets/cartes/index.json";
 
 const DELAI_RESEAU_MS = 4000;     // au-delà, on sert la copie en cache (si elle existe)
@@ -41,7 +42,7 @@ const FICHIERS_APP = [
   "level-builder.html",
   "manifest.webmanifest",
   "css/main.css?v=20261013-2",
-  "css/vendor/bootstrap.min.css?v=5.3.8",
+  "css/base.css?v=1",
   "css/vendor/fonts/fonts.css?v=1",
   "css/vendor/fonts/fonts-poppins-500.css?v=1",
   "css/vendor/fonts/fonts-poppins-700.css?v=1",
@@ -63,7 +64,6 @@ const FICHIERS_APP = [
   "js/hasheur.js",
   "js/carousel.js",
   "json/gallery.json",
-  URL_CARTES,
   URL_CATALOGUE_HASARD
 ];
 
@@ -137,8 +137,35 @@ async function precacherImages(urlsBrutes) {
   }
 }
 
+/**
+ * Copie les données du jeu : l'index des thèmes, puis le fichier de chaque thème qu'il liste.
+ * Au mieux : un fichier manquant n'empêche jamais l'installation du service worker.
+ * Seuls les fichiers de json/themes/ sont acceptés (chemin contrôlé).
+ */
+async function precacherDonnees(cache) {
+  try {
+    await Promise.allSettled([URL_THEMES, URL_CARTES_ANCIEN].map((url) => cache.add(url)));
+    const reponse = await cache.match(URL_THEMES);
+    if (!reponse) return;
+
+    const index = await reponse.json();
+    const fichiers = (index.themes || [])
+      .filter((theme) => theme.mode !== "hasard" && /^themes\/[\w.-]+\.json$/.test(String(theme.file)))
+      .map((theme) => "json/" + theme.file);
+    await Promise.allSettled(fichiers.map((url) => cache.add(url)));
+  } catch (erreur) {
+    console.warn("[sw] Données des thèmes non préchargées :", erreur);
+  }
+}
+
+async function installer() {
+  const cache = await caches.open(CACHE_APP);
+  await cache.addAll(FICHIERS_APP);
+  await precacherDonnees(cache);
+}
+
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE_APP).then((cache) => cache.addAll(FICHIERS_APP)));
+  e.waitUntil(installer());
   self.skipWaiting();
 });
 
@@ -202,7 +229,7 @@ async function reseauPuisCache(req, evenement) {
   }
 }
 
-// Cache d'abord : images, polices, Bootstrap… (lourds, ne changent pas)
+// Cache d'abord : images, polices… (lourds, ne changent pas)
 async function cachePuisReseau(req) {
   const enCache = await caches.match(req);
   if (enCache) return enCache;
