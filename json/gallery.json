@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-26T16:03:20.926Z",
-  "count": 112,
+  "generatedAt": "2026-11-01T23:11:17.137Z",
+  "count": 113,
   "images": [
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
@@ -201,6 +201,17 @@
       "checksum": "8a6d05c9ce043e71560b5a812bcdffd8a7de780fccb2db2e317bc8d24a6cd7db"
     },
     {
+      "id": "assets-cartes-accessoires-pinces-tetons-webp",
+      "name": "Pinces tetons",
+      "path": "assets/cartes/Accessoires/Pinces_tetons.webp",
+      "src": "assets/cartes/Accessoires/Pinces_tetons.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 170822,
+      "sizeLabel": "166.8 Ko",
+      "checksum": "653f78aedb5fde29029a5de5a97a8ef79ec6dbcfb87d4a62178d60ba7b900c36"
+    },
+    {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
       "name": "Roulette de Wartenberg",
       "path": "assets/cartes/Accessoires/Roulette_de_Wartenberg.webp",
@@ -334,9 +345,9 @@
     },
     {
       "id": "assets-cartes-actions-branlette-espagnole-webp",
-      "name": "Branlette Espagnole",
-      "path": "assets/cartes/Actions/Branlette_Espagnole.webp",
-      "src": "assets/cartes/Actions/Branlette_Espagnole.webp",
+      "name": "Branlette espagnole",
+      "path": "assets/cartes/Actions/Branlette_espagnole.webp",
+      "src": "assets/cartes/Actions/Branlette_espagnole.webp",
       "category": "Actions",
       "extension": "WEBP",
       "size": 72608,
