@@ -1,7 +1,18 @@
 {
-  "generatedAt": "2026-11-01T23:11:17.137Z",
-  "count": 113,
+  "generatedAt": "2026-11-02T13:30:38.293Z",
+  "count": 114,
   "images": [
+    {
+      "id": "assets-cartes-accessoires-baillon-os-webp",
+      "name": "Baillon os",
+      "path": "assets/cartes/Accessoires/Baillon_os.webp",
+      "src": "assets/cartes/Accessoires/Baillon_os.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 189960,
+      "sizeLabel": "185.5 Ko",
+      "checksum": "b0cf8f6ffa9f7171133bbfd73f633e037c2bbca1b38c2e70e8ea91f60e03e4b6"
+    },
     {
       "id": "assets-cartes-accessoires-bandeau-webp",
       "name": "Bandeau",

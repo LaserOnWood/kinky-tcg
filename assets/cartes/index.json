@@ -1,5 +1,10 @@
 [
   {
+    "path": "assets/cartes/Accessoires/Baillon_os.webp",
+    "name": "Baillon os",
+    "category": "Accessoires"
+  },
+  {
     "path": "assets/cartes/Accessoires/Bandeau.webp",
     "name": "Bandeau",
     "category": "Accessoires"
