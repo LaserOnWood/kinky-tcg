@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-02T13:30:38.293Z",
-  "count": 114,
+  "generatedAt": "2026-11-02T13:58:51.897Z",
+  "count": 115,
   "images": [
     {
       "id": "assets-cartes-accessoires-baillon-os-webp",
@@ -155,6 +155,17 @@
       "size": 164232,
       "sizeLabel": "160.4 Ko",
       "checksum": "ab5625e69d0bcc30b39ec4c483de014da067a9bfb4efd9c52566c33764c232cf"
+    },
+    {
+      "id": "assets-cartes-accessoires-harnais-magicwand-webp",
+      "name": "Harnais magicWand",
+      "path": "assets/cartes/Accessoires/Harnais_magicWand.webp",
+      "src": "assets/cartes/Accessoires/Harnais_magicWand.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 193396,
+      "sizeLabel": "188.9 Ko",
+      "checksum": "ebc70fa9433a0dc9199f0d1822f501f43121e0a9d512b852da05651550485a8d"
     },
     {
       "id": "assets-cartes-accessoires-harnais-webp",
