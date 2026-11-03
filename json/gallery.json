@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-03T13:31:24.032Z",
-  "count": 115,
+  "generatedAt": "2026-11-03T15:54:24.533Z",
+  "count": 116,
   "images": [
     {
       "id": "assets-cartes-accessoires-baillon-os-webp",
@@ -100,6 +100,17 @@
       "size": 119528,
       "sizeLabel": "116.7 Ko",
       "checksum": "3f24fbdf79697de778ae56d13f8d83a4130de0f4f19a4fcc4277c2adf6b188b2"
+    },
+    {
+      "id": "assets-cartes-accessoires-cravache-plumeau-webp",
+      "name": "Cravache plumeau",
+      "path": "assets/cartes/Accessoires/Cravache_plumeau.webp",
+      "src": "assets/cartes/Accessoires/Cravache_plumeau.webp",
+      "category": "Accessoires",
+      "extension": "WEBP",
+      "size": 171588,
+      "sizeLabel": "167.6 Ko",
+      "checksum": "07b487e2de93e84acf14e65ff4c5432cc0c76f8483e15a0b9174f1f5bd01f26d"
     },
     {
       "id": "assets-cartes-accessoires-cravache-webp",
