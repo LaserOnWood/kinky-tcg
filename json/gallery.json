@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-03T11:07:26.587Z",
-  "count": 116,
+  "generatedAt": "2026-11-03T13:30:36.688Z",
+  "count": 115,
   "images": [
     {
       "id": "assets-cartes-accessoires-baillon-os-webp",
@@ -232,17 +232,6 @@
       "size": 1591497,
       "sizeLabel": "1.5 Mo",
       "checksum": "38b9fe0e42bb847b3a2f9e8b4305dead41f67503047ca67210f1385a10fc0646"
-    },
-    {
-      "id": "assets-cartes-accessoires-pinces-tetons-webp",
-      "name": "Pinces tetons",
-      "path": "assets/cartes/Accessoires/Pinces_tetons.webp",
-      "src": "assets/cartes/Accessoires/Pinces_tetons.webp",
-      "category": "Accessoires",
-      "extension": "WEBP",
-      "size": 170822,
-      "sizeLabel": "166.8 Ko",
-      "checksum": "653f78aedb5fde29029a5de5a97a8ef79ec6dbcfb87d4a62178d60ba7b900c36"
     },
     {
       "id": "assets-cartes-accessoires-roulette-de-wartenberg-webp",
