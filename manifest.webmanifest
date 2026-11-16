@@ -10,11 +10,7 @@
   "orientation": "portrait",
   "theme_color": "#5c1228",
   "background_color": "#5c1228",
-  "categories": [
-    "games",
-    "lifestyle",
-    "productivity"
-  ],
+  "categories": ["games", "lifestyle", "productivity"],
   "icons": [
     {
       "src": "assets/ico/trading-card-192x192.png",
@@ -46,19 +42,37 @@
       "name": "Voir la galerie",
       "description": "Permet d'accéder directement à la galerie de cartes.",
       "url": "./gallery.html",
-      "icons": [{"src": "assets/icons/images.svg","sizes": "any","type": "image/svg+xml"}]
+      "icons": [
+        {
+          "src": "assets/icons/images.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     },
     {
       "name": "Créer un niveau",
       "description": "Permet de créer et de personnaliser ses propres niveaux de jeu.",
       "url": "./level-builder.html",
-      "icons": [{"src": "assets/icons/tools.svg","sizes": "any","type": "image/svg+xml"}]
+      "icons": [
+        {
+          "src": "assets/icons/tools.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     },
     {
       "name": "Faire un feedback",
       "description": "Permet de donner son avis sur le jeu.",
       "url": "./feedback.html",
-      "icons": [{"src": "assets/icons/chat-dots.svg","sizes": "any","type": "image/svg+xml"}]
+      "icons": [
+        {
+          "src": "assets/icons/chat-dots.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
     }
   ],
   "screenshots": [
@@ -82,3 +96,4 @@
     }
   ]
 }
+
